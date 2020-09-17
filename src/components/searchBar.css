@@ -1,11 +1,4 @@
-.dropdown-location > .dropdown-toggle,
-.dropdown-location > .dropdown-menu {
-    width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-
-#dropdown-location {
-    background-color: rgb(116, 152, 194);
-    border-color: rgb(116, 152, 194);
+.searchBar {
+    background-color: rgb(192, 192, 192);
+    padding: 1%;
 }
