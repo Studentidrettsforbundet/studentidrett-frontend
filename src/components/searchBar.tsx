@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -29,6 +29,24 @@ const SearchBar = () => {
     const [dropdownSkill, setDropdownSkill] = useState('All skill');
     const [dropdownGender, setDropdownGender] = useState('All gender');
 
+
+    useEffect(() => {
+        fetch(
+          `http://localhost:8000/clubs/`,
+          {
+            method: "GET",
+            headers: new Headers({
+                Accept: "application/json"
+             })
+        
+          }
+        )
+          .then(res =>res.json())
+          .then((result)=> console.log(result))
+          
+      }, []);
+    
+    
     return (
         <div className="searchBar">
             <Form>
@@ -38,37 +56,11 @@ const SearchBar = () => {
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
-                    <Form.Group as={Col} controlId="locationField">
-                        <Form.Control as="select" placeholder="Location">
-                            <option>Northern Norway</option>
-                            <option>Eastern Norway</option>
-                            <option>Western Norway</option>
-                            <option>Southern Norway</option>
-                            <option>Oslo/Viken Norway</option>
-                        </Form.Control>
-                    </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                    <Form.Group as={Col} controlId="SkillField">
-                        <Form.Control as="select" placeholder="Skill level">
-                            <option>Beginner</option>
-                            <option>Skilled</option>
-                            <option>Professional</option>
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="GenderField">
-                        <Form.Control as="select" placeholder="Skill level">
-                            <option>Woman's team</option>
-                            <option>Men's team</option>
-                            <option>Mixed team</option>
-                        </Form.Control>
-                    </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                    <Button variant="primary" type="submit">
-                        Show results
-                    </Button>
+                    <Col>
+                        <Button variant="primary" type="submit" >
+                            Show results
+                        </Button>
+                    </Col>
                 </Form.Row>
             </Form>
         </div>
