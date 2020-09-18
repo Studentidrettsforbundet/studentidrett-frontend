@@ -14,5 +14,6 @@ Branches:
 
 Pull requests:
 
+
 - At least one collaborator have to review and approve a pull request before it is merged into dev-branch
 - Always use "Squash and merge" as merge-options
