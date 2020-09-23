@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\components",
+    "\\src\\pages",
+    "\\src\\services",
+    "\\src\\styles",
+    "\\src\\__tests__"
+  ],
+  "SelectedNode": "\\src\\services\\MockupDB.tsx",
+  "PreviewInSolutionExplorer": false
+}
