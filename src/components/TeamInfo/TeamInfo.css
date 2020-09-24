@@ -1,0 +1,11 @@
+.info {
+    margin: 16px 48px;
+    padding: 16px;
+    background-color: aliceblue;
+    width: 100%;
+}
+
+.teamImg {
+    max-width: 100%;
+    height: auto;
+}
