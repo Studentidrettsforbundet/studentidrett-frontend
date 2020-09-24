@@ -50,7 +50,7 @@ var Ostfold: Location = {
 
 let Locations: Array<Location> = [Trondelag, Ostfold];
 let Sports: Array<Sport> = [Fotball, Handball, Volleyball];
-export var MockupDB: IMockupDB = { Locations: Locations, Sports: Sports};
+export var MockupDB: IMockupDB = { Locations: Locations, Sports: Sports };
 //let ThisProps: Props;
 
 // DATABASE example setup FIN
