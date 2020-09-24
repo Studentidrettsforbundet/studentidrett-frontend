@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import './searchBar.css';
 import { UrlBuilderSimpleSearch } from '../services/urlBuilders';
 import { CLUB } from '../constants';
+import { simpleSearch } from '../services/api';
 
 type Inputs = {
     searchField: string;
@@ -32,14 +33,7 @@ const SearchBar = () => {
     const [dropdownGender, setDropdownGender] = useState('All gender');
 
     useEffect(() => {
-        fetch(UrlBuilderSimpleSearch(CLUB, 'Rumpeldunk lag'), {
-            method: 'GET',
-            headers: new Headers({
-                Accept: 'application/json',
-            }),
-        })
-            .then((res) => res.json())
-            .then((result) => console.log(result));
+        simpleSearch('NTNUIfootball', CLUB).then((result) => console.log(result));
     }, []);
 
     return (
