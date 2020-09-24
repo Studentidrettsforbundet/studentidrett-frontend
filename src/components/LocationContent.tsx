@@ -10,7 +10,7 @@ type ComponentProps = {
 function LocationContent(props: ComponentProps) {
     const listLocations = props.listContent.map((Location) => (
         <div className="Location">
-            <Link to={{ pathname: `/${Location.Name}` }} key={Location.Name}>{Location.Name}</Link>
+            <Link to={{ pathname: `/${Location.Name}`, state: Location.Name }} key={Location.Name}>{Location.Name}</Link>
         </div>
     ))
     return (

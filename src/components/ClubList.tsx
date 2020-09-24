@@ -11,7 +11,7 @@ type ClubListProps = {
 function ClubList(props: ClubListProps): JSX.Element {
     const listClubs = props.clubs.map((Club) =>
         <div className="container">
-            <Link to={{ pathname: `/clubs/${Club}`, state: Club }} onClick={() => { if (props.changeClubFunction != null) { props.changeClubFunction(Club) } }} >{Club}</Link>
+            <Link to={{ pathname: window.location.pathname + `/${Club}`, state: Club }} onClick={() => { if (props.changeClubFunction != null) { props.changeClubFunction(Club) } }} >{Club}</Link>
         </div>
     )
     return (

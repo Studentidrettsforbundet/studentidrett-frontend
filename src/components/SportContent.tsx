@@ -10,7 +10,7 @@ type ComponentProps = {
 function SportsContent(props: ComponentProps) {
     const listSports = props.listContent.map((Sport) => (
         <div className="Sport">
-            <Link to={{ pathname: window.location.pathname + `/${Sport.Name}` }} key={Sport.Name} >{Sport.Name}</Link>
+            <Link to={{ pathname: window.location.pathname + `/${Sport.Name}`, state: Sport.Name }} key={Sport.Name} >{Sport.Name}</Link>
         </div>
     ))
     return (

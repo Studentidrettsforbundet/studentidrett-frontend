@@ -24,8 +24,8 @@ function ClubPage() {
     return (
         <div className="container">
             <h1>Clubpage</h1>
-            <p> Current club page is: {currentClubPage}</p>
-            <p> infor of club is: </p>
+            <p> you filtered for: {currentClubPage}</p>
+            <p> available clubs are: </p>
             <ClubList key={'clubList'} clubs={clubs} changeClubFunction={changeClubPage} />
 
         </div>
