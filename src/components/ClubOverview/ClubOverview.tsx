@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import ClubInfo from '../TeamInfo/TeamInfo';
 import './ClubOverview.css';
@@ -11,6 +11,14 @@ const ClubOverview = () => {
             .then(res =>res.json())
         const club = clubInfo.clubs
     */
+
+    const [showInfo, setShowInfo] = useState(false);
+
+    function changeShowInfo(showInfo: boolean) {
+        setShowInfo(showInfo);  
+    }
+
+
     const clubInfo = {
         name: `Club 1 with slug: ${clubSlug}`,
         text:
@@ -23,7 +31,7 @@ const ClubOverview = () => {
     };
 
     const listItems = clubInfo.teams.map((team) => (
-        <ClubInfo key={team.name} name={team.name} text={team.text} img={team.img} />
+        <ClubInfo key={team.name} name={team.name} text={team.text} img={team.img} showInfo={changeShowInfo} />
     ));
 
     return (
