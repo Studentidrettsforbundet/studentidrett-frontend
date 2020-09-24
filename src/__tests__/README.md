@@ -1,6 +1,7 @@
 # Test folder
 
 All tsx files placed in this folder will run when you execute tests unless otherwise specified.
+Name them something.test.ts, to mark them as test files
 
 ### To run test
 

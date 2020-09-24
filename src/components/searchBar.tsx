@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './searchBar.css';
+import { UrlBuilderSimpleSearch } from '../services/urlBuilders';
+import { CLUB } from '../constants';
 
 type Inputs = {
     searchField: string;
@@ -29,24 +31,17 @@ const SearchBar = () => {
     const [dropdownSkill, setDropdownSkill] = useState('All skill');
     const [dropdownGender, setDropdownGender] = useState('All gender');
 
-
     useEffect(() => {
-        fetch(
-          `http://localhost:8000/clubs/`,
-          {
-            method: "GET",
+        fetch(UrlBuilderSimpleSearch(CLUB, 'Rumpeldunk lag'), {
+            method: 'GET',
             headers: new Headers({
-                Accept: "application/json"
-             })
-        
-          }
-        )
-          .then(res =>res.json())
-          .then((result)=> console.log(result))
-          
-      }, []);
-    
-    
+                Accept: 'application/json',
+            }),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+    }, []);
+
     return (
         <div className="searchBar">
             <Form>
@@ -57,7 +52,7 @@ const SearchBar = () => {
                 </Form.Row>
                 <Form.Row>
                     <Col>
-                        <Button variant="primary" type="submit" >
+                        <Button variant="primary" type="submit">
                             Show results
                         </Button>
                     </Col>
