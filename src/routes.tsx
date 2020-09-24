@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import App from './App';
-import LocationsPage from './pages/LocationsPage'
-import SportsPage from './pages/SportsPage'
+import LocationsPage from './pages/LocationPage'
+import SportsPage from './pages/SportPage'
 
 const createRoutes = () => (
     <Router>

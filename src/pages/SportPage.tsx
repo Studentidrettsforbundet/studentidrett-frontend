@@ -2,20 +2,17 @@ import React, { useState } from 'react'
 import List from '../components/List'
 import MockupDB, { IMockupDB, } from '../services/MockupDB'
 
-
-function LocationsPage({ match }:any) {
+function SportPage() {
     var [Database, setDatabase] = useState(MockupDB);
-    console.log(match);
-
     return (
 
         <div className="container">
-            <h1>Locations</h1>
-            <List key="LocationList" listContent={Database.Locations} type="Location"/>
+            <h1>Sports</h1>
+            <List key="SportList" listContent={Database.Sports} type="Sport"/>
 
         </div>
     );
 }
 
 
-export default LocationsPage;
+export default SportPage;
