@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { City, Area } from '../services/MockupDBONS'
+import { City, Area } from '../services/MockupDB'
 
 type ClubListProps = {
     clubs: Array<string>,

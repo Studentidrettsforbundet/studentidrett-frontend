@@ -1,8 +1,8 @@
 import React, { useState, Props } from 'react'
 import AreaList from '../components/AreaList'
-import MockupDBONS, { IMockupDB } from '../services/MockupDBONS'
-import { Area } from '../services/MockupDBONS'
-import { City } from '../services/MockupDBONS'
+import MockupDBONS, { IMockupDB } from '../services/MockupDB'
+import { Area } from '../services/MockupDB'
+import { City } from '../services/MockupDB'
 import ClubList from '../components/ClubList'
 import { useLocation } from 'react-router-dom'
 

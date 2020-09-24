@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import AreaList from '../components/AreaList'
-import MockupDB, { IMockupDB, Area, City } from '../services/MockupDBONS'
+import MockupDB, { IMockupDB, Area, City } from '../services/MockupDB'
 import ClubList from '../components/ClubList'
 import CityList from '../components/CityList';
 
