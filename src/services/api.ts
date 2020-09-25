@@ -1,4 +1,5 @@
-import { CLUB, cardType } from '../constants';
+import { cardType } from '../constants';
+import { resultsInterface } from '../interfaces';
 import { UrlBuilderSimpleSearch } from './urlBuilders';
 
 export const simpleSearch = (queryUrl: string, cardType: cardType) => {
@@ -8,8 +9,25 @@ export const simpleSearch = (queryUrl: string, cardType: cardType) => {
             Accept: 'application/json',
         }),
     })
-        .then((res) => res.json())
-        .then((result) => {
-            return result;
-        });
+        .then((res) => {
+            if (checkForErrorCodes(res)) {
+                return {
+                    count: 0,
+                    next: null,
+                    previous: null,
+                    results: []
+                }
+            }
+            else {
+                return res.json();
+            }
+        })
+
+        .catch(error => "Connection error");
+
+};
+
+
+const checkForErrorCodes = (result: any): boolean => {
+    return result.status !== 200;
 };
