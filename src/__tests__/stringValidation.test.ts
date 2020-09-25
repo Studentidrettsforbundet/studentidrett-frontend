@@ -1,11 +1,32 @@
 import React from 'react';
 import {
+    makeInputSafe,
     stringNormalization,
     stringWhitelisting,
     trimWhiteSpaces,
     urlEncoding,
     validateString,
 } from '../services/stringValidation';
+
+describe('Make input safe', () => {
+        test('Normalization and normal text', () => {
+        const case1 =
+            'Hello\u002C\u0020I\u0020\u0061\u006D\u0020' +
+            'a\u0020\u0070\u0072\u006F\u0067\u0072\u0061m\u006D\u0065r';
+
+        expect(makeInputSafe(case1, 25)).toBe('Hello%2C%20I%20am%20a%20programmer');
+    });
+
+    test('Normalization, normal text and whitespace', () => {
+        const case1 =
+            '        Hello\u002C\u0020I\u0020\u0061\u006D\u0020                 ' +
+            'a\u0020\u0070\u0072\u006F\u0067\u0072\u0061m\u006D\u0065r             ';
+
+        expect(makeInputSafe(case1, 25)).toBe('Hello%2C%20I%20am%20a%20programmer');
+    });
+});
+
+
 
 describe('stringNormalization', () => {
     test('Simple normalization', () => {

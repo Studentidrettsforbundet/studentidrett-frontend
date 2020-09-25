@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './searchBar.css';
 import { UrlBuilderSimpleSearch } from '../services/urlBuilders';
-import { CLUB } from '../constants';
+import { CLUB, SPORT } from '../constants';
 import { simpleSearch } from '../services/api';
 
 type Inputs = {
@@ -33,7 +33,7 @@ const SearchBar = () => {
     const [dropdownGender, setDropdownGender] = useState('All gender');
 
     useEffect(() => {
-        simpleSearch('NTNUIfootball', CLUB).then((result) => console.log(result));
+        simpleSearch('', SPORT).then((result) => console.log(result));
     }, []);
 
     return (
