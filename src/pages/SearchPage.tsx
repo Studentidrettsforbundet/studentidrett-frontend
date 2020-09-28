@@ -5,7 +5,7 @@ import ClubList from '../components/ClubList'
 import CityList from '../components/CityList';
 
 
-function SearchPage() {
+const SearchPage = () => {
     var [Database, setDatabase] = useState(MockupDB);
     var [area, setAreaName] = useState(Database.Filters.Area);
  

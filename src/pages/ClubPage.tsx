@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom'
 
 
 
-function ClubPage() {
+const ClubPage = () => {
 
     let location = useLocation();
     console.log(location);

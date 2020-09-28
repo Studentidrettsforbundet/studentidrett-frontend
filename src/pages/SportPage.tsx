@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import List from '../components/List'
 import MockupDB, { IMockupDB, } from '../services/MockupDB'
 
-function SportPage() {
+const SportPage = () => {
     var [Database, setDatabase] = useState(MockupDB);
     return (
 

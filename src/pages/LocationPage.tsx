@@ -3,7 +3,7 @@ import List from '../components/List'
 import MockupDB, { IMockupDB, } from '../services/MockupDB'
 
 
-function LocationPage({ match }:any) {
+const LocationPage = ({ match }:any) => {
     var [Database, setDatabase] = useState(MockupDB);
     console.log(match);
 
