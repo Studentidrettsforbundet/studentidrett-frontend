@@ -4,7 +4,7 @@ This folder contains all redux files.
 
 ## Description:
 
-store.ts is the file that creates the redux store, as well as the combined reducer. All reducers needs to be added to the combined reducer
+store.ts is the file that creates the redux store, as well as the combined reducer. All reducers needs to be added to the combined reducer, and to the combinedState
 
 This folder contains a folder for each page of our application that needs redux.
 The folders contains reducers, actions, action crators, types, interfaces, etc. related to pages.
