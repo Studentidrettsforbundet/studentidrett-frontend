@@ -1,35 +1,40 @@
-import React, { useState, Props } from 'react'
-import AreaList from '../components/AreaList'
-import MockupDBONS, { IMockupDB } from '../services/MockupDB'
-import { Area } from '../services/MockupDB'
-import { City } from '../services/MockupDB'
-import ClubList from '../components/ClubList'
-import { useLocation } from 'react-router-dom'
-
-
+import React, { useState } from 'react';
+import { useParams } from 'react-router';
+import ClubInfo from '../components/TeamInfo/TeamInfo';
+import '../components/ClubOverview/ClubOverview.css';
 
 const ClubPage = () => {
+    const params = useParams() as { clubSlug: string };
+    const clubSlug = params.clubSlug;
 
-    let location = useLocation();
-    console.log(location);
+    const [showInfo, setShowInfo] = useState(false);
 
-    var [currentClubPage, setClubPage] = useState(location.state);
-    const clubs = MockupDBONS.Filters.City.Clubs
+    function changeShowInfo(showInfo: boolean) {
+        setShowInfo(showInfo);
+    }
 
-    function changeClubPage(club: string) {
-        console.log(club);
-        setClubPage(club);
-    } 
+
+    const clubInfo = {
+        name: `Club 1 with slug: ${clubSlug}`,
+        text:
+            'Text about club 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales ac lectus vitae vehicula. Phasellus sollicitudin, nisi quis molestie imperdiet, turpis enim eleifend justo, vel feugiat ipsum massa ut leo. Aliquam erat volutpat. Nunc aliquet tempus mauris, ut lacinia ex condimentum vel. Aliquam varius est convallis tortor bibendum, non dapibus tortor vulputate. Fusce malesuada sagittis elementum. Vestibulum bibendum ut diam sit amet consectetur. Suspendisse tincidunt sagittis urna, in consequat tellus mattis quis. In id dictum purus.',
+        teams: [
+            { name: 'team 1', text: 'Text about team 1', img: 'sunflower' },
+            { name: 'team 2', text: 'Text about team 2', img: 'japanese' },
+            { name: 'team 3', text: 'Text about team 3', img: 'sunflower' },
+        ],
+    };
+
+    const listItems = clubInfo.teams.map((team) => (
+        <ClubInfo key={team.name} name={team.name} text={team.text} img={team.img} showInfo={changeShowInfo} />
+    ));
 
     return (
-        <div className="container">
-            <h1>Clubpage</h1>
-            <p> you filtered for: {currentClubPage}</p>
-            <p> available clubs are: </p>
-            <ClubList key={'clubList'} clubs={clubs} changeClubFunction={changeClubPage} />
-
+        <div className="overview">
+            <h1>{clubInfo.name}</h1>
+            <p>{clubInfo.text}</p>
+            {listItems}
         </div>
     );
-}
-
+};
 export default ClubPage;
