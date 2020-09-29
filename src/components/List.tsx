@@ -1,6 +1,6 @@
 ﻿import React from 'react'
 import { Link } from 'react-router-dom'
-import LocationContent from './LocationContent'
+import LocationContent from './RegionContent'
 import SportsContent from './SportContent'
 
 type ComponentProps = {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TeamInfo.css';
+import '../../styles/TeamInfo.css';
 
 const ClubInfo = (props: { name: string; img: string; text: string, showInfo: Function }) => {
     

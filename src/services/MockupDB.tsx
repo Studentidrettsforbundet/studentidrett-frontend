@@ -6,7 +6,7 @@ export interface Sport {
     Clubs: Array<string>;
 }
 
-export interface Location {
+export interface Region {
     Name: string;
     Sports: Array<Sport>;
 }
@@ -29,7 +29,7 @@ export interface FilterList {
 }
 
 export interface IMockupDB {
-    Locations: Array<Location>;
+    Locations: Array<Region>;
     Sports: Array<Sport>;
     Areas: Array<Area>;
     Filters: FilterList;
@@ -75,12 +75,12 @@ const Volleyball: Sport = {
 const TrondelagSports: Array<Sport> = [Fotball, Handball];
 const OstfoldSports: Array<Sport> = [Volleyball, Handball];
 
-var Trondelag: Location = {
+var Trondelag: Region = {
     Name: "Trondelag",
     Sports: TrondelagSports,
 }
 
-var Ostfold: Location = {
+var Ostfold: Region = {
     Name: "Ostfold",
     Sports: OstfoldSports,
 }
@@ -108,7 +108,7 @@ var DefaultCity: City = {
 
 
 
-let Locations: Array<Location> = [Trondelag, Ostfold];
+let Locations: Array<Region> = [Trondelag, Ostfold];
 let Sports: Array<Sport> = [Fotball, Handball, Volleyball];
 let Areas: Array<Area> = [TrondelagArea, OstfoldArea];
 var ThisFilterlist: FilterList = { Area: DefaultArea, City: DefaultCity, Club: "defaultClub", Sport: "defaultSport" };

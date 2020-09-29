@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import ClubInfo from '../components/TeamInfo/TeamInfo';
-import '../components/ClubOverview/ClubOverview.css';
+import '../styles/ClubOverview.css';
 
 const ClubPage = () => {
     const params = useParams() as { clubSlug: string };
