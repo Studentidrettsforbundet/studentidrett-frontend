@@ -12,8 +12,6 @@ We have a page called "search". That page needs a reducer, some actions, action 
 -----------search
 -----------------searchReducer.ts
 -----------------searchActions.ts
------------------searchReducer.ts
------------------searchInterfaces.ts
 
 ## Explanations
 
