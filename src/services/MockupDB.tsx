@@ -37,6 +37,7 @@ export interface IMockupDB {
     Sports: Array<Sport>;
     Clubs: Array<Club>;
     Teams: Array<Team>;
+    Cities: Array<City>;
 }
 
 const TrondheimClubs: Array<string> = ["NTNUI", "Janus IL"];
@@ -136,12 +137,14 @@ const team3: Team = {
     Img: 'sunflower',
 }
 
+
+let Cities: Array<City> = TrondelagCities.concat(OstfoldCities);
 let Regions: Array<Region> = [Trondelag, Ostfold];
 let Sports: Array<Sport> = [Fotball, Handball, Volleyball];
 let Clubs: Array<Club> = [NTNUI, JanusIL]
 let Teams: Array<Team> = [team1, team2, team3]
 
-export var MockupDB: IMockupDB = { Regions: Regions, Sports: Sports, Clubs: Clubs, Teams: Teams };
+export var MockupDB: IMockupDB = { Regions: Regions, Sports: Sports, Clubs: Clubs, Teams: Teams, Cities: Cities };
 
 
 //let ThisProps: Props;

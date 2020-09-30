@@ -10,37 +10,21 @@ type ListProps = {
     listContent: Array<Region | Sport | City | Club | Team>,
 }
 
-function isRegion(object: any): object is Region {
-    return true;
-}
-function isSport(object: any): object is Sport {
-    return true;
-}
-
-function isCity(object: any): object is City {
-    return true;
-}
-function isClub(object: any): object is Club {
-    return true;
-}
-function isTeam(object: any): object is Team {
-    return true;
-}
-
 /**
  * List takes in an array of database objects to be rendered and their type.
  * */
 const List = (props: ListProps) => {  
     let listContent = props.listContent.map(entry => {
-        if (isRegion(entry)) {
+        if (entry.type === "REGION") {
+            console.log(entry.type)
             return RegionListElement({ region: entry })
-        } else if (isCity(entry)) {
+        } else if (entry.type === "CITY") {
             return CityListElement({ city: entry })
-        } else if (isSport(entry)) {
+        } else if (entry.type === "SPORT") {
             return SportListElement({ sport: entry })
-        } else if (isClub(entry)) {
+        } else if (entry.type === "CLUB") {
             return ClubListElement({ club: entry })
-        } else if (isTeam(entry)) {
+        } else if (entry.type === "TEAM") {
             return TeamListElement({ team: entry })
         } else {
             return <div>empty </div>

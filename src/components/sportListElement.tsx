@@ -7,9 +7,10 @@ type SportListElementProps = {
 }
 
 const SportListElement = (props: SportListElementProps) => {
+    console.log(useLocation().pathname);
     return (
-        <div className="Sport" key={props.sport.Name} >
-            <Link key={props.sport.Name} to={{ pathname: `/${props.sport.Name}`, state: props.sport.Name }} >{props.sport.Name}</Link>
+        <div className="container" key={props.sport.Name} >
+            <Link key={props.sport.Name} to={{ pathname: useLocation().pathname+`/${props.sport.Name}`, state: props.sport.Name }} >{props.sport.Name}</Link>
         </div>
     )
 }

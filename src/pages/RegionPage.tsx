@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import List from '../components/list';
 import MockupDB, { IMockupDB, } from '../services/MockupDB';
-import { useLocation } from 'react-router-dom';
 
 const RegionPage = () => {
     var [Database, setDatabase] = useState(MockupDB);

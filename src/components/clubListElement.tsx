@@ -7,9 +7,10 @@ type ClubListElementProps = {
 }
 
 const ClubListElement = (props: ClubListElementProps) => {
+    const uri = useLocation().pathname
     return (
         <div className="container">
-            <Link to={{ pathname: useLocation().pathname + `${props.club.Name}`, state: props.club.Name }} >{props.club.Name}</Link>
+            <Link to={{ pathname: uri + `/${props.club.Name}`, state: props.club.Name }} >{props.club.Name}</Link>
         </div>
     )
 }

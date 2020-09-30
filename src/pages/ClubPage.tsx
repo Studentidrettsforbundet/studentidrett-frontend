@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import TeamListElement from '../components/teamListElement';
-import '../styles/ClubOverview.css';
 import MockupDB from '../services/MockupDB';
 import List from '../components/list';
+import '../styles/ClubOverview.css';
 
 const ClubPage = () => {
     const params = useParams() as { clubSlug: string };
@@ -13,8 +12,7 @@ const ClubPage = () => {
     return (
         <div className="overview">
             <h1>{`Club 1 with slug: ${clubSlug}`}</h1>
-            <p>{ }</p>
-            <List key="clubList" listContent={Database.Teams}/>
+            <List key="teamList" listContent={Database.Teams}/>
         </div>
     );
 };

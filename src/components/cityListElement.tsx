@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { City } from '../services/MockupDB'
+import MockupDB, { City } from '../services/MockupDB'
+import List from './list'
 
 type CityListElementProps = {
     city: City
 }
 
 const CityListElement = (props: CityListElementProps) => {
-    
     return (
-        <div className="city">
-            <Link to={{ pathname: useLocation().pathname + `${props.city.Name}`, state: props.city.Name }} >{props.city.Name}</Link>
+        <div className="city" key={props.city.Name}>
+            <p>{props.city.Name}</p>
+            <List key="clubList" listContent={MockupDB.Clubs} />
         </div>
     )
 }
