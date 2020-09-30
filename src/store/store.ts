@@ -1,13 +1,16 @@
 import { $CombinedState, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { searchBarReducer } from './pages/searcBar/searchBarReducer';
+import { searchbarInitialState, searchBarReducer, searchBarState } from './pages/searcBar/searchBarReducer';
 
+//TODO: add reducers interfaces
 export interface combinedState {
-    //TODO: add reducers interfaces
+    searchBar: searchBarState;
 }
 
-// Comnined InitialState
-export const combinedState = {};
+// TODO: add all pages state here
+export const combinedState = {
+    searchBar: searchbarInitialState,
+};
 
 // create store
 const store = createStore(
