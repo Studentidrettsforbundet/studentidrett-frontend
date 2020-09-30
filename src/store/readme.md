@@ -2,6 +2,8 @@
 
 This folder contains all redux files.
 
+Add this extension to your browser: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+
 ## Description:
 
 store.ts is the file that creates the redux store, as well as the combined reducer. All reducers needs to be added to the combined reducer, and to the combinedState
