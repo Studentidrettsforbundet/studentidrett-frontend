@@ -7,13 +7,13 @@ export interface searchBarState {
     fetch_complete: boolean;
 }
 
-const initialState: searchBarState = {
+export const searchbarInitialState: searchBarState = {
     fetch_in_progress: false,
     fetch_failed: false,
     fetch_complete: false,
 };
 
-export const searchBarReducer = (state = initialState, action: searchBarActionTypes): searchBarState => {
+export const searchBarReducer = (state = searchbarInitialState, action: searchBarActionTypes): searchBarState => {
     switch (action.type) {
         case FETCH_IN_PROGRESS: {
             return {
