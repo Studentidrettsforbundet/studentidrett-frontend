@@ -9,9 +9,9 @@ const SportPage = () => {
         <div className="container">
             <h1>Sports</h1>
             <p>Chose region: {useLocation().state} </p>
-            <List key="SportList" listContent={Database.Sports}/>
+            <List key="SportList" listContent={Database.Sports} />
         </div>
     );
-}
+};
 
 export default SportPage;

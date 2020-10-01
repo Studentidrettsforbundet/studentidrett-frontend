@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import MockupDB, { City } from '../services/MockupDB'
-import List from './list'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import MockupDB, { City } from '../services/MockupDB';
+import List from './list';
 
 type CityListElementProps = {
-    city: City
-}
+    city: City;
+};
 
 const CityListElement = (props: CityListElementProps) => {
     return (
@@ -13,7 +13,7 @@ const CityListElement = (props: CityListElementProps) => {
             <p>{props.city.Name}</p>
             <List key="clubList" listContent={MockupDB.Clubs} />
         </div>
-    )
-}
+    );
+};
 
 export default CityListElement;
