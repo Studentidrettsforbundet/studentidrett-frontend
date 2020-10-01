@@ -15,19 +15,25 @@ type ListProps = {
  * */
 const List = (props: ListProps) => {
     let listContent = props.listContent.map((entry) => {
-        if (entry.type === 'REGION') {
-            console.log(entry.type);
-            return RegionListElement({ region: entry });
-        } else if (entry.type === 'CITY') {
-            return CityListElement({ city: entry });
-        } else if (entry.type === 'SPORT') {
-            return SportListElement({ sport: entry });
-        } else if (entry.type === 'CLUB') {
-            return ClubListElement({ club: entry });
-        } else if (entry.type === 'TEAM') {
-            return TeamListElement({ team: entry });
-        } else {
-            return <div>empty </div>;
+        switch (entry.type) {
+            case 'REGION': {
+                return RegionListElement({ region: entry });
+            }
+            case 'CITY': {
+                return CityListElement({ city: entry });
+            }
+            case 'SPORT': {
+                return SportListElement({ sport: entry });
+            }
+            case 'CLUB': {
+                return ClubListElement({ club: entry });
+            }
+            case 'TEAM': {
+                return TeamListElement({ team: entry });
+            }
+            default: {
+                return <div>empty </div>;
+            }
         }
     });
     return (
