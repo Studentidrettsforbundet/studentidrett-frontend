@@ -1,4 +1,5 @@
 import React, { useState, Props } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import List from '../components/list';
 import MockupDB from '../services/MockupDB';
@@ -6,6 +7,7 @@ import MockupDB from '../services/MockupDB';
 const CityPage = () => {
     let location = useLocation();
     var [Database, setDatabase] = useState(MockupDB.Cities);
+    const dispatch = useDispatch();
 
     return (
         <div className="container">

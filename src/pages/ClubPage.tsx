@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import List from '../components/list';
 import MockupDB from '../services/MockupDB';
@@ -8,6 +9,7 @@ const ClubPage = () => {
     const params = useParams() as { clubSlug: string };
     const clubSlug = params.clubSlug;
     var [Database, setDatabase] = useState(MockupDB);
+    const dispatch = useDispatch();
 
     return (
         <div className="overview">
