@@ -1,44 +1,13 @@
-﻿import React from 'react';
-import RegionListElement from './regionListElement';
-import SportListElement from './sportListElement';
-import CityListElement from './cityListElement';
-import ClubListElement from './clubListElement';
-import TeamListElement from './teamListElement';
-import { Region, Sport, City, Club, Team } from '../services/MockupDB';
+import React from 'react';
+import { cityInterface, regionInterface } from '../interfaces';
+import RegionCard from './regionCard';
 
-type ListProps = {
-    listContent: Array<Region | Sport | City | Club | Team>;
-};
+type listProps = regionInterface[] | cityInterface[];
 
-/**
- * List takes in an array of database objects to be rendered and their type.
- * */
-const List = (props: ListProps) => {
-    let listContent = props.listContent.map((entry) => {
-        switch (entry.type) {
-            case 'REGION': {
-                return RegionListElement({ region: entry });
-            }
-            case 'CITY': {
-                return CityListElement({ city: entry });
-            }
-            case 'SPORT': {
-                return SportListElement({ sport: entry });
-            }
-            case 'CLUB': {
-                return ClubListElement({ club: entry });
-            }
-            case 'TEAM': {
-                return TeamListElement({ team: entry });
-            }
-            default: {
-                return <div>empty </div>;
-            }
-        }
-    });
+const List = (props: listProps) => {
     return (
-        <div key="list" className="List">
-            <ul> {listContent} </ul>
+        <div>
+            <RegionCard id={props[0].id} name={props[0].name} />
         </div>
     );
 };

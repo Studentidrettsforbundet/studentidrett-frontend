@@ -9,7 +9,8 @@ type TeamListElementProps = {
 const TeamListElement = (teamProps: TeamListElementProps) => {
     var [showInfo, setShowInfo] = useState(false);
 
-    return (
+    return <div></div>;
+    /** 
         <div className="info">
             <h1>{teamProps.team.Name}</h1>
             <img className="teamImg" src={require(`../assets/${teamProps.team.Img}.png`)} alt="team img" />
@@ -23,5 +24,6 @@ const TeamListElement = (teamProps: TeamListElementProps) => {
             )}
         </div>
     );
+    */
 };
 export default TeamListElement;

@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import List from '../components/list';
-import MockupDB, { IMockupDB } from '../services/MockupDB';
-import { useDispatch } from 'react-redux';
-import { setRegionActionCreator } from '../store/pages/region/regionActions';
+import { useSelector } from 'react-redux';
+import { combinedState } from '../store/store';
+import RegionCard from '../components/regionCard';
 
 const RegionPage = () => {
-    const dispatch = useDispatch();
-    var [Database, setDatabase] = useState(MockupDB);
+    const regions = useSelector((state: combinedState) => state.region);
+
+    let listContent = regions.regions.map((entry) => {
+        return RegionCard({ id: entry.id, name: entry.name });
+    });
+
     return (
         <div className="container">
             <h1>Regions</h1>
             <p>Choose a region </p>
-            <List key="RegionList" listContent={Database.Regions} />
-            <button onClick={() => dispatch(setRegionActionCreator([{ id: 1, name: 'Trondheim' }]))}>Regions</button>
+            {listContent}
         </div>
     );
 };

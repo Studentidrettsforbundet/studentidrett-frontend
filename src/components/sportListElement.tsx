@@ -7,6 +7,8 @@ type SportListElementProps = {
 };
 
 const SportListElement = (props: SportListElementProps) => {
+    return <div></div>;
+    /** 
     return (
         <div className="container" key={props.sport.Name}>
             <Link
@@ -17,6 +19,7 @@ const SportListElement = (props: SportListElementProps) => {
             </Link>
         </div>
     );
+    */
 };
 
 export default SportListElement;

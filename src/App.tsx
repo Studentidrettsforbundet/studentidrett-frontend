@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import store from './store/store';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
     return (
         <div className="App">

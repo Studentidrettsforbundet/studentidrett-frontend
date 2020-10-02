@@ -1,17 +1,13 @@
-import React from 'react'
-import { Link, useLocation, matchPath } from 'react-router-dom'
-import { Region } from '../services/MockupDB'
+import React from 'react';
+import { Link, useLocation, matchPath } from 'react-router-dom';
+import { regionInterface } from '../interfaces';
 
-export type RegionListElementProps = {
-    region: Region,
-}
-
-const RegionListElement = (props: RegionListElementProps) => {
+const RegionListElement = (props: regionInterface) => {
     return (
-        <div className="Region" key={props.region.Name} >
-            <Link to={{ pathname: `/${props.region.Name}`, state: props.region.Name }}>{props.region.Name}</Link>
+        <div className="Region" key={props.name}>
+            <Link to={{ pathname: `/${props.name}`, state: props.name }}>{props.name}</Link>
         </div>
-     )
-}
+    );
+};
 
 export default RegionListElement;
