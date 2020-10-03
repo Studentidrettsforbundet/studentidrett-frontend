@@ -1,3 +1,8 @@
+export interface selected {
+    id: number;
+    name: string;
+}
+
 export interface resultsInterface {
     count: number;
     next: string;
@@ -25,7 +30,7 @@ export interface clubInterface {
 }
 
 export interface sportInterface {
-    uri: string;
+    id: number;
     name: string;
 }
 

@@ -5,6 +5,7 @@ import { clubInitialState, clubReducer, clubState } from './pages/club/clubReduc
 import { regionInitialState, regionReducer, regionState } from './pages/region/regionReducer';
 import { searchbarInitialState, searchBarReducer, searchBarState } from './pages/searcBar/searchBarReducer';
 import { sportInitialState, sportReducer, sportState } from './pages/sport/sportReducer';
+import { teamInitialState, teamReducer, teamState } from './pages/team/teamReducer';
 
 declare global {
     interface Window {
@@ -21,6 +22,7 @@ export interface combinedState {
     city: cityState;
     sport: sportState;
     club: clubState;
+    team: teamState;
 }
 
 // TODO: add all pages state here
@@ -30,6 +32,7 @@ export const combinedState = {
     city: cityInitialState,
     sport: sportInitialState,
     club: clubInitialState,
+    team: teamInitialState,
 };
 
 // create store
@@ -40,6 +43,7 @@ const store = createStore(
         city: cityReducer,
         sport: sportReducer,
         club: clubReducer,
+        team: teamReducer,
     }),
     combinedState,
     composeWithDevTools(),

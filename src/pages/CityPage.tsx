@@ -1,24 +1,22 @@
-import React, { useState, Props } from 'react';
-import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import List from '../components/oldList';
-import MockupDB from '../services/MockupDB';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import CityCard from '../components/cityCard';
+import { combinedState } from '../store/store';
 
 const CityPage = () => {
-    let location = useLocation();
-    var [Database, setDatabase] = useState(MockupDB.Cities);
-    const dispatch = useDispatch();
-    return <div></div>;
-    /** 
+    const city = useSelector((state: combinedState) => state.city);
+
+    let listContent = city.cities.map((entry) => {
+        return CityCard({ id: entry.id, name: entry.name });
+    });
+
     return (
         <div className="container">
             <h1>Cities</h1>
-            <p> you filtered for: {location.state}</p>
-            <p> available clubs are: </p>
-            <List key="cityList" listContent={Database} />
+            <p>The sport has clubs in these cities: </p>
+            {listContent}
         </div>
     );
-    */
 };
 
 export default CityPage;
