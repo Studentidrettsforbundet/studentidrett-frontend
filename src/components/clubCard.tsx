@@ -14,6 +14,7 @@ const ClubCard = (club: clubInterface) => {
             to={state.sport.selectedSport.name + '/' + club.name}
             key={club.id}
             onClick={() => dispatch(setSelectedClubActionCreator({ id: club.id, name: club.name }))}
+            className={'unstyled_link'}
         >
             <div className="card Region">
                 <div className="card-body">

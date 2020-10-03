@@ -7,7 +7,12 @@ import { setSelectedRegionActionCreator } from '../store/pages/region/regionActi
 const CityCard = ({ id, name }: regionInterface) => {
     const dispatch = useDispatch();
     return (
-        <Link to={'/' + name} key={id} onClick={() => dispatch(setSelectedRegionActionCreator({ id, name }))}>
+        <Link
+            to={'/' + name}
+            key={id}
+            className={'unstyled_link'}
+            onClick={() => dispatch(setSelectedRegionActionCreator({ id, name }))}
+        >
             <div className="card Region">
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
