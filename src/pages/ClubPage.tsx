@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClubCard from '../components/clubCard';
 import { combinedState } from '../store/store';
-import '../styles/ClubOverview.css';
 
 const ClubPage = () => {
     const dispatch = useDispatch();

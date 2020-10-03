@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TeamCard from '../components/teamCard';
 import { combinedState } from '../store/store';
-import '../styles/ClubOverview.css';
 
 const TeamPage = () => {
     const team = useSelector((state: combinedState) => state.team);
