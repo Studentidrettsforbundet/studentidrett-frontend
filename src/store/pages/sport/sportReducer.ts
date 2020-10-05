@@ -1,10 +1,9 @@
-import { selected, sportInterface } from '../../../interfaces';
+import { sportInterface } from '../../../interfaces';
 import { combinedState } from '../../store';
-import { SET_SELECTED_SPORT, SET_SPORTS, sportActionTypes } from './sportActions';
+import { SET_SPORTS, sportActionTypes } from './sportActions';
 
 export interface sportState {
     sports: sportInterface[];
-    selectedSport: selected;
 }
 
 export const sportInitialState: sportState = {
@@ -20,7 +19,6 @@ export const sportInitialState: sportState = {
         { id: 8, name: 'Rowing' },
         { id: 9, name: 'Fencing' },
     ],
-    selectedSport: { id: -1, name: '' },
 };
 
 export const sportReducer = (state = sportInitialState, action: sportActionTypes): sportState => {
@@ -29,12 +27,6 @@ export const sportReducer = (state = sportInitialState, action: sportActionTypes
             return {
                 ...state,
                 sports: action.payload,
-            };
-        }
-        case SET_SELECTED_SPORT: {
-            return {
-                ...state,
-                selectedSport: action.payload,
             };
         }
         default: {

@@ -1,18 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { regionInterface } from '../interfaces';
-import { setSelectedRegionActionCreator } from '../store/pages/region/regionActions';
+
+// See: https://getbootstrap.com/docs/4.0/components/card/
 
 const RegionCard = ({ id, name }: regionInterface) => {
-    const dispatch = useDispatch();
     return (
-        <Link
-            to={name}
-            key={id}
-            className={'unstyled_link'}
-            onClick={() => dispatch(setSelectedRegionActionCreator({ id, name }))}
-        >
+        <Link to={name} key={id} className={'unstyled_link'}>
             <div className="card Region">
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>

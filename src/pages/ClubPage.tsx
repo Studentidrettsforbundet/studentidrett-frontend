@@ -1,14 +1,20 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import ClubCard from '../components/clubCard';
 import { combinedState } from '../store/store';
 
-const ClubPage = () => {
-    const dispatch = useDispatch();
-    const club = useSelector((state: combinedState) => state.club);
-    const sport = useSelector((state: combinedState) => state.sport);
+interface urlParams {
+    Region: string;
+    Sport: string;
+}
 
-    let listContent = club.clubs.map((entry) => {
+const ClubPage = () => {
+    const urlParams = useParams<urlParams>();
+
+    const club = useSelector((state: combinedState) => state.club);
+
+    const listContent = club.clubs.map((entry) => {
         return ClubCard({
             id: entry.id,
             city: entry.city,
@@ -22,8 +28,8 @@ const ClubPage = () => {
 
     return (
         <div className="container">
-            <h1>{sport.selectedSport.name}</h1>
-            <h2>Select club:</h2>
+            <h1>{urlParams.Sport}</h1>
+            <h2>Select club</h2>
             {listContent}
         </div>
     );

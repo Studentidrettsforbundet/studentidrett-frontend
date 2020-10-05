@@ -1,10 +1,9 @@
 import { clubInterface, selected } from '../../../interfaces';
 import { combinedState } from '../../store';
-import { clubActionTypes, SET_CLUBS, SET_SELECTED_CLUB } from './clubActions';
+import { clubActionTypes, SET_CLUBS } from './clubActions';
 
 export interface clubState {
     clubs: clubInterface[];
-    selectedClub: selected;
 }
 
 export const clubInitialState: clubState = {
@@ -28,7 +27,6 @@ export const clubInitialState: clubState = {
             register_info: 'Register at ntnui.no/register',
         },
     ],
-    selectedClub: { id: -1, name: '' },
 };
 
 export const clubReducer = (state = clubInitialState, action: clubActionTypes): clubState => {
@@ -39,12 +37,7 @@ export const clubReducer = (state = clubInitialState, action: clubActionTypes): 
                 clubs: action.payload,
             };
         }
-        case SET_SELECTED_CLUB: {
-            return {
-                ...state,
-                selectedClub: action.payload,
-            };
-        }
+
         default: {
             return state;
         }

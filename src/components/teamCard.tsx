@@ -1,6 +1,5 @@
 import React from 'react';
 import { teamInterface } from '../interfaces';
-import { combinedState } from '../store/store';
 
 const TeamCard = (team: teamInterface) => {
     return (

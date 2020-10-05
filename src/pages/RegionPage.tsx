@@ -6,7 +6,7 @@ import RegionCard from '../components/regionCard';
 const RegionPage = () => {
     const regions = useSelector((state: combinedState) => state.region);
 
-    let listContent = regions.regions.map((entry) => {
+    const listContent = regions.regions.map((entry) => {
         return RegionCard({ id: entry.id, name: entry.name });
     });
 

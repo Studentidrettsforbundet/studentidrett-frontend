@@ -1,10 +1,9 @@
 import { regionInterface, selected } from '../../../interfaces';
 import { combinedState } from '../../store';
-import { regionActionTypes, SET_REGIONS, SET_SELECTED_REGION } from './regionActions';
+import { regionActionTypes, SET_REGIONS } from './regionActions';
 
 export interface regionState {
     regions: regionInterface[];
-    selectedRegion: selected;
 }
 
 export const regionInitialState: regionState = {
@@ -15,7 +14,6 @@ export const regionInitialState: regionState = {
         { id: 3, name: 'Vestlandet' },
         { id: 4, name: 'Sørlandet' },
     ],
-    selectedRegion: { id: -1, name: '' },
 };
 
 export const regionReducer = (state = regionInitialState, action: regionActionTypes): regionState => {
@@ -26,12 +24,7 @@ export const regionReducer = (state = regionInitialState, action: regionActionTy
                 regions: action.payload,
             };
         }
-        case SET_SELECTED_REGION: {
-            return {
-                ...state,
-                selectedRegion: action.payload,
-            };
-        }
+
         default: {
             return state;
         }

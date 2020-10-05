@@ -6,7 +6,7 @@ import { combinedState } from '../store/store';
 const CityPage = () => {
     const city = useSelector((state: combinedState) => state.city);
 
-    let listContent = city.cities.map((entry) => {
+    const listContent = city.cities.map((entry) => {
         return CityCard({ id: entry.id, name: entry.name });
     });
 
