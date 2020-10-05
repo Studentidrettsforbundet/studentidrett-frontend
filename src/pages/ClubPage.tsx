@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClubCard from '../components/clubCard';
 import { combinedState } from '../store/store';
+import image from './placeholder.png';
 
 interface urlParams {
     Region: string;
@@ -29,7 +30,7 @@ const ClubPage = () => {
     return (
         <div className="container">
             <h1>{urlParams.Sport}</h1>
-            <h2>Select club</h2>
+            <p>Select club</p>
             {listContent}
         </div>
     );
