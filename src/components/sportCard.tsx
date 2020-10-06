@@ -10,7 +10,7 @@ const SportCard = ({ id, name }: sportInterface) => {
             <div className="card Sport">
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <img className="card-img-top" src={image} alt="Sport image"></img>
+                    <img className="card-img-top" src={image} alt="Sport"></img>
                 </div>
             </div>
         </Link>

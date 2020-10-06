@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CityCard from '../components/cityCard';
-import { combinedState } from '../store/store';
+import { combinedStateInterface } from '../store/store';
 
 const CityPage = () => {
-    const city = useSelector((state: combinedState) => state.city);
+    const city = useSelector((state: combinedStateInterface) => state.city);
 
     const listContent = city.cities.map((entry) => {
         return CityCard({ id: entry.id, name: entry.name });

@@ -1,5 +1,4 @@
 import { sportInterface } from '../../../interfaces';
-import { combinedState } from '../../store';
 import { SET_SPORTS, sportActionTypes } from './sportActions';
 
 export interface sportState {

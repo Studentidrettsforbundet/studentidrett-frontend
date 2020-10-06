@@ -10,7 +10,7 @@ const ClubCard = (club: clubInterface) => {
             <div className="card Region">
                 <div className="card-body">
                     <h5 className="card-title">{club.name}</h5>
-                    <img className="card-img-top" src={image} alt="Club image"></img>
+                    <img className="card-img-top" src={image} alt="Club"></img>
                 </div>
             </div>
         </Link>

@@ -1,4 +1,3 @@
-import { combinedState } from '../../store';
 import { searchBarActionTypes, FETCH_IN_PROGRESS, FETCH_FAILED, FETCH_COMPLETE } from './searchBarActions';
 
 export interface searchBarState {

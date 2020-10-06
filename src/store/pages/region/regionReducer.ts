@@ -1,5 +1,4 @@
-import { regionInterface, selected } from '../../../interfaces';
-import { combinedState } from '../../store';
+import { regionInterface } from '../../../interfaces';
 import { regionActionTypes, SET_REGIONS } from './regionActions';
 
 export interface regionState {

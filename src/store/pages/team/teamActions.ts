@@ -1,4 +1,4 @@
-import { selected, teamInterface } from '../../../interfaces';
+import { teamInterface } from '../../../interfaces';
 
 export const SET_TEAMS = 'SET_TEAMS';
 

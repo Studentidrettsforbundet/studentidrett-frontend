@@ -1,5 +1,4 @@
 import { teamInterface } from '../../../interfaces';
-import { combinedState } from '../../store';
 import { SET_TEAMS, teamActionTypes } from './teamActions';
 
 export interface teamState {

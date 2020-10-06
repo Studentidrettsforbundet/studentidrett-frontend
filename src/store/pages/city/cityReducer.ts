@@ -1,5 +1,4 @@
 import { cityInterface } from '../../../interfaces';
-import { combinedState } from '../../store';
 import { cityActionTypes, SET_CITIES } from './cityActions';
 
 export interface cityState {

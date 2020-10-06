@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SportCard from '../components/sportCard';
-import { combinedState } from '../store/store';
+import { combinedStateInterface } from '../store/store';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
@@ -11,7 +11,7 @@ interface urlParams {
 }
 
 const SportPage = () => {
-    const sport = useSelector((state: combinedState) => state.sport);
+    const sport = useSelector((state: combinedStateInterface) => state.sport);
 
     const regions = useParams<urlParams>();
 

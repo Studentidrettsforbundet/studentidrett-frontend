@@ -1,4 +1,4 @@
-import { $CombinedState, combineReducers, compose, createStore } from 'redux';
+import { combineReducers, compose, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { cityInitialState, cityReducer, cityState } from './pages/city/cityReducer';
 import { clubInitialState, clubReducer, clubState } from './pages/club/clubReducer';
@@ -16,7 +16,7 @@ declare global {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 //TODO: add reducers interfaces
-export interface combinedState {
+export interface combinedStateInterface {
     searchBar: searchBarState;
     region: regionState;
     city: cityState;

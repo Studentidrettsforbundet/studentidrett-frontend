@@ -1,4 +1,4 @@
-import { clubInterface, selected } from '../../../interfaces';
+import { clubInterface } from '../../../interfaces';
 
 export const SET_CLUBS = 'SET_CLUBS';
 

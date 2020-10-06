@@ -1,5 +1,4 @@
-import { clubInterface, selected } from '../../../interfaces';
-import { combinedState } from '../../store';
+import { clubInterface } from '../../../interfaces';
 import { clubActionTypes, SET_CLUBS } from './clubActions';
 
 export interface clubState {

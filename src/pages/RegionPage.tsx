@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { combinedState } from '../store/store';
+import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
 
 const RegionPage = () => {
-    const regions = useSelector((state: combinedState) => state.region);
+    const regions = useSelector((state: combinedStateInterface) => state.region);
 
     const listContent = regions.regions.map((entry) => {
         return RegionCard({ id: entry.id, name: entry.name });

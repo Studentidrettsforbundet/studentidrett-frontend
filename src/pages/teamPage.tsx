@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TeamCard from '../components/teamCard';
-import { combinedState } from '../store/store';
+import { combinedStateInterface } from '../store/store';
 
 interface urlParams {
     Region: string;
@@ -13,7 +13,7 @@ interface urlParams {
 const TeamPage = () => {
     const urlParams = useParams<urlParams>();
 
-    const team = useSelector((state: combinedState) => state.team);
+    const team = useSelector((state: combinedStateInterface) => state.team);
 
     const listContent = team.teams.map((entry) => {
         return TeamCard({

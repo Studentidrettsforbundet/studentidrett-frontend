@@ -1,4 +1,4 @@
-import { selected, sportInterface } from '../../../interfaces';
+import { sportInterface } from '../../../interfaces';
 
 export const SET_SPORTS = 'SET_SPORTS';
 
