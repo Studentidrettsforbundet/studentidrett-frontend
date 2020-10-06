@@ -12,7 +12,8 @@ export const teamInitialState: teamState = {
             name: 'Men A',
             full_capacity: true,
             short_description: 'Elite team men',
-            long_description: '',
+            long_description:
+                'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
             tryouts: true,
             registration_open: false,
             group: 0,
@@ -22,7 +23,8 @@ export const teamInitialState: teamState = {
             name: 'Men B',
             full_capacity: true,
             short_description: 'Semi-elite team men',
-            long_description: '',
+            long_description:
+                'The semi-elite male football team at NTNUI. We exercise 3 times a week and play 1 matche a week',
             tryouts: true,
             registration_open: false,
             group: 0,
@@ -32,7 +34,8 @@ export const teamInitialState: teamState = {
             name: 'Woman 12',
             full_capacity: false,
             short_description: 'Elite team woman',
-            long_description: '',
+            long_description:
+                'The elite female football team at NTNUI. We exercise 4 times a week and play 2 matche a week',
             tryouts: true,
             registration_open: true,
             group: 0,

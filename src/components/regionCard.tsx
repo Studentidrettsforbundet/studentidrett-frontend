@@ -9,7 +9,7 @@ const RegionCard = ({ id, name }: regionInterface) => {
         <Link to={name} key={id} className={'unstyled_link'}>
             <div className="card Region">
                 <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
+                    <h5 className="card-title ">{name}</h5>
                 </div>
             </div>
         </Link>
