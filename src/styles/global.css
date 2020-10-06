@@ -1,4 +1,6 @@
-.unstyled_link {
+/*Remove Link style*/
+.unstyled_link,
+.unstyled_link:active {
     color: inherit;
     text-decoration: inherit;
 }

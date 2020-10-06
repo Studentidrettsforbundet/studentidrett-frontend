@@ -14,6 +14,8 @@ export interface teamInterface {
     id: number;
     name: string;
     full_capacity: boolean;
+    short_description: string;
+    long_description: string;
     tryouts: boolean;
     registration_open: boolean;
     group: number;
