@@ -9,7 +9,7 @@ interface setClubsAction {
 
 export type clubActionTypes = setClubsAction;
 
-export const setRegionActionCreator = (data: clubInterface[]): clubActionTypes => {
+export const setClubActionCreator = (data: clubInterface[]): clubActionTypes => {
     return {
         type: SET_CLUBS,
         payload: data,

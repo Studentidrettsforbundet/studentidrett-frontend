@@ -12,9 +12,9 @@ export const cityInitialState: cityState = {
         { id: 2, name: 'Bergen', region: 'Vestlandet', clubs: [] },
         { id: 3, name: 'Stavanger', region: 'Vestlandet', clubs: [] },
         { id: 4, name: 'Kristiansand', region: 'Sørlandet', clubs: [] },
-        { id: 4, name: 'Orkanger', region: 'Midtnorge', clubs: [] },
-        { id: 4, name: 'Steinkjær', region: 'Midtnorge', clubs: [] },
-        { id: 4, name: 'Verdalsøra', region: 'Midtnorge', clubs: [] },
+        { id: 5, name: 'Orkanger', region: 'Midtnorge', clubs: [] },
+        { id: 6, name: 'Steinkjær', region: 'Midtnorge', clubs: [] },
+        { id: 7, name: 'Verdalsøra', region: 'Midtnorge', clubs: [] },
     ],
 };
 
