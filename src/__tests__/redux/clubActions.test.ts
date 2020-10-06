@@ -1,5 +1,5 @@
 import React from 'react';
-import { setClubActionCreator, SET_CLUBS } from '../store/pages/club/clubActions';
+import { SET_CLUBS, setClubActionCreator } from '../../store/pages/club/clubActions';
 
 describe('Actions', () => {
     test('Should create an empty setRegionAction', () => {

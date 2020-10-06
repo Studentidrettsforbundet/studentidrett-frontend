@@ -1,6 +1,6 @@
 import React from 'react';
-import { SET_SPORTS } from '../store/pages/sport/sportActions';
-import { sportInitialState, sportReducer } from '../store/pages/sport/sportReducer';
+import { SET_SPORTS } from '../../store/pages/sport/sportActions';
+import { sportInitialState, sportReducer } from '../../store/pages/sport/sportReducer';
 
 describe('Sport reducer', () => {
     it('Should return the initial state', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { setRegionActionCreator, SET_REGIONS } from '../store/pages/region/regionActions';
+import { SET_REGIONS, setRegionActionCreator } from '../../store/pages/region/regionActions';
 
 describe('Actions', () => {
     test('Should create an empty setRegionsAction', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { SET_REGIONS } from '../store/pages/region/regionActions';
-import { regionInitialState, regionReducer } from '../store/pages/region/regionReducer';
+import { SET_REGIONS } from '../../store/pages/region/regionActions';
+import { regionInitialState, regionReducer } from '../../store/pages/region/regionReducer';
 
 describe('Region reducer', () => {
     it('Should return the initial state', () => {

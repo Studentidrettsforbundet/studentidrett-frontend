@@ -2,11 +2,11 @@ import React from 'react';
 import {
     FETCH_IN_PROGRESS,
     fetchInProgressActionCreator,
-    fetchSuccessActionCreator,
+    FETCH_FAILED,
     fetchFailedActionCreator,
     FETCH_SUCCESS,
-    FETCH_FAILED,
-} from '../store/pages/searcBar/searchBarActions';
+    fetchSuccessActionCreator,
+} from '../../store/pages/searcBar/searchBarActions';
 
 describe('Actions', () => {
     test('Should create a fetchStartAction', () => {

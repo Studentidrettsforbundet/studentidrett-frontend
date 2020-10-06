@@ -1,6 +1,6 @@
 import React from 'react';
-import { FETCH_SUCCESS, FETCH_FAILED, FETCH_IN_PROGRESS } from '../store/pages/searcBar/searchBarActions';
-import { searchbarInitialState, searchBarReducer } from '../store/pages/searcBar/searchBarReducer';
+import { FETCH_IN_PROGRESS, FETCH_SUCCESS, FETCH_FAILED } from '../../store/pages/searcBar/searchBarActions';
+import { searchbarInitialState, searchBarReducer } from '../../store/pages/searcBar/searchBarReducer';
 
 describe('SearchBar reducer', () => {
     it('Should return the initial state', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SET_TEAMS, setTeamsActionCreator } from '../store/pages/team/teamActions';
+import { SET_TEAMS, setTeamsActionCreator } from '../../store/pages/team/teamActions';
 
 describe('Actions', () => {
     test('Should create an empty setTeamsAction', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { SET_CITIES } from '../store/pages/city/cityActions';
-import { cityInitialState, cityReducer } from '../store/pages/city/cityReducer';
+import { SET_CITIES } from '../../store/pages/city/cityActions';
+import { cityInitialState, cityReducer } from '../../store/pages/city/cityReducer';
 
 describe('City reducer', () => {
     it('Should return the initial state', () => {

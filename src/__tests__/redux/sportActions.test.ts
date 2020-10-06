@@ -1,6 +1,5 @@
 import React from 'react';
-import { setRegionActionCreator } from '../store/pages/region/regionActions';
-import { SET_SPORTS, setSportsActionCreator } from '../store/pages/sport/sportActions';
+import { SET_SPORTS, setSportsActionCreator } from '../../store/pages/sport/sportActions';
 
 describe('Actions', () => {
     test('Should create an empty setSportsAction', () => {

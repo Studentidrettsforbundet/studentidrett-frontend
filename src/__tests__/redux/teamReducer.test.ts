@@ -1,6 +1,6 @@
 import React from 'react';
-import { SET_TEAMS } from '../store/pages/team/teamActions';
-import { teamInitialState, teamReducer } from '../store/pages/team/teamReducer';
+import { SET_TEAMS } from '../../store/pages/team/teamActions';
+import { teamInitialState, teamReducer } from '../../store/pages/team/teamReducer';
 
 describe('Team reducer', () => {
     it('Should return the initial state', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { setCityActionCreator, SET_CITIES } from '../store/pages/city/cityActions';
+import { setCityActionCreator, SET_CITIES } from '../../store/pages/city/cityActions';
 
 describe('Actions', () => {
     test('Should create an empty setCityAction', () => {
