@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://kundestyrt-nsi-dev-backend.azurewebsites.net/';
+export const BASE_URL = 'https://kundestyrt-nsi-backend.azurewebsites.net';
 
 export const CLUB = 'clubs';
 export const SPORT = 'sports';
