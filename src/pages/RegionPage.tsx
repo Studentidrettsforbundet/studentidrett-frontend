@@ -11,9 +11,12 @@ const RegionPage = () => {
     const listContent = regions.regions.map((entry) => {
         return RegionCard({ id: entry.id, name: entry.name });
     });
+    let fetchData = null;
 
     useEffect(() => {
-        simpleSearch('', SPORT).then((result) => console.log(result));
+        (async () => {
+            fetchData = await simpleSearch('', SPORT);
+        })();
     }, []);
 
     return (
