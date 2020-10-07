@@ -8,15 +8,15 @@ import {
     validateString,
 } from '../../services/stringValidation';
 
-describe('Make input safe', () => {
-    test('Normalization and normal text', () => {
+describe('MakeInputSafe', () => {
+    test('Should make sentence safe and normalized', () => {
         const case1 =
             'Hello\u002C\u0020I\u0020\u0061\u006D\u0020' + 'a\u0020\u0070\u0072\u006F\u0067\u0072\u0061m\u006D\u0065r';
 
         expect(makeInputSafe(case1, 25)).toBe('Hello%2C%20I%20am%20a%20programmer');
     });
 
-    test('Normalization, normal text and whitespace', () => {
+    test('Should make sentence with whitespace safe and normalized', () => {
         const case1 =
             '        Hello\u002C\u0020I\u0020\u0061\u006D\u0020                 ' +
             'a\u0020\u0070\u0072\u006F\u0067\u0072\u0061m\u006D\u0065r             ';
@@ -26,14 +26,14 @@ describe('Make input safe', () => {
 });
 
 describe('stringNormalization', () => {
-    test('Simple normalization', () => {
+    test('Should normalize simple characters', () => {
         const case1 = '\u004B';
         const case2 = '\u004B\u0026\u00FF';
         expect(stringNormalization(case1)).toBe('K');
         expect(stringNormalization(case2)).toBe('K&ÿ');
     });
 
-    test('Advanced normalization', () => {
+    test('Should normalize full sentence', () => {
         const case1 =
             '\u0048\u0065\u006C\u006C\u006F\u002C\u0020\u0049\u0020\u0061\u006D\u0020' +
             '\u0061\u0020\u0070\u0072\u006F\u0067\u0072\u0061\u006D\u006D\u0065\u0072';
@@ -43,26 +43,31 @@ describe('stringNormalization', () => {
 });
 
 describe('TrimWhitespaces', () => {
-    test('No spaces', () => {
+    test('Should do nothing, single word', () => {
         const case1 = 'Test';
         expect(trimWhiteSpaces(case1)).toBe(case1);
     });
 
-    test('No extra spaces', () => {
+    test('Should do nothing, sentence', () => {
         const case1 = 'Test this code please';
         expect(trimWhiteSpaces(case1)).toBe(case1);
     });
 
-    test('Extra spaces internal', () => {
+    test('Should remove extra internal spaces', () => {
         const case1 = 'Test  this  code  please';
         expect(trimWhiteSpaces(case1)).toBe('Test this code please');
     });
 
-    test('Extra spaces external', () => {
+    test('Should remove extra external spaces', () => {
         const case1 = ' Test this code please ';
         const case2 = '     Test this code please               ';
         expect(trimWhiteSpaces(case1)).toBe('Test this code please');
         expect(trimWhiteSpaces(case2)).toBe('Test this code please');
+    });
+
+    test('Should remove extra external and internal spaces', () => {
+        const case1 = '     Test      this       code please               ';
+        expect(trimWhiteSpaces(case1)).toBe('Test this code please');
     });
 });
 
@@ -76,7 +81,7 @@ describe('Whitelisting', () => {
         expect(stringWhitelisting(case3)).toBe(true);
     });
 
-    test('All legal Characters', () => {
+    test('Should allow all legal Characters', () => {
         const case1 = 'abcdefghijklmnopqrstuvwxyz';
         const case2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const case3 = 'ÄäÖö';
@@ -87,7 +92,7 @@ describe('Whitelisting', () => {
         expect(stringWhitelisting(case4)).toBe(true);
     });
 
-    test('Random sentences with legal characters', () => {
+    test('Should allow random sentences with legal characters', () => {
         const case1 = "W'w.t_ÄKmm'bL  CQRiBdZjaZel'FEtz";
         const case2 = 'ÖJMk SHmoSrhtUVolyfGÖGBv-FTgGtYf';
         const case3 = "'RJUlPuWöwV'yFciNHfNxlVöVjdGt,JM";
@@ -100,7 +105,7 @@ describe('Whitelisting', () => {
         expect(stringWhitelisting(case5)).toBe(true);
     });
 
-    test('Sentences with some of the most dangerous characters', () => {
+    test('Should block dangerous characters', () => {
         const case1 = '/=()[]*';
         const case2 = "Röu[m(Fgj Z* LBpHY*l)/[rÄc'AYX/*";
         const case3 = '-Wqzkf]tKSVdsdfUfIO/I)vdXäb-YXJ.';
@@ -111,7 +116,7 @@ describe('Whitelisting', () => {
 });
 
 describe('validateString', () => {
-    test('Check length', () => {
+    test('Should block too long strings', () => {
         const case1 = 'jteazvxrfxenmkfanwon';
         expect(validateString(case1, 20)[0]).toBe(true);
         expect(validateString(case1, 20)[1]).toBe('');
@@ -119,7 +124,7 @@ describe('validateString', () => {
         expect(validateString(case1, 19)[1]).toBe('Too Long ');
     });
 
-    test('Check failed regex', () => {
+    test('Should be blocked by regex', () => {
         //Note, this is tested above, in test whitelist.
         //Here we only test the feedback string
         const case1 = '/=()[]*';
@@ -127,7 +132,7 @@ describe('validateString', () => {
         expect(validateString(case1, 20)[1]).toBe('Illegal Characters');
     });
 
-    test('Check failed length and failed regex', () => {
+    test('Should be blocked by regex and length', () => {
         //Note, this is tested above, in test whitelist.
         //Here we only test the feedback string
         const case1 = '/=()[]*';
@@ -137,7 +142,7 @@ describe('validateString', () => {
 });
 
 describe('urlEncoding', () => {
-    test('Do nothing', () => {
+    test('Should do nothing', () => {
         const case1 = 'Kristoffer';
         const case2 = 'ProgrammingIsSuperCool';
         const case3 = '';
@@ -147,7 +152,7 @@ describe('urlEncoding', () => {
         expect(urlEncoding(case3)).toBe('');
     });
 
-    test('Replace spaces', () => {
+    test('Should replace spaces', () => {
         const case1 = 'I ';
         const case2 = 'I am';
         const case3 = 'I am super cool';
@@ -156,7 +161,7 @@ describe('urlEncoding', () => {
         expect(urlEncoding(case3)).toBe('I%20am%20super%20cool');
     });
 
-    test('Replace special characters', () => {
+    test('Should replace special characters', () => {
         const case1 = '=';
         const case2 = '¤&&//(()';
         const case3 = '^*:;:';
