@@ -27,7 +27,7 @@ export interface clubInterface {
     name: string;
     description: string;
     contact_email: string;
-    pricing: number;
+    pricing: string;
     register_info: string;
 }
 
