@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router';
-import MockupDB from '../services/MockupDB';
-import List from '../components/list';
-import '../styles/ClubOverview.css';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import ClubCard from '../components/clubCard';
+import { combinedStateInterface } from '../store/store';
+
+interface urlParams {
+    Region: string;
+    Sport: string;
+}
 
 const ClubPage = () => {
-    const params = useParams() as { clubSlug: string };
-    const clubSlug = params.clubSlug;
-    var [Database, setDatabase] = useState(MockupDB);
+    const urlParams = useParams<urlParams>();
+
+    const club = useSelector((state: combinedStateInterface) => state.club);
+
+    const listContent = club.clubs.map((entry) => {
+        return ClubCard({
+            id: entry.id,
+            city: entry.city,
+            name: entry.name,
+            description: entry.description,
+            contact_email: entry.contact_email,
+            pricing: entry.pricing,
+            register_info: entry.register_info,
+        });
+    });
 
     return (
-        <div className="overview">
-            <h1>{`Club 1 with slug: ${clubSlug}`}</h1>
-            <List key="teamList" listContent={Database.Teams}/>
+        <div className="container">
+            <h1>{urlParams.Sport}</h1>
+            <p>Select club</p>
+            {listContent}
         </div>
     );
 };

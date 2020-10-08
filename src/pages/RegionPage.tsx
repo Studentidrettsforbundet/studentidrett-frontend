@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
-import List from '../components/list';
-import MockupDB, { IMockupDB, } from '../services/MockupDB';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { combinedStateInterface } from '../store/store';
+import RegionCard from '../components/regionCard';
 
 const RegionPage = () => {
-    var [Database, setDatabase] = useState(MockupDB);
+    const regions = useSelector((state: combinedStateInterface) => state.region);
+
+    const listContent = regions.regions.map((entry) => {
+        return RegionCard({ id: entry.id, name: entry.name });
+    });
+
     return (
         <div className="container">
             <h1>Regions</h1>
             <p>Choose a region </p>
-            <List key="RegionList" listContent={Database.Regions}/>
+            {listContent}
         </div>
     );
-}
+};
 
 export default RegionPage;

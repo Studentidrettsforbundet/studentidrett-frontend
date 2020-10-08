@@ -1,41 +1,36 @@
-// Const actions
-
 export const FETCH_IN_PROGRESS = 'FETCH_IN_PROGRESS';
 export const FETCH_FAILED = 'FETCH_FAILED';
-export const FETCH_COMPLETE = 'FETCH_COMPLETE';
+export const FETCH_SUCCESS = 'FETCH_COMPLETE';
 
-// Action interface
-interface FetchStartAction {
+interface fetchInProgressAction {
     type: typeof FETCH_IN_PROGRESS;
 }
 
-interface FetchFailedAction {
+interface fetchFailedAction {
     type: typeof FETCH_FAILED;
 }
 
-interface FetchCompleteAction {
-    type: typeof FETCH_COMPLETE;
+interface fetchSuccessAction {
+    type: typeof FETCH_SUCCESS;
     //TODO: add result from fetch
 }
 
-// The type that our reducer will need to use these acions
-export type searchBarActionTypes = FetchStartAction | FetchFailedAction | FetchCompleteAction;
+export type searchBarActionTypes = fetchInProgressAction | fetchFailedAction | fetchSuccessAction;
 
-// Action creators
-export const FetchDataActionCreator = (): FetchStartAction => {
+export const fetchInProgressActionCreator = (): fetchInProgressAction => {
     return {
         type: FETCH_IN_PROGRESS,
     };
 };
 
-export const FetchFailedActionCreator = (): FetchFailedAction => {
+export const fetchFailedActionCreator = (): fetchFailedAction => {
     return {
         type: FETCH_FAILED,
     };
 };
 
-export const FetchCompleteActionCreator = (): FetchCompleteAction => {
+export const fetchSuccessActionCreator = (): fetchSuccessAction => {
     return {
-        type: FETCH_COMPLETE,
+        type: FETCH_SUCCESS,
     };
 };
