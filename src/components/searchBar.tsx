@@ -1,39 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../styles/searchBar.css';
-import { CLUB, SPORT } from '../constants';
+import { cardType, SPORT } from '../constants';
 import { simpleSearch } from '../services/api';
 
-type Inputs = {
-    searchField: string;
-    Location: string;
-    Skill: String;
-    Gender: String;
-};
+interface searchBarProps {
+    typeOfSearch: cardType;
+}
 
-/*
-    USES: 
-    https://react-bootstrap.github.io/components/DropdownButton/
-    https://react-bootstrap.github.io/components/dropdowns/
-    https://react-bootstrap.github.io/components/forms/
-    https://react-bootstrap.github.io/components/buttons/
-    https://react-bootstrap.github.io/components/forms/
-    
-*/
-
-const SearchBar = () => {
-    const [dropdownLocation, setDropdownLocation] = useState('Location');
-    const [dropdownSkill, setDropdownSkill] = useState('All skill');
-    const [dropdownGender, setDropdownGender] = useState('All gender');
-
+const SearchBar = ({ typeOfSearch }: searchBarProps) => {
     useEffect(() => {
-        simpleSearch('', SPORT).then((result) => console.log(result));
+        simpleSearch('NTNUI fotball', typeOfSearch).then((result) => console.log(result));
     }, []);
+    console.log(typeOfSearch);
+    const handleSearch = () => {};
 
     return (
         <div className="searchBar">
