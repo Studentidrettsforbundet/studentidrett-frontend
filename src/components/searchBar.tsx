@@ -5,8 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './searchBar.css';
-import { UrlBuilderSimpleSearch } from '../services/urlBuilders';
+import '../styles/searchBar.css';
 import { CLUB, SPORT } from '../constants';
 import { simpleSearch } from '../services/api';
 
