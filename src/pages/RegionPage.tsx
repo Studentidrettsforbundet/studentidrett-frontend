@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
-import { SPORT } from '../constants';
+import { REGION, SPORT } from '../constants';
 import { simpleSearch } from '../services/api';
+import { fetchAndUpdate } from '../services/services';
 
 const RegionPage = () => {
     const regions = useSelector((state: combinedStateInterface) => state.region);
@@ -13,11 +14,7 @@ const RegionPage = () => {
     });
     let fetchData = null;
 
-    useEffect(() => {
-        (async () => {
-            fetchData = await simpleSearch('', SPORT);
-        })();
-    }, []);
+    fetchAndUpdate(REGION);
 
     return (
         <div className="container">
