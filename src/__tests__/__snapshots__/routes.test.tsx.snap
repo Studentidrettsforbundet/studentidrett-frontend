@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`index.tsx renders correctly 1`] = `"routes"`;
+
 exports[`routes.tsx renders club Link correctly 1`] = `
 <a
   className="unstyled_link"

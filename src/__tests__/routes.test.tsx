@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { Link, MemoryRouter } from 'react-router-dom';
+import routes from '../index';
 
 
 describe('routes.tsx', () => {
@@ -34,4 +35,12 @@ describe('routes.tsx', () => {
     });
 });
 
-
+describe('index.tsx', () => {
+    test("renders correctly", () => {
+        const tree = renderer
+            .create(<MemoryRouter>
+                routes
+            </MemoryRouter>);
+        expect(tree).toMatchSnapshot();
+    });
+});
