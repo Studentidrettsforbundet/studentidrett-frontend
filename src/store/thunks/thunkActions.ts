@@ -15,7 +15,6 @@ export const fetchDataThunk = (
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async dispatch => {
     dispatch(fetchInProgressActionCreator());
     const asyncResp = await fetchData(dataType);
-    console.log(asyncResp)
 
     if (asyncResp) {
         dispatch(fetchSuccessActionCreator());
@@ -97,7 +96,6 @@ export const fetchFailedActionCreator = (): fetchFailedAction => {
 };
 
 export const fetchSuccessActionCreator = (): fetchSuccessAction => {
-    console.log("FETHC IN PROGRESS CREATOR")
     return {
         type: FETCH_SUCCESS,
     };
