@@ -9,7 +9,7 @@ interface setRegionsAction {
 
 export type regionActionTypes = setRegionsAction;
 
-export const setRegionActionCreator = (data: regionInterface[]): setRegionsAction => {
+export const setRegionsActionCreator = (data: regionInterface[]): setRegionsAction => {
     return {
         type: SET_REGIONS,
         payload: data,

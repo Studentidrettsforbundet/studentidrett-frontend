@@ -1,21 +1,41 @@
+import { thunkActionTypes, FETCH_IN_PROGRESS, FETCH_SUCCESS, FETCH_FAILED } from "./thunkActions";
+
 export interface thunkState {
-    fetchInProgress: boolean;
-    fetchSuccess: boolean;
-    fetchFailed: boolean;
+    fetch_in_progress: boolean;
+    fetch_failed: boolean;
+    fetch_success: boolean;
 }
 
 export const thunkInitialState: thunkState = {
-    fetchInProgress: false,
-    fetchSuccess: false,
-    fetchFailed: false,
+    fetch_in_progress: false,
+    fetch_failed: false,
+    fetch_success: false,
 };
 
 export const thunkReducer = (state = thunkInitialState, action: thunkActionTypes): thunkState => {
     switch (action.type) {
-        case SET_CITIES: {
+        case FETCH_IN_PROGRESS: {
             return {
                 ...state,
-                cities: action.payload,
+                fetch_in_progress: true,
+                fetch_failed: false,
+                fetch_success: false,
+            };
+        }
+        case FETCH_SUCCESS: {
+            return {
+                ...state,
+                fetch_in_progress: false,
+                fetch_failed: false,
+                fetch_success: true,
+            };
+        }
+        case FETCH_FAILED: {
+            return {
+                ...state,
+                fetch_in_progress: false,
+                fetch_failed: true,
+                fetch_success: false,
             };
         }
         default: {

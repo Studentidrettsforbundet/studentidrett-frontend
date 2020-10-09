@@ -9,7 +9,7 @@ interface setCitiesAction {
 
 export type cityActionTypes = setCitiesAction;
 
-export const setCityActionCreator = (data: cityInterface[]): setCitiesAction => {
+export const setCitiesActionCreator = (data: cityInterface[]): setCitiesAction => {
     return {
         type: SET_CITIES,
         payload: data,
