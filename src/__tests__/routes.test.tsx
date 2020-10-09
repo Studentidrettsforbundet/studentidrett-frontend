@@ -36,11 +36,10 @@ describe('routes.tsx', () => {
 });
 
 describe('index.tsx', () => {
-    test("renders correctly", () => {
-        const tree = renderer
-            .create(<MemoryRouter>
-                routes
-            </MemoryRouter>);
-        expect(tree).toMatchSnapshot();
+    test('renders without crashing', () => {
+        const root = document.createElement('div');
+        root.setAttribute('id', 'root');
+        document.body.appendChild(root);
+        require('../index');
     });
 });
