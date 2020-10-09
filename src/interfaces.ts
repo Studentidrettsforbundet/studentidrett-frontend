@@ -7,7 +7,7 @@ export interface resultsInterface {
     count: number;
     next: string;
     previous: string;
-    results: teamInterface[] | clubInterface[] | sportInterface[] | cityInterface[];
+    results: teamInterface[] | clubInterface[] | sportInterface[] | cityInterface[] | regionInterface[];
 }
 
 export interface teamInterface {
