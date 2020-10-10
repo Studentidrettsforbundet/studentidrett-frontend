@@ -15,52 +15,51 @@ export const fetchDataThunk = (
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async dispatch => {
     dispatch(fetchInProgressActionCreator());
     const asyncResp = await fetchData(dataType);
-
-    if (asyncResp) {
-        dispatch(fetchSuccessActionCreator());
-    }
-    else {
+     //TODO: ADD VALIDATION before dispatch
+    if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
     }
-    //TODO: ADD VALIDATION before dispatch
-    switch (dataType) {
-        case REGION: {
-            dispatch(
-                setRegionsActionCreator(asyncResp.results)
-            )
-            break;
-        }
-        case SPORT: {
-            dispatch(
-                setSportsActionCreator(asyncResp.results)
-            )
-            break;
-        }
-        case CLUB: {
-            dispatch(
-                setClubsActionCreator(asyncResp.results)
-            )
-            break;
-        }
-        case TEAM: {
-            dispatch(
-                setTeamsActionCreator(asyncResp.results)
-            )
-            break;
-        }
-        case CITY: {
-            dispatch(
-                setCitiesActionCreator(asyncResp.results)
-            )
-            break;
-        }
-        default: {
-            return;
-            //TODO: add error
-        }
+    else {
+        dispatch(fetchSuccessActionCreator());
+         //TODO: ADD VALIDATION before dispatch
+        switch (dataType) {
+            case REGION: {
+                dispatch(
+                    setRegionsActionCreator(asyncResp.results)
+                )
+                break;
+            }
+            case SPORT: {
+                dispatch(
+                    setSportsActionCreator(asyncResp.results)
+                )
+                break;
+            }
+            case CLUB: {
+                dispatch(
+                    setClubsActionCreator(asyncResp.results)
+                )
+                break;
+            }
+            case TEAM: {
+                dispatch(
+                    setTeamsActionCreator(asyncResp.results)
+                )
+                break;
+            }
+            case CITY: {
+                dispatch(
+                    setCitiesActionCreator(asyncResp.results)
+                )
+                break;
+            }
+            default: {
+                return;
+                //TODO: add error
+            }
 
+        }
     }
-
 }
 
 
@@ -68,6 +67,7 @@ export const fetchDataThunk = (
 export const FETCH_IN_PROGRESS = 'FETCH_IN_PROGRESS';
 export const FETCH_FAILED = 'FETCH_FAILED';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const RESET_FETCH_STATUSES= 'RESET_FETCH_STATUSES';
 
 interface fetchInProgressAction {
     type: typeof FETCH_IN_PROGRESS;
@@ -81,7 +81,12 @@ interface fetchSuccessAction {
     type: typeof FETCH_SUCCESS;
 }
 
-export type thunkActionTypes = fetchInProgressAction | fetchFailedAction | fetchSuccessAction;
+interface resetFetchStatusesAction {
+    type: typeof RESET_FETCH_STATUSES;
+}
+
+
+export type thunkActionTypes = fetchInProgressAction | fetchFailedAction | fetchSuccessAction | resetFetchStatusesAction;
 
 export const fetchInProgressActionCreator = (): fetchInProgressAction => {
     return {
@@ -98,5 +103,11 @@ export const fetchFailedActionCreator = (): fetchFailedAction => {
 export const fetchSuccessActionCreator = (): fetchSuccessAction => {
     return {
         type: FETCH_SUCCESS,
+    };
+};
+
+export const resetFetchStatusesActionCreator = (): resetFetchStatusesAction => {
+    return {
+        type: RESET_FETCH_STATUSES,
     };
 };

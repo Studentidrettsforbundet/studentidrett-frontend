@@ -10,12 +10,7 @@ export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
             }),
         });
         if (checkForErrorCodes(res)) {
-            return {
-                count: 0,
-                next: null,
-                previous: null,
-                results: [],
-            };
+            return 'Something went wrong';
         } else {
             return res.json();
         }
@@ -33,12 +28,7 @@ export const fetchData = async (cardType: cardType) => {
             }),
         });
         if (checkForErrorCodes(res)) {
-            return {
-                count: 0,
-                next: null,
-                previous: null,
-                results: [],
-            };
+            return 'Something went wrong';
         } else {
             return res.json();
         }

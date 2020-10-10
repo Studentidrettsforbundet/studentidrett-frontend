@@ -1,8 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClubCard from '../components/clubCard';
+import { CLUB } from '../constants';
 import { combinedStateInterface } from '../store/store';
+import { fetchDataThunk } from '../store/thunks/thunkActions';
 
 interface urlParams {
     Region: string;
@@ -12,9 +14,16 @@ interface urlParams {
 const ClubPage = () => {
     const urlParams = useParams<urlParams>();
 
-    const club = useSelector((state: combinedStateInterface) => state.club);
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
 
-    const listContent = club.clubs.map((entry) => {
+    useEffect(() => {
+        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+            dispatch(fetchDataThunk(CLUB));
+        }
+      });
+
+    const listContent = reduxState.club.clubs.map((entry) => {
         return ClubCard({
             id: entry.id,
             city: entry.city,

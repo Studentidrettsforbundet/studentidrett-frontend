@@ -1,8 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TeamCard from '../components/teamCard';
+import { TEAM } from '../constants';
 import { combinedStateInterface } from '../store/store';
+import { fetchDataThunk } from '../store/thunks/thunkActions';
 
 interface urlParams {
     Region: string;
@@ -12,10 +14,18 @@ interface urlParams {
 
 const TeamPage = () => {
     const urlParams = useParams<urlParams>();
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
 
-    const team = useSelector((state: combinedStateInterface) => state.team);
+    useEffect(() => {
+        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+            dispatch(fetchDataThunk(TEAM));
+        }
+      });
 
-    const listContent = team.teams.map((entry) => {
+    
+
+    const listContent = reduxState.team.teams.map((entry) => {
         return TeamCard({
             id: entry.id,
             name: entry.name,
