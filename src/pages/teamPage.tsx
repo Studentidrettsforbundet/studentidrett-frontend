@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import TeamCard from '../components/teamCard';
 import { TEAM } from '../constants';
+import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-import { fetchDataThunk } from '../store/thunks/thunkActions';
 
 interface urlParams {
     Region: string;

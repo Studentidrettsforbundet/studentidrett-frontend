@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
 import { REGION } from '../constants';
-
-import { fetchDataThunk } from '../store/thunks/thunkActions';
+import { fetchDataThunk } from '../services/api';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);

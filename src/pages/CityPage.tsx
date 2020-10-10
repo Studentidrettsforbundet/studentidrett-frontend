@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CityCard from '../components/cityCard';
 import { CITY } from '../constants';
+import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-import { fetchDataThunk } from '../store/thunks/thunkActions';
 
 const CityPage = () => {
     const dispatch = useDispatch();

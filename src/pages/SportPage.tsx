@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SportCard from '../components/sportCard';
 import { SPORT } from '../constants';
+import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-import { fetchDataThunk } from '../store/thunks/thunkActions';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
