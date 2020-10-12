@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`routes.tsx renders club Link correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/MidtNorge/Fotball/NTNUIFotball"
+  onClick={[Function]}
+/>
+`;
+
+exports[`routes.tsx renders home Link correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/Regions"
+  onClick={[Function]}
+/>
+`;
+
+exports[`routes.tsx renders region Link correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/NordNorge"
+  onClick={[Function]}
+/>
+`;
+
+exports[`routes.tsx renders sport Link correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/NordNorge/Fotball"
+  onClick={[Function]}
+/>
+`;

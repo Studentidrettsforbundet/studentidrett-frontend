@@ -4,7 +4,7 @@ import './styles/global.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+const App = () => {
     return (
         <div className="App">
             <h1>Hello</h1>
