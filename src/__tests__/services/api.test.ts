@@ -25,16 +25,9 @@ describe('simpleSearch whitebox test with "fetch-mock"', () => {
     });
 
     test('Returns empty object when status != 200', async () => {
-        const mockData = {
-            count: 0,
-            next: null,
-            previous: null,
-            results: [],
-        };
         fetchMock.mock(urlBuilderSimpleSearch(CITY, "sasdas"), { status: 404 });
         const res = await simpleSearch("sasdas", CITY);
-        expect(res).toEqual(mockData);
-        expect(res.results).toEqual(mockData.results)
+        expect(res).toEqual("Something went wrong");
     });
 
     test('Returns "Connection error" when fetch returns error', async () => {
@@ -63,15 +56,9 @@ describe('fetchData Whitebox test with fetchMock', () => {
     });
 
     test('Returns empty object when status != 200', async () => {
-        const mockData = {
-            count: 0,
-            next: null,
-            previous: null,
-            results: [],
-        };
         fetchMock.mock(urlBuilderFetchData(TEAM), { status: 404 });
         const res = await fetchData(TEAM);
-        expect(res).toEqual(mockData);
+        expect(res).toEqual("Something went wrong");
     });
 
     test('Returns "Connection error" when fetch returns error', async () => {
