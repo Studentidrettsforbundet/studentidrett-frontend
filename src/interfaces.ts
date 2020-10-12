@@ -4,13 +4,17 @@ export interface prev_next {
 }
 
 export interface resultsInterface {
+    count: number;
+    next: string | null;
+    previous: string | null;
     results:
         | teamInterface[]
         | clubInterface[]
         | sportInterface[]
         | cityInterface[]
         | regionInterface[]
-        | groupInterface[];
+        | groupInterface[]
+        | [];
 }
 
 export interface teamInterface {

@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
 import { resultsInterface } from '../interfaces';
+import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator } from '../store/pages/club/clubActions';
 import { setGroupsActionCreator } from '../store/pages/group/groupActions';
@@ -65,12 +65,10 @@ export const fetchDataThunk = (
 
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
-        results = [{}];
     } else {
         dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
         results = asyncResp.result;
     }
-    //TODO: ADD VALIDATION before dispatch, ENSURE THAT THE DATA TYPE IS CORRECT
 
     switch (dataType) {
         case REGION: {
@@ -103,5 +101,3 @@ export const fetchDataThunk = (
         }
     }
 };
-
-export const verifyResultDataType = (dataType: any): boolean => {};
