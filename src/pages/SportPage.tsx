@@ -6,6 +6,11 @@ import { combinedStateInterface } from '../store/store';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
+/* TODO
+ * Uses ClubCard NOT SportCard
+ * make ClubCards redirect to "/:City/:Club" instead of "/:City/:Sport/:Club"
+ */
+
 interface urlParams {
     Region: string;
 }

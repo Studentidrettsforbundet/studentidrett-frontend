@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import TeamCard from '../components/teamCard';
 import { combinedStateInterface } from '../store/store';
 
+
 interface urlParams {
     Region: string;
     Sport: string;
