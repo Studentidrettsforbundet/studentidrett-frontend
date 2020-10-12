@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { cityInitialState, cityReducer, cityState } from './pages/city/cityReducer';
 import { clubInitialState, clubReducer, clubState } from './pages/club/clubReducer';
+import { groupInitialState, groupReducer, groupState } from './pages/group/groupReducer';
 import { regionInitialState, regionReducer, regionState } from './pages/region/regionReducer';
 import { sportInitialState, sportReducer, sportState } from './pages/sport/sportReducer';
 import { teamInitialState, teamReducer, teamState } from './pages/team/teamReducer';
@@ -23,6 +24,7 @@ export interface combinedStateInterface {
     sport: sportState;
     club: clubState;
     team: teamState;
+    group: groupState;
     thunk: thunkState;
 }
 
@@ -33,6 +35,7 @@ export const combinedState = {
     sport: sportInitialState,
     club: clubInitialState,
     team: teamInitialState,
+    group: groupInitialState,
     thunk: thunkInitialState,
 };
 
@@ -44,6 +47,7 @@ const store = createStore(
         sport: sportReducer,
         club: clubReducer,
         team: teamReducer,
+        group: groupReducer,
         thunk: thunkReducer
     }),
     combinedState,
