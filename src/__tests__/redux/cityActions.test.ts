@@ -26,4 +26,18 @@ describe('Actions', () => {
 
         expect(setCitiesActionCreator(data)).toStrictEqual(expected);
     });
+
+    test('Should create an empty setCityAction', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_CITIES,
+            payload: [],
+        };
+
+        expect(setCitiesActionCreator(data)).toStrictEqual(expected);
+    });
 });

@@ -27,4 +27,18 @@ describe('Actions', () => {
 
         expect(setRegionsActionCreator(data)).toStrictEqual(expected);
     });
+
+    test('Should create an empty setRegionsActionCreator', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_REGIONS,
+            payload: [],
+        };
+
+        expect(setRegionsActionCreator(data)).toStrictEqual(expected);
+    });
 });

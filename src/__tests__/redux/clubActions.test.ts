@@ -2,7 +2,7 @@ import React from 'react';
 import { SET_CLUBS, setClubsActionCreator } from '../../store/pages/club/clubActions';
 
 describe('Actions', () => {
-    test('Should create an empty setRegionAction', () => {
+    test('Should create an empty setClubAction', () => {
         const expected = {
             type: SET_CLUBS,
             payload: [],
@@ -11,7 +11,7 @@ describe('Actions', () => {
         expect(setClubsActionCreator([])).toStrictEqual(expected);
     });
 
-    test('Should create a seAction', () => {
+    test('Should create a setClubAction', () => {
         const data = [
             {
                 id: 0,
@@ -36,6 +36,20 @@ describe('Actions', () => {
         const expected = {
             type: SET_CLUBS,
             payload: data,
+        };
+
+        expect(setClubsActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setClubAction', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_CLUBS,
+            payload: [],
         };
 
         expect(setClubsActionCreator(data)).toStrictEqual(expected);
