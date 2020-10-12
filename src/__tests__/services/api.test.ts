@@ -3,6 +3,7 @@ import { error } from 'console';
 import { fetchData, simpleSearch } from '../../services/api';
 import { urlBuilderFetchData, urlBuilderSimpleSearch } from '../../services/urlBuilders';
 import { cityInterface, sportInterface } from '../../interfaces';
+import { CITY, CLUB, SPORT } from '../../constants';
 
 // This test need libraries node-fetch and fetch-mock installed
 describe('simpleSearch whitebox test with "fetch-mock"', () => {
@@ -17,8 +18,8 @@ describe('simpleSearch whitebox test with "fetch-mock"', () => {
             previous: null,
             results: Array<sportInterface>(),
         };
-        fetchMock.mock(urlBuilderSimpleSearch("sports", "fotball" ), { body: mockData, status: 200 });
-        const res = await simpleSearch("fotball","sports");
+        fetchMock.mock(urlBuilderSimpleSearch(SPORT, "fotball" ), { body: mockData, status: 200 });
+        const res = await simpleSearch("fotball",SPORT);
         expect(res).toEqual(mockData);
         
     });
@@ -37,8 +38,8 @@ describe('simpleSearch whitebox test with "fetch-mock"', () => {
     });
 
     test('Returns "Connection error" when fetch returns error', async () => {
-        fetchMock.mock(urlBuilderSimpleSearch("clubs", "NTNUI"), error)
-        const res = await simpleSearch("NTNUI","clubs");
+        fetchMock.mock(urlBuilderSimpleSearch(CLUB, "NTNUI"), error)
+        const res = await simpleSearch("NTNUI",CLUB);
         expect(res).toEqual("Connection error");
     });
 
@@ -56,8 +57,8 @@ describe('fetchData Whitebox test with fetchMock', () => {
             previous: null,
             results: Array<cityInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData("cities"), { body: mockData, status: 200 });
-        const res = await fetchData("cities");
+        fetchMock.mock(urlBuilderFetchData(CITY), { body: mockData, status: 200 });
+        const res = await fetchData(CITY);
         expect(res).toEqual(mockData);
     });
 
@@ -68,14 +69,14 @@ describe('fetchData Whitebox test with fetchMock', () => {
             previous: null,
             results: [],
         };
-        fetchMock.mock(urlBuilderFetchData("sports"), { status: 404 });
-        const res = await fetchData("sports");
+        fetchMock.mock(urlBuilderFetchData(SPORT), { status: 404 });
+        const res = await fetchData(SPORT);
         expect(res).toEqual(mockData);
     });
 
     test('Returns "Connection error" when fetch returns error', async () => {
-        fetchMock.mock(urlBuilderFetchData("clubs"), error)
-        const res = await fetchData("clubs");
+        fetchMock.mock(urlBuilderFetchData(CLUB), error)
+        const res = await fetchData(CLUB);
         expect(res).toEqual("Connection error");
     });
 });
