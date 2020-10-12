@@ -13,7 +13,10 @@ import {
     fetchFailedActionCreator,
     fetchSuccessActionCreator,
 } from '../store/thunks/thunkActions';
-import { urlBuilderFetchData, urlBuilderSimpleSearch } from './urlBuilders';
+import { urlBuilderFetchData } from './urlBuilders';
+
+/*
+THIS IS WORK IN PROGRESS, AND WILL BE DONE IN THE BRANCH SIMPLE SEARCH
 
 export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
     try {
@@ -32,6 +35,7 @@ export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
         return 'Connection error';
     }
 };
+*/
 
 export const fetchData = async (cardType: cardType) => {
     try {
@@ -60,38 +64,36 @@ export const fetchDataThunk = (
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     dispatch(fetchInProgressActionCreator());
     const asyncResp = await fetchData(dataType);
-    let result = [];
 
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
     } else {
         dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
-        result = asyncResp.result;
     }
 
     switch (dataType) {
         case REGION: {
-            dispatch(setRegionsActionCreator(result));
+            dispatch(setRegionsActionCreator(asyncResp.result));
             break;
         }
         case SPORT: {
-            dispatch(setSportsActionCreator(result));
+            dispatch(setSportsActionCreator(asyncResp.result));
             break;
         }
         case CLUB: {
-            dispatch(setClubsActionCreator(result));
+            dispatch(setClubsActionCreator(asyncResp.result));
             break;
         }
         case TEAM: {
-            dispatch(setTeamsActionCreator(result));
+            dispatch(setTeamsActionCreator(asyncResp.result));
             break;
         }
         case CITY: {
-            dispatch(setCitiesActionCreator(result));
+            dispatch(setCitiesActionCreator(asyncResp.result));
             break;
         }
         case GROUP: {
-            dispatch(setGroupsActionCreator(result));
+            dispatch(setGroupsActionCreator(asyncResp.result));
             break;
         }
         default: {
