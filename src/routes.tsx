@@ -8,6 +8,8 @@ import SportPage from './pages/sportPage';
 import ClubPage from './pages/clubPage';
 import GroupPage from './pages/groupPage';
 import QuestionnairePage from './pages/QuestionnairePage';
+import ResultPage from './pages/ResultPage';
+import TeamPage from './pages/teamPage';
 import store from './store/store';
 
 const createRoutes = () => (
@@ -17,6 +19,7 @@ const createRoutes = () => (
                 <Switch>
                     <Route exact path="/" component={App} />
                     <Route exact path="/questionnaire" component={QuestionnairePage} />
+                    <Route exact path="/questionnaire/result" component={ResultPage} />
                     <Route exact path="/Regions" component={RegionPage} />
                     <Route exact path="/:City" component={CityPage} />
                     <Route exact path="/:City/:Club" component={ClubPage} />

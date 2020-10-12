@@ -1,20 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import QuestionnaireItem, { QuestionnaireItemProps } from '../components/questionnaireItem';
-
-const onSubmit = async (values: unknown) => {
-    fetch('https://www.example.com', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-    }).then((data) => {
-        console.log(data);
-    });
-
-    window.alert(JSON.stringify(values));
-};
+import { Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 let responseData;
 fetch('<URL to backend>')
@@ -24,9 +12,30 @@ fetch('<URL to backend>')
     });
 
 const questions: QuestionnaireItemProps[] = [
-    { item: { id: 'id1', question: 'question 1', leftItem: 'left 1', rightItem: 'right 1' } },
-    { item: { id: 'id2', question: 'question 2', leftItem: 'left 2', rightItem: 'right 2' } },
-    { item: { id: 'id3', question: 'question 3', leftItem: 'left 3', rightItem: 'right 3' } },
+    {
+        item: {
+            id: 'id1',
+            question: 'Do you prefer indoor or outdoor activities?',
+            leftItem: 'Indoor',
+            rightItem: 'Outdoor',
+        },
+    },
+    {
+        item: {
+            id: 'id2',
+            question: 'Do you prefer summer og winter activities?',
+            leftItem: 'Summer',
+            rightItem: 'Winter',
+        },
+    },
+    {
+        item: {
+            id: 'id3',
+            question: 'Do you prefer individual or team sports?',
+            leftItem: 'Individual',
+            rightItem: 'Team',
+        },
+    },
 ];
 const listItems = questions.map((question) => (
     <Field
@@ -45,7 +54,36 @@ const listItems = questions.map((question) => (
     />
 ));
 
+const dataResponse: any = [
+    {
+        name: 'Football',
+        slug: 'Football',
+    },
+    { name: 'Basketball', slug: 'Basketball' },
+    {
+        name: 'Handball',
+        slug: 'Handball',
+    },
+];
+
 const QuestionnairePage = () => {
+    const [fetched, setFetched] = useState(false);
+
+    const onSubmit = async (values: unknown) => {
+        fetch('https://www.example.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+        }).then((data) => {
+            console.log(data);
+        });
+
+        window.alert(JSON.stringify(values));
+        setFetched(true);
+    };
+
     return (
         <div className="overview">
             <h1>Questionnaire</h1>
@@ -73,7 +111,8 @@ const QuestionnairePage = () => {
                     </form>
                 )}
             />
+            {fetched && <Redirect to={{ pathname: 'questionnaire/result', state: dataResponse }} />}
         </div>
     );
 };
-export default QuestionnairePage;
+export default withRouter(QuestionnairePage);
