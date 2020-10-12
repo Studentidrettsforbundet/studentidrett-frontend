@@ -44,7 +44,7 @@ describe('SportCard', () => {
         const tree = renderer
             .create(<Provider store={store}>        /wrap with provider to use with redux
                 <MemoryRouter initialEntries={["/MidtNorge"]}>  /Wrap with Memoryrouter to support links
-                    <SportCard id={0} name={"Fotball"} />
+                    <SportCard id={0} name={"Fotball"} />       /component to be tested
                 </MemoryRouter>
             </Provider>);
         expect(tree).toMatchSnapshot();
