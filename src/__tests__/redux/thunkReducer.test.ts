@@ -21,6 +21,10 @@ describe('Thunk reducer', () => {
                 fetch_failed: false,
                 fetch_success: false,
                 fetch_failed_count: 0,
+                prev_next: {
+                    next: null,
+                    previous: null
+                }
             });
     });
 
@@ -28,7 +32,7 @@ describe('Thunk reducer', () => {
 
         expect(
             thunkReducer(undefined, {
-                type: FETCH_SUCCESS,
+                type: FETCH_SUCCESS, payload: {next: "https:://azure.dev.net.no", previous: "https:://azure.dev.net.no"}
             }),
         ).toEqual(
             {  
@@ -36,8 +40,27 @@ describe('Thunk reducer', () => {
             fetch_failed: false,
             fetch_success: true,
             fetch_failed_count: 0,
-        }
-            );
+             prev_next: {
+                    next: "https:://azure.dev.net.no",
+                    previous: "https:://azure.dev.net.no"
+                }});
+
+            expect(
+                thunkReducer(undefined, {
+                    type: FETCH_SUCCESS, payload: {next: null, previous: null}
+                }),
+            ).toEqual(
+                {  
+                fetch_in_progress: false,
+                                fetch_failed: false,
+                fetch_success: true,
+                fetch_failed_count: 0,
+                 prev_next: {
+                        next: null,
+                        previous: null
+                    }
+            }
+                );
     });
 
     it('Should handle FETCH_FAILED', () => {
@@ -52,6 +75,10 @@ describe('Thunk reducer', () => {
                 fetch_failed: true,
                 fetch_success: false,
                 fetch_failed_count: 1,
+                prev_next: {
+                    next: null,
+                    previous: null
+                }
             });
     });
 
@@ -67,6 +94,10 @@ describe('Thunk reducer', () => {
             fetch_failed: false,
             fetch_success: false,
             fetch_failed_count: 0,
+            prev_next: {
+                next: null,
+                previous: null
+            }
         }
             );
     });

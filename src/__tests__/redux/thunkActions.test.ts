@@ -13,9 +13,20 @@ describe('Actions', () => {
         expect(fetchFailedActionCreator()).toStrictEqual({type: FETCH_FAILED});
     });
 
-    test('Should create a fetchSuccessAction', () => {
+    test('Should create a fetchSuccessAction with null as data', () => {
+        const data = {
+            next: null, 
+            previous: null
+        }
+        expect(fetchSuccessActionCreator(data)).toStrictEqual({type: FETCH_SUCCESS, payload: data});
+    });
 
-        expect(fetchSuccessActionCreator()).toStrictEqual({type: FETCH_SUCCESS});
+    test('Should create a fetchSuccessAction', () => {
+        const data = {
+            next: "https:://next.data.com", 
+            previous: "https:://prev.data.com"
+        }
+        expect(fetchSuccessActionCreator(data)).toStrictEqual({type: FETCH_SUCCESS, payload:data});
     });
 
     test('Should create a resetFetchStatusesAction', () => {

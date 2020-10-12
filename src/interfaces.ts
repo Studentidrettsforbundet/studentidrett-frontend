@@ -1,13 +1,16 @@
-export interface selected {
-    id: number;
-    name: string;
+export interface prev_next {
+    next: string | null;
+    previous: string | null;
 }
 
 export interface resultsInterface {
-    count: number;
-    next: string;
-    previous: string;
-    results: teamInterface[] | clubInterface[] | sportInterface[] | cityInterface[] | regionInterface[];
+    results:
+        | teamInterface[]
+        | clubInterface[]
+        | sportInterface[]
+        | cityInterface[]
+        | regionInterface[]
+        | groupInterface[];
 }
 
 export interface teamInterface {
