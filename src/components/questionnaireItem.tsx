@@ -10,23 +10,27 @@ const QuestionnaireItem = (props: QuestionnaireItemProps & { onChange: any; erro
     };
 
     const radioButtons = Array.from(Array(5).keys()).map((number) => (
-        <input
+        <input style={{ margin: '2px' }}
             key={`${props.item.id}-${number}`}
             type="radio"
             onChange={handleChange}
-            name={props.item.leftItem + props.item.rightItem}
+            name={`${props.item.id}-${number}`}
             value={number}
+            data-testid={`${props.item.id}-${number}`}
         />
     ));
 
     return (
-        <div className="item" key="PLACEHOLDER">
-            <h3> {props.item.question} </h3>
-            {props.item.leftItem}
-            {radioButtons}
-            {props.item.rightItem}
-            <br />
-            {props.error && <span style={{ color: 'red' }}>{props.error}</span>}
+        <div style={{ padding: '12px', alignContent: 'center' }} className="item" key="PLACEHOLDER">
+            <label>
+                <h4>{props.item.question}</h4>
+                <div>
+                    {props.item.leftItem}
+                    <span style={{ padding: '0px 12px' }}>{radioButtons}</span>
+                    {props.item.rightItem}
+                </div>
+                {props.error && <span style={{ color: 'red' }}>{props.error}</span>}
+            </label>
         </div>
     );
 };

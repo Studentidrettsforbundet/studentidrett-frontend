@@ -23,7 +23,7 @@ const questions: QuestionnaireItemProps[] = [
     {
         item: {
             id: 'id2',
-            question: 'Do you prefer summer og winter activities?',
+            question: 'Do you prefer summer or winter activities?',
             leftItem: 'Summer',
             rightItem: 'Winter',
         },
@@ -85,7 +85,7 @@ const QuestionnairePage = () => {
     };
 
     return (
-        <div className="overview">
+        <div style={{ textAlign: "center" }} className="overview">
             <h1>Questionnaire</h1>
             <Form
                 onSubmit={onSubmit}
