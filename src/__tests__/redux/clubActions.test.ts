@@ -1,5 +1,5 @@
 import React from 'react';
-import { SET_CLUBS, setClubActionCreator } from '../../store/pages/club/clubActions';
+import { SET_CLUBS, setClubsActionCreator } from '../../store/pages/club/clubActions';
 
 describe('Actions', () => {
     test('Should create an empty setRegionAction', () => {
@@ -8,7 +8,7 @@ describe('Actions', () => {
             payload: [],
         };
 
-        expect(setClubActionCreator([])).toStrictEqual(expected);
+        expect(setClubsActionCreator([])).toStrictEqual(expected);
     });
 
     test('Should create a seAction', () => {
@@ -38,6 +38,6 @@ describe('Actions', () => {
             payload: data,
         };
 
-        expect(setClubActionCreator(data)).toStrictEqual(expected);
+        expect(setClubsActionCreator(data)).toStrictEqual(expected);
     });
 });
