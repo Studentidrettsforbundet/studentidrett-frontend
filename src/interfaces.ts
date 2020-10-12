@@ -3,7 +3,7 @@ export interface prev_next {
     previous: string | null;
 }
 
-export interface resultsInterface {
+export interface combinedResultsInterface {
     count: number;
     next: string | null;
     previous: string | null;
@@ -13,8 +13,7 @@ export interface resultsInterface {
         | sportInterface[]
         | cityInterface[]
         | regionInterface[]
-        | groupInterface[]
-        | [];
+        | groupInterface[];
 }
 
 export interface teamInterface {

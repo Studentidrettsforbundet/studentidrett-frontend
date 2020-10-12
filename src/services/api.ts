@@ -1,6 +1,5 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { resultsInterface } from '../interfaces';
 import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator } from '../store/pages/club/clubActions';
@@ -61,38 +60,38 @@ export const fetchDataThunk = (
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     dispatch(fetchInProgressActionCreator());
     const asyncResp = await fetchData(dataType);
-    let results = [];
+    let result = [];
 
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
     } else {
         dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
-        results = asyncResp.result;
+        result = asyncResp.result;
     }
 
     switch (dataType) {
         case REGION: {
-            dispatch(setRegionsActionCreator(results));
+            dispatch(setRegionsActionCreator(result));
             break;
         }
         case SPORT: {
-            dispatch(setSportsActionCreator(results));
+            dispatch(setSportsActionCreator(result));
             break;
         }
         case CLUB: {
-            dispatch(setClubsActionCreator(results));
+            dispatch(setClubsActionCreator(result));
             break;
         }
         case TEAM: {
-            dispatch(setTeamsActionCreator(results));
+            dispatch(setTeamsActionCreator(result));
             break;
         }
         case CITY: {
-            dispatch(setCitiesActionCreator(results));
+            dispatch(setCitiesActionCreator(result));
             break;
         }
         case GROUP: {
-            dispatch(setGroupsActionCreator(results));
+            dispatch(setGroupsActionCreator(result));
             break;
         }
         default: {
