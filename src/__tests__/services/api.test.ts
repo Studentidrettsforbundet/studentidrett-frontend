@@ -1,6 +1,6 @@
 import fetchMock from 'fetch-mock';
 import { error } from 'console';
-import { fetchData } from '../../services/api';
+import { checkForErrorCodes, fetchData } from '../../services/api';
 import { urlBuilderFetchData, urlBuilderSimpleSearch } from '../../services/urlBuilders';
 import {
     cityInterface,
@@ -161,5 +161,21 @@ describe('fetchData for all card types ', () => {
         fetchMock.mock(url, { body: mockData, status: 200 });
         const res = await fetchData(url);
         expect(res).toEqual(mockData);
+    });
+});
+
+describe('checkForErrorCodes', () => {
+    test('Should return false', async () => {
+        expect(checkForErrorCodes({ status: 200 })).toEqual(false);
+    });
+
+    test('Should return true', async () => {
+        expect(checkForErrorCodes({ status: 199 })).toEqual(true);
+        expect(checkForErrorCodes({ status: 201 })).toEqual(true);
+        expect(checkForErrorCodes({ status: 0 })).toEqual(true);
+        expect(checkForErrorCodes({ status: -10 })).toEqual(true);
+        expect(checkForErrorCodes({ status: 13.9 })).toEqual(true);
+        expect(checkForErrorCodes({ status: 200.7 })).toEqual(true);
+        expect(checkForErrorCodes({})).toEqual(true);
     });
 });

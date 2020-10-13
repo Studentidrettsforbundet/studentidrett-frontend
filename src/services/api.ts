@@ -37,8 +37,6 @@ export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
 };
 */
 
-//TODO: add test: https://blog.learningdollars.com/2020/04/09/how-to-test-asynchronous-redux-actions-using-jest/
-
 export const fetchData = async (url: string) => {
     try {
         const res = await fetch(url, {
@@ -57,7 +55,7 @@ export const fetchData = async (url: string) => {
     }
 };
 
-const checkForErrorCodes = (result: any): boolean => {
+export const checkForErrorCodes = (result: any): boolean => {
     return result.status !== 200;
 };
 
