@@ -3,6 +3,13 @@ import { useSelector } from 'react-redux';
 import CityCard from '../components/cityCard';
 import { combinedStateInterface } from '../store/store';
 
+
+/* TODO 
+ * combine sportpage and clubpage into this page.
+ * Sportcards should link to "/:City/Sport/:Sport"
+ * ClubCards should link to "/:City/:Club"
+ */
+
 const CityPage = () => {
     const city = useSelector((state: combinedStateInterface) => state.city);
 

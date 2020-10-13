@@ -3,6 +3,12 @@ import { useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
 
+/* TODO
+ * Show list of cities categorized by region.
+ * RegionCard should contain cityCards.
+ * CityCards should link to "/:City"
+ */
+
 const RegionPage = () => {
     const regions = useSelector((state: combinedStateInterface) => state.region);
 
