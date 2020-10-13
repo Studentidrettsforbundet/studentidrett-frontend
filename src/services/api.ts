@@ -39,27 +39,9 @@ export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
 
 //TODO: add test: https://blog.learningdollars.com/2020/04/09/how-to-test-asynchronous-redux-actions-using-jest/
 
-export const fetchNextData = async (url: string) => {
+export const fetchData = async (url: string) => {
     try {
         const res = await fetch(url, {
-            method: 'GET',
-            headers: new Headers({
-                Accept: 'application/json',
-            }),
-        });
-        if (checkForErrorCodes(res)) {
-            return 'Something went wrong';
-        } else {
-            return res.json();
-        }
-    } catch (error) {
-        return 'Connection error';
-    }
-};
-
-export const fetchData = async (cardType: cardType) => {
-    try {
-        const res = await fetch(urlBuilderFetchData(cardType), {
             method: 'GET',
             headers: new Headers({
                 Accept: 'application/json',
@@ -88,9 +70,11 @@ export const fetchDataThunk = (
     let asyncResp;
 
     if (url.length > 0) {
-        asyncResp = await fetchNextData(url);
+        //Fetch next data (scrolling)
+        asyncResp = await fetchData(url);
     } else {
-        asyncResp = await fetchData(dataType);
+        //Fetch based on cardType
+        asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
 
     let result = [];

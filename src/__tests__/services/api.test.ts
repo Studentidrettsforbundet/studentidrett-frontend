@@ -59,20 +59,23 @@ describe('fetchData Whitebox test with fetchMock', () => {
             previous: null,
             results: Array<cityInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(GROUP), { body: mockData, status: 200 });
-        const res = await fetchData(GROUP);
+        const url = urlBuilderFetchData(CITY);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 
     test('Returns empty object when status != 200', async () => {
-        fetchMock.mock(urlBuilderFetchData(TEAM), { status: 404 });
-        const res = await fetchData(TEAM);
+        const url = urlBuilderFetchData(TEAM);
+        fetchMock.mock(url, { status: 404 });
+        const res = await fetchData(url);
         expect(res).toEqual('Something went wrong');
     });
 
     test('Returns "Connection error" when fetch returns error', async () => {
-        fetchMock.mock(urlBuilderFetchData(REGION), error);
-        const res = await fetchData(REGION);
+        const url = urlBuilderFetchData(REGION);
+        fetchMock.mock(url, error);
+        const res = await fetchData(url);
         expect(res).toEqual('Connection error');
     });
 });
@@ -89,8 +92,9 @@ describe('fetchData for all card types ', () => {
             previous: null,
             results: Array<clubInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(CLUB), { body: mockData, status: 200 });
-        const res = await fetchData(CLUB);
+        const url = urlBuilderFetchData(CLUB);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 
@@ -101,8 +105,9 @@ describe('fetchData for all card types ', () => {
             previous: null,
             results: Array<sportInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(SPORT), { body: mockData, status: 200 });
-        const res = await fetchData(SPORT);
+        const url = urlBuilderFetchData(SPORT);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 
@@ -113,8 +118,9 @@ describe('fetchData for all card types ', () => {
             previous: null,
             results: Array<teamInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(TEAM), { body: mockData, status: 200 });
-        const res = await fetchData(TEAM);
+        const url = urlBuilderFetchData(TEAM);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 
@@ -125,8 +131,9 @@ describe('fetchData for all card types ', () => {
             previous: null,
             results: Array<regionInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(REGION), { body: mockData, status: 200 });
-        const res = await fetchData(REGION);
+        const url = urlBuilderFetchData(REGION);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 
@@ -137,8 +144,9 @@ describe('fetchData for all card types ', () => {
             previous: null,
             results: Array<cityInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(CITY), { body: mockData, status: 200 });
-        const res = await fetchData(CITY);
+        const url = urlBuilderFetchData(CITY);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 
@@ -149,8 +157,9 @@ describe('fetchData for all card types ', () => {
             previous: null,
             results: Array<groupInterface>(),
         };
-        fetchMock.mock(urlBuilderFetchData(GROUP), { body: mockData, status: 200 });
-        const res = await fetchData(GROUP);
+        const url = urlBuilderFetchData(GROUP);
+        fetchMock.mock(url, { body: mockData, status: 200 });
+        const res = await fetchData(url);
         expect(res).toEqual(mockData);
     });
 });
