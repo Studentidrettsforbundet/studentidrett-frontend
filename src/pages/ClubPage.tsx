@@ -13,9 +13,8 @@ interface urlParams {
 
 const ClubPage = () => {
     const urlParams = useParams<urlParams>();
-
-    const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {

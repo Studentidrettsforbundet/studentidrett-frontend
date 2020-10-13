@@ -48,11 +48,10 @@ const store = createStore(
         club: clubReducer,
         team: teamReducer,
         group: groupReducer,
-        thunk: thunkReducer
+        thunk: thunkReducer,
     }),
     combinedState,
-    composeWithDevTools(applyMiddleware(thunk))
-
+    composeWithDevTools(applyMiddleware(thunk)),
 );
 
 export default store;

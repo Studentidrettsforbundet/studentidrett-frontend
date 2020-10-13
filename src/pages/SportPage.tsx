@@ -13,6 +13,7 @@ interface urlParams {
 }
 
 const SportPage = () => {
+    const regions = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
@@ -21,8 +22,6 @@ const SportPage = () => {
             dispatch(fetchDataThunk(SPORT));
         }
       });
-
-    const regions = useParams<urlParams>();
 
     const listContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name });

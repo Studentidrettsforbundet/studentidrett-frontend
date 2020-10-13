@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`teamPage renders correctly 1`] = `
+<div
+  className="container"
+>
+  <h1 />
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Men A
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        Elite team men
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Men B
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        Semi-elite team men
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Woman 12
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        Elite team woman
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Tigers
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        Semi-elite team woman
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Lions
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        beginner team woman
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Quickers
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        beginner team men
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Footzall 1
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        beginner team woman
+      </p>
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Footzall 2
+      </h5>
+      <img
+        alt="Team"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+      <p
+        className="text-center"
+      >
+        beginner team men
+      </p>
+    </div>
+  </div>
+</div>
+`;
