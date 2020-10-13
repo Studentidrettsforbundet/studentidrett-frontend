@@ -37,6 +37,26 @@ export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
 };
 */
 
+//TODO: add test: https://blog.learningdollars.com/2020/04/09/how-to-test-asynchronous-redux-actions-using-jest/
+
+export const fetchNextData = async (url: string) => {
+    try {
+        const res = await fetch(url, {
+            method: 'GET',
+            headers: new Headers({
+                Accept: 'application/json',
+            }),
+        });
+        if (checkForErrorCodes(res)) {
+            return 'Something went wrong';
+        } else {
+            return res.json();
+        }
+    } catch (error) {
+        return 'Connection error';
+    }
+};
+
 export const fetchData = async (cardType: cardType) => {
     try {
         const res = await fetch(urlBuilderFetchData(cardType), {
@@ -61,39 +81,50 @@ const checkForErrorCodes = (result: any): boolean => {
 
 export const fetchDataThunk = (
     dataType: cardType,
+    url: string = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     dispatch(fetchInProgressActionCreator());
-    const asyncResp = await fetchData(dataType);
+
+    let asyncResp;
+
+    if (url.length > 0) {
+        asyncResp = await fetchNextData(url);
+    } else {
+        asyncResp = await fetchData(dataType);
+    }
+
+    let result = [];
 
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
     } else {
         dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
+        result = asyncResp.results;
     }
 
     switch (dataType) {
         case REGION: {
-            dispatch(setRegionsActionCreator(asyncResp.result));
+            dispatch(setRegionsActionCreator(result));
             break;
         }
         case SPORT: {
-            dispatch(setSportsActionCreator(asyncResp.result));
+            dispatch(setSportsActionCreator(result));
             break;
         }
         case CLUB: {
-            dispatch(setClubsActionCreator(asyncResp.result));
+            dispatch(setClubsActionCreator(result));
             break;
         }
         case TEAM: {
-            dispatch(setTeamsActionCreator(asyncResp.result));
+            dispatch(setTeamsActionCreator(result));
             break;
         }
         case CITY: {
-            dispatch(setCitiesActionCreator(asyncResp.result));
+            dispatch(setCitiesActionCreator(result));
             break;
         }
         case GROUP: {
-            dispatch(setGroupsActionCreator(asyncResp.result));
+            dispatch(setGroupsActionCreator(result));
             break;
         }
         default: {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
-import { REGION } from '../constants';
+import { CLUB, REGION, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 
 const RegionPage = () => {
