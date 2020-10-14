@@ -13,7 +13,7 @@ interface urlParams {
     Club: string;
 }
 
-const TeamPage = () => {
+const GroupPage = () => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -45,4 +45,4 @@ const TeamPage = () => {
         </div>
     );
 };
-export default TeamPage;
+export default GroupPage;
