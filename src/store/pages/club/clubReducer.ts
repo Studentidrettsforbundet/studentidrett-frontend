@@ -13,7 +13,7 @@ export const clubInitialState: clubState = {
             name: 'NTNUI football',
             description: '',
             contact_email: 'info@ntnui.no',
-            pricing: 200,
+            pricing: '200 kr',
             register_info: 'Register at ntnui.no/register',
         },
         {
@@ -22,7 +22,7 @@ export const clubInitialState: clubState = {
             name: 'NTNUI amerikansk fotball',
             description: '',
             contact_email: 'info@ntnui.no',
-            pricing: 200,
+            pricing: '200 kr',
             register_info: 'Register at ntnui.no/register',
         },
     ],

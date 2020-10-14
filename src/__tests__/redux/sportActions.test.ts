@@ -32,4 +32,18 @@ describe('Actions', () => {
 
         expect(setSportsActionCreator(data)).toStrictEqual(expected);
     });
+
+    test('Should create an empty setSportsAction', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_SPORTS,
+            payload: [],
+        };
+
+        expect(setSportsActionCreator(data)).toStrictEqual(expected);
+    });
 });

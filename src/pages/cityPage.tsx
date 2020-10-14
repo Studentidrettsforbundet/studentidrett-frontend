@@ -1,6 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import CityCard from '../components/cityCard';
+import { CITY } from '../constants';
+import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
 
@@ -11,9 +13,16 @@ import { combinedStateInterface } from '../store/store';
  */
 
 const CityPage = () => {
-    const city = useSelector((state: combinedStateInterface) => state.city);
+    const reduxState = useSelector((state: combinedStateInterface) => state);
+    const dispatch = useDispatch();
 
-    const listContent = city.cities.map((entry) => {
+    useEffect(() => {
+        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+            dispatch(fetchDataThunk(CITY));
+        }
+      });
+
+    const listContent = reduxState.city.cities.map((entry) => {
         return CityCard({ id: entry.id, name: entry.name });
     });
 

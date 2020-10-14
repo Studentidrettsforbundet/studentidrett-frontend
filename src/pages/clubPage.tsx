@@ -1,7 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClubCard from '../components/clubCard';
+import { CLUB } from '../constants';
+import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
 /* TODO
@@ -18,10 +20,16 @@ interface urlParams {
 
 const ClubPage = () => {
     const urlParams = useParams<urlParams>();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
+    const dispatch = useDispatch();
 
-    const club = useSelector((state: combinedStateInterface) => state.club);
+    useEffect(() => {
+        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+            dispatch(fetchDataThunk(CLUB));
+        }
+      });
 
-    const listContent = club.clubs.map((entry) => {
+    const listContent = reduxState.club.clubs.map((entry) => {
         return ClubCard({
             id: entry.id,
             city: entry.city,

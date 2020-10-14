@@ -1,5 +1,5 @@
 import React from 'react';
-import { SET_REGIONS, setRegionActionCreator } from '../../store/pages/region/regionActions';
+import { SET_REGIONS, setRegionsActionCreator } from '../../store/pages/region/regionActions';
 
 describe('Actions', () => {
     test('Should create an empty setRegionsAction', () => {
@@ -8,7 +8,7 @@ describe('Actions', () => {
             payload: [],
         };
 
-        expect(setRegionActionCreator([])).toStrictEqual(expected);
+        expect(setRegionsActionCreator([])).toStrictEqual(expected);
     });
 
     test('Should create a setRegionsAction', () => {
@@ -25,6 +25,20 @@ describe('Actions', () => {
             payload: data,
         };
 
-        expect(setRegionActionCreator(data)).toStrictEqual(expected);
+        expect(setRegionsActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setRegionsActionCreator', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_REGIONS,
+            payload: [],
+        };
+
+        expect(setRegionsActionCreator(data)).toStrictEqual(expected);
     });
 });

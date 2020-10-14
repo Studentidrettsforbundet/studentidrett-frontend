@@ -1,7 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SportCard from '../components/sportCard';
+import { SPORT } from '../constants';
+import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
@@ -16,11 +18,17 @@ interface urlParams {
 }
 
 const SportPage = () => {
-    const sport = useSelector((state: combinedStateInterface) => state.sport);
-
     const regions = useParams<urlParams>();
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
 
-    const listContent = sport.sports.map((entry) => {
+    useEffect(() => {
+        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+            dispatch(fetchDataThunk(SPORT));
+        }
+      });
+
+    const listContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name });
     });
 

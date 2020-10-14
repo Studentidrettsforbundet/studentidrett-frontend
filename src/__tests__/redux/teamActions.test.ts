@@ -44,4 +44,18 @@ describe('Actions', () => {
 
         expect(setTeamsActionCreator(data)).toStrictEqual(expected);
     });
+
+    test('Should create an empty teamAction', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_TEAMS,
+            payload: [],
+        };
+
+        expect(setTeamsActionCreator(data)).toStrictEqual(expected);
+    });
 });
