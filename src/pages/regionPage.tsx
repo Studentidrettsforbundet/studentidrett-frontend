@@ -5,6 +5,12 @@ import RegionCard from '../components/regionCard';
 import { REGION } from '../constants';
 import { fetchDataThunk } from '../services/api';
 
+/* TODO
+ * Show list of cities categorized by region.
+ * RegionCard should contain cityCards.
+ * CityCards should link to "/:City"
+ */
+
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();

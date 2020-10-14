@@ -6,6 +6,7 @@ import { TEAM } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
+
 interface urlParams {
     Region: string;
     Sport: string;

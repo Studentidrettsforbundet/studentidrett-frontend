@@ -5,6 +5,13 @@ import { CITY } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
+
+/* TODO 
+ * combine sportpage and clubpage into this page.
+ * Sportcards should link to "/:City/Sport/:Sport"
+ * ClubCards should link to "/:City/:Club"
+ */
+
 const CityPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
