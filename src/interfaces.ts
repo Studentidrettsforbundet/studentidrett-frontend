@@ -63,4 +63,5 @@ export interface groupInterface {
 export interface regionInterface {
     id: number;
     name: string;
+    cities: [cityInterface];
 }

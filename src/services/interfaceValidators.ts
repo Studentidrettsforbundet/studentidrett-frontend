@@ -31,7 +31,11 @@ export const instanceOfGroup = (object: any): boolean => {
 };
 
 export const instanceOfSport = (object: any): boolean => {
-    return 'id' in object && 'name' in object && Object.keys(object).length === 2;
+    return (
+        'id' in object &&
+        'name' in object &&
+        Object.keys(object).length === 2
+    );
 };
 
 export const instanceOfClub = (object: any): boolean => {

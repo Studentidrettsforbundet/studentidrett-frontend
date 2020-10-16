@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import ClubCard from '../components/clubCard';
-import { CLUB } from '../constants';
+import GroupCard from '../components/groupCard';
+import { CLUB, GROUP } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
@@ -25,19 +25,20 @@ const ClubPage = () => {
 
     useEffect(() => {
         if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
-            dispatch(fetchDataThunk(CLUB));
+            dispatch(fetchDataThunk(GROUP));
         }
-      });
+    });
 
-    const listContent = reduxState.club.clubs.map((entry) => {
-        return ClubCard({
+    const listContent = reduxState.group.groups.map((entry) => {
+        return GroupCard({
             id: entry.id,
-            city: entry.city,
             name: entry.name,
             description: entry.description,
+            cover_photo: entry.cover_photo,
+            sports: entry.sports,
+            club: entry.club,
+            city: entry.city,
             contact_email: entry.contact_email,
-            pricing: entry.pricing,
-            register_info: entry.register_info,
         });
     });
 

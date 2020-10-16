@@ -6,7 +6,7 @@ import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
-const RegionCard = ({ id, name }: regionInterface) => {
+const RegionCard = ({ id, name, cities }: regionInterface) => {
     const dispatch = useDispatch();
     return (
         <Link to={name} key={id} className={'unstyled_link'} onClick={()=>dispatch(resetFetchStatusesActionCreator())}>
