@@ -7,9 +7,7 @@ export const makeInputSafe = (inputString: string, maxLength: number): string =>
     const normalized = stringNormalization(inputString);
     const trimmed = trimWhiteSpaces(normalized);
     const encoded = urlEncoding(trimmed);
-    const lowercase = encoded.toLocaleLowerCase();
-
-    return lowercase;
+    return encoded;
 };
 
 /**

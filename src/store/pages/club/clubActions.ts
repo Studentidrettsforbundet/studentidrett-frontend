@@ -1,4 +1,5 @@
 import { clubInterface } from '../../../interfaces';
+import { instanceOfClub } from '../../../services/interfaceValidators';
 
 export const SET_CLUBS = 'SET_CLUBS';
 
@@ -9,9 +10,15 @@ interface setClubsAction {
 
 export type clubActionTypes = setClubsAction;
 
-export const setClubActionCreator = (data: clubInterface[]): clubActionTypes => {
+export const setClubsActionCreator = (data: clubInterface[]): clubActionTypes => {
+    if (data.every(instanceOfClub)) {
+        return {
+            type: SET_CLUBS,
+            payload: data,
+        };
+    }
     return {
         type: SET_CLUBS,
-        payload: data,
+        payload: [],
     };
 };

@@ -1,13 +1,14 @@
 import React from 'react';
-import SearchBar from './components/searchBar';
-// Minimum bootstrap CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { CLUB, REGION } from './constants';
+import { Link } from 'react-router-dom';
+import './styles/global.css';
 
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const App = () => {
     return (
         <div className="App">
-            <SearchBar typeOfSearch={CLUB} />
+            <h1>Hello</h1>
+            <Link to="/Regions">Regions</Link>
         </div>
     );
 }

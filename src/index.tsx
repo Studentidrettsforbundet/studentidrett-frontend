@@ -4,3 +4,5 @@ import createRoutes from './routes';
 const routes = createRoutes();
 
 ReactDOM.render(routes, document.getElementById('root'));
+
+export default routes;

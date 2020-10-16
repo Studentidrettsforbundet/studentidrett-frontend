@@ -1,5 +1,5 @@
 import React from 'react';
-import { setCityActionCreator, SET_CITIES } from '../../store/pages/city/cityActions';
+import { setCitiesActionCreator, SET_CITIES } from '../../store/pages/city/cityActions';
 
 describe('Actions', () => {
     test('Should create an empty setCityAction', () => {
@@ -8,7 +8,7 @@ describe('Actions', () => {
             payload: [],
         };
 
-        expect(setCityActionCreator([])).toStrictEqual(expected);
+        expect(setCitiesActionCreator([])).toStrictEqual(expected);
     });
 
     test('Should create a setCityAction', () => {
@@ -24,6 +24,20 @@ describe('Actions', () => {
             payload: data,
         };
 
-        expect(setCityActionCreator(data)).toStrictEqual(expected);
+        expect(setCitiesActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setCityAction', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_CITIES,
+            payload: [],
+        };
+
+        expect(setCitiesActionCreator(data)).toStrictEqual(expected);
     });
 });

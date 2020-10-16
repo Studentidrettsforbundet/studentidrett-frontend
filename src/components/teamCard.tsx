@@ -3,7 +3,7 @@ import { teamInterface } from '../interfaces';
 import image from './placeholder.png';
 import TeamCardExpanded from './teamCardExpanded';
 
-const TeamCard = (team: teamInterface) => {
+const TeamCard = ({id, name, short_description,full_capacity,group,long_description,registration_open,tryouts }: teamInterface) => {
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpanded = () => {
@@ -11,19 +11,19 @@ const TeamCard = (team: teamInterface) => {
     };
 
     return (
-        <div className="card Region" key={team.id} onClick={() => toggleExpanded()}>
+        <div className="card Region" key={id} onClick={() => toggleExpanded()}>
             <div className="card-body">
-                <h5 className="card-title">{team.name}</h5>
+                <h5 className="card-title">{name}</h5>
                 <img className="card-img-top" src={image} alt="Team"></img>
                 {expanded ? (
                     <TeamCardExpanded
-                        long_description={team.long_description}
-                        full_capacity={team.full_capacity}
-                        tryouts={team.tryouts}
-                        registration_open={team.registration_open}
+                        long_description={long_description}
+                        full_capacity={full_capacity}
+                        tryouts={tryouts}
+                        registration_open={registration_open}
                     />
                 ) : (
-                    <p className="text-center">{team.short_description}</p>
+                    <p className="text-center">{short_description}</p>
                 )}
             </div>
         </div>
