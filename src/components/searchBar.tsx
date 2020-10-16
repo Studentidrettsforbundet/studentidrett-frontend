@@ -11,10 +11,6 @@ interface searchBarProps {
 }
 
 const SearchBar = ({ typeOfSearch }: searchBarProps) => {
-    useEffect(() => {
-        simpleSearch('NTNUI fotball', typeOfSearch).then((result) => console.log(result));
-    }, []);
-    console.log(typeOfSearch);
     const handleSearch = () => {};
 
     return (

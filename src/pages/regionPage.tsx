@@ -4,6 +4,7 @@ import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
 import { REGION } from '../constants';
 import { fetchDataThunk } from '../services/api';
+import SearchBar from '../components/searchBar';
 
 /* TODO
  * Show list of cities categorized by region.
@@ -26,10 +27,12 @@ const RegionPage = () => {
     });
 
     return (
+
         <div className="container">
             <h1>Regions</h1>
-            <p>Choose a region </p>
+            <img src={require('../assets/search.svg')} alt="Search icon" className={''} ></img>
             {listContent}
+            <SearchBar typeOfSearch={REGION} />
         </div>
     );
 };

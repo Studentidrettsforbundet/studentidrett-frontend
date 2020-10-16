@@ -13,10 +13,7 @@ import {
     fetchFailedActionCreator,
     fetchSuccessActionCreator,
 } from '../store/thunks/thunkActions';
-import { urlBuilderFetchData } from './urlBuilders';
-
-/*
-THIS IS WORK IN PROGRESS, AND WILL BE DONE IN THE BRANCH SIMPLE SEARCH
+import { urlBuilderFetchData, urlBuilderSimpleSearch } from './urlBuilders';
 
 export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
     try {
@@ -35,7 +32,6 @@ export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
         return 'Connection error';
     }
 };
-*/
 
 export const fetchData = async (url: string) => {
     try {
