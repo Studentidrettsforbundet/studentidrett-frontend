@@ -16,27 +16,15 @@ import {
 import { urlBuilderFetchData, urlBuilderSimpleSearch } from './urlBuilders';
 
 export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
-    try {
-        const res = await fetch(urlBuilderSimpleSearch(cardType, queryUrl), {
-            method: 'GET',
-            headers: new Headers({
-                Accept: 'application/json',
-            }),
-        });
-        if (checkForErrorCodes(res)) {
-            return 'Something went wrong';
-        } else {
-            return res.json();
-        }
-    } catch (error) {
-        return 'Connection error';
-    }
+    const result = await fetchData(urlBuilderSimpleSearch(cardType, queryUrl));
+    return result;
 };
 
 export const fetchData = async (url: string) => {
     try {
         const res = await fetch(url, {
             method: 'GET',
+            mode: 'no-cors',
             headers: new Headers({
                 Accept: 'application/json',
             }),

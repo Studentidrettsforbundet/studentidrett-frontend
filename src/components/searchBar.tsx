@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
+import React from 'react';
+import { useForm } from "react-hook-form";
 import Button from 'react-bootstrap/Button';
 import '../styles/searchBar.css';
-import { cardType, SPORT } from '../constants';
+import { cardType, CITY, CLUB, SPORT } from '../constants';
 import { simpleSearch } from '../services/api';
 
 interface searchBarProps {
@@ -11,24 +10,29 @@ interface searchBarProps {
 }
 
 const SearchBar = ({ typeOfSearch }: searchBarProps) => {
-    const handleSearch = () => {};
+    const { handleSubmit, register } = useForm();
+    
+    const onSubmit = async (data :any) => {
+        const answer = await simpleSearch(data.searchString, CITY);
+        console.log(answer);
+    }
 
     return (
-        <div className="searchBar">
-            <Form>
-                <Form.Row>
-                    <Form.Group as={Col} controlId="searchField">
-                        <Form.Control type="string" placeholder="Search..." />
-                    </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                    <Col>
+        <div className="searchBar container">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className={'row'}>
+                    <div className={'col'}>
+                        <input name="searchString" className={'form-control'} placeholder="Search..." ref={register}/>
+                    </div>
+                </div>
+                <div className={'row'}>
+                    <div className={'col'}>
                         <Button variant="primary" type="submit">
                             Show results
                         </Button>
-                    </Col>
-                </Form.Row>
-            </Form>
+                    </div>
+                </div>
+            </form>
         </div>
     );
 };
