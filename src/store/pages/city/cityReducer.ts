@@ -31,3 +31,15 @@ export const cityReducer = (state = cityInitialState, action: cityActionTypes): 
         }
     }
 };
+
+export interface cityByRegion {
+    cities: cityInterface[][];
+}
+
+export const citybyregion: cityByRegion = {
+    cities: 
+        [[cityInitialState.cities[0], cityInitialState.cities[5], cityInitialState.cities[6], cityInitialState.cities[7]],
+        [cityInitialState.cities[1]],
+        [cityInitialState.cities[2], cityInitialState.cities[3]],
+        [cityInitialState.cities[4]]]      
+};

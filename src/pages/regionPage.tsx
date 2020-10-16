@@ -21,13 +21,10 @@ const RegionPage = () => {
         }
     });
 
-    const listCities = reduxState.city.cities.map((entry) => {
-        return RegionCard({ id: entry.id, name: entry.name, cities: [entry]});
+    const listContent = reduxState.city.cities.map((entry) => {
+        return RegionCard({ id: entry.id, name: entry.region, cities: [entry]});
     });
 
-    const listContent = reduxState.region.regions.map((entry) => {
-        return RegionCard({ id: entry.id, name: entry.name });
-    });
 
     return (
         <div className="container">

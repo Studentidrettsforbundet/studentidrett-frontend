@@ -1,5 +1,6 @@
 import { regionInterface } from '../../../interfaces';
 import { regionActionTypes, SET_REGIONS } from './regionActions';
+import { citybyregion } from '../city/cityReducer';
 
 export interface regionState {
     regions: regionInterface[];
@@ -7,11 +8,10 @@ export interface regionState {
 
 export const regionInitialState: regionState = {
     regions: [
-        { id: 0, name: 'Midtnorge' },
-        { id: 1, name: 'Oslo/Viken' },
-        { id: 2, name: 'Nord norge' },
-        { id: 3, name: 'Vestlandet' },
-        { id: 4, name: 'Sørlandet' },
+        { id: 0, name: 'Midtnorge', cities: citybyregion.cities[0] },
+        { id: 1, name: 'Oslo/Viken', cities: citybyregion.cities[1]},
+        { id: 3, name: 'Vestlandet', cities: citybyregion.cities[2]},
+        { id: 4, name: 'Sørlandet', cities: citybyregion.cities[3]},
     ],
 };
 

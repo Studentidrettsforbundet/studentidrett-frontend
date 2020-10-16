@@ -11,7 +11,7 @@ describe('regionCard', () => {
         const tree = renderer
             .create(<Provider store={store}>
                 <MemoryRouter>
-                    <RegionCard id={0} name={"MidtNorge"} />
+                    <RegionCard id={0} name={"MidtNorge"} cities={[]}/>
                 </MemoryRouter>
             </Provider>);
         expect(tree).toMatchSnapshot();
