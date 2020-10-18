@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/searchIcon';
 import TeamCard from '../components/teamCard';
 import { GROUP, TEAM } from '../constants';
 import { fetchDataThunk } from '../services/api';
@@ -15,7 +16,6 @@ interface urlParams {
 
 const GroupPage = () => {
     const urlParams = useParams<urlParams>();
-    const [showSearch, toggleSearch] = useState(false);
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
@@ -49,14 +49,15 @@ const GroupPage = () => {
 
     return (
         <div className="container">
-            <h1>{urlParams.Club}</h1>
-            <img
-                src={require('../assets/search.svg')}
-                alt="Search icon"
-                className={'search_icon'}
-                onClick={() => toggleSearch(!showSearch)}
-            />
-            {showSearch ? <SearchBar typeOfSearch={GROUP} /> : null}
+            <div className="row">
+                <div className="col">
+                    <h1>{urlParams.Club}</h1>
+                </div>
+                <div className="col search_icon-container">
+                    <SearchIcon />
+                </div>
+            </div>
+            <SearchBar typeOfSearch={GROUP} />
             {listContent}
         </div>
     );

@@ -7,6 +7,7 @@ import { groupInitialState, groupReducer, groupState } from './pages/group/group
 import { regionInitialState, regionReducer, regionState } from './pages/region/regionReducer';
 import { sportInitialState, sportReducer, sportState } from './pages/sport/sportReducer';
 import { teamInitialState, teamReducer, teamState } from './pages/team/teamReducer';
+import { searchBarInitialState, searchBarReducer, searchBarState } from './searchBar/searchBarReducer';
 import { thunkInitialState, thunkReducer, thunkState } from './thunks/thunkReducer';
 
 declare global {
@@ -26,6 +27,7 @@ export interface combinedStateInterface {
     team: teamState;
     group: groupState;
     thunk: thunkState;
+    searchBar: searchBarState;
 }
 
 // TODO: add all pages state here
@@ -37,6 +39,7 @@ export const combinedState = {
     team: teamInitialState,
     group: groupInitialState,
     thunk: thunkInitialState,
+    searchBar: searchBarInitialState,
 };
 
 // create store
@@ -49,6 +52,7 @@ const store = createStore(
         team: teamReducer,
         group: groupReducer,
         thunk: thunkReducer,
+        searchBar: searchBarReducer,
     }),
     combinedState,
     composeWithDevTools(applyMiddleware(thunk)),

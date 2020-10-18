@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/regionCard';
 import { REGION } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/searchIcon';
 
 /* TODO
  * Show list of cities categorized by region.
@@ -15,7 +16,6 @@ import SearchBar from '../components/searchBar';
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
-    const [showSearch, toggleSearch] = useState(false);
 
     useEffect(() => {
         console.log('Loading');
@@ -39,15 +39,10 @@ const RegionPage = () => {
                     <h1>Regions</h1>
                 </div>
                 <div className="col search_icon-container">
-                    <img
-                        src={require('../assets/search.svg')}
-                        alt="Search icon"
-                        className={'search_icon'}
-                        onClick={() => toggleSearch(!showSearch)}
-                    />
+                    <SearchIcon />
                 </div>
             </div>
-            {showSearch ? <SearchBar typeOfSearch={REGION} /> : null}
+            <SearchBar typeOfSearch={REGION} />
             {listContent}
         </div>
     );

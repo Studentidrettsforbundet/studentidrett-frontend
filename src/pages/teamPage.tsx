@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/searchIcon';
 import TeamCard from '../components/teamCard';
 import { TEAM } from '../constants';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 import { combinedStateInterface } from '../store/store';
 
 interface urlParams {
@@ -14,11 +16,10 @@ interface urlParams {
 
 const TeamPage = () => {
     const urlParams = useParams<urlParams>();
-    const [showSearch, toggleSearch] = useState(false);
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
 
-    const team = useSelector((state: combinedStateInterface) => state.team);
-
-    const listContent = team.teams.map((entry) => {
+    const listContent = reduxState.team.teams.map((entry) => {
         return TeamCard({
             id: entry.id,
             name: entry.name,
@@ -33,14 +34,16 @@ const TeamPage = () => {
 
     return (
         <div className="container">
-            <h1>{urlParams.Club}</h1>
-            <img
-                src={require('../assets/search.svg')}
-                alt="Search icon"
-                className={'search_icon'}
-                onClick={() => toggleSearch(!showSearch)}
-            />
-            {showSearch ? <SearchBar typeOfSearch={TEAM} /> : null}
+            <div className="row">
+                <div className="col">
+                    <h1>{urlParams.Club}</h1>
+                </div>
+                <div className="col search_icon-container">
+                    <SearchIcon />
+                </div>
+            </div>
+            <SearchBar typeOfSearch={TEAM} />
+            <p>The sport has clubs in these cities: </p>
             {listContent}
         </div>
     );
