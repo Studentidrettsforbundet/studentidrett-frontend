@@ -24,21 +24,30 @@ const ClubPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+        if (
+            !reduxState.thunk.fetch_in_progress &&
+            reduxState.thunk.fetch_failed_count < 3 &&
+            !reduxState.thunk.fetch_success
+        ) {
             dispatch(fetchDataThunk(CLUB));
         }
-      });
+    });
 
     const listContent = reduxState.club.clubs.map((entry) => {
-        return ClubCard({
-            id: entry.id,
-            city: entry.city,
-            name: entry.name,
-            description: entry.description,
-            contact_email: entry.contact_email,
-            pricing: entry.pricing,
-            register_info: entry.register_info,
-        });
+        return (
+            <ClubCard
+                {...{
+                    id: entry.id,
+                    city: entry.city,
+                    name: entry.name,
+                    description: entry.description,
+                    contact_email: entry.contact_email,
+                    pricing: entry.pricing,
+                    register_info: entry.register_info,
+                }}
+                key={entry.id}
+            />
+        );
     });
 
     return (
