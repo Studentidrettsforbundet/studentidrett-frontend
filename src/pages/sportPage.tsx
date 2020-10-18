@@ -23,13 +23,17 @@ const SportPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
-        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+        if (
+            !reduxState.thunk.fetch_in_progress &&
+            reduxState.thunk.fetch_failed_count < 3 &&
+            !reduxState.thunk.fetch_success
+        ) {
             dispatch(fetchDataThunk(SPORT));
         }
-      });
+    });
 
     const listContent = reduxState.sport.sports.map((entry) => {
-        return SportCard({ id: entry.id, name: entry.name });
+        return <SportCard {...{ id: entry.id, name: entry.name }} key={entry.id} />;
     });
 
     return (
