@@ -19,7 +19,7 @@ describe('Actions', () => {
                 name: 'NTNUI football',
                 description: '',
                 contact_email: 'info@ntnui.no',
-                pricing: 200,
+                membership_fee: 200,
                 register_info: 'Register at ntnui.no/register',
             },
             {
@@ -28,7 +28,7 @@ describe('Actions', () => {
                 name: 'NTNUI amerikansk fotball',
                 description: '',
                 contact_email: 'info@ntnui.no',
-                pricing: 200,
+                membership_fee: 200,
                 register_info: 'Register at ntnui.no/register',
             },
         ];
