@@ -17,14 +17,14 @@ const RegionPage = () => {
     const dispatch = useDispatch();
     const [showSearch, toggleSearch] = useState(false)
 
-  /*
+
     useEffect(() => {
         console.log("Loading")
         if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
             dispatch(fetchDataThunk(REGION));
         }
     });
-*/
+
       const listContent = reduxState.region.regions.map((entry) => {
         return RegionCard({ id: entry.id, name: entry.name });
     });

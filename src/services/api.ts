@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
+import { apiReturnsDifferentDataFormat, cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator } from '../store/pages/club/clubActions';
 import { setGroupsActionCreator } from '../store/pages/group/groupActions';
@@ -13,18 +13,12 @@ import {
     fetchFailedActionCreator,
     fetchSuccessActionCreator,
 } from '../store/thunks/thunkActions';
-import { urlBuilderFetchData, urlBuilderSimpleSearch } from './urlBuilders';
-
-export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
-    const result = await fetchData(urlBuilderSimpleSearch(cardType, queryUrl));
-    return result;
-};
+import { urlBuilderFetchData } from './urlBuilders';
 
 export const fetchData = async (url: string) => {
     try {
         const res = await fetch(url, {
             method: 'GET',
-            mode: 'no-cors',
             headers: new Headers({
                 Accept: 'application/json',
             }),
@@ -46,6 +40,7 @@ export const checkForErrorCodes = (result: any): boolean => {
 export const fetchDataThunk = (
     dataType: cardType,
     url: string = '',
+    thisIsASearch: boolean = false,
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     dispatch(fetchInProgressActionCreator());
 
@@ -58,14 +53,18 @@ export const fetchDataThunk = (
         //Fetch based on cardType
         asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
-
     let result = [];
 
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
     } else {
-        dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
-        result = asyncResp.results;
+        if (apiReturnsDifferentDataFormat && thisIsASearch) {
+            dispatch(fetchSuccessActionCreator({ next: null, previous: null }));
+            result = asyncResp;
+        } else {
+            dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
+            result = asyncResp.results;
+        }
     }
 
     switch (dataType) {

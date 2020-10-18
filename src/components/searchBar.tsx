@@ -3,35 +3,38 @@ import { useForm } from "react-hook-form";
 import Button from 'react-bootstrap/Button';
 import '../styles/searchBar.css';
 import { cardType, CITY, CLUB, SPORT } from '../constants';
-import { simpleSearch } from '../services/api';
+import { fetchDataThunk } from '../services/api';
+import { Col, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { urlBuilderSimpleSearch } from '../services/urlBuilders';
 
 interface searchBarProps {
     typeOfSearch: cardType;
 }
 
-const SearchBar = ({ typeOfSearch }: searchBarProps) => {
+const SearchBar = (searchBarProps: searchBarProps) => {
     const { handleSubmit, register } = useForm();
+    const dispatch = useDispatch();
     
     const onSubmit = async (data :any) => {
-        const answer = await simpleSearch(data.searchString, CITY);
-        console.log(answer);
+        dispatch(fetchDataThunk(searchBarProps.typeOfSearch, urlBuilderSimpleSearch(searchBarProps.typeOfSearch, data.searchString), true));
     }
 
     return (
         <div className="searchBar container">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className={'row'}>
-                    <div className={'col'}>
+                <Row>
+                    <Col>
                         <input name="searchString" className={'form-control'} placeholder="Search..." ref={register}/>
-                    </div>
-                </div>
-                <div className={'row'}>
-                    <div className={'col'}>
+                    </Col>
+                </Row>
+                <Row className={'row'}>
+                    <Col className={'col'}>
                         <Button variant="primary" type="submit">
                             Show results
                         </Button>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </form>
         </div>
     );
