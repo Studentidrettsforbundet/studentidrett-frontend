@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CityCard from '../components/cityCard';
+import SearchBar from '../components/searchBar';
 import { CITY } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -13,6 +14,7 @@ import { combinedStateInterface } from '../store/store';
 
 const CityPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
+    const [showSearch, toggleSearch] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -32,6 +34,13 @@ const CityPage = () => {
     return (
         <div className="container">
             <h1>Cities</h1>
+            <img
+                src={require('../assets/search.svg')}
+                alt="Search icon"
+                className={'search_icon'}
+                onClick={() => toggleSearch(!showSearch)}
+            />
+            {showSearch ? <SearchBar typeOfSearch={CITY} /> : null}
             <p>The sport has clubs in these cities: </p>
             {listContent}
         </div>

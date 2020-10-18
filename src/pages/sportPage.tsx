@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import SearchBar from '../components/searchBar';
 import SportCard from '../components/sportCard';
 import { SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
@@ -19,6 +20,7 @@ interface urlParams {
 
 const SportPage = () => {
     const regions = useParams<urlParams>();
+    const [showSearch, toggleSearch] = useState(false);
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
@@ -39,7 +41,14 @@ const SportPage = () => {
     return (
         <div className="container">
             <h1>Sports</h1>
+            <img
+                src={require('../assets/search.svg')}
+                alt="Search icon"
+                className={'search_icon'}
+                onClick={() => toggleSearch(!showSearch)}
+            />
             <p>Chose sport in {regions.Region}: </p>
+            {showSearch ? <SearchBar typeOfSearch={SPORT} /> : null}
             {listContent}
         </div>
     );

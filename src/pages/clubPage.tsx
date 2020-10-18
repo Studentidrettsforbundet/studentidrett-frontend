@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClubCard from '../components/clubCard';
 import SearchBar from '../components/searchBar';
-import { CLUB, REGION } from '../constants';
+import { CLUB } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 
