@@ -14,6 +14,18 @@ describe('urlBuilderSimpleSearch', () => {
         const answer = BASE_URL + '/search/?q=clubs/' + 'Football%20lag%20i%20Trondheim';
         expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
     });
+
+    test('Should return normal fetch if empty string', () => {
+        const case1 = '';
+        const answer = urlBuilderFetchData(CLUB);
+        expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
+    });
+
+    test('Should return normal fetch if long empty string', () => {
+        const case1 = '                            ';
+        const answer = urlBuilderFetchData(CLUB);
+        expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
+    });
 });
 
 describe('urlBuilderFetchData', () => {

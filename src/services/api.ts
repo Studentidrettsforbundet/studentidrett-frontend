@@ -40,11 +40,9 @@ export const checkForErrorCodes = (result: any): boolean => {
 export const fetchDataThunk = (
     dataType: cardType,
     url: string = '',
-    thisIsASearch: boolean = false,
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
-    dispatch(fetchInProgressActionCreator());
-
     let asyncResp;
+    dispatch(fetchInProgressActionCreator());
 
     if (url.length > 0) {
         //Fetch next data (scrolling)

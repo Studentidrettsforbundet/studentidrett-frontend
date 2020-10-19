@@ -38,53 +38,5 @@ exports[`clubPage renders correctly 1`] = `
   <p>
     Select club
   </p>
-  <a
-    className="unstyled_link"
-    href="//NTNUI football"
-    onClick={[Function]}
-  >
-    <div
-      className="card Region"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          NTNUI football
-        </h5>
-        <img
-          alt="Club"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//NTNUI amerikansk fotball"
-    onClick={[Function]}
-  >
-    <div
-      className="card Region"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          NTNUI amerikansk fotball
-        </h5>
-        <img
-          alt="Club"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
 </div>
 `;

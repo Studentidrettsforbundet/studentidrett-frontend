@@ -23,7 +23,6 @@ const SearchBar = (searchBarProps: searchBarProps) => {
             fetchDataThunk(
                 searchBarProps.typeOfSearch,
                 urlBuilderSimpleSearch(searchBarProps.typeOfSearch, data.searchString),
-                true,
             ),
         );
     };
