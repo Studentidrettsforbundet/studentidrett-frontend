@@ -4,252 +4,36 @@ exports[`sportPage renders correctly 1`] = `
 <div
   className="container"
 >
-  <h1>
-    Sports
-  </h1>
-  <p>
-    Chose sport in 
-    : 
-  </p>
-  <a
-    className="unstyled_link"
-    href="//Football"
-    onClick={[Function]}
+  <div
+    className="row"
   >
     <div
-      className="card Sport"
+      className="col"
     >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Football
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
+      <h1>
+        Sports
+      </h1>
     </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Handball"
-    onClick={[Function]}
-  >
     <div
-      className="card Sport"
+      className="col search_icon-container"
     >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Handball
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
+      <img
+        alt="Search icon"
+        className="search_icon"
+        onClick={[Function]}
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "search.svg",
+          }
+        }
+      />
     </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Basketball"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Basketball
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//American football"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          American football
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Baseball"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Baseball
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Hockey"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Hockey
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Tennis"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Tennis
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Cross country skiing"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Cross country skiing
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Rowing"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Rowing
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//Fencing"
-    onClick={[Function]}
-  >
-    <div
-      className="card Sport"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          Fencing
-        </h5>
-        <img
-          alt="Sport"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
+  </div>
+  <div />
 </div>
 `;

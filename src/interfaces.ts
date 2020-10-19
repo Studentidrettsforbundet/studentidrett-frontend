@@ -28,12 +28,12 @@ export interface teamInterface {
 }
 
 export interface clubInterface {
-    id: number;
     city: number;
-    name: string;
-    description: string;
     contact_email: string;
-    pricing: string;
+    description: string;
+    id: number;
+    membership_fee: string;
+    name: string;
     register_info: string;
 }
 

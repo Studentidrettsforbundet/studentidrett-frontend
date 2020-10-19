@@ -6,13 +6,7 @@ export interface regionState {
 }
 
 export const regionInitialState: regionState = {
-    regions: [
-        { id: 0, name: 'Midtnorge' },
-        { id: 1, name: 'Oslo/Viken' },
-        { id: 2, name: 'Nord norge' },
-        { id: 3, name: 'Vestlandet' },
-        { id: 4, name: 'Sørlandet' },
-    ],
+    regions: [],
 };
 
 export const regionReducer = (state = regionInitialState, action: regionActionTypes): regionState => {
