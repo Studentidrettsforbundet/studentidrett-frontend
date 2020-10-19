@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clubCard renders correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/MidtNorge/Fotball/NTNUIFotball"
+  onClick={[Function]}
+>
+  <div
+    className="card Region"
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        NTNUIFotball
+      </h5>
+      <img
+        alt="Club"
+        className="card-img-top"
+        src="placeholder.png"
+      />
+    </div>
+  </div>
+</a>
+`;
