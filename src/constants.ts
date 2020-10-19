@@ -8,4 +8,3 @@ export const CITY = 'cities';
 export const GROUP = 'groups';
 
 export type cardType = typeof CLUB | typeof SPORT | typeof TEAM | typeof REGION | typeof CITY | typeof GROUP;
-export const apiReturnsDifferentDataFormat = true;

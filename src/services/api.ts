@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { apiReturnsDifferentDataFormat, cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
+import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator } from '../store/pages/club/clubActions';
 import { setGroupsActionCreator } from '../store/pages/group/groupActions';
@@ -58,13 +58,8 @@ export const fetchDataThunk = (
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
         dispatch(fetchFailedActionCreator());
     } else {
-        if (apiReturnsDifferentDataFormat && thisIsASearch) {
-            dispatch(fetchSuccessActionCreator({ next: null, previous: null }));
-            result = asyncResp;
-        } else {
-            dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
-            result = asyncResp.results;
-        }
+        dispatch(fetchSuccessActionCreator({ next: asyncResp.next, previous: asyncResp.previous }));
+        result = asyncResp.results;
     }
 
     switch (dataType) {

@@ -18,7 +18,6 @@ const RegionPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('Loading');
         if (
             !reduxState.thunk.fetch_in_progress &&
             reduxState.thunk.fetch_failed_count < 3 &&
