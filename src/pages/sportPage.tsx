@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/searchIcon';
 import SportCard from '../components/sportCard';
 import { SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
@@ -38,8 +40,15 @@ const SportPage = () => {
 
     return (
         <div className="container body">
-            <h1>Sports</h1>
-            <p>Chose sport in {regions.Region}: </p>
+            <div className="row">
+                <div className="col">
+                    <h1>Sports</h1>
+                </div>
+                <div className="col search_icon-container">
+                    <SearchIcon />
+                </div>
+            </div>
+            <SearchBar typeOfSearch={SPORT} />
             <div className="card-deck">
                 {listContent}
             </div>

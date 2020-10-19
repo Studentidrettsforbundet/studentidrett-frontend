@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClubCard from '../components/clubCard';
+import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/searchIcon';
 import { CLUB } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -42,7 +44,7 @@ const ClubPage = () => {
                     name: entry.name,
                     description: entry.description,
                     contact_email: entry.contact_email,
-                    pricing: entry.pricing,
+                    membership_fee: entry.membership_fee,
                     register_info: entry.register_info,
                 }}
                 key={entry.id}
@@ -52,8 +54,16 @@ const ClubPage = () => {
 
     return (
         <div className="container body">
-            <h1>{urlParams.Sport}</h1>
-            <h1>Clubs</h1>
+            <div className="row">
+                <div className="col">
+                    <h1>Cities</h1>
+                </div>
+                <div className="col search_icon-container">
+                    <SearchIcon />
+                </div>
+            </div>
+            <SearchBar typeOfSearch={CLUB} />
+            <p>Select club</p>
             <div className="card-columns">
                 {listContent}
             </div>

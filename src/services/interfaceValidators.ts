@@ -41,7 +41,7 @@ export const instanceOfClub = (object: any): boolean => {
         'name' in object &&
         'description' in object &&
         'contact_email' in object &&
-        'pricing' in object &&
+        'membership_fee' in object &&
         'register_info' in object &&
         Object.keys(object).length === 7
     );
