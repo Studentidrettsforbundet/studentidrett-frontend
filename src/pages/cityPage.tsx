@@ -21,7 +21,7 @@ const CityPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(CITY));
+            //dispatch(fetchDataThunk(CITY));
         }
     });
 
@@ -30,10 +30,11 @@ const CityPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <h1>Cities</h1>
             <p>The sport has clubs in these cities: </p>
-            {listContent}
+                {listContent}
+            
         </div>
     );
 };

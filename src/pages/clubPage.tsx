@@ -29,7 +29,7 @@ const ClubPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(CLUB));
+            //dispatch(fetchDataThunk(CLUB));
         }
     });
 
@@ -51,10 +51,12 @@ const ClubPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <h1>{urlParams.Sport}</h1>
-            <p>Select club</p>
-            {listContent}
+            <h1>Clubs</h1>
+            <div className="card-columns">
+                {listContent}
+            </div>
         </div>
     );
 };

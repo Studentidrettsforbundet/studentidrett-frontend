@@ -28,7 +28,7 @@ const SportPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(SPORT));
+            //dispatch(fetchDataThunk(SPORT));
         }
     });
 
@@ -37,10 +37,12 @@ const SportPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <h1>Sports</h1>
             <p>Chose sport in {regions.Region}: </p>
-            {listContent}
+            <div className="card-deck">
+                {listContent}
+            </div>
         </div>
     );
 };

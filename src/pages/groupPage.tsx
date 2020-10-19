@@ -23,7 +23,7 @@ const GroupPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(TEAM));
+            //dispatch(fetchDataThunk(TEAM));
         }
     });
 
@@ -46,9 +46,11 @@ const GroupPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <h1>{urlParams.Club}</h1>
-            {listContent}
+            <div className="card-columns">
+                {listContent}
+            </div>
         </div>
     );
 };

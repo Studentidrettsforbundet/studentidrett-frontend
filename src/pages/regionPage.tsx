@@ -21,7 +21,7 @@ const RegionPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(REGION));
+            //dispatch(fetchDataThunk(REGION));
         }
     });
 
@@ -30,7 +30,7 @@ const RegionPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <h1>Regions</h1>
             <p>Choose a region </p>
             {listContent}
