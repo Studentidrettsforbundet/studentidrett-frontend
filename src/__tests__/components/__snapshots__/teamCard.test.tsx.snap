@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`teamCard renders correctly 1`] = `
+<div
+  className="card Region"
+  onClick={[Function]}
+>
+  <div
+    className="card-body"
+  >
+    <h5
+      className="card-title"
+    >
+      Men A
+    </h5>
+    <img
+      alt="Team"
+      className="card-img-top"
+      src="placeholder.png"
+    />
+    <p
+      className="text-center"
+    >
+      This is where the short description goes
+    </p>
+  </div>
+</div>
+`;
+
+exports[`teamCard renders expanded card correctly 1`] = `
+Array [
+  <p
+    className="text-center"
+  >
+    This is a long description
+  </p>,
+  <p>
+    This team has available positions
+  </p>,
+  <p>
+    This requires tryouts
+  </p>,
+  <p>
+    This team is open for registrations
+  </p>,
+]
+`;
