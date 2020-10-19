@@ -28,7 +28,7 @@ const SportPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            //dispatch(fetchDataThunk(SPORT));
+            dispatch(fetchDataThunk(SPORT));
         }
     });
 

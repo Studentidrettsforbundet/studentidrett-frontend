@@ -21,7 +21,7 @@ const RegionPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            //dispatch(fetchDataThunk(REGION));
+            dispatch(fetchDataThunk(REGION));
         }
     });
 
