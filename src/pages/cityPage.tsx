@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CityCard from '../components/cityCard';
+import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/searchIcon';
 import { CITY } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -31,7 +33,15 @@ const CityPage = () => {
 
     return (
         <div className="container">
-            <h1>Cities</h1>
+            <div className="row">
+                <div className="col">
+                    <h1>Cities</h1>
+                </div>
+                <div className="col search_icon-container">
+                    <SearchIcon />
+                </div>
+            </div>
+            <SearchBar typeOfSearch={CITY} />
             <p>The sport has clubs in these cities: </p>
             {listContent}
         </div>

@@ -1,0 +1,14 @@
+.searchBar {
+    background-color: rgb(192, 192, 192);
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+.search_icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar_button {
+    margin-top: 1%;
+}
