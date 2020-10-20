@@ -4,3 +4,49 @@
     color: inherit;
     text-decoration: inherit;
 }
+
+.page {
+    background-color: #B0B8B4FF;
+}
+
+.body {
+    background-color: #B0B8B4FF;
+    color: white;
+    margin: 0;
+    height: 100%;
+}
+
+.card {
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.44);
+    margin: 0;
+    text-align: center;
+    font-family: Arial;
+    margin: 8px;
+    color: whitesmoke;
+    padding: 0px;
+    background-color: #757de8;
+}
+
+.card .card-header {
+    background: #3f51b5;
+    padding: 4px;
+}
+
+.card .card-body {
+    background-color: #757de8;
+    padding: 0;
+}
+
+.card .card-footer {
+    background-color: #757de8;
+    padding: 0px;
+    border: unset;
+}
+
+.card .card-img {
+    max-height: 350px;
+    max-width:  350px;
+}
+
+
+

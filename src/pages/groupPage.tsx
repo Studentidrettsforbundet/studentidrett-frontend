@@ -48,7 +48,7 @@ const GroupPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <div className="row">
                 <div className="col">
                     <h1>{urlParams.Club}</h1>
@@ -58,7 +58,9 @@ const GroupPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={GROUP} />
-            {listContent}
+            <div className="card-columns">
+                {listContent}
+            </div>
         </div>
     );
 };

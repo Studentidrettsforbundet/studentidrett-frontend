@@ -32,7 +32,7 @@ const RegionPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <div className="row">
                 <div className="col">
                     <h1>Regions</h1>

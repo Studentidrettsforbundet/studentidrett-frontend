@@ -39,7 +39,7 @@ const SportPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <div className="row">
                 <div className="col">
                     <h1>Sports</h1>
@@ -49,7 +49,9 @@ const SportPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={SPORT} />
-            {listContent}
+            <div className="card-deck">
+                {listContent}
+            </div>
         </div>
     );
 };

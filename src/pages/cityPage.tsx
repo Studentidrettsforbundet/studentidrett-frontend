@@ -32,7 +32,7 @@ const CityPage = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container body">
             <div className="row">
                 <div className="col">
                     <h1>Cities</h1>
@@ -43,7 +43,8 @@ const CityPage = () => {
             </div>
             <SearchBar typeOfSearch={CITY} />
             <p>The sport has clubs in these cities: </p>
-            {listContent}
+                {listContent}
+            
         </div>
     );
 };
