@@ -2,7 +2,7 @@
 
 exports[`regionPage renders correctly 1`] = `
 <div
-  className="container"
+  className="container body"
 >
   <div
     className="row"
