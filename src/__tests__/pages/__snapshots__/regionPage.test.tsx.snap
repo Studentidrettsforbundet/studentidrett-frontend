@@ -35,5 +35,80 @@ exports[`regionPage renders correctly 1`] = `
     </div>
   </div>
   <div />
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title "
+      >
+        Nordnorge
+      </h5>
+      <p />
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title "
+      >
+        Midtnorge
+      </h5>
+      <p />
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title "
+      >
+        Vestlandet
+      </h5>
+      <p />
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title "
+      >
+        Sor
+      </h5>
+      <p />
+    </div>
+  </div>
+  <div
+    className="card Region"
+    onClick={[Function]}
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title "
+      >
+        Ost
+      </h5>
+      <p />
+    </div>
+  </div>
 </div>
 `;

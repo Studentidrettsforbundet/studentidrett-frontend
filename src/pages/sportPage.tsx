@@ -39,16 +39,11 @@ const SportPage = () => {
     });
 
     return (
-<<<<<<< HEAD
-        <div className="container">
-            <h1>Sports</h1>
-            <p>Viser klubber i {city.City}: </p>
-            {listContent}
-=======
         <div className="container body">
             <div className="row">
                 <div className="col">
                     <h1>Sports</h1>
+                    <p>Viser klubber i {city.City}: </p>
                 </div>
                 <div className="col search_icon-container">
                     <SearchIcon />
@@ -58,7 +53,6 @@ const SportPage = () => {
             <div className="card-deck">
                 {listContent}
             </div>
->>>>>>> 0377335d0fea5c7a5f036282af855d06993b041b
         </div>
     );
 };
