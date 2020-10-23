@@ -5,15 +5,16 @@ import { Provider } from 'react-redux';
 import App from '../App';
 import store from '../store/store';
 
+
 describe('App', () => {
-    test('renders correctly', () => {
-        const tree = renderer.create(
-            <Provider store={store}>
+    test("renders correctly", () => {
+        const tree = renderer
+            .create(<Provider store={store}>
                 <MemoryRouter>
                     <App />
                 </MemoryRouter>
-            </Provider>,
-        );
+            </Provider>);
         expect(tree).toMatchSnapshot();
     });
 });
+

@@ -11,7 +11,7 @@ const RegionCard = ({ id, name }: regionInterface) => {
     return (
         <Link to={name} key={id} className={'unstyled_link'} onClick={()=>dispatch(resetFetchStatusesActionCreator())}>
             <div className="card Region">
-                <div className="card-body">
+                <div className="card-header">
                     <h5 className="card-title ">{name}</h5>
                 </div>
             </div>
