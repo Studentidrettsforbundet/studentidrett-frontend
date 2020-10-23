@@ -1,6 +1,34 @@
 # studentidrett-frontend
 
-# Git-conventions
+## Development guide
+
+#### 1. Install dependencies
+
+```
+npm install
+```
+
+Always run npm install whenver you pull code from github. If something doesnt work, try npm install ;)
+
+#### 2. Run locally
+
+```
+npm start
+```
+
+Runs the code
+
+#### 3. Build project
+
+```
+npm run-script build
+```
+
+Generates build version for deployment
+
+<br>
+
+## Git-conventions
 
 Branches:
 

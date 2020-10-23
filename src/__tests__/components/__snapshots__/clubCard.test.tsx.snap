@@ -9,14 +9,14 @@ exports[`clubCard renders correctly 1`] = `
   <div
     className="card Region"
   >
+    <h5
+      className="card-header card-title"
+    >
+      NTNUIFotball
+    </h5>
     <div
       className="card-body"
     >
-      <h5
-        className="card-title"
-      >
-        NTNUIFotball
-      </h5>
       <img
         alt="Club"
         className="card-img-top"

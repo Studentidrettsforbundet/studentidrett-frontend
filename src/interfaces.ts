@@ -32,7 +32,7 @@ export interface clubInterface {
     contact_email: string;
     description: string;
     id: number;
-    membership_fee: string;
+    membership_fee: number;
     name: string;
     register_info: string;
 }

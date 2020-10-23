@@ -2,7 +2,7 @@
 
 exports[`clubPage renders correctly 1`] = `
 <div
-  className="container"
+  className="container body"
 >
   <div
     className="row"
@@ -38,5 +38,8 @@ exports[`clubPage renders correctly 1`] = `
   <p>
     Select club
   </p>
+  <div
+    className="card-columns"
+  />
 </div>
 `;
