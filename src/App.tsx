@@ -8,7 +8,14 @@ const App = () => {
     return (
         <div className="App">
             <h1>Hello</h1>
-            <Link to="/Regions">Regions</Link>
+            <div className="col">
+                <button type="button" className="btn btn-primary">
+                    <Link to="/Regions" style={{ color: "black" }}>Regions</Link>
+                </button>
+                <button type="button" className="btn btn-primary">
+                    <Link to="/" style={{ color: "black" }}>questionnaire</Link>
+                </button>
+            </div>
         </div>
     );
 }

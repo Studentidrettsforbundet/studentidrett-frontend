@@ -5,22 +5,24 @@ exports[`teamCard renders correctly 1`] = `
   className="card Region"
   onClick={[Function]}
 >
+  <h5
+    className="card-header card-title"
+  >
+    Men A
+  </h5>
   <div
     className="card-body"
   >
-    <h5
-      className="card-title"
-    >
-      Men A
-    </h5>
     <img
       alt="Team"
-      className="card-img-top"
+      className="card-img"
       src="placeholder.png"
     />
-    <p
-      className="text-center"
-    >
+  </div>
+  <div
+    className="card-footer"
+  >
+    <p>
       This is where the short description goes
     </p>
   </div>
@@ -29,9 +31,7 @@ exports[`teamCard renders correctly 1`] = `
 
 exports[`teamCard renders expanded card correctly 1`] = `
 Array [
-  <p
-    className="text-center"
-  >
+  <p>
     This is a long description
   </p>,
   <p>

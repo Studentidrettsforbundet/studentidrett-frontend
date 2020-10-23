@@ -15,28 +15,6 @@ import {
 } from '../store/thunks/thunkActions';
 import { urlBuilderFetchData } from './urlBuilders';
 
-/*
-THIS IS WORK IN PROGRESS, AND WILL BE DONE IN THE BRANCH SIMPLE SEARCH
-
-export const simpleSearch = async (queryUrl: string, cardType: cardType) => {
-    try {
-        const res = await fetch(urlBuilderSimpleSearch(cardType, queryUrl), {
-            method: 'GET',
-            headers: new Headers({
-                Accept: 'application/json',
-            }),
-        });
-        if (checkForErrorCodes(res)) {
-            return 'Something went wrong';
-        } else {
-            return res.json();
-        }
-    } catch (error) {
-        return 'Connection error';
-    }
-};
-*/
-
 export const fetchData = async (url: string) => {
     try {
         const res = await fetch(url, {
@@ -63,9 +41,8 @@ export const fetchDataThunk = (
     dataType: cardType,
     url: string = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
-    dispatch(fetchInProgressActionCreator());
-
     let asyncResp;
+    dispatch(fetchInProgressActionCreator());
 
     if (url.length > 0) {
         //Fetch next data (scrolling)
@@ -74,7 +51,6 @@ export const fetchDataThunk = (
         //Fetch based on cardType
         asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
-
     let result = [];
 
     if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
