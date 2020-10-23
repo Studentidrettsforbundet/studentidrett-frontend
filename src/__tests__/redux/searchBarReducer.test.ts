@@ -1,34 +1,28 @@
 import React from 'react';
-import { FETCH_IN_PROGRESS, FETCH_SUCCESS, FETCH_FAILED } from '../../store/pages/searcBar/searchBarActions';
-import { searchbarInitialState, searchBarReducer } from '../../store/pages/searcBar/searchBarReducer';
+import { TOGGLE_SEARCHBAR } from '../../store/searchBar/searchBarActions';
+import { searchBarInitialState, searchBarReducer } from '../../store/searchBar/searchBarReducer';
 
-describe('SearchBar reducer', () => {
+describe('Region reducer', () => {
     it('Should return the initial state', () => {
-        const initialState = searchbarInitialState;
+        const initialState = searchBarInitialState;
         expect(searchBarReducer(undefined, {})).toEqual(initialState);
     });
 
-    it('Should handle FETCH_IN_PROGRESS', () => {
+    it('Should handle TOGGLE_SEARCHBAR with initialstate 1', () => {
+        const initialState = { showSearchBar: false };
         expect(
-            searchBarReducer(undefined, {
-                type: FETCH_IN_PROGRESS,
+            searchBarReducer(initialState, {
+                type: TOGGLE_SEARCHBAR,
             }),
-        ).toEqual({ fetch_in_progress: true, fetch_failed: false, fetch_success: false });
+        ).toEqual({ showSearchBar: true });
     });
 
-    it('Should handle FETCH_SUCCESS', () => {
+    it('Should handle TOGGLE_SEARCHBAR with initialstate 2', () => {
+        const initialState = { showSearchBar: true };
         expect(
-            searchBarReducer(undefined, {
-                type: FETCH_SUCCESS,
+            searchBarReducer(initialState, {
+                type: TOGGLE_SEARCHBAR,
             }),
-        ).toEqual({ fetch_in_progress: false, fetch_failed: false, fetch_success: true });
-    });
-
-    it('Should handle FETCH_FAILED', () => {
-        expect(
-            searchBarReducer(undefined, {
-                type: FETCH_FAILED,
-            }),
-        ).toEqual({ fetch_in_progress: false, fetch_failed: true, fetch_success: false });
+        ).toEqual({ showSearchBar: false });
     });
 });

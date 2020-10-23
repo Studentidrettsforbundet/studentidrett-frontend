@@ -12,7 +12,6 @@ const CityCard = ({ id, name, region, clubs}: cityInterface) => {
             <div className="card Region">
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <img className="card-img-top" src={image} alt="City"></img>
                 </div>
             </div>
         </Link>

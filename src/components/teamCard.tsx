@@ -12,9 +12,12 @@ const TeamCard = ({id, name, short_description,full_capacity,group,long_descript
 
     return (
         <div className="card Region" key={id} onClick={() => toggleExpanded()}>
+            <h5 className="card-header card-title">{name}</h5>
             <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-                <img className="card-img-top" src={image} alt="Team"></img>
+                <img className="card-img" src={image} alt="Team"></img>
+                
+            </div>
+            <div className="card-footer">
                 {expanded ? (
                     <TeamCardExpanded
                         long_description={long_description}
@@ -23,8 +26,8 @@ const TeamCard = ({id, name, short_description,full_capacity,group,long_descript
                         registration_open={registration_open}
                     />
                 ) : (
-                    <p className="text-center">{short_description}</p>
-                )}
+                        <p>{short_description}</p>
+                    )}
             </div>
         </div>
     );

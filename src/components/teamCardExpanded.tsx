@@ -10,7 +10,7 @@ export interface teamCardInterface {
 const TeamCardExpanded = (team: teamCardInterface) => {
     return (
         <>
-            <p className="text-center">{team.long_description}</p>
+            <p>{team.long_description}</p>
             {team.full_capacity ? <p>This team is full</p> : <p>This team has available positions</p>}
             {team.tryouts ? <p>This requires tryouts</p> : <p>This team is open for anyone</p>}
             {team.registration_open ? (

@@ -6,26 +6,7 @@ export interface clubState {
 }
 
 export const clubInitialState: clubState = {
-    clubs: [
-        {
-            id: 0,
-            city: 0,
-            name: 'NTNUI football',
-            description: '',
-            contact_email: 'info@ntnui.no',
-            pricing: '200 kr',
-            register_info: 'Register at ntnui.no/register',
-        },
-        {
-            id: 1,
-            city: 0,
-            name: 'NTNUI amerikansk fotball',
-            description: '',
-            contact_email: 'info@ntnui.no',
-            pricing: '200 kr',
-            register_info: 'Register at ntnui.no/register',
-        },
-    ],
+    clubs: [],
 };
 
 export const clubReducer = (state = clubInitialState, action: clubActionTypes): clubState => {

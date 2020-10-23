@@ -2,59 +2,44 @@
 
 exports[`clubPage renders correctly 1`] = `
 <div
-  className="container"
+  className="container body"
 >
-  <h1 />
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1>
+        Cities
+      </h1>
+    </div>
+    <div
+      className="col search_icon-container"
+    >
+      <img
+        alt="Search icon"
+        className="search_icon"
+        onClick={[Function]}
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "search.svg",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div />
   <p>
     Select club
   </p>
-  <a
-    className="unstyled_link"
-    href="//NTNUI football"
-    onClick={[Function]}
-  >
-    <div
-      className="card Region"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          NTNUI football
-        </h5>
-        <img
-          alt="Club"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
-  <a
-    className="unstyled_link"
-    href="//NTNUI amerikansk fotball"
-    onClick={[Function]}
-  >
-    <div
-      className="card Region"
-    >
-      <div
-        className="card-body"
-      >
-        <h5
-          className="card-title"
-        >
-          NTNUI amerikansk fotball
-        </h5>
-        <img
-          alt="Club"
-          className="card-img-top"
-          src="placeholder.png"
-        />
-      </div>
-    </div>
-  </a>
+  <div
+    className="card-columns"
+  />
 </div>
 `;
