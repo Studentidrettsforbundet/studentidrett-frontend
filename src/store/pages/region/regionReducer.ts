@@ -1,6 +1,5 @@
 import { regionInterface } from '../../../interfaces';
 import { regionActionTypes, SET_REGIONS } from './regionActions';
-import { citybyregion } from '../city/cityReducer';
 
 export interface regionState {
     regions: regionInterface[];
