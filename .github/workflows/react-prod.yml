@@ -9,7 +9,7 @@ jobs:
     build-and-deploy:
         env:
           DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-          IMAGE_VERSION: main
+          IMAGE_VERSION: prod
           ACR: ${{ secrets.REGISTRY_LOGIN_SERVER }}
 
         runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
 
         - name: 'Build image'
           run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/studentidrett-frontend:dev
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/studentidrett-frontend:prod
             
         - name: 'Push image to ACR'
           uses: azure/docker-login@v1
@@ -33,7 +33,7 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/studentidrett-frontend:dev
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/studentidrett-frontend:prod
         - name: Azure logout
           run: |
             az logout
