@@ -13,6 +13,10 @@ exports[`sportPage renders correctly 1`] = `
       <h1>
         Sports
       </h1>
+      <p>
+        Viser klubber i 
+        : 
+      </p>
     </div>
     <div
       className="col search_icon-container"

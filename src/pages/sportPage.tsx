@@ -16,11 +16,11 @@ import { combinedStateInterface } from '../store/store';
  */
 
 interface urlParams {
-    Region: string;
+    City: string;
 }
 
 const SportPage = () => {
-    const regions = useParams<urlParams>();
+    const city = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
@@ -43,6 +43,7 @@ const SportPage = () => {
             <div className="row">
                 <div className="col">
                     <h1>Sports</h1>
+                    <p>Viser klubber i {city.City}: </p>
                 </div>
                 <div className="col search_icon-container">
                     <SearchIcon />

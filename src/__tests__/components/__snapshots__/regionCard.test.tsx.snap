@@ -1,23 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`regionCard renders correctly 1`] = `
-<a
-  className="unstyled_link"
-  href="/MidtNorge"
+<div
+  className="card Region"
   onClick={[Function]}
 >
   <div
-    className="card Region"
+    className="card-body"
   >
-    <div
-      className="card-header"
+    <h5
+      className="card-title "
     >
-      <h5
-        className="card-title "
-      >
-        MidtNorge
-      </h5>
-    </div>
+      MidtNorge
+    </h5>
+    <p />
   </div>
-</a>
+</div>
 `;
