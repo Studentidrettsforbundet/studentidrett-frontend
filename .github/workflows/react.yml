@@ -1,15 +1,15 @@
 on:
-  push:
+  pull_request:
     branches:
       - dev
 
-name: experimental frontend push
+name: Frontend build and push to Azure
 
 jobs:
     build-and-deploy:
         env:
           DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-          IMAGE_VERSION: dev
+          IMAGE_VERSION: ${{ github.actor }}
           ACR: ${{ secrets.REGISTRY_LOGIN_SERVER }}
 
         runs-on: ubuntu-latest
