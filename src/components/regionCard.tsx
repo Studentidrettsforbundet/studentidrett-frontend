@@ -15,14 +15,15 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
     };
 
     const dispatch = useDispatch();
+
     return (
         <div className="card Region" key={id} onClick={() => toggleExpanded()}>
             <div className="card-body">
                 <h5 className="card-title ">{name}</h5>
                 {expanded ? (cities.map((entry) => {
-                    return <CityCard id={entry.id} name={entry.name} region={entry.region} clubs={entry.clubs}>);
-                )
-                ) : ( <p/>
+                    return(<CityCard id={entry.id} name={entry.name} region={entry.region} clubs={entry.clubs}></CityCard>);
+                }
+                )) : ( <p/>
                     )}
             </div>
         </div>
