@@ -34,7 +34,8 @@ export const instanceOfSport = (object: any): boolean => {
     return (
         'id' in object &&
         'name' in object &&
-        Object.keys(object).length === 2
+        'labels' in object &&
+        Object.keys(object).length === 3
     );
 };
 

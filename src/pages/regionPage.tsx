@@ -16,8 +16,8 @@ const RegionPage = () => {
     let Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
     let Midt: regionInterface = { id: 0, name: MIDTNORGE, cities: [] };
     let Vest: regionInterface = { id: 0, name: VESTLANDET, cities: [] };
-    let Sor: regionInterface = { id: 0, name: "Sor", cities: [] };
-    let Ost: regionInterface = { id: 0, name: "Ost", cities: [] };
+    let Sor: regionInterface = { id: 0, name: "Sorlandet", cities: [] };
+    let Ost: regionInterface = { id: 0, name: "Ostlandet", cities: [] };
     let regions: regionInterface[] = [Nord, Midt, Vest, Sor, Ost];
 
     useEffect(() => {
@@ -27,13 +27,13 @@ const RegionPage = () => {
     });
 
     const sortCities = reduxState.city.cities.map((entry) => {
-        if (entry.region === NORDNORGE) {
+        if (entry.region === "nord") {
             regions[0].cities.push(entry);
-        } else if (entry.region === MIDTNORGE) {
+        } else if (entry.region === "midt") {
             regions[1].cities.push(entry);
-        } else if (entry.region === VESTLANDET) {
+        } else if (entry.region === "vest") {
             regions[2].cities.push(entry);
-        } else if (entry.region === SORLANDET) {
+        } else if (entry.region === "sor") {
             regions[3].cities.push(entry);
         } else {
             regions[4].cities.push(entry);
