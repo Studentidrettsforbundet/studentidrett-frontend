@@ -7,9 +7,8 @@ import CityPage from './pages/cityPage';
 import SportPage from './pages/sportPage';
 import ClubPage from './pages/clubPage';
 import GroupPage from './pages/groupPage';
-import QuestionnairePage from './pages/QuestionnairePage';
-import ResultPage from './pages/ResultPage';
-import TeamPage from './pages/teamPage';
+import QuestionnairePage from './pages/questionnairePage';
+import ResultPage from './pages/resultPage';
 import store from './store/store';
 
 const createRoutes = () => (

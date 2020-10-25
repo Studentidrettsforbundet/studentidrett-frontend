@@ -1,108 +1,93 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import QuestionnaireItem, { QuestionnaireItemProps } from '../components/questionnaireItem';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
-
-let responseData;
-fetch('<URL to backend>')
-    .then((response) => response.json())
-    .then((data) => {
-        responseData = data;
-    });
-
-const questions: QuestionnaireItemProps[] = [
-    {
-        item: {
-            id: 'id1',
-            question: 'Do you prefer indoor or outdoor activities?',
-            leftItem: 'Indoor',
-            rightItem: 'Outdoor',
-        },
-    },
-    {
-        item: {
-            id: 'id2',
-            question: 'Do you prefer summer or winter activities?',
-            leftItem: 'Summer',
-            rightItem: 'Winter',
-        },
-    },
-    {
-        item: {
-            id: 'id3',
-            question: 'Do you prefer individual or team sports?',
-            leftItem: 'Individual',
-            rightItem: 'Team',
-        },
-    },
-];
-const listItems = questions.map((question) => (
-    <Field
-        name={question.item.id}
-        component={({ input, meta }) => (
-            <div>
-                <QuestionnaireItem
-                    item={question.item}
-                    onChange={(event: any) => {
-                        input.onChange(event);
-                    }}
-                    error={meta.error && meta.touched ? meta.error : ''}
-                />
-            </div>
-        )}
-    />
-));
-
-const dataResponse: any = [
-    {
-        name: 'Football',
-        slug: 'Football',
-    },
-    { name: 'Basketball', slug: 'Basketball' },
-    {
-        name: 'Handball',
-        slug: 'Handball',
-    },
-];
+import { fetchData } from '../services/api';
 
 const QuestionnairePage = () => {
     const [fetched, setFetched] = useState(false);
+    const [responseBody, setResponseBody] = useState({});
+    const [questions, setQuestions] = useState([] as QuestionnaireItemProps[]);
 
-    const onSubmit = async (values: unknown) => {
-        fetch('https://www.example.com', {
+    useEffect(() => {
+        async function fetch() {
+            fetchData('https://kundestyrt-nsi-backend.azurewebsites.net/questions').then((data) => {
+                if (data === 'Something went wrong' || data === 'Connection error') {
+                    console.error(data);
+                    return;
+                }
+                setQuestions(data);
+            });
+        }
+        fetch();
+    }, []);
+
+    const listItems = questions.map((question) => (
+        <Field
+            key={'key_' + question.id}
+            name={'name_' + question.id}
+            component={({ input, meta }) => (
+                <div>
+                    <QuestionnaireItem
+                        item={question}
+                        onChange={(event: any) => {
+                            input.onChange(event);
+                        }}
+                        error={meta.error && meta.touched ? meta.error : ''}
+                    />
+                </div>
+            )}
+        />
+    ));
+
+    const onSubmit = async (values: any) => {
+        const requestBody = Object.keys(values).map((key) => ({
+            qid: key.replace('name_', ''),
+            answer: values[key],
+        }));
+        fetch('https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(values),
-        }).then((data) => {
-            console.log(data);
-        });
-
-        window.alert(JSON.stringify(values));
-        setFetched(true);
+            body: JSON.stringify(requestBody),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error();
+                }
+            })
+            .then((data) => {
+                setResponseBody(data);
+                setFetched(true);
+            })
+            .catch(() => {
+                console.error('Something went wrong posting answers');
+            });
     };
 
     return (
-        <div style={{ textAlign: "center" }} className="overview">
+        <div style={{ textAlign: 'center' }} className="overview">
             <h1>Questionnaire</h1>
             <Form
                 onSubmit={onSubmit}
                 validate={(values: any) => {
                     const errors: any = {};
 
-                    const questionIds = questions.map(({ item }) => item.id);
+                    const questionIds = questions.map(({ id }) => id);
 
                     questionIds.map((id) => {
-                        if (!values[id]) {
-                            errors[id] = 'Required';
+                        if (!values[`${'name_' + id}`]) {
+                            errors[`${'name_' + id}`] = 'Required';
                         }
                     });
 
                     return errors;
                 }}
-                render={({ handleSubmit, form, submitting, values }) => (
+                render={({ handleSubmit, submitting }) => (
                     <form onSubmit={handleSubmit}>
                         {listItems}
                         <button type="submit" disabled={submitting}>
@@ -111,7 +96,7 @@ const QuestionnairePage = () => {
                     </form>
                 )}
             />
-            {fetched && <Redirect to={{ pathname: 'questionnaire/result', state: dataResponse }} />}
+            {fetched && <Redirect to={{ pathname: 'questionnaire/result', state: responseBody }} />}
         </div>
     );
 };

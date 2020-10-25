@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 const ResultPage = (props: any) => {
-    const resultList = props.location.state;
-    const listItems = resultList.map((result: any) => {
+    const results = props.location.state;
+    const listItems = results.recommendation.map((result: any) => {
+        //TODO Set correct redirect
         return (
-            <p>
-                <Link to={`/Midtnorge/${result.slug}`}>{result.name}</Link>
+            <p key={result.id}>
+                <Link to={`/Trondheim/${result.name}`}>{result.name}</Link>
             </p>
         );
     });
