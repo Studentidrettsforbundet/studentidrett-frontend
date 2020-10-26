@@ -90,7 +90,7 @@ exports[`regionPage renders correctly 1`] = `
       <h5
         className="card-title "
       >
-        Sorlandet
+        S�rlandet
       </h5>
       <p />
     </div>
@@ -105,7 +105,7 @@ exports[`regionPage renders correctly 1`] = `
       <h5
         className="card-title "
       >
-        Ostlandet
+        �stlandet
       </h5>
       <p />
     </div>
