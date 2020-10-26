@@ -11,7 +11,7 @@ const App = () => {
             <div className="col">
                 <button type="button" className="btn btn-primary">
                     <Link to="/Regions" style={{ color: 'black' }}>
-                        Brose studentsports
+                        Browse studentsports
                     </Link>
                 </button>
                 <button type="button" className="btn btn-primary">
