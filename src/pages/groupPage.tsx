@@ -26,7 +26,7 @@ const GroupPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(TEAM));
+            //dispatch(fetchDataThunk(TEAM));
         }
     });
 
