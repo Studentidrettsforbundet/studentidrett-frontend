@@ -12,6 +12,7 @@ interface urlParams {
     Region: string;
     Sport: string;
     Club: string;
+    Group: string;
 }
 
 const GroupPage = () => {
@@ -51,16 +52,14 @@ const GroupPage = () => {
         <div className="container body">
             <div className="row">
                 <div className="col">
-                    <h1>{urlParams.Club}</h1>
+                    <h1>{urlParams.Group}</h1>
                 </div>
                 <div className="col search_icon-container">
                     <SearchIcon />
                 </div>
             </div>
             <SearchBar typeOfSearch={GROUP} />
-            <div className="card-columns">
-                {listContent}
-            </div>
+            <div className="card-columns">{listContent}</div>
         </div>
     );
 };

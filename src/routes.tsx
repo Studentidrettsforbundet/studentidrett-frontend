@@ -17,8 +17,8 @@ const createRoutes = () => (
                     <Route exact path="/" component={App} />
                     <Route exact path="/Regions" component={RegionPage} />
                     <Route exact path="/:City" component={CityPage} />
-                    <Route exact path="/:City/Sport/:Sport" component={SportPage} />
                     <Route exact path="/:City/:Club" component={ClubPage} />
+                    <Route exact path="/:City/Sport/:Sport" component={SportPage} />
                     <Route exact path="/:City/:Club/:Group" component={GroupPage} />
                 </Switch>
             </div>

@@ -8,7 +8,6 @@ import { regionInterface } from '../interfaces';
 import SearchIcon from '../components/searchIcon';
 import SearchBar from '../components/searchBar';
 
-
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
@@ -16,33 +15,37 @@ const RegionPage = () => {
     let Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
     let Midt: regionInterface = { id: 0, name: MIDTNORGE, cities: [] };
     let Vest: regionInterface = { id: 0, name: VESTLANDET, cities: [] };
-    let Sor: regionInterface = { id: 0, name: "Sorlandet", cities: [] };
-    let Ost: regionInterface = { id: 0, name: "Ostlandet", cities: [] };
+    let Sor: regionInterface = { id: 0, name: SORLANDET, cities: [] };
+    let Ost: regionInterface = { id: 0, name: OSTLANDET, cities: [] };
     let regions: regionInterface[] = [Nord, Midt, Vest, Sor, Ost];
 
     useEffect(() => {
-        if (!reduxState.thunk.fetch_in_progress && reduxState.thunk.fetch_failed_count < 3 && !reduxState.thunk.fetch_success) {
+        if (
+            !reduxState.thunk.fetch_in_progress &&
+            reduxState.thunk.fetch_failed_count < 3 &&
+            !reduxState.thunk.fetch_success
+        ) {
             dispatch(fetchDataThunk(CITY));
         }
     });
 
     const sortCities = reduxState.city.cities.map((entry) => {
-        if (entry.region === "nord") {
+        if (entry.region === 'nord') {
             regions[0].cities.push(entry);
-        } else if (entry.region === "midt") {
+        } else if (entry.region === 'midt') {
             regions[1].cities.push(entry);
-        } else if (entry.region === "vest") {
+        } else if (entry.region === 'vest') {
             regions[2].cities.push(entry);
-        } else if (entry.region === "sor") {
+        } else if (entry.region === 'sor') {
             regions[3].cities.push(entry);
         } else {
             regions[4].cities.push(entry);
         }
-        return <a/>
+        return <a />;
     });
 
     const listContent = regions.map((entry) => {
-        return (<RegionCard {...{ id: entry.id, name: entry.name, cities: entry.cities }} key={entry.id} />);
+        return <RegionCard {...{ id: entry.id, name: entry.name, cities: entry.cities }} key={entry.id} />;
     });
 
     return (
@@ -55,7 +58,7 @@ const RegionPage = () => {
                     <SearchIcon />
                 </div>
             </div>
-                <SearchBar typeOfSearch={CITY} />
+            <SearchBar typeOfSearch={CITY} />
             {sortCities}
             {listContent}
         </div>

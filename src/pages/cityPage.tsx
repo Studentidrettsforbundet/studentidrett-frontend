@@ -8,10 +8,10 @@ import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
-
+import { Button } from 'react-bootstrap';
 
 interface urlParams {
-    city: string;
+    City: string;
 }
 
 const CityPage = () => {
@@ -25,7 +25,6 @@ const CityPage = () => {
     };
 
     useEffect(() => {
-
         if (
             !reduxState.thunk.fetch_in_progress &&
             reduxState.thunk.fetch_failed_count < 3 &&
@@ -41,39 +40,47 @@ const CityPage = () => {
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {
-        return <ClubCard{...{
-            id: entry.id, city: entry.city, name: entry.name, description: entry.description,
-            contact_email: entry.contact_email, membership_fee: entry.membership_fee,
-            register_info: entry.register_info,}} key={entry.id} />
+        return (
+            <ClubCard
+                {...{
+                    id: entry.id,
+                    city: entry.city,
+                    name: entry.name,
+                    description: entry.description,
+                    contact_email: entry.contact_email,
+                    membership_fee: entry.membership_fee,
+                    register_info: entry.register_info,
+                }}
+                key={entry.id}
+            />
+        );
     });
 
     return (
         <div className="container body">
-            <h1>{urlParams.city}</h1>
-            <div className="Tabs">
-                <button onClick={() => toggleshowClubs(true)}>Clubs</button>
-                <button onClick={() => toggleshowClubs(false)}>Sports</button>
+            <h1>{urlParams.City}</h1>
+            <div className="container">
+                <div className="row">
+                    <div className="col Tabs">
+                        <Button onClick={() => toggleshowClubs(true)}>Clubs</Button>
+                        <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
+                    </div>
+                    <div className="col search_icon-container">
+                        <SearchIcon />
+                    </div>
+                </div>
             </div>
             {showClubs ? (
-                    <div className="container" >
-                        <div className="col search_icon-container">
-                            <SearchIcon />
-                        </div>
-                        <SearchBar typeOfSearch={CLUB} />
-                        <p>Viser klubber i {urlParams.city}:</p>
-                        {listClubContent}
-                    </div>
-                ) : (
-                    <div className="container">
-                        <div className="col search_icon-container">
-                            <SearchIcon />
-                        </div>
-                        <SearchBar typeOfSearch={SPORT} />
-                        <p>Viser sporter i {urlParams.city}: </p>
-                        {listSportContent}
-                    </div>
-                )
-            }
+                <div className="container">
+                    <SearchBar typeOfSearch={CLUB} />
+                    {listClubContent}
+                </div>
+            ) : (
+                <div className="container">
+                    <SearchBar typeOfSearch={SPORT} />
+                    {listSportContent}
+                </div>
+            )}
         </div>
     );
 };

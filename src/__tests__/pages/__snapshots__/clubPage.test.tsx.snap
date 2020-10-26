@@ -10,9 +10,7 @@ exports[`clubPage renders correctly 1`] = `
     <div
       className="col"
     >
-      <h1>
-        Cities
-      </h1>
+      <h1 />
     </div>
     <div
       className="col search_icon-container"
@@ -35,9 +33,6 @@ exports[`clubPage renders correctly 1`] = `
     </div>
   </div>
   <div />
-  <p>
-    Select club
-  </p>
   <div
     className="card-columns"
   />
