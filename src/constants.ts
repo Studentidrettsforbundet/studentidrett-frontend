@@ -8,9 +8,9 @@ export const CITY = 'cities';
 export const GROUP = 'groups';
 
 export const MIDTNORGE = 'Midtnorge';
-export const SORLANDET = 'Sørlandet';
+export const SORLANDET = 'SÃ¸rlandet';
 export const VESTLANDET = 'Vestlandet';
-export const OSTLANDET = 'Østlandet';
+export const OSTLANDET = 'Ã˜stlandet';
 export const NORDNORGE = 'Nordnorge';
 
 export type cardType = typeof CLUB | typeof SPORT | typeof TEAM | typeof REGION | typeof CITY | typeof GROUP;

@@ -13,7 +13,7 @@ exports[`SportCard renders correctly 1`] = `
       className="card-body"
     >
       <h5
-        className="card-title"
+        className="card-title card-header"
       >
         Fotball
       </h5>

@@ -3,6 +3,12 @@ export interface prev_next {
     previous: string | null;
 }
 
+export interface labels {
+    alternantives: string[];
+    sports: string[];
+    text: string;
+}
+
 export interface combinedResultsInterface {
     count: number;
     next: string | null;
@@ -40,6 +46,7 @@ export interface clubInterface {
 export interface sportInterface {
     id: number;
     name: string;
+    labels: labels[];
 }
 
 export interface cityInterface {

@@ -80,7 +80,7 @@ describe('instanceOfGroup', () => {
 
 describe('instanceOfSport', () => {
     test('Should return true', () => {
-        const case1 = { id: 0, name: 'Football' };
+        const case1 = { id: 0, name: 'Football', labels: [] };
         expect(instanceOfSport(case1)).toBe(true);
     });
 

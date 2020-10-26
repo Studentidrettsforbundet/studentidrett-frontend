@@ -5,7 +5,7 @@ exports[`App renders correctly 1`] = `
   className="App"
 >
   <h1>
-    Hello
+    Kundestyrt
   </h1>
   <div
     className="col"
@@ -23,7 +23,7 @@ exports[`App renders correctly 1`] = `
           }
         }
       >
-        Brose studentsports
+        Browse studentsports
       </a>
     </button>
     <button
@@ -39,7 +39,7 @@ exports[`App renders correctly 1`] = `
           }
         }
       >
-        questionnaire
+        Questionnaire
       </a>
     </button>
   </div>
