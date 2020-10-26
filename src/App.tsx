@@ -11,11 +11,11 @@ const App = () => {
             <div className="col">
                 <button type="button" className="btn btn-primary">
                     <Link to="/Regions" style={{ color: 'black' }}>
-                        Browse studentsports
+                        Regions
                     </Link>
                 </button>
                 <button type="button" className="btn btn-primary">
-                    <Link to="/" style={{ color: 'black' }}>
+                    <Link to="/questionnaire" style={{ color: 'black' }}>
                         questionnaire
                     </Link>
                 </button>
