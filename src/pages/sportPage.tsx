@@ -35,7 +35,7 @@ const SportPage = () => {
     });
 
     const listContent = reduxState.sport.sports.map((entry) => {
-        return <SportCard {...{ id: entry.id, name: entry.name }} key={entry.id} />;
+        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }} key={entry.id} />;
     });
 
     return (
@@ -50,9 +50,7 @@ const SportPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={SPORT} />
-            <div className="card-deck">
-                {listContent}
-            </div>
+            <div className="card-deck">{listContent}</div>
         </div>
     );
 };

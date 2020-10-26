@@ -13,16 +13,62 @@ describe('Actions', () => {
 
     test('Should create a setSportsAction', () => {
         const data = [
-            { id: 0, name: 'Football' },
-            { id: 1, name: 'Handball' },
-            { id: 2, name: 'Basketball' },
-            { id: 3, name: 'American football' },
-            { id: 4, name: 'Baseball' },
-            { id: 5, name: 'Hockey' },
-            { id: 6, name: 'Tennis' },
-            { id: 7, name: 'Cross country skiing' },
-            { id: 8, name: 'Rowing' },
-            { id: 9, name: 'Fencing' },
+            {
+                id: 0,
+                name: 'Football',
+                labels: [
+                    {
+                        text: 'utendørs',
+                        sports: ['Fotball', 'Langrenn', 'Rumpeldunk'],
+                        alternatives: ['Utendørs'],
+                    },
+                ],
+            },
+
+            {
+                id: 1,
+                name: 'Handball',
+                labels: [
+                    {
+                        text: 'utendørs',
+                        sports: ['Hanball'],
+                        alternatives: ['Indoors'],
+                    },
+                ],
+            },
+            {
+                id: 2,
+                name: 'Basketball',
+                labels: [
+                    {
+                        text: 'utendørs',
+                        sports: ['Basketball'],
+                        alternatives: ['Utendørs'],
+                    },
+                ],
+            },
+            {
+                id: 3,
+                name: 'American football',
+                labels: [
+                    {
+                        text: 'utendørs',
+                        sports: ['Fotball'],
+                        alternatives: ['Utendørs'],
+                    },
+                ],
+            },
+            {
+                id: 4,
+                name: 'Baseball',
+                labels: [
+                    {
+                        text: 'utendørs',
+                        sports: ['Baseball'],
+                        alternatives: ['Utendørs'],
+                    },
+                ],
+            },
         ];
 
         const expected = {

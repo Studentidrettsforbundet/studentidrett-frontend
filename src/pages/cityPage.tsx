@@ -36,7 +36,7 @@ const CityPage = () => {
     });
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
-        return SportCard({ id: entry.id, name: entry.name });
+        return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {
@@ -65,21 +65,22 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(true)}>Clubs</Button>
                         <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
                     </div>
+
                     <div className="col search_icon-container">
                         <SearchIcon />
                     </div>
                 </div>
             </div>
             {showClubs ? (
-                <div className="container">
+                <>
                     <SearchBar typeOfSearch={CLUB} />
                     {listClubContent}
-                </div>
+                </>
             ) : (
-                <div className="container">
+                <>
                     <SearchBar typeOfSearch={SPORT} />
                     {listSportContent}
-                </div>
+                </>
             )}
         </div>
     );

@@ -13,10 +13,10 @@ const RegionPage = () => {
     const dispatch = useDispatch();
 
     let Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
-    let Midt: regionInterface = { id: 0, name: MIDTNORGE, cities: [] };
-    let Vest: regionInterface = { id: 0, name: VESTLANDET, cities: [] };
-    let Sor: regionInterface = { id: 0, name: SORLANDET, cities: [] };
-    let Ost: regionInterface = { id: 0, name: OSTLANDET, cities: [] };
+    let Midt: regionInterface = { id: 1, name: MIDTNORGE, cities: [] };
+    let Vest: regionInterface = { id: 2, name: VESTLANDET, cities: [] };
+    let Sor: regionInterface = { id: 3, name: SORLANDET, cities: [] };
+    let Ost: regionInterface = { id: 4, name: OSTLANDET, cities: [] };
     let regions: regionInterface[] = [Nord, Midt, Vest, Sor, Ost];
 
     useEffect(() => {

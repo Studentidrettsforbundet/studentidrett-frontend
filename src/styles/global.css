@@ -5,6 +5,11 @@
     text-decoration: inherit;
 }
 
+@font-face {
+    font-family: 'ko355';
+    src: local('ko355', url(../assets/ko355.woff) format('truetype'));
+}
+
 html,
 body,
 #root,
@@ -12,6 +17,7 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: ko355;
 }
 
 .Tabs {
@@ -26,7 +32,10 @@ body,
     background-color: #b0b8b4ff;
     color: white;
     margin: 0;
-    height: 100%;
+}
+
+.secondary_card {
+    background: #3f51b5 !important;
 }
 
 .card {
