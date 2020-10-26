@@ -65,21 +65,22 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(true)}>Clubs</Button>
                         <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
                     </div>
+
                     <div className="col search_icon-container">
                         <SearchIcon />
                     </div>
                 </div>
             </div>
             {showClubs ? (
-                <div className="container">
+                <>
                     <SearchBar typeOfSearch={CLUB} />
                     {listClubContent}
-                </div>
+                </>
             ) : (
-                <div className="container">
+                <>
                     <SearchBar typeOfSearch={SPORT} />
                     {listSportContent}
-                </div>
+                </>
             )}
         </div>
     );
