@@ -23,7 +23,7 @@ exports[`App renders correctly 1`] = `
           }
         }
       >
-        Browse studentsports
+        Regions
       </a>
     </button>
     <button
@@ -31,7 +31,7 @@ exports[`App renders correctly 1`] = `
       type="button"
     >
       <a
-        href="/"
+        href="/questionnaire"
         onClick={[Function]}
         style={
           Object {
