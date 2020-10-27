@@ -26,6 +26,12 @@ body,
 
 .page {
     background-color: #b0b8b4ff;
+    padding: 16px;
+    /*Arbitrary number is footer height*/
+    min-height: calc(100vh - 96px);
+}
+.footer{
+    height: 96px;
 }
 
 .body {
