@@ -30,7 +30,7 @@ body,
     /*Arbitrary number is footer height*/
     min-height: calc(100vh - 96px);
 }
-.footer{
+.footer {
     height: 96px;
 }
 
@@ -56,7 +56,7 @@ body,
 }
 
 .card .card-header {
-    background: #3f51b5;
+    background: #3f51b5 !important;
     padding: 4px;
 }
 

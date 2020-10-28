@@ -9,6 +9,7 @@ import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
+import EmptyResult from '../components/emptyResult';
 
 interface urlParams {
     City: string;
@@ -80,12 +81,12 @@ const CityPage = () => {
                     {showClubs ? (
                         <>
                             <SearchBar typeOfSearch={CLUB} />
-                            {listClubContent}
+                            {listClubContent.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
                         </>
                     ) : (
                         <>
                             <SearchBar typeOfSearch={SPORT} />
-                            {listSportContent}
+                            {listSportContent.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
                         </>
                     )}
                 </>

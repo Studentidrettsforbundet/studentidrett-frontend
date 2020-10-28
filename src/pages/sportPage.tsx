@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import EmptyResult from '../components/emptyResult';
 import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
 import SportCard from '../components/sportCard';
@@ -56,7 +57,7 @@ const SportPage = () => {
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <div className="card-deck">{listContent}</div>
+                <>{listContent.length === 0 ? <EmptyResult /> : <div className="card-deck">{listContent}</div>}</>
             )}
         </div>
     );
