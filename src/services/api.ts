@@ -2,18 +2,19 @@ import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
-import { setClubsActionCreator } from '../store/pages/club/clubActions';
-import { setGroupsActionCreator } from '../store/pages/group/groupActions';
+import { setClubsActionCreator, setClubsActionDetailCreator } from '../store/pages/club/clubActions';
+import { setGroupsActionCreator, setGroupsActionDetailCreator } from '../store/pages/group/groupActions';
 import { setRegionsActionCreator } from '../store/pages/region/regionActions';
-import { setSportsActionCreator } from '../store/pages/sport/sportActions';
-import { setTeamsActionCreator } from '../store/pages/team/teamActions';
+import { setSportsActionCreator, setSportsActionDetailCreator } from '../store/pages/sport/sportActions';
+import { setTeamsActionCreator, setTeamsActionDetailCreator } from '../store/pages/team/teamActions';
 import { combinedStateInterface } from '../store/store';
 import {
     fetchInProgressActionCreator,
     fetchFailedActionCreator,
     fetchSuccessActionCreator,
+    fetchDetailSuccessActionCreator,
 } from '../store/thunks/thunkActions';
-import { urlBuilderFetchData } from './urlBuilders';
+import {urlBuilderFetchData, urlBuilderFetchDetail} from './urlBuilders';
 
 export const fetchData = async (url: string) => {
     try {
@@ -83,6 +84,47 @@ export const fetchDataThunk = (
         }
         case GROUP: {
             dispatch(setGroupsActionCreator(result));
+            break;
+        }
+        default: {
+            return;
+            //TODO: add error
+        }
+    }
+};
+
+export const fetchDetailThunk = (
+    dataType: cardType,
+    id: string,
+): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
+    dispatch(fetchInProgressActionCreator());
+
+    //Fetch next data (scrolling)
+    const asyncResp = await fetchData(urlBuilderFetchDetail(dataType, id));
+    let result;
+
+    if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
+        dispatch(fetchFailedActionCreator());
+    } else {
+        dispatch(fetchDetailSuccessActionCreator());
+        result = asyncResp;
+    }
+
+    switch (dataType) {
+        case SPORT: {
+            dispatch(setSportsActionDetailCreator(result));
+            break;
+        }
+        case CLUB: {
+            dispatch(setClubsActionDetailCreator(result));
+            break;
+        }
+        case TEAM: {
+            dispatch(setTeamsActionDetailCreator(result));
+            break;
+        }
+        case GROUP: {
+            dispatch(setGroupsActionDetailCreator(result));
             break;
         }
         default: {

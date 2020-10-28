@@ -38,7 +38,7 @@ export interface clubInterface {
     contact_email: string;
     description: string;
     id: number;
-    membership_fee: number;
+    membership_fee: string;
     name: string;
     register_info: string;
 }

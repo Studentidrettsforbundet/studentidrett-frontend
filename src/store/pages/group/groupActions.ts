@@ -2,12 +2,19 @@ import { groupInterface } from '../../../interfaces';
 import { instanceOfGroup } from '../../../services/interfaceValidators';
 
 export const SET_GROUPS = 'SET_GROUPS';
+export const SET_GROUPS_DETAIL = 'SET_GROUPS_DETAIL';
 
 interface setGroupAction {
     type: typeof SET_GROUPS;
     payload: groupInterface[];
 }
 
+interface setGroupActionDetail {
+    type: typeof SET_GROUPS_DETAIL;
+    payload: groupInterface;
+}
+
+export type groupActionDetailTypes = setGroupActionDetail;
 export type groupActionTypes = setGroupAction;
 
 export const setGroupsActionCreator = (data: groupInterface[]): groupActionTypes => {
@@ -20,5 +27,12 @@ export const setGroupsActionCreator = (data: groupInterface[]): groupActionTypes
     return {
         type: SET_GROUPS,
         payload: [],
+    };
+};
+
+export const setGroupsActionDetailCreator = (data: groupInterface): groupActionDetailTypes => {
+    return {
+        type: SET_GROUPS_DETAIL,
+        payload: data,
     };
 };

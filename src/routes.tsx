@@ -10,6 +10,7 @@ import GroupPage from './pages/groupPage';
 import QuestionnairePage from './pages/questionnairePage';
 import ResultPage from './pages/resultPage';
 import store from './store/store';
+import SearchResults from './pages/searchResults';
 
 const createRoutes = () => (
     <Provider store={store}>
@@ -17,13 +18,14 @@ const createRoutes = () => (
             <div className="page">
                 <Switch>
                     <Route exact path="/" component={App} />
-                    <Route exact path="/questionnaire" component={QuestionnairePage} />
-                    <Route exact path="/questionnaire/result" component={ResultPage} />
-                    <Route exact path="/Regions" component={RegionPage} />
-                    <Route exact path="/:City" component={CityPage} />
-                    <Route exact path="/:City/:Club" component={ClubPage} />
-                    <Route exact path="/:City/Sport/:Sport" component={SportPage} />
-                    <Route exact path="/:City/:Club/:Group" component={GroupPage} />
+                    <Route path="/questionnaire" component={QuestionnairePage} />
+                    <Route path="/questionnaire/result" component={ResultPage} />
+                    <Route path="/regions" component={RegionPage} />
+                    <Route path="/cities/:id" component={CityPage} />
+                    <Route path="/clubs/:id" component={ClubPage} />
+                    <Route path="/sports/:id" component={SportPage} />
+                    <Route path="/groups/:id" component={GroupPage} />
+                    <Route path="/search" component={SearchResults} />
                 </Switch>
             </div>
         </Router>

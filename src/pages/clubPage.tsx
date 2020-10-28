@@ -5,16 +5,15 @@ import GroupCard from '../components/GroupCard/groupCard';
 import { CLUB, GROUP } from '../constants';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
-import { fetchDataThunk } from '../services/api';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { card } from '../styles/card';
+import { cityReducer } from '../store/pages/city/cityReducer';
 
 interface urlParams {
-    Region: string;
-    Sport: string;
-    Club: string;
+    id: string;
 }
 
 const ClubPage = () => {
@@ -29,6 +28,7 @@ const ClubPage = () => {
             !reduxState.thunk.fetch_success
         ) {
             dispatch(fetchDataThunk(GROUP));
+            dispatch(fetchDetailThunk(CLUB, urlParams.id));
         }
     });
 
@@ -50,17 +50,30 @@ const ClubPage = () => {
         );
     });
 
+    const selectedClub = reduxState.club_detail.club;
+
+    console.log(selectedClub);
+
     return (
         <div>
             <div className="row">
                 <div className="col">
-                    <h1>{urlParams.Club}</h1>
+                    <h1>HEADER</h1>
                 </div>
                 <div className={searchIconContainer}>
                     <SearchIcon />
                 </div>
             </div>
             <SearchBar typeOfSearch={CLUB} />
+            {selectedClub && (
+                <ClubInfo
+                    title={selectedClub.name}
+                    contact_email={selectedClub.contact_email}
+                    price={selectedClub.membership_fee}
+                    register_info={selectedClub.register_info}
+                    description={selectedClub.description}
+                />
+            )}
             <div className={card}>{listContent}</div>
         </div>
     );

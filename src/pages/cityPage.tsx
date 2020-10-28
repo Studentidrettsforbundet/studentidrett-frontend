@@ -12,7 +12,7 @@ import { Button } from 'react-bootstrap';
 import { searchIconContainer } from '../components/SearchBar/styles';
 
 interface urlParams {
-    City: string;
+    id: string;
 }
 
 const CityPage = () => {
@@ -59,7 +59,7 @@ const CityPage = () => {
 
     return (
         <div className="container body">
-            <h1>{urlParams.City}</h1>
+            <h1>{urlParams.id}</h1>
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">

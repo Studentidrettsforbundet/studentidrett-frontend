@@ -2,12 +2,19 @@ import { teamInterface } from '../../../interfaces';
 import { instanceOfTeam } from '../../../services/interfaceValidators';
 
 export const SET_TEAMS = 'SET_TEAMS';
+export const SET_TEAMS_DETAIL = 'SET_TEAMS_DETAIL';
 
 interface setTeamsAction {
     type: typeof SET_TEAMS;
     payload: teamInterface[];
 }
 
+interface setTeamsActionDetail {
+    type: typeof SET_TEAMS_DETAIL;
+    payload: teamInterface;
+}
+
+export type teamActionDetailTypes = setTeamsActionDetail;
 export type teamActionTypes = setTeamsAction;
 
 export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes => {
@@ -21,5 +28,12 @@ export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes =>
     return {
         type: SET_TEAMS,
         payload: [],
+    };
+};
+
+export const setTeamsActionDetailCreator = (data: teamInterface): teamActionDetailTypes => {
+    return {
+        type: SET_TEAMS_DETAIL,
+        payload: data,
     };
 };

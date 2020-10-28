@@ -5,14 +5,12 @@ import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import TeamCard from '../components/TeamCard/teamCard';
 import { GROUP, TEAM } from '../constants';
-import { fetchDataThunk } from '../services/api';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
+import GroupInfo from '../components/GroupInfo/groupInfo';
 
 interface urlParams {
-    Region: string;
-    Sport: string;
-    Club: string;
-    Group: string;
+    id: string;
 }
 
 const GroupPage = () => {
@@ -27,6 +25,7 @@ const GroupPage = () => {
             !reduxState.thunk.fetch_success
         ) {
             dispatch(fetchDataThunk(TEAM));
+            dispatch(fetchDetailThunk(GROUP, urlParams.id));
         }
     });
 
@@ -48,17 +47,20 @@ const GroupPage = () => {
         );
     });
 
+    const selectedGroup = reduxState.group_detail.group;
+
     return (
         <div className="container body">
             <div className="row">
                 <div className="col">
-                    <h1>{urlParams.Group}</h1>
+                    <h1>HEADER</h1>
                 </div>
                 <div className="col search_icon-container">
                     <SearchIcon />
                 </div>
             </div>
             <SearchBar typeOfSearch={GROUP} />
+            {selectedGroup && <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />}
             <div className="card-columns">{listContent}</div>
         </div>
     );

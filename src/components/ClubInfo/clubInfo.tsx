@@ -5,7 +5,7 @@ interface IClubInfo {
     title: string;
     contact_email: string;
     price: string;
-    webpage: string;
+    register_info: string;
     description: string;
 }
 
@@ -16,18 +16,18 @@ const ClubInfo = (props: IClubInfo) => {
                 <h1>{props.title}</h1>
             </div>
             <div>
-                <span>
+                <p>
                     <strong>Kontakt:</strong>
                     {props.contact_email}
-                </span>
-                <span>
+                </p>
+                <p>
                     <strong>Medlemskontigent:</strong>
                     {props.price}
-                </span>
-                <span>
-                    <strong>Meld deg inn her:</strong>
-                    {props.webpage}
-                </span>
+                </p>
+                <p>
+                    <strong>Meld deg inn:</strong>
+                    {props.register_info}
+                </p>
             </div>
             <div>
                 <p>{props.description}</p>

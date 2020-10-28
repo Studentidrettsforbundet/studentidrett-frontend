@@ -16,3 +16,7 @@ export const urlBuilderSimpleSearch = (cardType: cardType, searchString: string)
 export const urlBuilderFetchData = (cardType: cardType): string => {
     return BASE_URL + '/' + cardType + '/';
 };
+
+export const urlBuilderFetchDetail = (cardType: cardType, id: string): string => {
+    return BASE_URL + '/' + cardType + '/' + id + '/';
+};

@@ -7,11 +7,10 @@ import image from '../../assets/placeholder.png';
 import { card, cardBody, cardHeader, cardImg } from '../../styles/card';
 
 const ClubCard = (club: clubInterface) => {
-    const location = useLocation();
     const dispatch = useDispatch();
     return (
         <Link
-            to={location.pathname + '/' + club.name}
+            to={`/clubs/${club.id}`}
             key={club.id}
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}

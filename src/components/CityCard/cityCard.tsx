@@ -9,7 +9,7 @@ const CityCard = ({ id, name, region, clubs }: cityInterface) => {
     const dispatch = useDispatch();
     return (
         <Link
-            to={'/' + name}
+            to={`/cities/${id}`}
             key={id}
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}

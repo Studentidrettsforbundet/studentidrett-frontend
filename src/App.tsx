@@ -11,7 +11,7 @@ const App = () => {
             <h1>Kundestyrt</h1>
             <div className="col">
                 <button type="button" className="btn btn-primary">
-                    <Link to="/Regions" style={{ color: 'black' }}>
+                    <Link to="/regions" style={{ color: 'black' }}>
                         Browse student sport
                     </Link>
                 </button>
