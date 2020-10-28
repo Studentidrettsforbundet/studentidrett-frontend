@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import SportCard from '../components/sportCard';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
+import SportCard from '../components/SportCard/sportCard';
 import { SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';

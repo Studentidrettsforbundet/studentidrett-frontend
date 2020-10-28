@@ -1,13 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
-import '../styles/searchBar.css';
-import { cardType } from '../constants';
-import { fetchDataThunk } from '../services/api';
+import '../../styles/searchBar.css';
+import { cardType } from '../../constants';
+import { fetchDataThunk } from '../../services/api';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { urlBuilderSimpleSearch } from '../services/urlBuilders';
-import { combinedStateInterface } from '../store/store';
+import { urlBuilderSimpleSearch } from '../../services/urlBuilders';
+import { combinedStateInterface } from '../../store/store';
+import { searchBar } from './styles';
 
 interface searchBarProps {
     typeOfSearch: cardType;
@@ -30,7 +31,7 @@ const SearchBar = (searchBarProps: searchBarProps) => {
     return (
         <div>
             {reduxState.searchBar.showSearchBar ? (
-                <Card className="searchBar container">
+                <Card className={searchBar}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Row>
                             <Col>

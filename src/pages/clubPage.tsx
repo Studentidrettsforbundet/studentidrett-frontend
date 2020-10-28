@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import GroupCard from '../components/groupCard';
+import GroupCard from '../components/GroupCard/groupCard';
 import { CLUB, GROUP } from '../constants';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
+import { searchIconContainer } from '../components/SearchBar/styles';
+import ClubInfo from '../components/ClubInfo/clubInfo';
+import { card } from '../styles/card';
 
 interface urlParams {
     Region: string;
@@ -48,17 +51,17 @@ const ClubPage = () => {
     });
 
     return (
-        <div className="container body">
+        <div>
             <div className="row">
                 <div className="col">
                     <h1>{urlParams.Club}</h1>
                 </div>
-                <div className="col search_icon-container">
+                <div className={searchIconContainer}>
                     <SearchIcon />
                 </div>
             </div>
             <SearchBar typeOfSearch={CLUB} />
-            <div className="card-columns">{listContent}</div>
+            <div className={card}>{listContent}</div>
         </div>
     );
 };

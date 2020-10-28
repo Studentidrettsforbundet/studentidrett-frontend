@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import ClubCard from '../components/clubCard';
-import SportCard from '../components/sportCard';
+import ClubCard from '../components/ClubCard/clubCard';
+import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button } from 'react-bootstrap';
+import { searchIconContainer } from '../components/SearchBar/styles';
 
 interface urlParams {
     City: string;
@@ -66,21 +67,21 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
                     </div>
 
-                    <div className="col search_icon-container">
+                    <div className={searchIconContainer}>
                         <SearchIcon />
                     </div>
                 </div>
             </div>
             {showClubs ? (
-                <>
+                <div>
                     <SearchBar typeOfSearch={CLUB} />
                     {listClubContent}
-                </>
+                </div>
             ) : (
-                <>
+                <div>
                     <SearchBar typeOfSearch={SPORT} />
                     {listSportContent}
-                </>
+                </div>
             )}
         </div>
     );

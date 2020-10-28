@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { teamInterface } from '../interfaces';
-import image from './placeholder.png';
+import { teamInterface } from '../../interfaces';
+import image from '../../assets/placeholder.png';
 import TeamCardExpanded from './teamCardExpanded';
 
 const TeamCard = ({

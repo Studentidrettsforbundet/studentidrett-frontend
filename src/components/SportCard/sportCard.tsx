@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { sportInterface } from '../interfaces';
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import image from './placeholder.png';
+import { sportInterface } from '../../interfaces';
+import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
+import image from '../../assets/placeholder.png';
 
 const SportCard = ({ id, name }: sportInterface) => {
     const location = useLocation();

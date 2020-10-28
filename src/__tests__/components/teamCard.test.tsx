@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import TeamCard from '../../components/teamCard';
-import TeamCardExpanded from '../../components/teamCardExpanded';
+import TeamCard from '../../components/TeamCard/teamCard';
+import TeamCardExpanded from '../../components/TeamCard/teamCardExpanded';
 import store from '../../store/store';
 
 

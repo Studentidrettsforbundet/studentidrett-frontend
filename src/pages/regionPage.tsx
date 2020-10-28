@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
-import RegionCard from '../components/regionCard';
+import RegionCard from '../components/RegionCard/regionCard';
 import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
-import SearchIcon from '../components/searchIcon';
-import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
+import SearchBar from '../components/SearchBar/searchBar';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);

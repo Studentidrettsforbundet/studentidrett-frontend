@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import TeamCard from '../components/teamCard';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
+import TeamCard from '../components/TeamCard/teamCard';
 import { TEAM } from '../constants';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 import { combinedStateInterface } from '../store/store';

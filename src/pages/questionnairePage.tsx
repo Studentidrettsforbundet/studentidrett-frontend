@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Field } from 'react-final-form';
-import QuestionnaireItem, { QuestionnaireItemProps } from '../components/questionnaireItem';
+import QuestionnaireItem, { QuestionnaireItemProps } from '../components/QuestionnaireItem/questionnaireItem';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
 import { fetchData } from '../services/api';
