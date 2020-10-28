@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
-import '../../styles/searchBar.css';
 import { cardType } from '../../constants';
 import { fetchDataThunk } from '../../services/api';
 import { Card, Col, Row } from 'react-bootstrap';

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/searchBar.css';
 import { useDispatch } from 'react-redux';
 import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
 
