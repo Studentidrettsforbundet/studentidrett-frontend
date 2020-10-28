@@ -9,6 +9,7 @@ import SearchIcon from '../components/searchIcon';
 import SearchBar from '../components/searchBar';
 import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -67,14 +68,22 @@ const RegionPage = () => {
                 </div>
             ) : (
                 <>
-                    {reduxState.city.cities.length === 0 ? (
+                    {reduxState.thunk.fetch_failed ? (
                         <>
-                            <EmptyResult />
+                            <FetchError />
                         </>
                     ) : (
                         <>
-                            {listContent}
-                            {sortCities}
+                            {reduxState.city.cities.length === 0 ? (
+                                <>
+                                    <EmptyResult />
+                                </>
+                            ) : (
+                                <>
+                                    {listContent}
+                                    {sortCities}
+                                </>
+                            )}
                         </>
                     )}
                 </>

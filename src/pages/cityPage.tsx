@@ -10,6 +10,7 @@ import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 interface urlParams {
     City: string;
@@ -78,15 +79,23 @@ const CityPage = () => {
                 </div>
             ) : (
                 <>
-                    {showClubs ? (
+                    {reduxState.thunk.fetch_failed ? (
                         <>
-                            <SearchBar typeOfSearch={CLUB} />
-                            {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
+                            <FetchError />
                         </>
                     ) : (
                         <>
-                            <SearchBar typeOfSearch={SPORT} />
-                            {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
+                            {showClubs ? (
+                                <>
+                                    <SearchBar typeOfSearch={CLUB} />
+                                    {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
+                                </>
+                            ) : (
+                                <>
+                                    <SearchBar typeOfSearch={SPORT} />
+                                    {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
+                                </>
+                            )}
                         </>
                     )}
                 </>

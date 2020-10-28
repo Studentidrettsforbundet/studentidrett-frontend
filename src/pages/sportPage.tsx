@@ -3,6 +3,7 @@ import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
 import SportCard from '../components/sportCard';
@@ -58,10 +59,18 @@ const SportPage = () => {
                 </div>
             ) : (
                 <>
-                    {reduxState.sport.sports.length === 0 ? (
-                        <EmptyResult />
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
                     ) : (
-                        <div className="card-deck">{listContent}</div>
+                        <>
+                            {reduxState.sport.sports.length === 0 ? (
+                                <EmptyResult />
+                            ) : (
+                                <div className="card-deck">{listContent}</div>
+                            )}
+                        </>
                     )}
                 </>
             )}
