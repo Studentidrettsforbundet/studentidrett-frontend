@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles/global.css';
 import './assets/ko355.woff';
+import './styles/spinner.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
