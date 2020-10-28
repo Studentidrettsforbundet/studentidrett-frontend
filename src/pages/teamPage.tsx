@@ -18,7 +18,6 @@ interface urlParams {
 
 const TeamPage = () => {
     const urlParams = useParams<urlParams>();
-    const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     const listContent = reduxState.team.teams.map((entry) => {

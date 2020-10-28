@@ -67,7 +67,7 @@ const GroupPage = () => {
                 </div>
             ) : (
                 <>
-                    {listContent.length === 0 ? (
+                    {reduxState.group.groups.length === 0 ? (
                         <EmptyResult />
                     ) : (
                         <>

@@ -81,12 +81,12 @@ const CityPage = () => {
                     {showClubs ? (
                         <>
                             <SearchBar typeOfSearch={CLUB} />
-                            {listClubContent.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
+                            {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
                         </>
                     ) : (
                         <>
                             <SearchBar typeOfSearch={SPORT} />
-                            {listSportContent.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
+                            {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
                         </>
                     )}
                 </>

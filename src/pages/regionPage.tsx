@@ -67,7 +67,7 @@ const RegionPage = () => {
                 </div>
             ) : (
                 <>
-                    {sortCities.length === 0 ? (
+                    {reduxState.city.cities.length === 0 ? (
                         <>
                             <EmptyResult />
                         </>

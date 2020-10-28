@@ -57,7 +57,13 @@ const SportPage = () => {
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <>{listContent.length === 0 ? <EmptyResult /> : <div className="card-deck">{listContent}</div>}</>
+                <>
+                    {reduxState.sport.sports.length === 0 ? (
+                        <EmptyResult />
+                    ) : (
+                        <div className="card-deck">{listContent}</div>
+                    )}
+                </>
             )}
         </div>
     );
