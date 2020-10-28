@@ -52,8 +52,6 @@ const ClubPage = () => {
 
     const selectedClub = reduxState.club_detail.club;
 
-    console.log(selectedClub);
-
     return (
         <div>
             <div className="row">
