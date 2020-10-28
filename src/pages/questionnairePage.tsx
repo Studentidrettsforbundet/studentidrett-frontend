@@ -4,15 +4,20 @@ import QuestionnaireItem, { QuestionnaireItemProps } from '../components/questio
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
 import { fetchData } from '../services/api';
+import { Spinner } from 'react-bootstrap';
 
 const QuestionnairePage = () => {
+    const [fetchInProgress, setFetchInProgress] = useState(true);
     const [fetched, setFetched] = useState(false);
     const [responseBody, setResponseBody] = useState({});
     const [questions, setQuestions] = useState([] as QuestionnaireItemProps[]);
+    const [sendInProgress, setsendInProgress] = useState(false);
 
     useEffect(() => {
         async function fetch() {
+            setFetchInProgress(true);
             fetchData('https://kundestyrt-nsi-backend.azurewebsites.net/questions').then((data) => {
+                setFetchInProgress(false);
                 if (data === 'Something went wrong' || data === 'Connection error') {
                     console.error(data);
                     return;
@@ -46,6 +51,7 @@ const QuestionnairePage = () => {
             qid: key.replace('name_', ''),
             answer: values[key],
         }));
+        setsendInProgress(true);
         fetch('https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/', {
             method: 'POST',
             headers: {
@@ -88,12 +94,33 @@ const QuestionnairePage = () => {
                     return errors;
                 }}
                 render={({ handleSubmit, submitting }) => (
-                    <form onSubmit={handleSubmit}>
-                        {listItems}
-                        <button type="submit" disabled={submitting}>
-                            Send
-                        </button>
-                    </form>
+                    <>
+                        {fetchInProgress ? (
+                            <div className="center_container">
+                                <Spinner animation="border" />
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit}>
+                                {listItems}
+                                {sendInProgress ? (
+                                    <button type="submit" disabled={submitting}>
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Send
+                                    </button>
+                                ) : (
+                                    <button type="submit" disabled={submitting}>
+                                        Send
+                                    </button>
+                                )}
+                            </form>
+                        )}
+                    </>
                 )}
             />
             {fetched && <Redirect to={{ pathname: 'questionnaire/result', state: responseBody }} />}

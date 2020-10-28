@@ -50,35 +50,27 @@ const RegionPage = () => {
     });
 
     return (
-        <>
-            {false ? (
+        <div className="container body">
+            <div className="row">
+                <div className="col">
+                    <h1>Regions</h1>
+                </div>
+                <div className="col search_icon-container">
+                    <SearchIcon />
+                </div>
+            </div>
+            <SearchBar typeOfSearch={CITY} />
+            {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <div className="container body">
-                    <div className="row">
-                        <div className="col">
-                            <h1>Regions</h1>
-                        </div>
-                        <div className="col search_icon-container">
-                            <SearchIcon />
-                        </div>
-                    </div>
-                    <SearchBar typeOfSearch={CITY} />
-                    {reduxState.thunk.fetch_in_progress ? (
-                        <div className="center_container">
-                            <Spinner animation="border" />
-                        </div>
-                    ) : (
-                        <>
-                            {sortCities}
-                            {listContent}
-                        </>
-                    )}
-                </div>
+                <>
+                    {sortCities}
+                    {listContent}
+                </>
             )}
-        </>
+        </div>
     );
 };
 

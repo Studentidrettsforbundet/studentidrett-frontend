@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/searchBar';
@@ -50,7 +51,13 @@ const SportPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={SPORT} />
-            <div className="card-deck">{listContent}</div>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <div className="card-deck">{listContent}</div>
+            )}
         </div>
     );
 };

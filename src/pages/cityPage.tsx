@@ -8,7 +8,7 @@ import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 
 interface urlParams {
     City: string;
@@ -71,15 +71,23 @@ const CityPage = () => {
                     </div>
                 </div>
             </div>
-            {showClubs ? (
-                <>
-                    <SearchBar typeOfSearch={CLUB} />
-                    {listClubContent}
-                </>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
             ) : (
                 <>
-                    <SearchBar typeOfSearch={SPORT} />
-                    {listSportContent}
+                    {showClubs ? (
+                        <>
+                            <SearchBar typeOfSearch={CLUB} />
+                            {listClubContent}
+                        </>
+                    ) : (
+                        <>
+                            <SearchBar typeOfSearch={SPORT} />
+                            {listSportContent}
+                        </>
+                    )}
                 </>
             )}
         </div>
