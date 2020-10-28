@@ -36,78 +36,30 @@ exports[`regionPage renders correctly 1`] = `
   </div>
   <div />
   <div
-    className="card Region"
-    onClick={[Function]}
+    className="card"
   >
     <div
       className="card-body"
     >
-      <h5
-        className="card-title "
+      <div
+        className="card-title h5"
       >
-        Nordnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Midtnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Vestlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Sørlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Østlandet
-      </h5>
-      <p />
+        Søket gav ingen resultater
+      </div>
+      <img
+        alt="unhappy icon"
+        className="unhappy_icon"
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "sadFace.svg",
+          }
+        }
+      />
     </div>
   </div>
 </div>

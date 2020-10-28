@@ -8,6 +8,7 @@ import { regionInterface } from '../interfaces';
 import SearchIcon from '../components/searchIcon';
 import SearchBar from '../components/searchBar';
 import { Spinner } from 'react-bootstrap';
+import EmptyResult from '../components/emptyResult';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -66,8 +67,16 @@ const RegionPage = () => {
                 </div>
             ) : (
                 <>
-                    {sortCities}
-                    {listContent}
+                    {reduxState.city.cities.length === 0 ? (
+                        <>
+                            <EmptyResult />
+                        </>
+                    ) : (
+                        <>
+                            {listContent}
+                            {sortCities}
+                        </>
+                    )}
                 </>
             )}
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import EmptyResult from '../components/emptyResult';
 import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
 import TeamCard from '../components/teamCard';
@@ -17,7 +18,6 @@ interface urlParams {
 
 const TeamPage = () => {
     const urlParams = useParams<urlParams>();
-    const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     const listContent = reduxState.team.teams.map((entry) => {
@@ -50,8 +50,14 @@ const TeamPage = () => {
                 </div>
             ) : (
                 <>
-                    <p>The sport has clubs in these cities: </p>
-                    {listContent}
+                    {listContent.length === 0 ? (
+                        <EmptyResult />
+                    ) : (
+                        <>
+                            <p>The sport has clubs in these cities: </p>
+                            {listContent}
+                        </>
+                    )}
                 </>
             )}
         </div>
