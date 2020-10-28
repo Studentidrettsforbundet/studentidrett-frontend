@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/global.css';
 import './assets/ko355.woff';
+import './styles/spinner.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';

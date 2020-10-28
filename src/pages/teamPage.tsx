@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/searchBar';
@@ -43,8 +44,16 @@ const TeamPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={TEAM} />
-            <p>The sport has clubs in these cities: </p>
-            {listContent}
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <>
+                    <p>The sport has clubs in these cities: </p>
+                    {listContent}
+                </>
+            )}
         </div>
     );
 };

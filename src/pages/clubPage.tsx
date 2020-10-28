@@ -7,6 +7,7 @@ import SearchBar from '../components/searchBar';
 import SearchIcon from '../components/searchIcon';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
+import { Spinner } from 'react-bootstrap';
 
 interface urlParams {
     Region: string;
@@ -58,7 +59,13 @@ const ClubPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={CLUB} />
-            <div className="card-columns">{listContent}</div>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <div className="card-columns">{listContent}</div>
+            )}
         </div>
     );
 };
