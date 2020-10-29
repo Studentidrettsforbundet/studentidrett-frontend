@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import { cardType } from '../../constants';
 import { Link } from 'react-router-dom';
 import { Card, Col, Row } from 'react-bootstrap';
-import { urlBuilderSimpleSearch } from '../../services/urlBuilders';
 import { searchBar } from './styles';
 
 interface searchBarProps {
@@ -29,7 +28,7 @@ const SearchBar = (searchBarProps: searchBarProps) => {
                 </Row>
                 <Row>
                     <Col>
-                        <Link to={`/search/?q=${(searchBarProps.typeOfSearch ? searchBarProps + '/' : '') + text}`}>
+                        <Link to={`/search/?q=${(searchBarProps.typeOfSearch ? searchBarProps.typeOfSearch + '/' : '') + text}`}>
                             <Button variant="primary" type="submit" className={'searchBar_button'}>
                                 Search
                             </Button>
