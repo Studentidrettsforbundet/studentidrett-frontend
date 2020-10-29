@@ -1,8 +1,15 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import createRoutes from './routes';
+import { BrowserRouter } from 'react-router-dom';
 
-const routes = createRoutes();
+import App from './App';
 
-ReactDOM.render(routes, document.getElementById('root'));
-
-export default routes;
+const rootElement = document.getElementById('root');
+ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>,
+    rootElement,
+);

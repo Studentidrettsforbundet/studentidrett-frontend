@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { card } from '../styles/card';
-import { cardType, CITY, CLUB, GROUP, SPORT, TEAM } from '../constants';
-import { searchInterface } from '../interfaces';
+import { card } from '../../styles/card';
+import { cardType, CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
+import { searchInterface } from '../../interfaces';
 import { Link } from 'react-router-dom';
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { useDispatch } from 'react-redux';
 
 interface searchCardInterface {

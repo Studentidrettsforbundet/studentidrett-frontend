@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
@@ -9,6 +10,8 @@ import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import GroupInfo from '../components/GroupInfo/groupInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
+import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 interface urlParams {
     id: string;
@@ -50,8 +53,6 @@ const GroupPage = () => {
 
     const selectedGroup = reduxState.group_detail.group;
 
-    console.log(listContent);
-
     return (
         <div className="container body">
             <div className="row">
@@ -63,8 +64,32 @@ const GroupPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={GROUP} />
-            {selectedGroup && <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />}
-            <div className="card-columns">{listContent}</div>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>
+                            {reduxState.group.groups.length === 0 ? (
+                                <EmptyResult />
+                            ) : (
+                                <div>
+                                    {selectedGroup && (
+                                        <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
+                                    )}
+                                    <div className="card-columns">{listContent}</div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     );
 };

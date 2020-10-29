@@ -58,7 +58,7 @@ exports[`clubPage renders correctly 1`] = `
           className="col"
         >
           <a
-            href="/search/?q=clubs/"
+            href="/search/?q=groups/"
             onClick={[Function]}
           >
             <button
@@ -73,8 +73,36 @@ exports[`clubPage renders correctly 1`] = `
       </div>
     </div>
   </div>
-  <div
-    className="fcjpwci"
-  />
+  <div>
+    <div>
+      <div
+        className="card"
+      >
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            Søket gav ingen resultater
+          </div>
+          <img
+            alt="unhappy icon"
+            className="unhappy_icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "sadFace.svg",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

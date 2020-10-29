@@ -8,9 +8,11 @@ import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import { searchIconContainer } from '../components/SearchBar/styles';
 import { urlBuilderFilterData } from '../services/urlBuilders';
+import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 interface urlParams {
     id: string;
@@ -77,15 +79,31 @@ const CityPage = () => {
                     </div>
                 </div>
             </div>
-            {showClubs ? (
-                <div>
-                    <SearchBar typeOfSearch={CLUB} />
-                    {listClubContent}
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
                 </div>
             ) : (
                 <div>
-                    <SearchBar typeOfSearch={SPORT} />
-                    {listSportContent}
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>
+                            {showClubs ? (
+                                <div>
+                                    <SearchBar typeOfSearch={CLUB} />
+                                    {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
+                                </div>
+                            ) : (
+                                <div>
+                                    <SearchBar typeOfSearch={SPORT} />
+                                    {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             )}
         </div>

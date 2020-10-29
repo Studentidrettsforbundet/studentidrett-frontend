@@ -76,78 +76,30 @@ exports[`regionPage renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="fnx2dr7 fcjpwci"
-    onClick={[Function]}
+    className="card"
   >
     <div
-      className="f1q24w9w"
+      className="card-body"
     >
-      <h5
-        className="f19aa3jt"
+      <div
+        className="card-title h5"
       >
-        Nordnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="fnx2dr7 fcjpwci"
-    onClick={[Function]}
-  >
-    <div
-      className="f1q24w9w"
-    >
-      <h5
-        className="f19aa3jt"
-      >
-        Midtnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="fnx2dr7 fcjpwci"
-    onClick={[Function]}
-  >
-    <div
-      className="f1q24w9w"
-    >
-      <h5
-        className="f19aa3jt"
-      >
-        Vestlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="fnx2dr7 fcjpwci"
-    onClick={[Function]}
-  >
-    <div
-      className="f1q24w9w"
-    >
-      <h5
-        className="f19aa3jt"
-      >
-        Sørlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="fnx2dr7 fcjpwci"
-    onClick={[Function]}
-  >
-    <div
-      className="f1q24w9w"
-    >
-      <h5
-        className="f19aa3jt"
-      >
-        Østlandet
-      </h5>
-      <p />
+        Søket gav ingen resultater
+      </div>
+      <img
+        alt="unhappy icon"
+        className="unhappy_icon"
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "sadFace.svg",
+          }
+        }
+      />
     </div>
   </div>
 </div>

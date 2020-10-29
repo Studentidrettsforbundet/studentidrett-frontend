@@ -11,6 +11,9 @@ import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { card } from '../styles/card';
 import { urlBuilderFilterData } from '../services/urlBuilders';
+import { Spinner } from 'react-bootstrap';
+import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 interface urlParams {
     id: string;
@@ -64,8 +67,24 @@ const ClubPage = () => {
                     <SearchIcon />
                 </div>
             </div>
-            <SearchBar typeOfSearch={CLUB} />
-            {selectedClub && (
+            <SearchBar typeOfSearch={GROUP} />
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <div>
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>
+                            {reduxState.group.groups.length === 0 ? (
+                                <EmptyResult />
+                            ) : (
+                                <div>
+                                    {selectedClub && (
                 <ClubInfo
                     title={selectedClub.name}
                     contact_email={selectedClub.contact_email}
@@ -75,6 +94,12 @@ const ClubPage = () => {
                 />
             )}
             <div className={card}>{listContent}</div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

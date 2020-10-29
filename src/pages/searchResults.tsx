@@ -13,7 +13,7 @@ import {
     instanceOfSport,
     instanceOfTeam,
 } from '../services/interfaceValidators';
-import SearchCard from '../components/searchCard';
+import SearchCard from '../components/SearchCard/searchCard';
 
 const SearchResults = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);

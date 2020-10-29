@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
@@ -9,13 +10,10 @@ import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import ClubCard from '../components/ClubCard/clubCard';
+import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
-
-/* TODO
- * Uses ClubCard NOT SportCard
- * make ClubCards redirect to "/:City/:Club" instead of "/:City/:Sport/:Club"
- */
 
 interface urlParams {
     id: string;
@@ -72,7 +70,27 @@ const SportPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={SPORT} />
-            <div className="card-deck">{listContent}</div>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
+                    ) : (
+                        <>
+                            {reduxState.sport.sports.length === 0 ? (
+                                <EmptyResult />
+                            ) : (
+                                <div className="card-deck">{listContent}</div>
+                            )}
+                        </>
+                    )}
+                </>
+            )}
         </div>
     );
 };
