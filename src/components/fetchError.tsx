@@ -1,14 +1,12 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 const FetchError = () => {
     return (
-        <Card>
-            <Card.Body>
-                <Card.Title>Noe har gått galt</Card.Title>
-                <img src={require('../assets/wrench.svg')} alt="error icon" className={'error_icon'} />
-            </Card.Body>
-        </Card>
+        <Alert variant="danger" className="error_alert">
+            <Alert.Heading>Noe har gått galt!</Alert.Heading>
+            <img src={require('../assets/wrench.svg')} alt="error icon" className={'error_icon'} />
+        </Alert>
     );
 };
 
