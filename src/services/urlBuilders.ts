@@ -3,16 +3,10 @@ import { makeInputSafe } from './stringValidation';
 
 const MAXLENGTH_SEARCH = 50;
 
-export const urlBuilderSimpleSearch = (searchString: string, cardType?: cardType): string => {
+export const urlBuilderSimpleSearch = (searchString: string): string => {
     const safeString = makeInputSafe(searchString, MAXLENGTH_SEARCH);
 
-    if (!cardType) {
-        return '/search/?q=' + safeString;
-    } else if (safeString === '') {
-        return urlBuilderFetchData(cardType);
-    } else {
-        return '/search/?q=' + cardType + '/' + safeString;
-    }
+    return BASE_URL + '/search/?q=' + safeString;
 };
 
 interface filterCards {

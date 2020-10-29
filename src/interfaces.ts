@@ -87,3 +87,8 @@ export interface regionInterface {
     name: string;
     cities: cityInterface[];
 }
+
+export interface searchInterface {
+    name: string;
+    id: string;
+}

@@ -9,6 +9,7 @@ import { sportInitialState, sportReducer, sportDetailReducer, sportState } from 
 import { teamInitialState, teamReducer, teamDetailReducer, teamState } from './pages/team/teamReducer';
 import { searchBarInitialState, searchBarReducer, searchBarState } from './searchBar/searchBarReducer';
 import { thunkInitialState, thunkReducer, thunkState } from './thunks/thunkReducer';
+import { searchInitialState, searchReducer, searchState } from "./pages/search/searchReducer";
 
 declare global {
     interface Window {
@@ -30,6 +31,7 @@ export interface combinedStateInterface {
     team_detail: teamState;
     group: groupState;
     group_detail: groupState;
+    search_results: searchState;
     thunk: thunkState;
     searchBar: searchBarState;
 }
@@ -46,6 +48,7 @@ export const combinedState = {
     team_detail: teamInitialState,
     group: groupInitialState,
     group_detail: groupInitialState,
+    search_results: searchInitialState,
     thunk: thunkInitialState,
     searchBar: searchBarInitialState,
 };
@@ -63,6 +66,7 @@ const store = createStore(
         team_detail: teamDetailReducer,
         group: groupReducer,
         group_detail: groupDetailReducer,
+        search_results: searchReducer,
         thunk: thunkReducer,
         searchBar: searchBarReducer,
     }),

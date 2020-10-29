@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { cardType, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../constants';
+import {cardType, CITY, CLUB, GROUP, REGION, SEARCH, SPORT, TEAM} from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator, setClubsActionDetailCreator } from '../store/pages/club/clubActions';
 import { setGroupsActionCreator, setGroupsActionDetailCreator } from '../store/pages/group/groupActions';
@@ -14,7 +14,8 @@ import {
     fetchSuccessActionCreator,
     fetchDetailSuccessActionCreator,
 } from '../store/thunks/thunkActions';
-import {urlBuilderFetchData, urlBuilderFetchDetail} from './urlBuilders';
+import { urlBuilderFetchData, urlBuilderFetchDetail } from './urlBuilders';
+import {setSearchActionCreator} from "../store/pages/search/searchActions";
 
 export const fetchData = async (url: string) => {
     try {
@@ -39,7 +40,7 @@ export const checkForErrorCodes = (result: any): boolean => {
 };
 
 export const fetchDataThunk = (
-    dataType: cardType,
+    dataType?: cardType,
     url: string = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     let asyncResp;
@@ -50,7 +51,7 @@ export const fetchDataThunk = (
         asyncResp = await fetchData(url);
     } else {
         //Fetch based on cardType
-        asyncResp = await fetchData(urlBuilderFetchData(dataType));
+        asyncResp = dataType ? await fetchData(urlBuilderFetchData(dataType)) : null;
     }
     let result = [];
 
@@ -85,6 +86,10 @@ export const fetchDataThunk = (
         case GROUP: {
             dispatch(setGroupsActionCreator(result));
             break;
+        }
+
+        case SEARCH: {
+            dispatch(setSearchActionCreator(result));
         }
         default: {
             return;

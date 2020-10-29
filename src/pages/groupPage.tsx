@@ -25,9 +25,7 @@ const GroupPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(
-                fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: 'GROUP', id_or_name: urlParams.id }])),
-            );
+            dispatch(fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: GROUP, id_or_name: urlParams.id }])));
             dispatch(fetchDetailThunk(GROUP, urlParams.id));
         }
     });
