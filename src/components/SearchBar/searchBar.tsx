@@ -7,7 +7,7 @@ import { urlBuilderSimpleSearch } from '../../services/urlBuilders';
 import { searchBar } from './styles';
 
 interface searchBarProps {
-    typeOfSearch: cardType;
+    typeOfSearch?: cardType;
 }
 
 const SearchBar = (searchBarProps: searchBarProps) => {
@@ -29,7 +29,7 @@ const SearchBar = (searchBarProps: searchBarProps) => {
                 </Row>
                 <Row>
                     <Col>
-                        <Link to={`/search/?q=${searchBarProps.typeOfSearch}/${text}`}>
+                        <Link to={`/search/?q=${(searchBarProps.typeOfSearch ? searchBarProps + '/' : '') + text}`}>
                             <Button variant="primary" type="submit" className={'searchBar_button'}>
                                 Search
                             </Button>

@@ -29,14 +29,24 @@ describe('instanceOfTeam', () => {
     test('Should return true', () => {
         const case1 = {
             id: 0,
-            name: 'Men A',
-            full_capacity: true,
-            short_description: 'Elite team men',
-            long_description:
-                'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
-            tryouts: true,
-            registration_open: false,
-            group: 0,
+            availability: 'OP',
+            cost: null,
+            equipment: null,
+            facebook_link: null,
+            gender: 'M',
+            group: 1,
+            image: null,
+            instagram_link: null,
+            location: 1,
+            long_description: 'Team A is the best',
+            name: 'Team A',
+            schedule: [],
+            tryout_dates: [],
+            webpage: null,
+            season: null,
+            short_description: 'Short desc',
+            skill_level: 'HI',
+            sport: 1,
         };
         expect(instanceOfTeam(case1)).toBe(true);
     });

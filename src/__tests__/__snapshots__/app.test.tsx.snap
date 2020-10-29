@@ -15,7 +15,7 @@ exports[`App renders correctly 1`] = `
       type="button"
     >
       <a
-        href="/Regions"
+        href="/regions"
         onClick={[Function]}
         style={
           Object {

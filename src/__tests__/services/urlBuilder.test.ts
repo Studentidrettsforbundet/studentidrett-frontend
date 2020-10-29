@@ -4,27 +4,15 @@ import { urlBuilderFetchData, urlBuilderSimpleSearch } from '../../services/urlB
 
 describe('urlBuilderSimpleSearch', () => {
     test('Should normalization a single word', () => {
-        const case1 = 'Football';
-        const answer = BASE_URL + '/search/?q=clubs/' + case1;
-        expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
+        const case1 = 'clubs/Football';
+        const answer = BASE_URL + '/search/?q=' + case1;
+        expect(urlBuilderSimpleSearch(case1)).toBe(answer);
     });
 
     test('Should normalization a sentence', () => {
-        const case1 = 'Football lag i Trondheim';
+        const case1 = 'clubs/Football lag i Trondheim';
         const answer = BASE_URL + '/search/?q=clubs/' + 'Football%20lag%20i%20Trondheim';
-        expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
-    });
-
-    test('Should return normal fetch if empty string', () => {
-        const case1 = '';
-        const answer = urlBuilderFetchData(CLUB);
-        expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
-    });
-
-    test('Should return normal fetch if long empty string', () => {
-        const case1 = '                            ';
-        const answer = urlBuilderFetchData(CLUB);
-        expect(urlBuilderSimpleSearch(CLUB, case1)).toBe(answer);
+        expect(urlBuilderSimpleSearch(case1)).toBe(answer);
     });
 });
 

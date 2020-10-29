@@ -5,6 +5,7 @@ import { combinedStateInterface } from '../store/store';
 import { fetchDataThunk } from '../services/api';
 import { CITY, CLUB, GROUP, SEARCH, SPORT, TEAM } from '../constants';
 import { urlBuilderSimpleSearch } from '../services/urlBuilders';
+import SearchBar from '../components/SearchBar/searchBar';
 import {
     instanceOfClub,
     instanceOfGroup,
@@ -41,7 +42,7 @@ const SearchResults = () => {
 
     return (
         <React.Fragment>
-            <div>{results}</div>
+            <div>{results.length != 0 ? results : <SearchBar />}</div>
         </React.Fragment>
     );
 };

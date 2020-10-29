@@ -2,26 +2,36 @@
 
 exports[`teamCard renders correctly 1`] = `
 <div
-  className="card Region"
+  className="fcjpwci"
   onClick={[Function]}
 >
   <h5
-    className="card-header card-title"
+    className="f19aa3jt"
   >
     Men A
   </h5>
   <div
-    className="card-body"
+    className="f1q24w9w"
   >
     <img
       alt="Team"
-      className="card-img"
+      className="f1mqlstf"
       src="placeholder.png"
     />
   </div>
   <div
-    className="card-footer"
+    className="f1az2iud"
   >
+    <p>
+      Nivå: 
+    </p>
+    <p>
+      Åpent/opptak: 
+       
+    </p>
+    <p>
+      Kjønn: 
+    </p>
     <p>
       This is where the short description goes
     </p>
@@ -30,18 +40,18 @@ exports[`teamCard renders correctly 1`] = `
 `;
 
 exports[`teamCard renders expanded card correctly 1`] = `
-Array [
+<div>
   <p>
     This is a long description
-  </p>,
+  </p>
   <p>
     This team has available positions
-  </p>,
+  </p>
   <p>
     This requires tryouts
-  </p>,
+  </p>
   <p>
     This team is open for registrations
-  </p>,
-]
+  </p>
+</div>
 `;

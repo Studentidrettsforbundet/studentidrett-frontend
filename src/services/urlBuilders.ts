@@ -4,7 +4,13 @@ import { makeInputSafe } from './stringValidation';
 const MAXLENGTH_SEARCH = 50;
 
 export const urlBuilderSimpleSearch = (searchString: string): string => {
-    const safeString = makeInputSafe(searchString, MAXLENGTH_SEARCH);
+    const newstr = searchString.split('/');
+    let safeString;
+    if (newstr.length > 1) {
+        safeString = newstr[0] + '/' + makeInputSafe(newstr[1], MAXLENGTH_SEARCH);
+    } else {
+        safeString = makeInputSafe(searchString, MAXLENGTH_SEARCH);
+    }
 
     return BASE_URL + '/search/?q=' + safeString;
 };
