@@ -1,42 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`teamCard renders correctly 1`] = `
-<div
-  className="fcjpwci"
+<a
+  className="unstyled_link"
+  href="/teams/0"
   onClick={[Function]}
 >
-  <h5
-    className="f19aa3jt"
-  >
-    Men A
-  </h5>
   <div
-    className="f1q24w9w"
+    className="fcjpwci"
+    onClick={[Function]}
   >
-    <img
-      alt="Team"
-      className="f1mqlstf"
-      src="placeholder.png"
-    />
+    <h5
+      className="f19aa3jt"
+    >
+      Men A
+    </h5>
+    <div
+      className="f1q24w9w"
+    >
+      <img
+        alt="Team"
+        className="f1mqlstf"
+        src="placeholder.png"
+      />
+    </div>
+    <div
+      className="f1az2iud"
+    >
+      <p>
+        Nivå: 
+      </p>
+      <p>
+        Åpent/opptak: 
+         
+      </p>
+      <p>
+        Kjønn: 
+      </p>
+      <p>
+        This is where the short description goes
+      </p>
+    </div>
   </div>
-  <div
-    className="f1az2iud"
-  >
-    <p>
-      Nivå: 
-    </p>
-    <p>
-      Åpent/opptak: 
-       
-    </p>
-    <p>
-      Kjønn: 
-    </p>
-    <p>
-      This is where the short description goes
-    </p>
-  </div>
-</div>
+</a>
 `;
 
 exports[`teamCard renders expanded card correctly 1`] = `

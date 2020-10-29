@@ -16,10 +16,6 @@ interface urlParams {
     id: string;
 }
 
-/* TODO: When filtering sports based on city works in backend, uncomment change SPORT-dispatch to:
-    fetchDataThunk(SPORT, urlBuilderFilterData(SPORT, [{ cardType: 'city', id_or_name: urlParams.id }])),*/
-
-
 const CityPage = () => {
     const [showClubs, setshowClubs] = useState(true);
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -39,7 +35,9 @@ const CityPage = () => {
             dispatch(
                 fetchDataThunk(CLUB, urlBuilderFilterData(CLUB, [{ cardType: 'city', id_or_name: urlParams.id }])),
             );
-            dispatch(fetchDataThunk(SPORT));
+            dispatch(
+                fetchDataThunk(SPORT, urlBuilderFilterData(SPORT, [{ cardType: 'city', id_or_name: urlParams.id }])),
+            );
         }
     });
 
