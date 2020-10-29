@@ -42,7 +42,8 @@ const SearchResults = () => {
 
     return (
         <React.Fragment>
-            <div>{results.length != 0 ? results : <SearchBar />}</div>
+            <SearchBar />
+            <div>{results}</div>
         </React.Fragment>
     );
 };
