@@ -5,6 +5,7 @@ import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
 import { fetchData } from '../services/api';
 import { Spinner } from 'react-bootstrap';
+import FetchError from '../components/fetchError';
 
 const QuestionnairePage = () => {
     const [fetchInProgress, setFetchInProgress] = useState(true);
@@ -12,13 +13,16 @@ const QuestionnairePage = () => {
     const [responseBody, setResponseBody] = useState({});
     const [questions, setQuestions] = useState([] as QuestionnaireItemProps[]);
     const [sendInProgress, setsendInProgress] = useState(false);
+    const [fetchFailed, setFetchFailed] = useState(false);
 
     useEffect(() => {
         async function fetch() {
             setFetchInProgress(true);
             fetchData('https://kundestyrt-nsi-backend.azurewebsites.net/questions').then((data) => {
                 setFetchInProgress(false);
+                setFetchFailed(false);
                 if (data === 'Something went wrong' || data === 'Connection error') {
+                    setFetchFailed(true);
                     console.error(data);
                     return;
                 }
@@ -100,25 +104,33 @@ const QuestionnairePage = () => {
                                 <Spinner animation="border" />
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit}>
-                                {listItems}
-                                {sendInProgress ? (
-                                    <button type="submit" disabled={submitting}>
-                                        <Spinner
-                                            as="span"
-                                            animation="grow"
-                                            size="sm"
-                                            role="status"
-                                            aria-hidden="true"
-                                        />
-                                        Send
-                                    </button>
+                            <>
+                                {fetchFailed ? (
+                                    <>
+                                        <FetchError />
+                                    </>
                                 ) : (
-                                    <button type="submit" disabled={submitting}>
-                                        Send
-                                    </button>
+                                    <form onSubmit={handleSubmit}>
+                                        {listItems}
+                                        {sendInProgress ? (
+                                            <button type="submit" disabled={submitting}>
+                                                <Spinner
+                                                    as="span"
+                                                    animation="grow"
+                                                    size="sm"
+                                                    role="status"
+                                                    aria-hidden="true"
+                                                />
+                                                Send
+                                            </button>
+                                        ) : (
+                                            <button type="submit" disabled={submitting}>
+                                                Send
+                                            </button>
+                                        )}
+                                    </form>
                                 )}
-                            </form>
+                            </>
                         )}
                     </>
                 )}

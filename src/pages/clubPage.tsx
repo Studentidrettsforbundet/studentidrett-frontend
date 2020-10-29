@@ -9,6 +9,7 @@ import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 interface urlParams {
     Region: string;
@@ -66,11 +67,19 @@ const ClubPage = () => {
                 </div>
             ) : (
                 <>
-                    {reduxState.group.groups.length === 0 ? (
-                        <EmptyResult />
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
                     ) : (
                         <>
-                            <div className="card-columns">{listContent}</div>
+                            {reduxState.group.groups.length === 0 ? (
+                                <EmptyResult />
+                            ) : (
+                                <>
+                                    <div className="card-columns">{listContent}</div>
+                                </>
+                            )}
                         </>
                     )}
                 </>
