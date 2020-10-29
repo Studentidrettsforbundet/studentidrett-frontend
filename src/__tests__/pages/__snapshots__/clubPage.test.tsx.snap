@@ -58,7 +58,7 @@ exports[`clubPage renders correctly 1`] = `
           className="col"
         >
           <a
-            href="/search/?q=[object Object]/"
+            href="/search/?q=clubs/"
             onClick={[Function]}
           >
             <button
