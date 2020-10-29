@@ -5,6 +5,21 @@ exports[`App renders correctly 1`] = `
   className="App"
 >
   <div
+    className="header"
+  >
+    <img
+      alt="logo"
+      src="logo.png"
+    />
+    <div
+      className="textContent"
+    >
+      Norges
+      <br />
+      Studentidrettsforbund
+    </div>
+  </div>
+  <div
     className="page"
   >
     <div
