@@ -22,15 +22,30 @@ export interface combinedResultsInterface {
         | groupInterface[];
 }
 
+export interface dateInterface {
+    date: string;
+}
+
 export interface teamInterface {
     id: number;
-    name: string;
-    full_capacity: boolean;
-    short_description: string;
-    long_description: string;
-    tryouts: boolean;
-    registration_open: boolean;
+    availability: string;
+    cost: string | null;
+    equipment: string | null;
+    facebook_link: string | null;
+    gender: string;
     group: number;
+    image: string | null;
+    instagram_link: string | null;
+    location: number;
+    long_description: string;
+    name: string;
+    schedule: dateInterface[];
+    tryout_dates: dateInterface[];
+    webpage: string | null;
+    season: string | null;
+    short_description: string | null;
+    skill_level: string;
+    sport: number;
 }
 
 export interface clubInterface {

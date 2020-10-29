@@ -10,7 +10,6 @@ import { combinedStateInterface } from '../store/store';
 import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { card } from '../styles/card';
-import { cityReducer } from '../store/pages/city/cityReducer';
 
 interface urlParams {
     id: string;

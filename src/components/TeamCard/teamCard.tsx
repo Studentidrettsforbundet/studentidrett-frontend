@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { teamInterface } from '../../interfaces';
 import image from '../../assets/placeholder.png';
-import TeamCardExpanded from './teamCardExpanded';
+import {card, cardBody, cardFooter, cardImg, cardTitle} from '../../styles/card';
 
-const TeamCard = ({
-    id,
-    name,
-    short_description,
-    full_capacity,
-    group,
-    long_description,
-    registration_open,
-    tryouts,
-}: teamInterface) => {
+interface teamCardInterface {
+    id: number;
+    name: string;
+    short_description: string|null;
+    gender: string;
+    skill_level: string;
+    availability: string;
+}
+
+const TeamCard = ({ id, name, short_description, gender, availability, skill_level }: teamCardInterface) => {
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpanded = () => {
@@ -20,22 +20,16 @@ const TeamCard = ({
     };
 
     return (
-        <div className="card Region" key={id} onClick={() => toggleExpanded()}>
-            <h5 className="card-header card-title">{name}</h5>
-            <div className="card-body">
-                <img className="card-img" src={image} alt="Team"></img>
+        <div className={card} key={id} onClick={() => toggleExpanded()}>
+            <h5 className={cardTitle}>{name}</h5>
+            <div className={cardBody}>
+                <img className={cardImg} src={image} alt="Team"></img>
             </div>
-            <div className="card-footer">
-                {expanded ? (
-                    <TeamCardExpanded
-                        long_description={long_description}
-                        full_capacity={full_capacity}
-                        tryouts={tryouts}
-                        registration_open={registration_open}
-                    />
-                ) : (
-                    <p>{short_description}</p>
-                )}
+            <div className={cardFooter}>
+                <p>Nivå: {skill_level}</p>
+                <p>Åpent/opptak: {availability} </p>
+                <p>Kjønn: {gender}</p>
+                <p>{short_description}</p>
             </div>
         </div>
     );

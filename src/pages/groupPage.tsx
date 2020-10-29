@@ -35,12 +35,10 @@ const GroupPage = () => {
                 {...{
                     id: entry.id,
                     name: entry.name,
-                    full_capacity: entry.full_capacity,
                     short_description: entry.short_description,
-                    long_description: entry.long_description,
-                    tryouts: entry.tryouts,
-                    registration_open: entry.registration_open,
-                    group: entry.group,
+                    gender: entry.gender,
+                    skill_level: entry.skill_level,
+                    availability: entry.availability,
                 }}
                 key={entry.id}
             />
@@ -48,6 +46,8 @@ const GroupPage = () => {
     });
 
     const selectedGroup = reduxState.group_detail.group;
+
+    console.log(listContent);
 
     return (
         <div className="container body">

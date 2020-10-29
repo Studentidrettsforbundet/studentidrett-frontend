@@ -11,6 +11,7 @@ import QuestionnairePage from './pages/questionnairePage';
 import ResultPage from './pages/resultPage';
 import store from './store/store';
 import SearchResults from './pages/searchResults';
+import TeamPage from "./pages/teamPage";
 
 const createRoutes = () => (
     <Provider store={store}>
@@ -25,6 +26,7 @@ const createRoutes = () => (
                     <Route path="/clubs/:id" component={ClubPage} />
                     <Route path="/sports/:id" component={SportPage} />
                     <Route path="/groups/:id" component={GroupPage} />
+                    <Route path="/teams/:id" component={TeamPage} />
                     <Route path="/search" component={SearchResults} />
                 </Switch>
             </div>
