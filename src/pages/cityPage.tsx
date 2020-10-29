@@ -10,10 +10,15 @@ import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button } from 'react-bootstrap';
 import { searchIconContainer } from '../components/SearchBar/styles';
+import { urlBuilderFilterData } from '../services/urlBuilders';
 
 interface urlParams {
     id: string;
 }
+
+/* TODO: When filtering sports based on city works in backend, uncomment change SPORT-dispatch to:
+    fetchDataThunk(SPORT, urlBuilderFilterData(SPORT, [{ cardType: 'city', id_or_name: urlParams.id }])),*/
+
 
 const CityPage = () => {
     const [showClubs, setshowClubs] = useState(true);
@@ -31,7 +36,9 @@ const CityPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(CLUB));
+            dispatch(
+                fetchDataThunk(CLUB, urlBuilderFilterData(CLUB, [{ cardType: 'city', id_or_name: urlParams.id }])),
+            );
             dispatch(fetchDataThunk(SPORT));
         }
     });

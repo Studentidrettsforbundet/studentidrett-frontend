@@ -31,33 +31,31 @@ const SearchBar = (searchBarProps: searchBarProps) => {
 
     return (
         <div>
-            {reduxState.searchBar.showSearchBar ? (
-                <Card className={searchBar}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <Row>
-                            <Col>
-                                <input
-                                    name="searchString"
-                                    className={'form-control'}
-                                    placeholder="Search..."
-                                    value={text}
-                                    onChange={(e) => updateText(e.target.value)}
-                                    ref={register}
-                                />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Link to={`/search?q=${text}`}>
-                                    <Button variant="primary" type="submit" className={'searchBar_button'}>
-                                        Search
-                                    </Button>
-                                </Link>
-                            </Col>
-                        </Row>
-                    </form>
-                </Card>
-            ) : null}
+            <Card className={searchBar}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Row>
+                        <Col>
+                            <input
+                                name="searchString"
+                                className={'form-control'}
+                                placeholder="Search..."
+                                value={text}
+                                onChange={(e) => updateText(e.target.value)}
+                                ref={register}
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Link to={urlBuilderSimpleSearch(text, searchBarProps.typeOfSearch)}>
+                                <Button variant="primary" type="submit" className={'searchBar_button'}>
+                                    Search
+                                </Button>
+                            </Link>
+                        </Col>
+                    </Row>
+                </form>
+            </Card>
         </div>
     );
 };

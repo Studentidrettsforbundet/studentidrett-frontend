@@ -8,6 +8,7 @@ import { GROUP, TEAM } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import GroupInfo from '../components/GroupInfo/groupInfo';
+import { urlBuilderFilterData } from '../services/urlBuilders';
 
 interface urlParams {
     id: string;
@@ -24,7 +25,9 @@ const GroupPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(TEAM));
+            dispatch(
+                fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: 'GROUP', id_or_name: urlParams.id }])),
+            );
             dispatch(fetchDetailThunk(GROUP, urlParams.id));
         }
     });

@@ -10,6 +10,7 @@ import { combinedStateInterface } from '../store/store';
 import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { card } from '../styles/card';
+import { urlBuilderFilterData } from '../services/urlBuilders';
 
 interface urlParams {
     id: string;
@@ -26,7 +27,9 @@ const ClubPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(GROUP));
+            dispatch(
+                fetchDataThunk(GROUP, urlBuilderFilterData(GROUP, [{ cardType: 'club', id_or_name: urlParams.id }])),
+            );
             dispatch(fetchDetailThunk(CLUB, urlParams.id));
         }
     });

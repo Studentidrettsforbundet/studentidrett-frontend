@@ -7,11 +7,11 @@ export const urlBuilderSimpleSearch = (searchString: string, cardType?: cardType
     const safeString = makeInputSafe(searchString, MAXLENGTH_SEARCH);
 
     if (!cardType) {
-        return BASE_URL + '/search/?q=' + safeString;
+        return '/search/?q=' + safeString;
     } else if (safeString === '') {
         return urlBuilderFetchData(cardType);
     } else {
-        return BASE_URL + '/search/?q=' + cardType + '/' + safeString;
+        return '/search/?q=' + cardType + '/' + safeString;
     }
 };
 
