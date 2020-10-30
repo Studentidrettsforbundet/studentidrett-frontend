@@ -1,24 +1,54 @@
 import React from 'react';
+import { getLinkIcon } from '../services/iconCreator';
 
 export interface teamCardInterface {
-    long_description: string;
-    full_capacity: boolean;
-    tryouts: boolean;
-    registration_open: boolean;
+    long_description?: string;
+    gender?: string;
+    skill_level?: string;
+    availability?: string;
+    facebook_link?: string;
+    instagram_link?: string;
+    webpage?: string;
 }
 
-const TeamCardExpanded = (team: teamCardInterface) => {
+const TeamCardExpanded = ({
+    long_description,
+    gender,
+    skill_level,
+    availability,
+    facebook_link,
+    instagram_link,
+    webpage,
+}: teamCardInterface): JSX.Element => {
+    const a = 'http://www.facebook.com/';
+    const renderLinks = () => {
+        const links = [
+            { site: a, text: 'Facebook' },
+            { site: a, text: 'Instagram' },
+            { site: a, text: 'Hjemmeside' },
+        ];
+        if (a || instagram_link || webpage) {
+            return (
+                <div className="list">
+                    {links.map((link, i) => {
+                        if (link.site) {
+                            return (
+                                <a className="primary link-item" key={i} href={link.site}>
+                                    <div className="icon">{getLinkIcon(link.text)}</div>
+                                    <div className="link-text">{link.text}</div>
+                                </a>
+                            );
+                        }
+                    })}
+                </div>
+            );
+        }
+    };
     return (
-        <>
-            <p>{team.long_description}</p>
-            {team.full_capacity ? <p>This team is full</p> : <p>This team has available positions</p>}
-            {team.tryouts ? <p>This requires tryouts</p> : <p>This team is open for anyone</p>}
-            {team.registration_open ? (
-                <p>This team is open for registrations</p>
-            ) : (
-                <p>This team is not open for registration</p>
-            )}
-        </>
+        <div>
+            <p>{long_description}</p>
+            {renderLinks()}
+        </div>
     );
 };
 

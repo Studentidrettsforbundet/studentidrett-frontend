@@ -67,11 +67,20 @@ body,
 
 .card .card-footer {
     background-color: #757de8;
-    padding: 0px;
+    padding: 15px 10px;
     border: unset;
+    text-align: start;
 }
 
 .card .card-img {
     max-height: 350px;
     max-width: 350px;
+}
+
+.primary {
+    color: #ffab40;
+}
+
+.secondary {
+    color: #26366f;
 }

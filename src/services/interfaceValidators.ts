@@ -6,13 +6,24 @@ export const instanceOfTeam = (object: any): boolean => {
     return (
         'id' in object &&
         'name' in object &&
-        'full_capacity' in object &&
-        'short_description' in object &&
-        'long_description' in object &&
-        'tryouts' in object &&
-        'registration_open' in object &&
+        'location' in object &&
         'group' in object &&
-        Object.keys(object).length === 8
+        'sport' in object &&
+        'long_description' in object &&
+        'short_description' in object &&
+        'cost' in object &&
+        'equipment' in object &&
+        'gender' in object &&
+        'skill_level' in object &&
+        'season' in object &&
+        'schedule' in object &&
+        'tryout_dates' in object &&
+        'facebook_link' in object &&
+        'instagram_link' in object &&
+        'webpage' in object &&
+        'availability' in object &&
+        'image' in object &&
+        Object.keys(object).length === 19
     );
 };
 

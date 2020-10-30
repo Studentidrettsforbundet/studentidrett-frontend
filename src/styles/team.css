@@ -1,0 +1,31 @@
+.list {
+    margin-bottom: 10px;
+    padding: 0px;
+}
+
+.list > p,
+a {
+    margin-bottom: 0px;
+}
+
+.list > a:hover {
+    color: #ffffff;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-item {
+    display: flex;
+}
+
+.link-text {
+    margin-left: 10px;
+}
+
+.icon {
+    height: 18px;
+    width: 18px;
+}

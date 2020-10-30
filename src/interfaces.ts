@@ -1,3 +1,5 @@
+import { Url } from "url";
+
 export interface prev_next {
     next: string | null;
     previous: string | null;
@@ -7,6 +9,10 @@ export interface labels {
     alternantives: string[];
     sports: string[];
     text: string;
+}
+
+export interface dateObj {
+    date: Date
 }
 
 export interface combinedResultsInterface {
@@ -25,12 +31,23 @@ export interface combinedResultsInterface {
 export interface teamInterface {
     id: number;
     name: string;
-    full_capacity: boolean;
-    short_description: string;
-    long_description: string;
-    tryouts: boolean;
-    registration_open: boolean;
+    location?: number;
     group: number;
+    sport?: number;
+    long_description?: string;
+    short_description?: string;
+    cost?: string;
+    equipment?: string;
+    gender?: string;
+    skill_level?: string;
+    season?: string;
+    schedule?: dateObj[]
+    tryout_dates?: dateObj[]
+    facebook_link?: Url;
+    instagram_link?: Url;
+    webpage?: Url
+    availability?: string;
+    image?: string;
 }
 
 export interface clubInterface {
