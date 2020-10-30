@@ -16,7 +16,7 @@ Array [
             className="form-control"
             name="searchString"
             onChange={[Function]}
-            placeholder="Search..."
+            placeholder="Søk..."
             value=""
           />
         </div>
@@ -36,7 +36,7 @@ Array [
               disabled={false}
               type="submit"
             >
-              Search
+              Søk
             </button>
           </a>
         </div>

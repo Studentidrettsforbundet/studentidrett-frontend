@@ -20,7 +20,7 @@ exports[`clubPage renders correctly 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Clubs
+          Klubber
         </button>
         <button
           className="btn btn-primary"
@@ -28,7 +28,7 @@ exports[`clubPage renders correctly 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Sports
+          Sport
         </button>
       </div>
       <div
@@ -69,7 +69,7 @@ exports[`clubPage renders correctly 1`] = `
                   className="form-control"
                   name="searchString"
                   onChange={[Function]}
-                  placeholder="Search..."
+                  placeholder="Søk..."
                   value=""
                 />
               </div>
@@ -89,7 +89,7 @@ exports[`clubPage renders correctly 1`] = `
                     disabled={false}
                     type="submit"
                   >
-                    Search
+                    Søk
                   </button>
                 </a>
               </div>

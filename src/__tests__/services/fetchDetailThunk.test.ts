@@ -1,27 +1,16 @@
 import fetchMock from 'fetch-mock';
-import { CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../../constants';
-import {
-    cityInterface,
-    clubInterface,
-    groupInterface,
-    regionInterface,
-    sportInterface,
-    teamInterface,
-} from '../../interfaces';
+import { CLUB, GROUP, SPORT, TEAM } from '../../constants';
 import { fetchDetailThunk } from '../../services/api';
-import { urlBuilderFetchData, urlBuilderFetchDetail } from '../../services/urlBuilders';
+import { urlBuilderFetchDetail } from '../../services/urlBuilders';
 import { SET_CLUBS, SET_CLUBS_DETAIL } from '../../store/pages/club/clubActions';
-import store from '../../store/store';
 import { FETCH_FAILED, FETCH_IN_PROGRESS, FETCH_SUCCESS } from '../../store/thunks/thunkActions';
 
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { SET_CITIES } from '../../store/pages/city/cityActions';
 import { SET_GROUPS } from '../../store/pages/group/groupActions';
-import { SET_REGIONS } from '../../store/pages/region/regionActions';
 import { SET_SPORTS } from '../../store/pages/sport/sportActions';
 import { SET_TEAMS } from '../../store/pages/team/teamActions';
-import { singleCity, singleClub, singleGroup, singleSport, singleTeam } from '../../assets/testMock';
+import { singleClub, singleGroup, singleSport, singleTeam } from '../../assets/testMock';
 
 export const startState = {}; //put initial state here
 
