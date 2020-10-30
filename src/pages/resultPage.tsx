@@ -6,7 +6,6 @@ import { combinedStateInterface } from '../store/store';
 
 const ResultPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
-    console.log(reduxState.questionnaire.recommendations);
     let listItems = [<></>];
 
     if (reduxState.questionnaire.recommendations) {

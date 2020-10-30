@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`questionnairePage snapshot tests should render correctly 1`] = `
+exports[`questionnairePage should render correctly 1`] = `
 <div
   className="overview"
   style={
@@ -15,96 +15,6 @@ exports[`questionnairePage snapshot tests should render correctly 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <div>
-      <div
-        className="item"
-        style={
-          Object {
-            "alignContent": "center",
-            "padding": "12px",
-          }
-        }
-      >
-        <label>
-          <h4>
-            Test question
-          </h4>
-          <div>
-            Left item
-            <span
-              style={
-                Object {
-                  "padding": "0px 12px",
-                }
-              }
-            >
-              <input
-                data-testid="test_id-0"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={0}
-              />
-              <input
-                data-testid="test_id-1"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={1}
-              />
-              <input
-                data-testid="test_id-2"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={2}
-              />
-              <input
-                data-testid="test_id-3"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={3}
-              />
-              <input
-                data-testid="test_id-4"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={4}
-              />
-            </span>
-            Right item
-          </div>
-          
-        </label>
-      </div>
-    </div>
     <button
       disabled={false}
       type="submit"

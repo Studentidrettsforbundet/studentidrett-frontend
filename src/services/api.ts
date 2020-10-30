@@ -121,6 +121,7 @@ export const fetchDataThunk = (
 
         case SEARCH: {
             dispatch(setSearchActionCreator(result));
+            break;
         }
         default: {
             return;

@@ -1,13 +1,25 @@
-//import { fireEvent, render } from '@testing-library/react';
-import { fireEvent, render, waitFor, screen } from '@testing-library/react';
 import React from 'react';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
-import renderer, { act as rendererAct } from 'react-test-renderer';
+import { BrowserRouter } from 'react-router-dom';
+import renderer from 'react-test-renderer';
 import QuestionnairePage from '../../pages/questionnairePage';
-import { act } from 'react-dom/test-utils';
-import fetchMock from 'fetch-mock';
-import { createMemoryHistory } from 'history';
-const history = createMemoryHistory();
+import { Provider } from 'react-redux';
+import store from '../../store/store';
+
+describe('questionnairePage', () => {
+    it('should render correctly', async () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <BrowserRouter>
+                    <QuestionnairePage />
+                </BrowserRouter>
+            </Provider>,
+        );
+
+        expect(tree).toMatchSnapshot();
+    });
+});
+
+/*
 
 const mockResponse = [
     {
@@ -103,3 +115,5 @@ describe('questionnairePage', () => {
         expect(container.innerHTML).toMatchInlineSnapshot(`"<div>Redirect Page</div>"`);
     });
 });
+
+*/

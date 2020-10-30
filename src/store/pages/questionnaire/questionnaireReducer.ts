@@ -1,5 +1,5 @@
 import { questionnaireItem, recommendations } from '../../../interfaces';
-import { questionActionTypes, SET_QUESTIONS, SET_QUESTION_RESULT } from './questionnaireActions';
+import { questionActionTypes, SET_QUESTIONS, SET_RECOMMENDATIONS } from './questionnaireActions';
 
 export interface questionnaireState {
     questions: questionnaireItem[];
@@ -19,7 +19,7 @@ export const questionnaireReducer = (state = questionInitialState, action: quest
                 questions: action.payload,
             };
         }
-        case SET_QUESTION_RESULT: {
+        case SET_RECOMMENDATIONS: {
             return {
                 ...state,
                 recommendations: action.payload,

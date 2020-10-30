@@ -81,6 +81,10 @@ export const thunkReducer = (state = thunkInitialState, action: thunkActionTypes
                     next: null,
                     previous: null,
                 },
+                post_failed: false,
+                post_failed_count: 0,
+                post_in_progress: false,
+                post_success: false,
             };
         }
         case POST_IN_PROGRESS: {
