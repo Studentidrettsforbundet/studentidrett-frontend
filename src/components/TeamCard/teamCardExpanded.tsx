@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLinkIcon } from '../services/iconCreator';
+import { getLinkIcon } from '../../services/iconCreator';
 
 export interface teamCardInterface {
     long_description?: string;

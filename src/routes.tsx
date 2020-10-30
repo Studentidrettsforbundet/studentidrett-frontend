@@ -10,6 +10,8 @@ import QuestionnairePage from './pages/questionnairePage';
 import ResultPage from './pages/resultPage';
 import store from './store/store';
 import LandingPage from './pages/landingPage';
+import SearchResults from './pages/searchResults';
+import TeamPage from './pages/teamPage';
 
 const Routes = () => (
     <Provider store={store}>
@@ -18,11 +20,13 @@ const Routes = () => (
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/questionnaire" component={QuestionnairePage} />
                 <Route exact path="/questionnaire/result" component={ResultPage} />
-                <Route exact path="/Regions" component={RegionPage} />
-                <Route exact path="/:City" component={CityPage} />
-                <Route exact path="/:City/:Club" component={ClubPage} />
-                <Route exact path="/:City/Sport/:Sport" component={SportPage} />
-                <Route exact path="/:City/:Club/:Group" component={GroupPage} />
+                <Route path="/regions" component={RegionPage} />
+                <Route path="/cities/:id" component={CityPage} />
+                <Route path="/clubs/:id" component={ClubPage} />
+                <Route path="/sports/:id" component={SportPage} />
+                <Route path="/groups/:id" component={GroupPage} />
+                <Route path="/teams/:id" component={TeamPage} />
+                <Route path="/search" component={SearchResults} />
             </Switch>
         </Router>
     </Provider>

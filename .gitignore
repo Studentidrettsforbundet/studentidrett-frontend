@@ -18,10 +18,14 @@
 .env.test.local
 .env.production.local
 /.vs
+.idea
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Only keep 1 lock-file, try not to mix yarn and npm
+yarn.lock
 
 # git
 debug.log*

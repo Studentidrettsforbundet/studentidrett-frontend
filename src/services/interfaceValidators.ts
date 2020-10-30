@@ -5,6 +5,16 @@ export const instanceOfRegion = (object: any) => {
 export const instanceOfTeam = (object: any): boolean => {
     return (
         'id' in object &&
+        'availability' in object &&
+        'cost' in object &&
+        'equipment' in object &&
+        'facebook_link' in object &&
+        'group' in object &&
+        'gender' in object &&
+        'image' in object &&
+        'instagram_link' in object &&
+        'location' in object &&
+        'long_description' in object &&
         'name' in object &&
         'location' in object &&
         'group' in object &&

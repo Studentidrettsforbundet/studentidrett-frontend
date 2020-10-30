@@ -1,5 +1,3 @@
-import { Url } from "url";
-
 export interface prev_next {
     next: string | null;
     previous: string | null;
@@ -9,10 +7,6 @@ export interface labels {
     alternantives: string[];
     sports: string[];
     text: string;
-}
-
-export interface dateObj {
-    date: Date
 }
 
 export interface combinedResultsInterface {
@@ -28,26 +22,30 @@ export interface combinedResultsInterface {
         | groupInterface[];
 }
 
+export interface dateInterface {
+    date: string;
+}
+
 export interface teamInterface {
     id: number;
-    name: string;
-    location?: number;
+    availability: string;
+    cost: string | null;
+    equipment: string | null;
+    facebook_link: string | null;
+    gender: string;
     group: number;
-    sport?: number;
-    long_description?: string;
-    short_description?: string;
-    cost?: string;
-    equipment?: string;
-    gender?: string;
-    skill_level?: string;
-    season?: string;
-    schedule?: dateObj[]
-    tryout_dates?: dateObj[]
-    facebook_link?: Url;
-    instagram_link?: Url;
-    webpage?: Url
-    availability?: string;
-    image?: string;
+    image: string | null;
+    instagram_link: string | null;
+    location: number;
+    long_description: string;
+    name: string;
+    schedule: dateInterface[];
+    tryout_dates: dateInterface[];
+    webpage: string | null;
+    season: string | null;
+    short_description: string | null;
+    skill_level: string;
+    sport: number;
 }
 
 export interface clubInterface {
@@ -55,7 +53,7 @@ export interface clubInterface {
     contact_email: string;
     description: string;
     id: number;
-    membership_fee: number;
+    membership_fee: string;
     name: string;
     register_info: string;
 }
@@ -88,4 +86,9 @@ export interface regionInterface {
     id: number;
     name: string;
     cities: cityInterface[];
+}
+
+export interface searchInterface {
+    name: string;
+    id: string;
 }

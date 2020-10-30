@@ -2,20 +2,19 @@ import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
+import TeamCard from '../components/TeamCard/teamCard';
+import { GROUP, TEAM } from '../constants';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
+import { combinedStateInterface } from '../store/store';
+import GroupInfo from '../components/GroupInfo/groupInfo';
+import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import TeamCard from '../components/teamCard';
-import { GROUP, TEAM } from '../constants';
-import { fetchDataThunk } from '../services/api';
-import { combinedStateInterface } from '../store/store';
 
 interface urlParams {
-    Region: string;
-    Sport: string;
-    Club: string;
-    Group: string;
+    id: string;
 }
 
 const GroupPage = () => {
@@ -29,10 +28,13 @@ const GroupPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(TEAM));
+            dispatch(
+                fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: 'group', id_or_name: urlParams.id }])),
+            );
+            dispatch(fetchDetailThunk(GROUP, urlParams.id));
         }
     });
-    
+
     const listContent = reduxState.team.teams.map((entry) => {
         return (
             <TeamCard
@@ -51,11 +53,13 @@ const GroupPage = () => {
         );
     });
 
+    const selectedGroup = reduxState.group_detail.group;
+
     return (
         <div className="container body">
             <div className="row">
                 <div className="col">
-                    <h1>{urlParams.Group}</h1>
+                    <h1>HEADER</h1>
                 </div>
                 <div className="col search_icon-container">
                     <SearchIcon />
@@ -69,19 +73,22 @@ const GroupPage = () => {
             ) : (
                 <>
                     {reduxState.thunk.fetch_failed ? (
-                        <>
+                        <div>
                             <FetchError />
-                        </>
+                        </div>
                     ) : (
-                        <>
+                        <div>
                             {reduxState.group.groups.length === 0 ? (
                                 <EmptyResult />
                             ) : (
-                                <>
+                                <div>
+                                    {selectedGroup && (
+                                        <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
+                                    )}
                                     <div className="card-columns">{listContent}</div>
-                                </>
+                                </div>
                             )}
-                        </>
+                        </div>
                     )}
                 </>
             )}
