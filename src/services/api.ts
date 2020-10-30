@@ -51,7 +51,7 @@ export const fetchDataThunk = (
         asyncResp = await fetchData(url);
     } else {
         //Fetch based on cardType
-        asyncResp = dataType ? await fetchData(urlBuilderFetchData(dataType)) : null;
+        asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
     let result = [];
 
