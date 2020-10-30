@@ -1,0 +1,10 @@
+.center_container {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-border {
+    margin-bottom: 50%;
+}

@@ -8,10 +8,10 @@ describe('Sport reducer', () => {
         expect(sportReducer(undefined, {})).toEqual(initialState);
     });
 
-    it('Should handle SET_REGIONS', () => {
+    it('Should handle SET_SPORTS', () => {
         const data = [
-            { id: 0, name: 'Football' },
-            { id: 3, name: 'American football' },
+            { id: 0, name: 'Football', labels: [] },
+            { id: 3, name: 'American football', labels: [] },
         ];
 
         expect(
@@ -19,27 +19,27 @@ describe('Sport reducer', () => {
                 type: SET_SPORTS,
                 payload: data,
             }),
-        ).toEqual({ sports: data });
+        ).toEqual({ sports: data, sport: null });
     });
 
     it('Should handle SET_REGIONS with initialState', () => {
         const initialState = [
-            { id: 0, name: 'Football' },
-            { id: 1, name: 'Handball' },
-            { id: 2, name: 'Basketball' },
-            { id: 3, name: 'American football' },
-            { id: 4, name: 'Baseball' },
+            { id: 0, name: 'Football', labels: []},
+            { id: 1, name: 'Handball', labels: [] },
+            { id: 2, name: 'Basketball', labels: [] },
+            { id: 3, name: 'American football', labels: [] },
+            { id: 4, name: 'Baseball', labels: [] },
         ];
-        const data = { id: 6, name: 'Tennis' };
+        const data = { id: 6, name: 'Tennis', labels: []};
 
         expect(
             sportReducer(
-                { sports: initialState },
+                { sports: initialState, sport: null },
                 {
                     type: SET_SPORTS,
                     payload: [data],
                 },
             ),
-        ).toEqual({ sports: [data] });
+        ).toEqual({ sports: [data], sport: null});
     });
 });

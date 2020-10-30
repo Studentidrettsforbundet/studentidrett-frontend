@@ -3,23 +3,23 @@
 exports[`SportCard renders correctly 1`] = `
 <a
   className="unstyled_link"
-  href="/MidtNorge/Fotball"
+  href="/sports/0"
   onClick={[Function]}
 >
   <div
-    className="card Sport"
+    className="fcjpwci"
   >
     <div
-      className="card-body"
+      className="f1q24w9w"
     >
       <h5
-        className="card-title card-header"
+        className="f19aa3jt"
       >
         Fotball
       </h5>
       <img
         alt="Sport"
-        className="card-img-top"
+        className="f1mqlstf"
         src="placeholder.png"
       />
     </div>

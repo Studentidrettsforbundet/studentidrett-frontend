@@ -4,44 +4,55 @@ exports[`App renders correctly 1`] = `
 <div
   className="App"
 >
-  <h1>
-    Kundestyrt
-  </h1>
   <div
-    className="col"
+    className="page"
   >
-    <button
-      className="btn btn-primary"
-      type="button"
+    <div
+      className="Landing"
     >
-      <a
-        href="/Regions"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "black",
-          }
-        }
+      <h1>
+        Kundestyrt
+      </h1>
+      <div
+        className="col"
       >
-        Browse student sport
-      </a>
-    </button>
-    <button
-      className="btn btn-primary"
-      type="button"
-    >
-      <a
-        href="/questionnaire"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "black",
-          }
-        }
-      >
-        Questionnaire
-      </a>
-    </button>
+        <button
+          className="btn btn-primary"
+          type="button"
+        >
+          <a
+            href="/Regions"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "black",
+              }
+            }
+          >
+            Regions
+          </a>
+        </button>
+        <button
+          className="btn btn-primary"
+          type="button"
+        >
+          <a
+            href="/questionnaire"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "black",
+              }
+            }
+          >
+            Questionnaire
+          </a>
+        </button>
+      </div>
+    </div>
   </div>
+  <div
+    className="footer"
+  />
 </div>
 `;

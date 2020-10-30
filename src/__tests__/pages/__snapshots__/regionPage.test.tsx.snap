@@ -34,80 +34,72 @@ exports[`regionPage renders correctly 1`] = `
       />
     </div>
   </div>
-  <div />
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
+  <div>
     <div
-      className="card-body"
+      className="f3518ct card"
     >
-      <h5
-        className="card-title "
+      <div
+        className="row"
       >
-        Nordnorge
-      </h5>
-      <p />
+        <div
+          className="col"
+        >
+          <input
+            className="form-control"
+            name="searchString"
+            onChange={[Function]}
+            placeholder="Search..."
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <a
+            href="/search/?q=cities/"
+            onClick={[Function]}
+          >
+            <button
+              className="searchBar_button btn btn-primary"
+              disabled={false}
+              type="submit"
+            >
+              Search
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   <div
-    className="card Region"
-    onClick={[Function]}
+    className="card"
   >
     <div
       className="card-body"
     >
-      <h5
-        className="card-title "
+      <div
+        className="card-title h5"
       >
-        Midtnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Vestlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Sørlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Østlandet
-      </h5>
-      <p />
+        Søket gav ingen resultater
+      </div>
+      <img
+        alt="unhappy icon"
+        className="unhappy_icon"
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "sadFace.svg",
+          }
+        }
+      />
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import QuestionnaireItem from '../../components/questionnaireItem';
+import QuestionnaireItem from '../../components/QuestionnaireItem/questionnaireItem';
 
 const mockFunction = jest.fn();
 const mockProps = {

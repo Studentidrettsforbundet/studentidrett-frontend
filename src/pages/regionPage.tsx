@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
-import RegionCard from '../components/regionCard';
+import RegionCard from '../components/RegionCard/regionCard';
 import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
-import SearchIcon from '../components/searchIcon';
-import SearchBar from '../components/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
+import SearchBar from '../components/SearchBar/searchBar';
+import { Spinner } from 'react-bootstrap';
+import EmptyResult from '../components/emptyResult';
+import FetchError from '../components/fetchError';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -59,8 +62,32 @@ const RegionPage = () => {
                 </div>
             </div>
             <SearchBar typeOfSearch={CITY} />
-            {sortCities}
-            {listContent}
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
+                    ) : (
+                        <>
+                            {reduxState.city.cities.length === 0 ? (
+                                <>
+                                    <EmptyResult />
+                                </>
+                            ) : (
+                                <>
+                                    {listContent}
+                                    {sortCities}
+                                </>
+                            )}
+                        </>
+                    )}
+                </>
+            )}
         </div>
     );
 };

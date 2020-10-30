@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import TeamCard from '../components/teamCard';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
 import { TEAM } from '../constants';
-import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 import { combinedStateInterface } from '../store/store';
+import { fetchDetailThunk } from '../services/api';
+import TeamInfo from '../components/TeamInfo/teamInfo';
+import FetchError from '../components/fetchError';
 
 interface urlParams {
-    Region: string;
-    Sport: string;
-    Club: string;
+    id: string;
 }
 
 const TeamPage = () => {
@@ -19,32 +19,69 @@ const TeamPage = () => {
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
-    const listContent = reduxState.team.teams.map((entry) => {
-        return TeamCard({
-            id: entry.id,
-            name: entry.name,
-            full_capacity: entry.full_capacity,
-            short_description: entry.short_description,
-            long_description: entry.long_description,
-            tryouts: entry.tryouts,
-            registration_open: entry.registration_open,
-            group: entry.group,
-        });
+    useEffect(() => {
+        if (
+            !reduxState.thunk.fetch_in_progress &&
+            reduxState.thunk.fetch_failed_count < 3 &&
+            !reduxState.thunk.fetch_success
+        ) {
+            dispatch(fetchDetailThunk(TEAM, urlParams.id));
+        }
     });
+
+    const team = reduxState.team_detail.team;
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col">
-                    <h1>{urlParams.Club}</h1>
+                    <h1>HEADER</h1>
                 </div>
                 <div className="col search_icon-container">
                     <SearchIcon />
                 </div>
             </div>
             <SearchBar typeOfSearch={TEAM} />
-            <p>The sport has clubs in these cities: </p>
-            {listContent}
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
+                    ) : (
+                        <>
+                            <>
+                                {team && (
+                                    <TeamInfo
+                                        {...{
+                                            availability: team.availability,
+                                            cost: team.cost,
+                                            equipment: team.equipment,
+                                            facebook_link: team.facebook_link,
+                                            gender: team.gender,
+                                            image: team.image,
+                                            instagram_link: team.instagram_link,
+                                            long_description: team.long_description,
+                                            name: team.name,
+                                            schedule: team.schedule,
+                                            tryout_dates: team.tryout_dates,
+                                            webpage: team.webpage,
+                                            season: team.season,
+                                            short_description: team.short_description,
+                                            skill_level: team.skill_level,
+                                        }}
+                                        key={team.id}
+                                    />
+                                )}
+                            </>
+                        </>
+                    )}
+                </>
+            )}
         </div>
     );
 };
