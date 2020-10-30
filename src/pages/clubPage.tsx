@@ -55,7 +55,7 @@ const ClubPage = () => {
         );
     });
 
-    const selectedClub = reduxState.club_detail.club;
+    const selectedClub = reduxState.club.club;
 
     return (
         <div>

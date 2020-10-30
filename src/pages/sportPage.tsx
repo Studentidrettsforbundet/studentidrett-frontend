@@ -52,7 +52,7 @@ const SportPage = () => {
         );
     });
 
-    const sportInfo = reduxState.sport_detail.sport;
+    const sportInfo = reduxState.sport.sport;
 
     return (
         <div className="container body">

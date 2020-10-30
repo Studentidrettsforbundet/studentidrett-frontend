@@ -1,0 +1,18 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: #FFAB40;
+  width: 100%;
+  align-items: center;
+}
+
+img {
+  height: 53px;
+}
+
+.textContent{
+  margin-left: 1rem;
+  font-size: 16px;
+  line-height: 20px;
+}

@@ -14,10 +14,11 @@ const ResultPage = (props: any) => {
 
     return (
         <div className="container">
-            <h1>Result</h1>
+            <h1>Idrettsvalgomat</h1>
+            <h2> Resultat </h2>
             {listItems}
             <br />
-            <Button href="/questionnaire">Take the test again</Button>
+            <Button href="/questionnaire">Ta valgomaten igjen</Button>
         </div>
     );
 };
