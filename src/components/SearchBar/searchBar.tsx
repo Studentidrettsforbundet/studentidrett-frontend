@@ -20,7 +20,7 @@ const SearchBar = (searchBarProps: searchBarProps) => {
                         <input
                             name="searchString"
                             className={'form-control'}
-                            placeholder="Search..."
+                            placeholder="Søk..."
                             value={text}
                             onChange={(e) => updateText(e.target.value)}
                         />
@@ -28,9 +28,13 @@ const SearchBar = (searchBarProps: searchBarProps) => {
                 </Row>
                 <Row>
                     <Col>
-                        <Link to={`/search/?q=${(searchBarProps.typeOfSearch ? searchBarProps.typeOfSearch + '/' : '') + text}`}>
+                        <Link
+                            to={`/search/?q=${
+                                (searchBarProps.typeOfSearch ? searchBarProps.typeOfSearch + '/' : '') + text
+                            }`}
+                        >
                             <Button variant="primary" type="submit" className={'searchBar_button'}>
-                                Search
+                                Søk
                             </Button>
                         </Link>
                     </Col>
