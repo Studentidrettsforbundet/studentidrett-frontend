@@ -2,6 +2,12 @@ import { sportInterface } from '../../../interfaces';
 import { instanceOfSport } from '../../../services/interfaceValidators';
 
 export const SET_SPORTS = 'SET_SPORTS';
+export const SET_SPORTS_DETAIL  = 'SET_SPORTS_DETAIL';
+
+interface setSportsDetailAction {
+    type: typeof SET_SPORTS_DETAIL;
+    payload: sportInterface;
+}
 
 interface setSportsAction {
     type: typeof SET_SPORTS;
@@ -9,6 +15,7 @@ interface setSportsAction {
 }
 
 export type sportActionTypes = setSportsAction;
+export type sportActionDetailTypes = setSportsDetailAction;
 
 export const setSportsActionCreator = (data: sportInterface[]): sportActionTypes => {
     if (data.every(instanceOfSport)) {
@@ -20,5 +27,12 @@ export const setSportsActionCreator = (data: sportInterface[]): sportActionTypes
     return {
         type: SET_SPORTS,
         payload: [],
+    };
+};
+
+export const setSportsActionDetailCreator = (data: sportInterface): sportActionDetailTypes => {
+    return {
+        type: SET_SPORTS_DETAIL,
+        payload: data,
     };
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SET_TEAMS } from '../../store/pages/team/teamActions';
 import { teamInitialState, teamReducer } from '../../store/pages/team/teamReducer';
+import { dateInterface } from '../../interfaces';
 
 describe('Team reducer', () => {
     it('Should return the initial state', () => {
@@ -12,14 +13,24 @@ describe('Team reducer', () => {
         const data = [
             {
                 id: 0,
-                name: 'Men A',
-                full_capacity: true,
-                short_description: 'Elite team men',
-                long_description:
-                    'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
+                availability: 'OP',
+                cost: null,
+                equipment: null,
+                facebook_link: null,
+                gender: 'M',
+                group: 1,
+                image: null,
+                instagram_link: null,
+                location: 1,
+                long_description: 'Team A is the best',
+                name: 'Team A',
+                schedule: [],
+                tryout_dates: [],
+                webpage: null,
+                season: null,
+                short_description: 'Short desc',
+                skill_level: 'HI',
+                sport: 1,
             },
         ];
 
@@ -28,64 +39,105 @@ describe('Team reducer', () => {
                 type: SET_TEAMS,
                 payload: data,
             }),
-        ).toEqual({ teams: data });
+        ).toEqual({ team: null, teams: data });
     });
 
     it('Should handle SET_REGIONS with initialState', () => {
         const initialState = [
             {
                 id: 0,
-                name: 'Men A',
-                full_capacity: true,
-                short_description: 'Elite team men',
-                long_description:
-                    'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
-            },
-            {
-                id: 1,
-                name: 'Men B',
-                full_capacity: true,
-                short_description: 'Semi-elite team men',
-                long_description:
-                    'The semi-elite male football team at NTNUI. We exercise 3 times a week and play 1 matche a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
+                availability: 'OP',
+                cost: null,
+                equipment: null,
+                facebook_link: null,
+                gender: 'M',
+                group: 1,
+                image: null,
+                instagram_link: null,
+                location: 1,
+                long_description: 'Team A is the best',
+                name: 'Team A',
+                schedule: [],
+                tryout_dates: [],
+                webpage: null,
+                season: null,
+                short_description: 'Short desc',
+                skill_level: 'HI',
+                sport: 1,
             },
             {
                 id: 2,
-                name: 'Woman 12',
-                full_capacity: false,
-                short_description: 'Elite team woman',
-                long_description:
-                    'The elite female football team at NTNUI. We exercise 4 times a week and play 2 matche a week',
-                tryouts: true,
-                registration_open: true,
-                group: 0,
+                availability: 'OP',
+                cost: null,
+                equipment: null,
+                facebook_link: null,
+                gender: 'M',
+                group: 1,
+                image: null,
+                instagram_link: null,
+                location: 1,
+                long_description: 'Team A is the best',
+                name: 'Team B',
+                schedule: [],
+                tryout_dates: [],
+                webpage: null,
+                season: null,
+                short_description: 'Short desc',
+                skill_level: 'HI',
+                sport: 1,
+            },
+            {
+                id: 2,
+                availability: 'OP',
+                cost: null,
+                equipment: null,
+                facebook_link: null,
+                gender: 'F',
+                group: 1,
+                image: null,
+                instagram_link: null,
+                location: 1,
+                long_description: 'Team A is the best',
+                name: 'Team C',
+                schedule: [],
+                tryout_dates: [],
+                webpage: null,
+                season: null,
+                short_description: 'Short desc',
+                skill_level: 'HI',
+                sport: 1,
             },
         ];
         const data = {
-            id: 7,
-            name: 'Footzall 2',
-            full_capacity: false,
-            short_description: 'beginner team men',
-            long_description: '',
-            tryouts: false,
-            registration_open: false,
+            id: 4,
+            availability: 'OP',
+            cost: null,
+            equipment: null,
+            facebook_link: null,
+            gender: 'M',
             group: 1,
+            image: null,
+            instagram_link: null,
+            location: 1,
+            long_description: 'Team A is the best',
+            name: 'Team D',
+            schedule: [],
+            tryout_dates: [],
+            webpage: null,
+            season: null,
+            short_description: 'Short desc',
+            skill_level: 'HI',
+            sport: 1,
         };
 
         expect(
             teamReducer(
-                { teams: initialState },
+                { teams: initialState, team: null },
                 {
                     type: SET_TEAMS,
                     payload: [data],
                 },
             ),
-        ).toEqual({ teams: [data] });
+        ).toEqual({ teams: [data], team: null });
     });
 });

@@ -16,7 +16,7 @@ describe('Club reducer', () => {
                 name: 'NTNUI football',
                 description: '',
                 contact_email: 'info@ntnui.no',
-                pricing: 200,
+                membership_fee: '200',
                 register_info: 'Register at ntnui.no/register',
             },
             {
@@ -25,7 +25,7 @@ describe('Club reducer', () => {
                 name: 'NTNUI amerikansk fotball',
                 description: '',
                 contact_email: 'info@ntnui.no',
-                pricing: 200,
+                membership_fee: '200',
                 register_info: 'Register at ntnui.no/register',
             },
         ];
@@ -35,7 +35,7 @@ describe('Club reducer', () => {
                 type: SET_CLUBS,
                 payload: data,
             }),
-        ).toEqual({ clubs: data });
+        ).toEqual({ clubs: data, club: null });
     });
 
     it('Should handle SET_CLUBS with initialState', () => {
@@ -46,7 +46,7 @@ describe('Club reducer', () => {
                 name: 'NTNUI football',
                 description: '',
                 contact_email: 'info@ntnui.no',
-                pricing: 200,
+                membership_fee: '200',
                 register_info: 'Register at ntnui.no/register',
             },
             {
@@ -55,7 +55,7 @@ describe('Club reducer', () => {
                 name: 'NTNUI amerikansk fotball',
                 description: '',
                 contact_email: 'info@ntnui.no',
-                pricing: 200,
+                membership_fee: '200',
                 register_info: 'Register at ntnui.no/register',
             },
         ];
@@ -65,18 +65,18 @@ describe('Club reducer', () => {
             name: 'NTNUI Bowling',
             description: '',
             contact_email: 'info@ntnui.no',
-            pricing: 330,
+            membership_fee: '200',
             register_info: 'Register at ntnui.no/register',
         };
 
         expect(
             clubReducer(
-                { clubs: initialState },
+                { clubs: initialState, club: null },
                 {
                     type: SET_CLUBS,
                     payload: [data],
                 },
             ),
-        ).toEqual({ clubs: [data] });
+        ).toEqual({ clubs: [data], club: null });
     });
 });

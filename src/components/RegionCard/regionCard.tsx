@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { regionInterface } from '../interfaces';
-import CityCard from './cityCard';
+import { regionInterface } from '../../interfaces';
+import CityCard from '../CityCard/cityCard';
+import { cardBody, cardTitle, regionCard } from '../../styles/card';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
@@ -12,9 +13,9 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
     };
 
     return (
-        <div className="card Region" key={id} onClick={() => toggleExpanded()}>
-            <div className="card-body">
-                <h5 className="card-title ">{name}</h5>
+        <div className={regionCard} key={id} onClick={() => toggleExpanded()}>
+            <div className={cardBody}>
+                <h5 className={cardTitle}>{name}</h5>
                 {expanded ? (
                     cities.map((entry) => {
                         return (

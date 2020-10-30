@@ -1,10 +1,9 @@
-import { prev_next } from "../../interfaces";
+import { prev_next } from '../../interfaces';
 
 export const FETCH_IN_PROGRESS = 'FETCH_IN_PROGRESS';
 export const FETCH_FAILED = 'FETCH_FAILED';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const RESET_FETCH_STATUSES= 'RESET_FETCH_STATUSES';
-
+export const RESET_FETCH_STATUSES = 'RESET_FETCH_STATUSES';
 
 interface fetchInProgressAction {
     type: typeof FETCH_IN_PROGRESS;
@@ -19,12 +18,19 @@ interface fetchSuccessAction {
     payload: prev_next;
 }
 
+interface fetchDetailSuccessAction {
+    type: typeof FETCH_SUCCESS;
+}
+
 interface resetFetchStatusesAction {
     type: typeof RESET_FETCH_STATUSES;
 }
 
-
-export type thunkActionTypes = fetchInProgressAction | fetchFailedAction | fetchSuccessAction | resetFetchStatusesAction;
+export type thunkActionTypes =
+    | fetchInProgressAction
+    | fetchFailedAction
+    | fetchSuccessAction
+    | resetFetchStatusesAction;
 
 export const fetchInProgressActionCreator = (): fetchInProgressAction => {
     return {
@@ -41,7 +47,13 @@ export const fetchFailedActionCreator = (): fetchFailedAction => {
 export const fetchSuccessActionCreator = (data: prev_next): fetchSuccessAction => {
     return {
         type: FETCH_SUCCESS,
-        payload: data
+        payload: data,
+    };
+};
+
+export const fetchDetailSuccessActionCreator = (): fetchDetailSuccessAction => {
+    return {
+        type: FETCH_SUCCESS,
     };
 };
 

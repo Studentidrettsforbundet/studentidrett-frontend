@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import ClubCard from '../components/clubCard';
-import SportCard from '../components/sportCard';
+import ClubCard from '../components/ClubCard/clubCard';
+import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
+import SearchBar from '../components/SearchBar/searchBar';
+import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
+import { searchIconContainer } from '../components/SearchBar/styles';
+import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 
 interface urlParams {
-    City: string;
+    id: string;
 }
 
 const CityPage = () => {
@@ -32,8 +34,12 @@ const CityPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(CLUB));
-            dispatch(fetchDataThunk(SPORT));
+            dispatch(
+                fetchDataThunk(CLUB, urlBuilderFilterData(CLUB, [{ cardType: 'city', id_or_name: urlParams.id }])),
+            );
+            dispatch(
+                fetchDataThunk(SPORT, urlBuilderFilterData(SPORT, [{ cardType: 'city', id_or_name: urlParams.id }])),
+            );
         }
     });
 
@@ -60,7 +66,7 @@ const CityPage = () => {
 
     return (
         <div className="container body">
-            <h1>{urlParams.City}</h1>
+            <h1>{urlParams.id}</h1>
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
@@ -68,7 +74,7 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
                     </div>
 
-                    <div className="col search_icon-container">
+                    <div className={searchIconContainer}>
                         <SearchIcon />
                     </div>
                 </div>
@@ -78,27 +84,27 @@ const CityPage = () => {
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <>
+                <div>
                     {reduxState.thunk.fetch_failed ? (
-                        <>
+                        <div>
                             <FetchError />
-                        </>
+                        </div>
                     ) : (
-                        <>
+                        <div>
                             {showClubs ? (
-                                <>
+                                <div>
                                     <SearchBar typeOfSearch={CLUB} />
                                     {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
-                                </>
+                                </div>
                             ) : (
-                                <>
+                                <div>
                                     <SearchBar typeOfSearch={SPORT} />
                                     {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
-                                </>
+                                </div>
                             )}
-                        </>
+                        </div>
                     )}
-                </>
+                </div>
             )}
         </div>
     );

@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`clubPage renders correctly 1`] = `
-<div
-  className="container body"
->
+<div>
   <div
     className="row"
   >
     <div
       className="col"
     >
-      <h1 />
+      <h1>
+        HEADER
+      </h1>
     </div>
     <div
-      className="col search_icon-container"
+      className="fddsvlq"
     >
       <img
         alt="Search icon"
@@ -32,32 +32,76 @@ exports[`clubPage renders correctly 1`] = `
       />
     </div>
   </div>
-  <div />
-  <div
-    className="card"
-  >
+  <div>
     <div
-      className="card-body"
+      className="f3518ct card"
     >
       <div
-        className="card-title h5"
+        className="row"
       >
-        Søket gav ingen resultater
+        <div
+          className="col"
+        >
+          <input
+            className="form-control"
+            name="searchString"
+            onChange={[Function]}
+            placeholder="Search..."
+            value=""
+          />
+        </div>
       </div>
-      <img
-        alt="unhappy icon"
-        className="unhappy_icon"
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "sadFace.svg",
-          }
-        }
-      />
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <a
+            href="/search/?q=groups/"
+            onClick={[Function]}
+          >
+            <button
+              className="searchBar_button btn btn-primary"
+              disabled={false}
+              type="submit"
+            >
+              Search
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="card"
+      >
+        <div
+          className="card-body"
+        >
+          <div
+            className="card-title h5"
+          >
+            Søket gav ingen resultater
+          </div>
+          <img
+            alt="unhappy icon"
+            className="unhappy_icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "sadFace.svg",
+              }
+            }
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
