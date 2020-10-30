@@ -1,12 +1,14 @@
-import { questionnaireItem } from '../../../interfaces';
-import { questionActionTypes, SET_QUESTIONS } from './questionnaireActions';
+import { questionnaireItem, recommendations } from '../../../interfaces';
+import { questionActionTypes, SET_QUESTIONS, SET_QUESTION_RESULT } from './questionnaireActions';
 
 export interface questionnaireState {
     questions: questionnaireItem[];
+    recommendations: recommendations[];
 }
 
 export const questionInitialState: questionnaireState = {
     questions: [],
+    recommendations: [],
 };
 
 export const questionnaireReducer = (state = questionInitialState, action: questionActionTypes): questionnaireState => {
@@ -15,6 +17,12 @@ export const questionnaireReducer = (state = questionInitialState, action: quest
             return {
                 ...state,
                 questions: action.payload,
+            };
+        }
+        case SET_QUESTION_RESULT: {
+            return {
+                ...state,
+                recommendations: action.payload,
             };
         }
 

@@ -1,16 +1,24 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-const ResultPage = (props: any) => {
-    const results = props.location.state;
-    const listItems = results.recommendation.map((result: any) => {
-        //TODO Set correct redirect
-        return (
-            <p key={result.id}>
-                <Link to={`/Trondheim/${result.name}`}>{result.name}</Link>
-            </p>
-        );
-    });
+import { combinedStateInterface } from '../store/store';
+
+const ResultPage = () => {
+    const reduxState = useSelector((state: combinedStateInterface) => state);
+    console.log(reduxState.questionnaire.recommendations);
+    let listItems = [<></>];
+
+    if (reduxState.questionnaire.recommendations) {
+        listItems = reduxState.questionnaire.recommendations.map((result: any) => {
+            //TODO Set correct redirect
+            return (
+                <p key={result.id}>
+                    <Link to={`/Trondheim/${result.name}`}>{result.name}</Link>
+                </p>
+            );
+        });
+    }
 
     return (
         <div className="container">

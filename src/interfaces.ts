@@ -99,3 +99,9 @@ export interface questionnaireItem {
     left: string;
     right: string;
 }
+
+export interface recommendations {
+    id: number;
+    name: string;
+    score: number;
+}

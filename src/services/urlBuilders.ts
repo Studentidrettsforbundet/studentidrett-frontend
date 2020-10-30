@@ -45,5 +45,5 @@ export const urlBuilderGetQuestions = (): string => {
 };
 
 export const urlBuilderPostQuestions = (): string => {
-    return BASE_URL + '/questionnaire';
+    return BASE_URL + '/questionnaire/';
 };

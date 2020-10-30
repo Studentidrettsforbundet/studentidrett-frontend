@@ -33,7 +33,7 @@ export const thunkInitialState: thunkState = {
     },
     post_in_progress: false,
     post_failed: false,
-    post_success: true,
+    post_success: false,
     post_failed_count: 0,
 };
 
