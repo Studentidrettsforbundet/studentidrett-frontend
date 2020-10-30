@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { clubInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardBody, cardHeader, cardImg } from '../../styles/card';
+import { card, cardBody, cardTitle, cardImg, imgContainer } from '../../styles/card';
 
-const ClubCard = (club: clubInterface) => {
+const ClubCard = (club: clubInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <Link
@@ -16,14 +16,12 @@ const ClubCard = (club: clubInterface) => {
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
             <div className={card}>
-                <div>
+                <div className={imgContainer}>
                     <img className={cardImg} src={image} alt="Club" />
                 </div>
                 <div className={cardBody}>
-                    <div className={cardHeader}>
-                        <h3>{club.name}</h3>
-                    </div>
-                    <p>{club.description}</p>
+                    <h5 className={cardTitle}>{club.name}</h5>
+                    <p>{club.description.length > 115 ? club.description.slice(0, 115) + '...' : club.description}</p>
                 </div>
             </div>
         </Link>
