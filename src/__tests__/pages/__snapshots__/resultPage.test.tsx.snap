@@ -7,6 +7,30 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
   <h1>
     Result
   </h1>
+  <p>
+    <a
+      href="/Trondheim/name1"
+      onClick={[Function]}
+    >
+      name1
+    </a>
+  </p>
+  <p>
+    <a
+      href="/Trondheim/name2"
+      onClick={[Function]}
+    >
+      name2
+    </a>
+  </p>
+  <p>
+    <a
+      href="/Trondheim/name3"
+      onClick={[Function]}
+    >
+      name3
+    </a>
+  </p>
   <br />
   <a
     className="btn btn-primary"

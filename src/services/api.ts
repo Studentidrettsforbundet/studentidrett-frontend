@@ -25,7 +25,7 @@ import {
 } from './urlBuilders';
 import { setSearchActionCreator } from '../store/pages/search/searchActions';
 import {
-    setQuestionResultActionCreator,
+    setRecommendatationsActionCreator,
     setQuestionsActionCreator,
 } from '../store/pages/questionnaire/questionnaireActions';
 
@@ -72,7 +72,7 @@ export const checkForErrorCodes = (result: any): boolean => {
 
 export const fetchDataThunk = (
     dataType?: cardType,
-    url: string = '',
+    url = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     let asyncResp;
     dispatch(fetchInProgressActionCreator());
@@ -172,7 +172,7 @@ export const fetchDetailThunk = (
 };
 
 export const handleQuestionsThunk = (
-    isFetch: boolean = true,
+    isFetch = true,
     questions: any = null,
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     if (isFetch) {
@@ -197,7 +197,7 @@ export const handleQuestionsThunk = (
             return;
         } else {
             dispatch(postSuccessActionCreator());
-            dispatch(setQuestionResultActionCreator(asyncResp.recommendation));
+            dispatch(setRecommendatationsActionCreator(asyncResp.recommendation));
         }
     }
 };

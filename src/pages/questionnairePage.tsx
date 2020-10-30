@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
-import QuestionnaireItem, { QuestionnaireItemProps } from '../components/QuestionnaireItem/questionnaireItem';
+import QuestionnaireItem from '../components/QuestionnaireItem/questionnaireItem';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
-import { fetchData, handleQuestionsThunk } from '../services/api';
+import { handleQuestionsThunk } from '../services/api';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 import { useDispatch, useSelector } from 'react-redux';
