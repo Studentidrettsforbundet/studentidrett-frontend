@@ -10,4 +10,6 @@ export default {
     cardHeader: 'rgb(171,189,223)',
     secondaryCardColor: 'rgb(171,223,206)',
     shadowColor: 'rgba(0,0,0,0.05)',
+    primary: 'rgb(255, 171, 64)',
+    secondary: 'rgb(38, 54, 111)',
 };

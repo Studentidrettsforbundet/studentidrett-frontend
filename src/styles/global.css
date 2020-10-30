@@ -40,10 +40,6 @@ body,
     margin: 0;
 }
 
-.maybe-not {
-    color: fuchsia;
-}
-
 .secondary_card {
     background: #3f51b5 !important;
 }
