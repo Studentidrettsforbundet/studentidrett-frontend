@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`groupCard renders correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/cities/0"
+  onClick={[Function]}
+>
+  <div
+    className="f1jc8hfs"
+  >
+    <div>
+      <h5>
+        Trondheim
+      </h5>
+    </div>
+  </div>
+</a>
+`;

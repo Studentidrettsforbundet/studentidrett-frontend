@@ -24,7 +24,7 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
                                 name={entry.name}
                                 region={entry.region}
                                 clubs={entry.clubs}
-                            ></CityCard>
+                            />
                         );
                     })
                 ) : (

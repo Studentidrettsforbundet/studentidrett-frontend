@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clubPage renders correctly 1`] = `
+<div
+  className="container body"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h1>
+        HEADER
+      </h1>
+    </div>
+    <div
+      className="col search_icon-container"
+    >
+      <img
+        alt="Search icon"
+        className="search_icon"
+        onClick={[Function]}
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "search.svg",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      className="f3518ct card"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <input
+            className="form-control"
+            name="searchString"
+            onChange={[Function]}
+            placeholder="Search..."
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <a
+            href="/search/?q=groups/"
+            onClick={[Function]}
+          >
+            <button
+              className="searchBar_button btn btn-primary"
+              disabled={false}
+              type="submit"
+            >
+              Search
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="card"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          Søket gav ingen resultater
+        </div>
+        <img
+          alt="unhappy icon"
+          className="unhappy_icon"
+          src={
+            Object {
+              "ReactComponent": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              },
+              "__esModule": true,
+              "default": "sadFace.svg",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

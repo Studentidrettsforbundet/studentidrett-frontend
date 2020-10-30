@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`regionCard renders correctly 1`] = `
+<div>
+  <a
+    className="unstyled_link"
+    href="/cities/1"
+    onClick={[Function]}
+  >
+    <div
+      className="fcjpwci"
+    >
+      <h5>
+        Test
+      </h5>
+      By
+    </div>
+  </a>
+</div>
+`;

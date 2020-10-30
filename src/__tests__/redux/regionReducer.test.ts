@@ -1,6 +1,7 @@
 import React from 'react';
 import { SET_REGIONS } from '../../store/pages/region/regionActions';
 import { regionInitialState, regionReducer } from '../../store/pages/region/regionReducer';
+import {regionList3, singleRegion} from "../../assets/testMock";
 
 describe('Region reducer', () => {
     it('Should return the initial state', () => {
@@ -9,10 +10,7 @@ describe('Region reducer', () => {
     });
 
     it('Should handle SET_REGIONS', () => {
-        const data = [
-            { id: 3, name: 'Vestlandet' },
-            { id: 4, name: 'Sørlandet' },
-        ];
+        const data = regionList3;
 
         expect(
             regionReducer(undefined, {
@@ -23,12 +21,8 @@ describe('Region reducer', () => {
     });
 
     it('Should handle SET_REGIONS with initialState', () => {
-        const initialState = [
-            { id: 0, name: 'Midtnorge' },
-            { id: 1, name: 'Oslo/Viken' },
-            { id: 2, name: 'Nord norge' },
-        ];
-        const data = { id: 3, name: 'Vestlandet' };
+        const initialState = regionList3;
+        const data = singleRegion;
 
         expect(
             regionReducer(
