@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const getLinkIcon = (site?: string): JSX.Element | null => {
+export const getLinkIcon = (site: string | null): JSX.Element | null => {
     // Open source, MIT licensed: https://ionicons.com/
     if (site === 'Facebook') {
         return (
@@ -69,7 +69,7 @@ export const getLinkIcon = (site?: string): JSX.Element | null => {
         return null;
     }
 };
-export const getGenderIcon = (gender?: string): JSX.Element | null => {
+export const getGenderIcon = (gender: string | null): JSX.Element | null => {
     // Open source, MIT licensed: https://ionicons.com/
     if (gender === 'M') {
         return (
@@ -99,7 +99,7 @@ export const getGenderIcon = (gender?: string): JSX.Element | null => {
     }
 };
 
-export const getSkillIcon = (skill?: string): JSX.Element | null => {
+export const getSkillIcon = (skill: string | null): JSX.Element | null => {
     // Open source, MIT licensed: https://icons.getbootstrap.com/
     if (skill === 'NONE') {
         return (
@@ -171,7 +171,7 @@ export const getSkillIcon = (skill?: string): JSX.Element | null => {
     }
 };
 
-export const getAvailabilityIcon = (availability?: string): JSX.Element | null => {
+export const getAvailabilityIcon = (availability: string | null): JSX.Element | null => {
     // Open source, MIT licensed: https://icons.getbootstrap.com/
     if (availability === 'OP' || availability === 'TO') {
         return (

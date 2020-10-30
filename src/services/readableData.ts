@@ -1,4 +1,4 @@
-export const getTeamGender = (gender?: string): string | null => {
+export const getTeamGender = (gender: string | null): string | null => {
     if (gender === 'M') {
         return 'Herre';
     } else if (gender === 'F') {
@@ -12,7 +12,7 @@ export const getTeamGender = (gender?: string): string | null => {
     }
 };
 
-export const getTeamSkill = (skill?: string): string | null => {
+export const getTeamSkill = (skill: string | null): string | null => {
     if (skill === 'NONE') {
         return 'Ingen forkunnskaper krevd';
     } else if (skill === 'LOW') {
@@ -28,7 +28,7 @@ export const getTeamSkill = (skill?: string): string | null => {
     }
 };
 
-export const getTeamAvailability = (availability?: string): string | null => {
+export const getTeamAvailability = (availability: string | null): string | null => {
     if (availability === 'OP') {
         return 'Åpent';
     } else if (availability === 'CL') {
