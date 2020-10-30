@@ -25,9 +25,6 @@ exports[`App renders correctly 1`] = `
     <div
       className="Landing"
     >
-      <h1>
-        Kundestyrt
-      </h1>
       <div
         className="col"
       >
@@ -44,7 +41,7 @@ exports[`App renders correctly 1`] = `
               }
             }
           >
-            Regions
+            Regioner
           </a>
         </button>
         <button
@@ -60,7 +57,7 @@ exports[`App renders correctly 1`] = `
               }
             }
           >
-            Questionnaire
+            Idrettsvalgomat
           </a>
         </button>
       </div>
