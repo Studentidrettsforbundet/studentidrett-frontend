@@ -14,8 +14,7 @@ interface setClubsDetailAction {
     payload: clubInterface;
 }
 
-export type clubActionTypes = setClubsAction;
-export type clubActionDetailTypes = setClubsDetailAction;
+export type clubActionTypes = setClubsAction | setClubsDetailAction;
 
 export const setClubsActionCreator = (data: clubInterface[]): clubActionTypes => {
     if (data.every(instanceOfClub)) {
@@ -30,7 +29,7 @@ export const setClubsActionCreator = (data: clubInterface[]): clubActionTypes =>
     };
 };
 
-export const setClubsActionDetailCreator = (data: clubInterface): clubActionDetailTypes => {
+export const setClubsActionDetailCreator = (data: clubInterface): clubActionTypes => {
     return {
         type: SET_CLUBS_DETAIL,
         payload: data,

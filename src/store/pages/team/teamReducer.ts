@@ -1,5 +1,5 @@
 import { teamInterface } from '../../../interfaces';
-import { SET_TEAMS, SET_TEAMS_DETAIL, teamActionDetailTypes, teamActionTypes } from './teamActions';
+import { SET_TEAMS, SET_TEAMS_DETAIL, teamActionTypes } from './teamActions';
 
 export interface teamState {
     teams: teamInterface[];
@@ -19,14 +19,6 @@ export const teamReducer = (state = teamInitialState, action: teamActionTypes): 
                 teams: action.payload,
             };
         }
-        default: {
-            return state;
-        }
-    }
-};
-
-export const teamDetailReducer = (state = teamInitialState, action: teamActionDetailTypes): teamState => {
-    switch (action.type) {
         case SET_TEAMS_DETAIL: {
             return {
                 ...state,

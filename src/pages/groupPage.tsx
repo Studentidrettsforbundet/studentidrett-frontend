@@ -51,7 +51,7 @@ const GroupPage = () => {
         );
     });
 
-    const selectedGroup = reduxState.group_detail.group;
+    const selectedGroup = reduxState.group.group;
 
     return (
         <div className="container body">

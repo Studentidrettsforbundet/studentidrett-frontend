@@ -14,8 +14,7 @@ interface setGroupActionDetail {
     payload: groupInterface;
 }
 
-export type groupActionDetailTypes = setGroupActionDetail;
-export type groupActionTypes = setGroupAction;
+export type groupActionTypes = setGroupAction | setGroupActionDetail;
 
 export const setGroupsActionCreator = (data: groupInterface[]): groupActionTypes => {
     if (data.every(instanceOfGroup)) {
@@ -30,7 +29,7 @@ export const setGroupsActionCreator = (data: groupInterface[]): groupActionTypes
     };
 };
 
-export const setGroupsActionDetailCreator = (data: groupInterface): groupActionDetailTypes => {
+export const setGroupsActionDetailCreator = (data: groupInterface): groupActionTypes => {
     return {
         type: SET_GROUPS_DETAIL,
         payload: data,
