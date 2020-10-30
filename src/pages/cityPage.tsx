@@ -43,6 +43,8 @@ const CityPage = () => {
         }
     });
 
+    const cityName = reduxState.city.cities.filter((city)=> city.id.toString() == urlParams.id)[0].name;
+
     const listSportContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
     });
@@ -66,7 +68,6 @@ const CityPage = () => {
 
     return (
         <div className="container body">
-            <h1>{urlParams.id}</h1>
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
@@ -79,33 +80,36 @@ const CityPage = () => {
                     </div>
                 </div>
             </div>
-            {reduxState.thunk.fetch_in_progress ? (
-                <div className="center_container">
-                    <Spinner animation="border" />
-                </div>
-            ) : (
-                <div>
-                    {reduxState.thunk.fetch_failed ? (
-                        <div>
-                            <FetchError />
-                        </div>
-                    ) : (
-                        <div>
-                            {showClubs ? (
-                                <div>
-                                    <SearchBar typeOfSearch={CLUB} />
-                                    {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
-                                </div>
-                            ) : (
-                                <div>
-                                    <SearchBar typeOfSearch={SPORT} />
-                                    {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
+                {reduxState.thunk.fetch_in_progress ? (
+                    <div className="center_container">
+                        <Spinner animation="border" />
+                    </div>
+                ) : (
+                    <div>
+                        {reduxState.thunk.fetch_failed ? (
+                            <div>
+                                <FetchError />
+                            </div>
+                        ) : (
+                            <div>
+                                {showClubs ? (
+                                    <div>
+                                        <SearchBar typeOfSearch={CLUB} />
+                                        <h1>{cityName}</h1>
+                                        {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <SearchBar typeOfSearch={SPORT} />
+                                        <h1>{cityName}</h1>
+                                        {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
+                
         </div>
     );
 };

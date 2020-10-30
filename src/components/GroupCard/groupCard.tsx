@@ -4,7 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { groupInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardBody, cardImg, cardTitle } from '../../styles/card';
+import { card, cardImg } from '../../styles/card';
+import { groupCard, cardHeader, cardBody} from './styles';
+import {classes} from 'typestyle';
 
 const GroupCard = (group: groupInterface) => {
     const location = useLocation();
@@ -16,13 +18,13 @@ const GroupCard = (group: groupInterface) => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={card}>
-                <div className={cardBody}>
+            <div className={classes(card, groupCard)}>
                     <img className={cardImg} src={image} alt="Club"></img>
-                    <h5 className={cardTitle}>{group.name}</h5>
-                    <div>
-                        <p>{group.description}</p>
+                <div className={cardBody}>
+                    <div className={cardHeader}>
+                        {group.name}
                     </div>
+                    <p>{group.description.slice(0,115)} ...</p>
                 </div>
             </div>
         </Link>

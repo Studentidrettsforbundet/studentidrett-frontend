@@ -7,7 +7,9 @@ export default {
     blue: 'rgb(0,0,255)',
     white: 'rgb(255,255,255)',
     black: 'rgb(0,0,0)',
-    cardHeader: 'rgb(171,189,223)',
+    yellow: 'rgb(255,171,64,1)',
+    cardHeader: 'rgb(255,171,64,1)', //Overskrift i kortet
+    cardBodyText: 'rgb(49,56,121,1)',
     secondaryCardColor: 'rgb(171,223,206)',
     shadowColor: 'rgba(0,0,0,0.05)',
 };

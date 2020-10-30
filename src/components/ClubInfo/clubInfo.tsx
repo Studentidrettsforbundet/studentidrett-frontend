@@ -17,16 +17,14 @@ const ClubInfo = (props: IClubInfo) => {
             </div>
             <div>
                 <p>
-                    <strong>Kontakt:</strong>
-                    {props.contact_email}
-                </p>
-                <p>
-                    <strong>Medlemskontigent:</strong>
+                    <span className="boldText">Kontakt: </span>
+                    <span className="linkText">{props.contact_email}</span>
+                    <br/>
+                    <span className="boldText">Medlemskontigent: </span>
                     {props.price}
-                </p>
-                <p>
-                    <strong>Meld deg inn:</strong>
-                    {props.register_info}
+                    <br/>
+                    <span className="boldText">Meld deg inn: </span>
+                    <span className="linkText">{props.register_info}</span>
                 </p>
             </div>
             <div>

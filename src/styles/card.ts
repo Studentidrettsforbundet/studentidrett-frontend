@@ -3,25 +3,35 @@ import colors from './colors';
 
 export const card = style({
     backgroundColor: colors.white,
-    boxShadow: '0 0 4px 4px ' + colors.shadowColor,
+    //boxShadow: '0 0 4px 4px ' + colors.shadowColor,
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     padding: '6px 4px 2px 6px',
-    borderRadius: '10px',
+    borderRadius: '4px',
     textAlign: 'left',
-    fontFamily: 'Arial',
-    color: colors.black,
+    //fontFamily: 'Arial',
+    color: colors.cardBodyText,
     $nest: {
         '&:not(last-child)': {
             marginBottom: '16px',
         },
     },
+    
 });
 
 export const cardHeader = style({
-    padding: '4px',
+    margin: '2px 4px' ,
+    color: colors.cardHeader,
+    fontSize: '19px',
+    fontFamily: 'ArchivoSemiBold',
+    textAlign: 'left',
 });
 
 export const cardBody = style({
     backgroundColor: 'inherit',
+    color: colors.cardBodyText,
+    margin: '2px 4px',
+    fontSize: '16px',
+    textAlign: 'left',
 });
 
 export const cardFooter = style({
@@ -29,12 +39,15 @@ export const cardFooter = style({
 });
 
 export const cardImg = style({
-    maxHeight: '250px',
-    maxWidth: '300px',
+    // maxHeight: '250px',
+    // maxWidth: '300px',
+    maxHeight: '100%',
+    maxWidth: '100%'
 });
 
 export const secondaryCard = style({
-    backgroundColor: colors.secondaryCardColor,
+    backgroundColor: 'rgb(236,236,236,1)',
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     borderRadius: '6px',
     textAlign: 'center',
     padding: '5px',

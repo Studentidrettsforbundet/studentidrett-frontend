@@ -7,7 +7,22 @@
 
 @font-face {
     font-family: 'ko355';
-    src: local('ko355', url(../assets/ko355.woff) format('truetype'));
+    src: local('ko355'), url(../assets/ko355.woff) format('truetype');
+}
+
+@font-face{
+    font-family: 'ArchivoRegular';
+    src: local('Archivo'), url(../fonts/Archivo/Archivo-Regular.ttf) format('truetype');
+}
+
+/* @font-face{
+    font-family: 'ArchivoBold';
+    src: local('ArchivoBold'), url(../fonts/Archivo/Archivo-Bold.ttf) format('truetype');
+} */
+
+@font-face{
+    font-family: 'ArchivoSemibold';
+    src: local('ArchivoSemibold'), url(../fonts/Archivo/Archivo-SemiBold.ttf) format('truetype');
 }
 
 html,
@@ -17,7 +32,7 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: ko355;
+    font-family: "ArchivoRegular", Arial, Helvetica, sans-serif;
 }
 
 .Tabs {
@@ -25,7 +40,7 @@ body,
 }
 
 .page {
-    background-color: #E5E5E5;
+    background-color: rgb(236,239,246);
     padding: 16px;
     /*Arbitrary number is footer height*/
     min-height: calc(100vh - 96px);
@@ -35,8 +50,40 @@ body,
 }
 
 .body {
-    background-color: #E5E5E5;
-    color: black;
+    background-color: rgb(236,239,246);
+    color: rgb(49,56,121,1);
     margin: 0;
+    font-family: 'ArchivoRegular', sans-serif;
+    font-size: 16px;
 }
 
+
+h1 {
+    color: rgb(49,56,121,1);
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 21px;
+    font-family: 'ArchivoSemiBold', sans-serif;
+}
+
+h2 {
+    color: rgb(49,56,121,1);
+    font-weight: bold;
+    font-family: 'ArchivoSemiBold', sans-serif;
+    font-size: 24px;
+}
+
+p {
+    color: rgb(49,56,121,1);
+    font-family: 'ArchivoRegular', sans-serif;
+}
+
+.boldText {
+    font-family: 'ArchivoSemiBold', sans-serif;
+}
+
+.linkText{
+    font-family: "ArchivoRegular", sans-serif;
+    text-decoration: underline;
+    color: rgb(255,171,64,1)
+}
