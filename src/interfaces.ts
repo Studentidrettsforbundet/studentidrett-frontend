@@ -92,3 +92,10 @@ export interface searchInterface {
     name: string;
     id: string;
 }
+
+export interface questionnaireItem {
+    id: string;
+    text: string;
+    left: string;
+    right: string;
+}
