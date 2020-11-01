@@ -7,6 +7,7 @@ export default {
     blue: 'rgb(0,0,255)',
     white: 'rgb(255,255,255)',
     black: 'rgb(0,0,0)',
+    orange: '#FFAB40',
     cardHeader: 'rgb(171,189,223)',
     secondaryCardColor: 'rgb(171,223,206)',
     shadowColor: 'rgba(0,0,0,0.05)',

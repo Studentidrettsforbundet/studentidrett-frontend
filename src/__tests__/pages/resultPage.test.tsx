@@ -1,7 +1,11 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import ResultPage from '../../pages/resultPage';
+import configureMockStore from 'redux-mock-store';
+
+const store = configureMockStore();
 
 const mockProps = {
     state: {
@@ -27,9 +31,12 @@ describe('resultPage', () => {
         it('should render correctly', () => {
             const tree = renderer
                 .create(
-                    <BrowserRouter>
-                        <ResultPage location={mockProps} />
-                    </BrowserRouter>,
+                    <Provider store={store({})}>
+                        <BrowserRouter>
+                            <ResultPage location={mockProps} />
+                        </BrowserRouter>
+                        ,
+                    </Provider>,
                 )
                 .toJSON();
             expect(tree).toMatchSnapshot();
