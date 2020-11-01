@@ -4,16 +4,35 @@ exports[`header snapshot tests should render correctly 1`] = `
 <div
   className="header"
 >
-  <img
-    alt="logo"
-    src="logo.png"
-  />
-  <div
-    className="textContent"
+  <section
+    className="headerLink"
   >
-    Norges
-    <br />
-    Studentidrettsforbund
-  </div>
+    <a
+      href="/"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+          "textDecoration": "none",
+        }
+      }
+    >
+      <section
+        className="headerContent"
+      >
+        <img
+          alt="logo"
+          src="logo.png"
+        />
+        <div
+          className="textContent"
+        >
+          Norges
+          <br />
+          Studentidrettsforbund
+        </div>
+      </section>
+    </a>
+  </section>
 </div>
 `;

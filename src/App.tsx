@@ -8,15 +8,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';
 import Routes from './routes';
 import Header from './components/header';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './store/store';
 
 const App = () => {
     return (
         <div className="App">
-            <Header />
-            <div className="page">
-                <Routes />
-            </div>
-            <Footer />
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Header />
+                    <div className="page">
+                        <Routes />
+                    </div>
+                    <Footer />
+                </BrowserRouter>
+            </Provider>
         </div>
     );
 };
