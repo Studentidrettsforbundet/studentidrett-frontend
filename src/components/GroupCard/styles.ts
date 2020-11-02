@@ -33,7 +33,7 @@ export const scrollContainer = style({
     textAlign: 'center',
     width: '80%',
     margin: 'auto',
-    padding: '10px auto',
+
     
 })
 
