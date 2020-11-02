@@ -1,5 +1,5 @@
 import { clubInterface } from '../../../interfaces';
-import { clubActionDetailTypes, clubActionTypes, SET_CLUBS, SET_CLUBS_DETAIL } from './clubActions';
+import { clubActionTypes, SET_CLUBS, SET_CLUBS_DETAIL } from './clubActions';
 
 export interface clubState {
     clubs: clubInterface[];
@@ -20,14 +20,6 @@ export const clubReducer = (state = clubInitialState, action: clubActionTypes): 
             };
         }
 
-        default: {
-            return state;
-        }
-    }
-};
-
-export const clubDetailReducer = (state = clubInitialState, action: clubActionDetailTypes): clubState => {
-    switch (action.type) {
         case SET_CLUBS_DETAIL: {
             return {
                 ...state,

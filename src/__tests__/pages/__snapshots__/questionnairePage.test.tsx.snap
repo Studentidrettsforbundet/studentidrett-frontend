@@ -10,7 +10,7 @@ exports[`questionnairePage should render correctly 1`] = `
   }
 >
   <h1>
-    Questionnaire
+    Idrettsvalgomat
   </h1>
   <form
     onSubmit={[Function]}

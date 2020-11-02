@@ -71,8 +71,8 @@ export const checkForErrorCodes = (result: any): boolean => {
 };
 
 export const fetchDataThunk = (
-    dataType?: cardType,
-    url = '',
+    dataType: cardType,
+    url: string = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     let asyncResp;
     dispatch(fetchInProgressActionCreator());
@@ -82,7 +82,7 @@ export const fetchDataThunk = (
         asyncResp = await fetchData(url);
     } else {
         //Fetch based on cardType
-        asyncResp = dataType ? await fetchData(urlBuilderFetchData(dataType)) : null;
+        asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
     let result = [];
 

@@ -58,7 +58,7 @@ const QuestionnairePage = () => {
 
     return (
         <div style={{ textAlign: 'center' }} className="overview">
-            <h1>Questionnaire</h1>
+            <h1>Idrettsvalgomat</h1>
             <Form
                 onSubmit={onSubmit}
                 validate={(values: any) => {
@@ -68,7 +68,7 @@ const QuestionnairePage = () => {
 
                     questionIds.map((id) => {
                         if (!values[`${'name_' + id}`]) {
-                            errors[`${'name_' + id}`] = 'Required';
+                            errors[`${'name_' + id}`] = 'Ikke besvart';
                         }
                     });
 
