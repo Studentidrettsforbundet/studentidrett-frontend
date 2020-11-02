@@ -19,10 +19,10 @@ describe('Actions', () => {
     test('Should create a setQuestionsAction', () => {
         const data = [
             {
-                id: '1',
-                text: 'Team A',
-                left: 'lol',
-                right: 'aha',
+                id: 'id1',
+                text: 'text1',
+                left: 'left1',
+                right: 'right1',
             },
         ];
 
@@ -47,7 +47,7 @@ describe('Actions', () => {
         const data = [
             {
                 id: 0,
-                name: 'test',
+                name: 'name1',
                 score: 93,
             },
         ];
