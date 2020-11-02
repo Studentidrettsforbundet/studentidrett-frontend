@@ -2,14 +2,14 @@ import fetchMock from 'fetch-mock';
 import { CLUB, GROUP, SPORT, TEAM } from '../../constants';
 import { fetchDetailThunk } from '../../services/api';
 import { urlBuilderFetchDetail } from '../../services/urlBuilders';
-import { SET_CLUBS, SET_CLUBS_DETAIL } from '../../store/pages/club/clubActions';
 import { FETCH_FAILED, FETCH_IN_PROGRESS, FETCH_SUCCESS } from '../../store/thunks/thunkActions';
 
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { SET_GROUPS } from '../../store/pages/group/groupActions';
-import { SET_SPORTS } from '../../store/pages/sport/sportActions';
-import { SET_TEAMS } from '../../store/pages/team/teamActions';
+import { SET_CLUBS_DETAIL } from '../../store/pages/club/clubActions';
+import { SET_GROUPS_DETAIL } from '../../store/pages/group/groupActions';
+import { SET_SPORTS_DETAIL } from '../../store/pages/sport/sportActions';
+import { SET_TEAMS_DETAIL } from '../../store/pages/team/teamActions';
 import { singleClub, singleGroup, singleSport, singleTeam } from '../../assets/testMock';
 
 export const startState = {}; //put initial state here
@@ -42,9 +42,9 @@ describe('Successfull CARDTYPE fetch', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS, payload: mockData },
+            { type: FETCH_SUCCESS},
             { type: SET_CLUBS_DETAIL, payload: mockData },
-        ];
+        ];c
 
         store.dispatch<any>(fetchDetailThunk(CLUB, mockData.id.toString())).then(() => {
             const performedActions = store.getActions();
@@ -102,8 +102,8 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS, payload: mockData },
-            { type: SET_CLUBS, payload: mockData },
+            { type: FETCH_SUCCESS},
+            { type: SET_CLUBS_DETAIL, payload: mockData },
         ];
 
         store.dispatch<any>(fetchDetailThunk(CLUB, mockData.id.toString())).then(() => {
@@ -120,8 +120,8 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS, payload: mockData },
-            { type: SET_GROUPS, payload: mockData },
+            { type: FETCH_SUCCESS },
+            { type: SET_GROUPS_DETAIL, payload: mockData },
         ];
 
         store.dispatch<any>(fetchDetailThunk(GROUP, mockData.id.toString())).then(() => {
@@ -138,8 +138,8 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS, payload: mockData },
-            { type: SET_SPORTS, payload: mockData },
+            { type: FETCH_SUCCESS},
+            { type: SET_SPORTS_DETAIL, payload: mockData },
         ];
 
         store.dispatch<any>(fetchDetailThunk(SPORT, mockData.id.toString())).then(() => {
@@ -156,8 +156,8 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS, payload: mockData },
-            { type: SET_TEAMS, payload: mockData },
+            { type: FETCH_SUCCESS},
+            { type: SET_TEAMS_DETAIL, payload: mockData },
         ];
 
         store.dispatch<any>(fetchDetailThunk(TEAM, mockData.id.toString())).then(() => {
