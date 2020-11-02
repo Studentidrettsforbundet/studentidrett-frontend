@@ -73,7 +73,7 @@ describe('Actions', () => {
 
         const expected = {
             type: SET_TEAMS,
-            payload: [],
+            payload: [{ id: 1, name: 'Oslo', clubs: [] }],
         };
 
         expect(setTeamsActionCreator(data)).toStrictEqual(expected);
