@@ -26,9 +26,6 @@ jobs:
               run: |
                   docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/studentidrett-frontend:dev
 
-            - name: 'Run tests'
-              run: docker run test
-
             - name: 'Push image to ACR'
               uses: azure/docker-login@v1
               with:
