@@ -8,6 +8,7 @@ import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
+import { questionnaire } from '../styles/questionnaire';
 
 const QuestionnairePage = () => {
     const dispatch = useDispatch();
@@ -57,8 +58,19 @@ const QuestionnairePage = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center' }} className="overview">
+        <div className={questionnaire}>
             <h1>Idrettsvalgomat</h1>
+            <p>
+                <span>Velkommen til NSIs idrettsvalgomat!</span>
+                <br />
+                <br />
+                Du vil bli stilt noen spørsmål om hvilke egenskaper du foretrekker foran i en idrett. Dersom du velger
+                det midterste punktet betyr det at du ikke foretrekker den ene over den andre.
+                <br />
+                <br />
+                Lykke til!
+            </p>
+
             <Form
                 onSubmit={onSubmit}
                 validate={(values: any) => {
