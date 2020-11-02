@@ -1,38 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
-import QuestionnaireItem, { QuestionnaireItemProps } from '../components/QuestionnaireItem/questionnaireItem';
+import QuestionnaireItem from '../components/QuestionnaireItem/questionnaireItem';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
-import { fetchData } from '../services/api';
+import { handleQuestionsThunk } from '../services/api';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
+import { useDispatch, useSelector } from 'react-redux';
+import { combinedStateInterface } from '../store/store';
 
 const QuestionnairePage = () => {
-    const [fetchInProgress, setFetchInProgress] = useState(true);
-    const [fetched, setFetched] = useState(false);
-    const [responseBody, setResponseBody] = useState({});
-    const [questions, setQuestions] = useState([] as QuestionnaireItemProps[]);
-    const [sendInProgress, setsendInProgress] = useState(false);
-    const [fetchFailed, setFetchFailed] = useState(false);
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
-        async function fetch() {
-            setFetchInProgress(true);
-            fetchData('https://kundestyrt-nsi-backend.azurewebsites.net/questions').then((data) => {
-                setFetchInProgress(false);
-                setFetchFailed(false);
-                if (data === 'Something went wrong' || data === 'Connection error') {
-                    setFetchFailed(true);
-                    console.error(data);
-                    return;
-                }
-                setQuestions(data);
-            });
+        if (
+            !reduxState.thunk.fetch_in_progress &&
+            reduxState.thunk.fetch_failed_count < 3 &&
+            !reduxState.thunk.fetch_success
+        ) {
+            dispatch(handleQuestionsThunk());
         }
-        fetch();
-    }, []);
+    });
 
-    const listItems = questions.map((question) => (
+    const listItems = reduxState.questionnaire.questions.map((question) => (
         <Field
             key={'key_' + question.id}
             name={'name_' + question.id}
@@ -55,28 +46,14 @@ const QuestionnairePage = () => {
             qid: key.replace('name_', ''),
             answer: values[key],
         }));
-        setsendInProgress(true);
-        fetch('https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestBody),
-        })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error();
-                }
-            })
-            .then((data) => {
-                setResponseBody(data);
-                setFetched(true);
-            })
-            .catch(() => {
-                console.error('Something went wrong posting answers');
-            });
+
+        if (
+            !reduxState.thunk.post_in_progress &&
+            reduxState.thunk.post_failed_count < 3 &&
+            !reduxState.thunk.post_success
+        ) {
+            dispatch(handleQuestionsThunk(false, requestBody));
+        }
     };
 
     return (
@@ -87,7 +64,7 @@ const QuestionnairePage = () => {
                 validate={(values: any) => {
                     const errors: any = {};
 
-                    const questionIds = questions.map(({ id }) => id);
+                    const questionIds = reduxState.questionnaire.questions.map(({ id }) => id);
 
                     questionIds.map((id) => {
                         if (!values[`${'name_' + id}`]) {
@@ -99,20 +76,20 @@ const QuestionnairePage = () => {
                 }}
                 render={({ handleSubmit, submitting }) => (
                     <>
-                        {fetchInProgress ? (
+                        {reduxState.thunk.fetch_in_progress ? (
                             <div className="center_container">
                                 <Spinner animation="border" />
                             </div>
                         ) : (
                             <>
-                                {fetchFailed ? (
+                                {reduxState.thunk.fetch_failed ? (
                                     <>
                                         <FetchError />
                                     </>
                                 ) : (
                                     <form onSubmit={handleSubmit}>
                                         {listItems}
-                                        {sendInProgress ? (
+                                        {reduxState.thunk.post_in_progress ? (
                                             <button type="submit" disabled={submitting}>
                                                 <Spinner
                                                     as="span"
@@ -135,7 +112,7 @@ const QuestionnairePage = () => {
                     </>
                 )}
             />
-            {fetched && <Redirect to={{ pathname: 'questionnaire/result', state: responseBody }} />}
+            {reduxState.thunk.post_success && <Redirect to={{ pathname: 'questionnaire/result' }} />}
         </div>
     );
 };

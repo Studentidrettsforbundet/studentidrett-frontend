@@ -3,6 +3,9 @@ import { prev_next } from '../../interfaces';
 export const FETCH_IN_PROGRESS = 'FETCH_IN_PROGRESS';
 export const FETCH_FAILED = 'FETCH_FAILED';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const POST_IN_PROGRESS = 'POST_IN_PROGRESS';
+export const POST_FAILED = 'POST_FAILED';
+export const POST_SUCCESS = 'POST_SUCCESS';
 export const RESET_FETCH_STATUSES = 'RESET_FETCH_STATUSES';
 
 interface fetchInProgressAction {
@@ -18,6 +21,18 @@ interface fetchSuccessAction {
     payload: prev_next;
 }
 
+interface postInProgressAction {
+    type: typeof POST_IN_PROGRESS;
+}
+
+interface postFailedAction {
+    type: typeof POST_FAILED;
+}
+
+interface postSuccessAction {
+    type: typeof POST_SUCCESS;
+}
+
 interface fetchDetailSuccessAction {
     type: typeof FETCH_SUCCESS;
 }
@@ -30,7 +45,10 @@ export type thunkActionTypes =
     | fetchInProgressAction
     | fetchFailedAction
     | fetchSuccessAction
-    | resetFetchStatusesAction;
+    | resetFetchStatusesAction
+    | postFailedAction
+    | postInProgressAction
+    | postSuccessAction;
 
 export const fetchInProgressActionCreator = (): fetchInProgressAction => {
     return {
@@ -60,5 +78,23 @@ export const fetchDetailSuccessActionCreator = (): fetchDetailSuccessAction => {
 export const resetFetchStatusesActionCreator = (): resetFetchStatusesAction => {
     return {
         type: RESET_FETCH_STATUSES,
+    };
+};
+
+export const postInProgressActionCreator = (): postInProgressAction => {
+    return {
+        type: POST_IN_PROGRESS,
+    };
+};
+
+export const postFailedActionCreator = (): postFailedAction => {
+    return {
+        type: POST_FAILED,
+    };
+};
+
+export const postSuccessActionCreator = (): postSuccessAction => {
+    return {
+        type: POST_SUCCESS,
     };
 };

@@ -1,12 +1,20 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { combinedStateInterface } from '../store/store';
 import SportCard from '../components/SportCard/sportCard';
 import { button, resultPage } from '../styles/resultPage';
-const ResultPage = (props: any) => {
-    const results = props.location.state;
-    const listItems = results.recommendation.map((result: any) => {
-        return <SportCard key={result.id} id={result.id} name={result.name} labels={[]} />;
-    });
+
+const ResultPage = () => {
+    const reduxState = useSelector((state: combinedStateInterface) => state);
+    let listItems = [<></>];
+
+    if (reduxState.questionnaire.recommendations) {
+        listItems = reduxState.questionnaire.recommendations.map((result: any) => {
+            //TODO Set correct redirect
+            return <SportCard key={result.id} id={result.id} name={result.name} labels={[]} />;
+        });
+    }
 
     return (
         <div className={resultPage}>
