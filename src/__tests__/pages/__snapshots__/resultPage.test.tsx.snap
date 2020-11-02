@@ -1,98 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`resultPage snapshot tests should render correctly 1`] = `
-Array [
-  <div
-    className="fkhz08q"
+<div
+  className="fkhz08q"
+>
+  <h1>
+    Idrettsvalgomat
+  </h1>
+  <p>
+    Dine topp 3 resultater er:
+  </p>
+  <a
+    className="unstyled_link"
+    href="/sports/id1"
+    onClick={[Function]}
   >
-    <h1>
-      Idrettsvalgomat
-    </h1>
-    <p>
-      Dine topp 3 resultater er:
-    </p>
-    <a
-      className="unstyled_link"
-      href="/sports/test1"
-      onClick={[Function]}
+    <div
+      className="fcjpwci"
     >
       <div
-        className="fcjpwci"
+        className="f1q24w9w"
       >
-        <div
-          className="f1q24w9w"
+        <h5
+          className="f19aa3jt"
         >
-          <h5
-            className="f19aa3jt"
-          >
-            name1
-          </h5>
-          <img
-            alt="Sport"
-            className="f1mqlstf"
-            src="placeholder.png"
-          />
-        </div>
+          name1
+        </h5>
+        <img
+          alt="Sport"
+          className="f1mqlstf"
+          src="placeholder.png"
+        />
       </div>
-    </a>
-    <a
-      className="unstyled_link"
-      href="/sports/test2"
-      onClick={[Function]}
+    </div>
+  </a>
+  <a
+    className="unstyled_link"
+    href="/sports/id2"
+    onClick={[Function]}
+  >
+    <div
+      className="fcjpwci"
     >
       <div
-        className="fcjpwci"
+        className="f1q24w9w"
       >
-        <div
-          className="f1q24w9w"
+        <h5
+          className="f19aa3jt"
         >
-          <h5
-            className="f19aa3jt"
-          >
-            name2
-          </h5>
-          <img
-            alt="Sport"
-            className="f1mqlstf"
-            src="placeholder.png"
-          />
-        </div>
+          name2
+        </h5>
+        <img
+          alt="Sport"
+          className="f1mqlstf"
+          src="placeholder.png"
+        />
       </div>
-    </a>
-    <a
-      className="unstyled_link"
-      href="/sports/test3"
-      onClick={[Function]}
+    </div>
+  </a>
+  <a
+    className="unstyled_link"
+    href="/sports/id3"
+    onClick={[Function]}
+  >
+    <div
+      className="fcjpwci"
     >
       <div
-        className="fcjpwci"
+        className="f1q24w9w"
       >
-        <div
-          className="f1q24w9w"
+        <h5
+          className="f19aa3jt"
         >
-          <h5
-            className="f19aa3jt"
-          >
-            name3
-          </h5>
-          <img
-            alt="Sport"
-            className="f1mqlstf"
-            src="placeholder.png"
-          />
-        </div>
+          name3
+        </h5>
+        <img
+          alt="Sport"
+          className="f1mqlstf"
+          src="placeholder.png"
+        />
       </div>
-    </a>
-    <br />
-    <a
-      className="f1yhg9g btn btn-primary"
-      href="/questionnaire"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-    >
-      Ta valgomaten igjen
-    </a>
-  </div>,
-  ",",
-]
+    </div>
+  </a>
+  <br />
+  <a
+    className="f1yhg9g btn btn-primary"
+    href="/questionnaire"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+  >
+    Ta valgomaten igjen
+  </a>
+</div>
 `;
