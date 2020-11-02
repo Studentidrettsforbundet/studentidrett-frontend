@@ -1,0 +1,28 @@
+
+@media screen and (max-width: 375px) {
+    .horizontalScroll {
+        padding: 10px;
+        max-height: 230px;
+        width: 342px;
+        background-color: blue;
+        overflow: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+        justify-content: center;
+    } 
+}
+
+.container > .row {
+    padding: 10px;
+    background-color: red;
+    overflow-x: scroll;
+    white-space: nowrap;
+    height: 229px;
+}
+
+.container > .row > .col {
+    size: absolute;
+    display: inline-block;
+    width: 240px;
+    height: 229px;
+  }

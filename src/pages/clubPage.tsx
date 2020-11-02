@@ -9,11 +9,12 @@ import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
-import { card } from '../styles/card';
+
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import { Spinner } from 'react-bootstrap';
+import { Col, Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
+import { scrollContainer} from '../components/GroupCard/styles';
 
 interface urlParams {
     id: string;
@@ -83,7 +84,7 @@ const ClubPage = () => {
                             {reduxState.group.groups.length === 0 ? (
                                 <EmptyResult />
                             ) : (
-                                <div className="HEEER">
+                                <div >
                                     {selectedClub && (
                                         <ClubInfo
                                             title={selectedClub.name}
@@ -94,7 +95,14 @@ const ClubPage = () => {
                                         />
                                     )}
                                     <h2>Våre grupper</h2>
-                                    <div>{listContent}</div>
+                                    <div className={scrollContainer}>
+                                    {/* <div className="horizontalScroll">
+                                        <div className="row">
+                                            {listContent.map((group, index) => <div className={"col"} key={index}>{group}</div>)} */}
+                                            {listContent}
+                                        {/* </div>
+                                    </div> */}
+                                    </div>
                                 </div>
                                 )}
                         </div>
