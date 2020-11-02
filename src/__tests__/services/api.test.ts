@@ -54,7 +54,6 @@ describe('fetchData Whitebox test with fetchMock', () => {
 
     test('Valid Fetch (Fetches one city)', async () => {
         const mockData = {
-            count: 1,
             next: null,
             previous: null,
             results: Array<cityInterface>(),
