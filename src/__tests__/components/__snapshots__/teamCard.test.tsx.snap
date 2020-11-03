@@ -7,57 +7,92 @@ exports[`teamCard renders correctly 1`] = `
   onClick={[Function]}
 >
   <div
-    className="fcjpwci"
-    onClick={[Function]}
+    className="f1bqh63k"
   >
-    <h5
-      className="f19aa3jt"
-    >
-      Men A
-    </h5>
     <div
-      className="f1q24w9w"
+      className="f1gj5ds8"
     >
       <img
         alt="Team"
-        className="f1mqlstf"
+        className="fb12b09"
         src="placeholder.png"
       />
     </div>
     <div
-      className="f1az2iud"
+      className="f9hjpet"
     >
-      <p>
-        Nivå: 
-      </p>
-      <p>
-        Åpent/opptak: 
-         
-      </p>
-      <p>
-        Kjønn: 
-      </p>
+      <h5
+        className="f1rpkic8"
+      >
+        Men A
+      </h5>
+      <div
+        className="fppg92i"
+      >
+        <div
+          className="f1ubk0hm"
+        >
+          <div>
+            <b>
+              Status
+              :
+            </b>
+             
+            Åpent
+          </div>
+          <div
+            className="f1ozov1j"
+          >
+            <svg
+              className="bi bi-person-plus-fill"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className="f1ubk0hm"
+        >
+          <div>
+            <b>
+              Kjønn
+              :
+            </b>
+             
+            Mix
+          </div>
+          <div
+            className="f1ozov1j"
+          >
+            <svg
+              fill="currentColor"
+              stroke="currentColor"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Male Female
+              </title>
+              <path
+                d="M426 16h-74a22 22 0 000 44h20.89l-37.1 37.09A157.68 157.68 0 00216 42c-87.12 0-158 70.88-158 158 0 79.66 59.26 145.72 136 156.46V394h-28a22 22 0 000 44h28v36a22 22 0 0044 0v-36h28a22 22 0 000-44h-28v-37.54c76.74-10.74 136-76.8 136-156.46a157.15 157.15 0 00-14-64.92l44-44V112a22 22 0 0044 0V38a22 22 0 00-22-22zM216 314a114 114 0 11114-114 114.13 114.13 0 01-114 114z"
+              />
+            </svg>
+          </div>
+        </div>
+        <hr />
+      </div>
       <p>
         This is where the short description goes
       </p>
     </div>
   </div>
 </a>
-`;
-
-exports[`teamCard renders expanded card correctly 1`] = `
-<div>
-  <p>
-    This is a long description
-  </p>
-  <p>
-    This team has available positions
-  </p>
-  <p>
-    This requires tryouts
-  </p>
-  <p>
-    This team is open for registrations
-  </p>
-</div>
 `;

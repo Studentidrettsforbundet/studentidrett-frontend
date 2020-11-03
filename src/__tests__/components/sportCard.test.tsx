@@ -5,15 +5,15 @@ import { MemoryRouter } from 'react-router-dom';
 import SportCard from '../../components/SportCard/sportCard';
 import store from '../../store/store';
 
-
 describe('SportCard', () => {
-    test("renders correctly", () => {
-        const tree = renderer
-            .create(<Provider store={store}>
-                <MemoryRouter initialEntries={["/MidtNorge"]}>
-                    <SportCard id={0} name={"Fotball"} />
+    test('renders correctly', () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <MemoryRouter initialEntries={['/MidtNorge']}>
+                    <SportCard id={0} name={'Fotball'} labels={[]} />
                 </MemoryRouter>
-            </Provider>);
+            </Provider>,
+        );
         expect(tree).toMatchSnapshot();
     });
 });
