@@ -24,7 +24,7 @@ exports[`teamCard renders correctly 1`] = `
       <h5
         className="f1rpkic8"
       >
-        Men A
+        Team A
       </h5>
       <div
         className="fppg92i"
@@ -67,7 +67,7 @@ exports[`teamCard renders correctly 1`] = `
               :
             </b>
              
-            Mix
+            Herre
           </div>
           <div
             className="f1ozov1j"
@@ -79,10 +79,43 @@ exports[`teamCard renders correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Male Female
+                Man
               </title>
+              <circle
+                cx="256"
+                cy="56"
+                r="56"
+              />
               <path
-                d="M426 16h-74a22 22 0 000 44h20.89l-37.1 37.09A157.68 157.68 0 00216 42c-87.12 0-158 70.88-158 158 0 79.66 59.26 145.72 136 156.46V394h-28a22 22 0 000 44h28v36a22 22 0 0044 0v-36h28a22 22 0 000-44h-28v-37.54c76.74-10.74 136-76.8 136-156.46a157.15 157.15 0 00-14-64.92l44-44V112a22 22 0 0044 0V38a22 22 0 00-22-22zM216 314a114 114 0 11114-114 114.13 114.13 0 01-114 114z"
+                d="M304 128h-96a64.19 64.19 0 00-64 64v107.52c0 10.85 8.43 20.08 19.27 20.47A20 20 0 00184 300v-99.73a8.18 8.18 0 017.47-8.25 8 8 0 018.53 8V489a23 23 0 0023 23 23 23 0 0023-23V346.34a10.24 10.24 0 019.33-10.34A10 10 0 01266 346v143a23 23 0 0023 23 23 23 0 0023-23V200.27a8.18 8.18 0 017.47-8.25 8 8 0 018.53 8v99.52c0 10.85 8.43 20.08 19.27 20.47A20 20 0 00368 300V192a64.19 64.19 0 00-64-64z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className="f1ubk0hm"
+        >
+          <div>
+            <b>
+              Nivå
+              :
+            </b>
+             
+            Høyt
+          </div>
+          <div
+            className="f1ozov1j"
+          >
+            <svg
+              className="bi bi-reception-3"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
               />
             </svg>
           </div>
@@ -90,7 +123,7 @@ exports[`teamCard renders correctly 1`] = `
         <hr />
       </div>
       <p>
-        This is where the short description goes
+        Short desc
       </p>
     </div>
   </div>

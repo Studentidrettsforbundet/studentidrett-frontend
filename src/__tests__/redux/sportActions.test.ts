@@ -1,5 +1,11 @@
 import React from 'react';
-import { SET_SPORTS, setSportsActionCreator } from '../../store/pages/sport/sportActions';
+import {
+    SET_SPORTS,
+    SET_SPORTS_DETAIL,
+    setSportsActionCreator,
+    setSportsActionDetailCreator
+} from '../../store/pages/sport/sportActions';
+import {singleSport, sportList5} from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setSportsAction', () => {
@@ -12,64 +18,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setSportsAction', () => {
-        const data = [
-            {
-                id: 0,
-                name: 'Football',
-                labels: [
-                    {
-                        text: 'utendørs',
-                        sports: ['Fotball', 'Langrenn', 'Rumpeldunk'],
-                        alternatives: ['Utendørs'],
-                    },
-                ],
-            },
-
-            {
-                id: 1,
-                name: 'Handball',
-                labels: [
-                    {
-                        text: 'utendørs',
-                        sports: ['Hanball'],
-                        alternatives: ['Indoors'],
-                    },
-                ],
-            },
-            {
-                id: 2,
-                name: 'Basketball',
-                labels: [
-                    {
-                        text: 'utendørs',
-                        sports: ['Basketball'],
-                        alternatives: ['Utendørs'],
-                    },
-                ],
-            },
-            {
-                id: 3,
-                name: 'American football',
-                labels: [
-                    {
-                        text: 'utendørs',
-                        sports: ['Fotball'],
-                        alternatives: ['Utendørs'],
-                    },
-                ],
-            },
-            {
-                id: 4,
-                name: 'Baseball',
-                labels: [
-                    {
-                        text: 'utendørs',
-                        sports: ['Baseball'],
-                        alternatives: ['Utendørs'],
-                    },
-                ],
-            },
-        ];
+        const data = sportList5;
 
         const expected = {
             type: SET_SPORTS,
@@ -91,5 +40,39 @@ describe('Actions', () => {
         };
 
         expect(setSportsActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setSportsActionDetail', () => {
+        const expected = {
+            type: SET_SPORTS_DETAIL,
+            payload: null,
+        };
+
+        expect(setSportsActionDetailCreator(null)).toStrictEqual(expected);
+    });
+
+    test('Should create a setSportsActionDetail', () => {
+        const data = singleSport;
+
+        const expected = {
+            type: SET_SPORTS_DETAIL,
+            payload: data,
+        };
+
+        expect(setSportsActionDetailCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setSportsActionDetail', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_SPORTS_DETAIL,
+            payload: null,
+        };
+
+        expect(setSportsActionDetailCreator(data)).toStrictEqual(expected);
     });
 });

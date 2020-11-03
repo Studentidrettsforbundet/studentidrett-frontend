@@ -15,7 +15,7 @@ exports[`SportCard renders correctly 1`] = `
       <h5
         className="f1rpkic8"
       >
-        Fotball
+        Football
       </h5>
     </div>
   </div>

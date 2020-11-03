@@ -2,16 +2,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import ClubCard from '../../components/ClubCard/clubCard';
+import SearchCard from '../../components/SearchCard/searchCard';
 import store from '../../store/store';
-import { singleClub } from '../../assets/testMock';
+import { CITY } from '../../constants';
 
-describe('clubCard', () => {
+describe('regionCard', () => {
     test('renders correctly', () => {
         const tree = renderer.create(
             <Provider store={store}>
-                <MemoryRouter initialEntries={['/sports/1']}>
-                    <ClubCard {...singleClub} />
+                <MemoryRouter>
+                    <SearchCard id={'1'} name={'Test'} label={CITY} />
                 </MemoryRouter>
             </Provider>,
         );

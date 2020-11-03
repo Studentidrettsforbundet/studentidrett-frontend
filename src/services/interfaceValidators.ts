@@ -1,5 +1,5 @@
 export const instanceOfRegion = (object: any) => {
-    return 'id' in object && 'name' in object && Object.keys(object).length === 2;
+    return 'id' in object && 'name' in object && 'cities' in object && Object.keys(object).length === 3;
 };
 
 export const instanceOfTeam = (object: any): boolean => {
