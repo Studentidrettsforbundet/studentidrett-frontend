@@ -42,9 +42,9 @@ describe('Successfull CARDTYPE fetch', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS},
+            { type: FETCH_SUCCESS },
             { type: SET_CLUBS_DETAIL, payload: mockData },
-        ];c
+        ];
 
         store.dispatch<any>(fetchDetailThunk(CLUB, mockData.id.toString())).then(() => {
             const performedActions = store.getActions();
@@ -102,7 +102,7 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS},
+            { type: FETCH_SUCCESS },
             { type: SET_CLUBS_DETAIL, payload: mockData },
         ];
 
@@ -138,7 +138,7 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS},
+            { type: FETCH_SUCCESS },
             { type: SET_SPORTS_DETAIL, payload: mockData },
         ];
 
@@ -156,7 +156,7 @@ describe('Check all cardtypes', () => {
 
         const expected = [
             { type: FETCH_IN_PROGRESS },
-            { type: FETCH_SUCCESS},
+            { type: FETCH_SUCCESS },
             { type: SET_TEAMS_DETAIL, payload: mockData },
         ];
 
