@@ -9,8 +9,9 @@ import {
     teamInterface,
     clubInterface,
     groupInterface,
+    searchInterface,
 } from '../../interfaces';
-import { CITY, CLUB, SPORT, GROUP, TEAM, REGION } from '../../constants';
+import { CITY, CLUB, SPORT, GROUP, TEAM, REGION, SEARCH } from '../../constants';
 
 /*
 THIS IS WORK IN PROGRESS, AND WILL BE DONE IN THE BRANCH SIMPLESEARCH

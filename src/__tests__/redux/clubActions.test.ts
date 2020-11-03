@@ -1,5 +1,11 @@
 import React from 'react';
-import { SET_CLUBS, setClubsActionCreator } from '../../store/pages/club/clubActions';
+import {
+    SET_CLUBS,
+    SET_CLUBS_DETAIL,
+    setClubsActionCreator,
+    setClubsActionDetailCreator
+} from '../../store/pages/club/clubActions';
+import {clubList2, invalidCityList, singleClub} from "../../assets/testMock";
 
 describe('Actions', () => {
     test('Should create an empty setClubAction', () => {
@@ -12,26 +18,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setClubAction', () => {
-        const data = [
-            {
-                id: 0,
-                city: 0,
-                name: 'NTNUI football',
-                description: '',
-                contact_email: 'info@ntnui.no',
-                membership_fee: 200,
-                register_info: 'Register at ntnui.no/register',
-            },
-            {
-                id: 1,
-                city: 0,
-                name: 'NTNUI amerikansk fotball',
-                description: '',
-                contact_email: 'info@ntnui.no',
-                membership_fee: 200,
-                register_info: 'Register at ntnui.no/register',
-            },
-        ];
+        const data = clubList2;
 
         const expected = {
             type: SET_CLUBS,
@@ -42,16 +29,42 @@ describe('Actions', () => {
     });
 
     test('Should create an empty setClubAction', () => {
-        const data = [
-            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
-            { id: 1, name: 'Oslo', clubs: [] },
-        ];
-
+        const data = invalidCityList;
         const expected = {
             type: SET_CLUBS,
             payload: [],
         };
 
         expect(setClubsActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setClubDetailAction', () => {
+        const expected = {
+            type: SET_CLUBS_DETAIL,
+            payload: null,
+        };
+
+        expect(setClubsActionDetailCreator(null)).toStrictEqual(expected);
+    });
+
+    test('Should create a setClubDetailAction', () => {
+        const data = singleClub;
+
+        const expected = {
+            type: SET_CLUBS_DETAIL,
+            payload: data,
+        };
+
+        expect(setClubsActionDetailCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setClubDetailAction', () => {
+        const data = invalidCityList;
+        const expected = {
+            type: SET_CLUBS_DETAIL,
+            payload: null,
+        };
+
+        expect(setClubsActionDetailCreator(data)).toStrictEqual(expected);
     });
 });

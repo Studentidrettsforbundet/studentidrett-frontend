@@ -4,7 +4,7 @@ export interface prev_next {
 }
 
 export interface labels {
-    alternantives: string[];
+    alternatives: string[];
     sports: string[];
     text: string;
 }

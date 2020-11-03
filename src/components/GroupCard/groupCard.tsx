@@ -7,7 +7,6 @@ import image from '../../assets/placeholder.png';
 import { card, cardBody, cardImg, cardTitle } from '../../styles/card';
 
 const GroupCard = (group: groupInterface) => {
-    const location = useLocation();
     const dispatch = useDispatch();
     return (
         <Link
