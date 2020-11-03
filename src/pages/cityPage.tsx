@@ -71,8 +71,8 @@ const CityPage = () => {
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
-                        <Button onClick={() => toggleshowClubs(true)}>Clubs</Button>
-                        <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
+                        <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
+                        <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
                     </div>
 
                     <div className={searchIconContainer}>

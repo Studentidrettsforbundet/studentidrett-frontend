@@ -29,7 +29,7 @@ const TeamPage = (): JSX.Element => {
         }
     });
 
-    const team = reduxState.team_detail.team;
+    const team = reduxState.team.team;
 
     return (
         <div className="container">

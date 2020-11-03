@@ -7,10 +7,12 @@ import './styles/spinner.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';
 import Routes from './routes';
+import Header from './components/header';
 
 const App = () => {
     return (
         <div className="App">
+            <Header />
             <div className="page">
                 <Routes />
             </div>

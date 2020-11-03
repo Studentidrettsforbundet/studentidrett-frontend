@@ -1,5 +1,5 @@
 import { sportInterface } from '../../../interfaces';
-import { SET_SPORTS, SET_SPORTS_DETAIL, sportActionDetailTypes, sportActionTypes } from './sportActions';
+import { SET_SPORTS, SET_SPORTS_DETAIL, sportActionTypes } from './sportActions';
 
 export interface sportState {
     sports: sportInterface[];
@@ -19,14 +19,6 @@ export const sportReducer = (state = sportInitialState, action: sportActionTypes
                 sports: action.payload,
             };
         }
-        default: {
-            return state;
-        }
-    }
-};
-
-export const sportDetailReducer = (state = sportInitialState, action: sportActionDetailTypes): sportState => {
-    switch (action.type) {
         case SET_SPORTS_DETAIL: {
             return {
                 ...state,

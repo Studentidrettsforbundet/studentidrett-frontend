@@ -14,8 +14,7 @@ interface setSportsAction {
     payload: sportInterface[];
 }
 
-export type sportActionTypes = setSportsAction;
-export type sportActionDetailTypes = setSportsDetailAction;
+export type sportActionTypes = setSportsAction | setSportsDetailAction;
 
 export const setSportsActionCreator = (data: sportInterface[]): sportActionTypes => {
     if (data.every(instanceOfSport)) {
@@ -30,7 +29,7 @@ export const setSportsActionCreator = (data: sportInterface[]): sportActionTypes
     };
 };
 
-export const setSportsActionDetailCreator = (data: sportInterface): sportActionDetailTypes => {
+export const setSportsActionDetailCreator = (data: sportInterface): sportActionTypes => {
     return {
         type: SET_SPORTS_DETAIL,
         payload: data,

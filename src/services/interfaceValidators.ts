@@ -16,23 +16,14 @@ export const instanceOfTeam = (object: any): boolean => {
         'location' in object &&
         'long_description' in object &&
         'name' in object &&
-        'location' in object &&
-        'group' in object &&
-        'sport' in object &&
-        'long_description' in object &&
-        'short_description' in object &&
-        'cost' in object &&
-        'equipment' in object &&
-        'gender' in object &&
-        'skill_level' in object &&
-        'season' in object &&
         'schedule' in object &&
+        'season' in object &&
         'tryout_dates' in object &&
-        'facebook_link' in object &&
-        'instagram_link' in object &&
         'webpage' in object &&
-        'availability' in object &&
-        'image' in object &&
+        'season' in object &&
+        'short_description' in object &&
+        'skill_level' in object &&
+        'sport' in object &&
         Object.keys(object).length === 19
     );
 };
@@ -76,4 +67,14 @@ export const instanceOfCity = (object: any): boolean => {
         'clubs' in object &&
         Object.keys(object).length === 4
     );
+};
+
+export const instanceOfQuestion = (object: any): boolean => {
+    return (
+        'id' in object && 'text' in object && 'left' in object && 'right' in object && Object.keys(object).length === 4
+    );
+};
+
+export const instanceOfRecommendations = (object: any): boolean => {
+    return 'id' in object && 'name' in object && 'score' in object && Object.keys(object).length === 3;
 };

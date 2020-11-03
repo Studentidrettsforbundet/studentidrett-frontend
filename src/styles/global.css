@@ -27,11 +27,14 @@ body,
 .page {
     background-color: #e5e5e5;
     padding: 16px;
-    /*Arbitrary number is footer height*/
-    min-height: calc(100vh - 96px);
+    /*Arbitrary numbers are header and footer height*/
+    min-height: calc(100vh - (85px + 85px));
+}
+.header {
+    height: 85px;
 }
 .footer {
-    height: 96px;
+    height: 85px;
 }
 
 .body {

@@ -5,14 +5,26 @@ exports[`App renders correctly 1`] = `
   className="App"
 >
   <div
+    className="header"
+  >
+    <img
+      alt="logo"
+      src="logo.png"
+    />
+    <div
+      className="textContent"
+    >
+      Norges
+      <br />
+      Studentidrettsforbund
+    </div>
+  </div>
+  <div
     className="page"
   >
     <div
       className="Landing"
     >
-      <h1>
-        Kundestyrt
-      </h1>
       <div
         className="col"
       >
@@ -29,7 +41,7 @@ exports[`App renders correctly 1`] = `
               }
             }
           >
-            Regions
+            Regioner
           </a>
         </button>
         <button
@@ -45,7 +57,7 @@ exports[`App renders correctly 1`] = `
               }
             }
           >
-            Questionnaire
+            Idrettsvalgomat
           </a>
         </button>
       </div>

@@ -14,8 +14,7 @@ interface setTeamsActionDetail {
     payload: teamInterface;
 }
 
-export type teamActionDetailTypes = setTeamsActionDetail;
-export type teamActionTypes = setTeamsAction;
+export type teamActionTypes = setTeamsAction | setTeamsActionDetail;
 
 export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes => {
     if (data.every(instanceOfTeam)) {
@@ -30,7 +29,7 @@ export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes =>
     };
 };
 
-export const setTeamsActionDetailCreator = (data: teamInterface): teamActionDetailTypes => {
+export const setTeamsActionDetailCreator = (data: teamInterface): teamActionTypes => {
     return {
         type: SET_TEAMS_DETAIL,
         payload: data,
