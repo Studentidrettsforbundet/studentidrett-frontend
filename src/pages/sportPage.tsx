@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
-import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -12,6 +11,7 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import ClubCard from '../components/ClubCard/clubCard';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
@@ -22,6 +22,7 @@ interface urlParams {
 const SportPage = () => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
+    const location = useLocation();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
@@ -34,6 +35,12 @@ const SportPage = () => {
             dispatch(fetchDetailThunk(SPORT, sport.id));
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
 
     const listContent = reduxState.club.clubs.map((entry) => {
         return (
@@ -82,7 +89,7 @@ const SportPage = () => {
                         </>
                     ) : (
                         <>
-                            {reduxState.sport.sports.length === 0 ? (
+                            {listContent.length === 0 ? (
                                 <EmptyResult />
                             ) : (
                                 <div className="card-deck">{listContent}</div>
