@@ -29,6 +29,7 @@ export const linkItem = classes(
 export const teamInfo = classes(
     style({
         maxWidth: '550px',
+        margin: 'auto',
     }),
     infoStyle,
 );
