@@ -41,9 +41,10 @@ const GroupPage = (): JSX.Element => {
 
     useEffect(() => {
         return () => {
+            console.log(location);
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, [location]);
 
     const listContent = reduxState.team.teams.map((entry) => {
         return <TeamCard {...entry} key={entry.id} />;

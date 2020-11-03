@@ -35,7 +35,7 @@ const TeamPage = (): JSX.Element => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, [location]);
 
     const team = reduxState.team.team;
 

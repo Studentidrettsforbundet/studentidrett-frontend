@@ -39,7 +39,7 @@ const RegionPage = () => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, [location]);
 
     const sortCities = reduxState.city.cities.map((entry) => {
         if (entry.region === 'nord') {

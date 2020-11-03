@@ -50,7 +50,7 @@ const CityPage = () => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, [location]);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
