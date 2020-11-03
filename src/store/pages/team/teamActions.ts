@@ -11,11 +11,10 @@ interface setTeamsAction {
 
 interface setTeamsActionDetail {
     type: typeof SET_TEAMS_DETAIL;
-    payload: teamInterface;
+    payload: teamInterface | null;
 }
 
-export type teamActionDetailTypes = setTeamsActionDetail;
-export type teamActionTypes = setTeamsAction;
+export type teamActionTypes = setTeamsAction | setTeamsActionDetail;
 
 export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes => {
     if (data.every(instanceOfTeam)) {
@@ -31,9 +30,20 @@ export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes =>
     };
 };
 
-export const setTeamsActionDetailCreator = (data: teamInterface): teamActionDetailTypes => {
+export const setTeamsActionDetailCreator = (data: teamInterface): teamActionTypes => {
+    if (!data) {
+        return {
+            type: SET_TEAMS_DETAIL,
+            payload: null,
+        };
+    } else if (instanceOfTeam(data)) {
+        return {
+            type: SET_TEAMS_DETAIL,
+            payload: data,
+        };
+    }
     return {
         type: SET_TEAMS_DETAIL,
-        payload: data,
+        payload: null,
     };
 };

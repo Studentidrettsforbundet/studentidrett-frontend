@@ -1,7 +1,11 @@
 import React from 'react';
 import image from '../../assets/placeholder.png';
-import {dateInterface} from "../../interfaces";
-import {coverImage} from '../GroupInfo/styles'
+import { dateInterface } from '../../interfaces';
+
+import { cardBody, cardImg } from '../../styles/card';
+import { teamInfo } from './styles';
+import { InfoList } from './infoList';
+import { LinkList } from './linkList';
 
 //TODO: make some of these not-required
 interface ITeamInfo {
@@ -22,16 +26,30 @@ interface ITeamInfo {
     skill_level: string;
 }
 
-const TeamInfo = (props: ITeamInfo) => {
+const TeamInfo = ({
+    name,
+    availability,
+    gender,
+    skill_level,
+    long_description,
+    facebook_link,
+    instagram_link,
+    webpage,
+}: ITeamInfo): JSX.Element => {
     return (
-        <React.Fragment>
-            <h1>{props.name}</h1>
-            <div>
-                <img className={coverImage} alt={props.name} src={image} />
+        <div className={teamInfo}>
+            <div className={cardBody}>
+                <img className={cardImg} alt={name} src={image} />
             </div>
-            <br/>
-            <p>{props.long_description}</p>
-        </React.Fragment>
+            <div>
+                <h1>{name}</h1>
+            </div>
+            <div>
+                <InfoList availability={availability} gender={gender} skill_level={skill_level} />
+                <p>{long_description}</p>
+                <LinkList facebook_link={facebook_link} instagram_link={instagram_link} webpage={webpage} />
+            </div>
+        </div>
     );
 };
 

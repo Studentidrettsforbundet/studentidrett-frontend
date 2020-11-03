@@ -11,11 +11,10 @@ interface setClubsAction {
 
 interface setClubsDetailAction {
     type: typeof SET_CLUBS_DETAIL;
-    payload: clubInterface;
+    payload: clubInterface | null;
 }
 
-export type clubActionTypes = setClubsAction;
-export type clubActionDetailTypes = setClubsDetailAction;
+export type clubActionTypes = setClubsAction | setClubsDetailAction;
 
 export const setClubsActionCreator = (data: clubInterface[]): clubActionTypes => {
     if (data.every(instanceOfClub)) {
@@ -30,9 +29,20 @@ export const setClubsActionCreator = (data: clubInterface[]): clubActionTypes =>
     };
 };
 
-export const setClubsActionDetailCreator = (data: clubInterface): clubActionDetailTypes => {
+export const setClubsActionDetailCreator = (data: clubInterface): clubActionTypes => {
+    if (!data) {
+        return {
+            type: SET_CLUBS_DETAIL,
+            payload: null,
+        };
+    } else if (instanceOfClub(data)) {
+        return {
+            type: SET_CLUBS_DETAIL,
+            payload: data,
+        };
+    }
     return {
         type: SET_CLUBS_DETAIL,
-        payload: data,
-    }
+        payload: null,
+    };
 };

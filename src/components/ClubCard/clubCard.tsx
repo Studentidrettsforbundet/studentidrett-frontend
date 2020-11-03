@@ -1,14 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { clubInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardImg } from '../../styles/card';
-import { clubCard, cardHeader, cardBody} from './styles';
-import {classes} from 'typestyle';
+import { card, cardBody, cardTitle, cardImg, imgContainer } from '../../styles/card';
 
-const ClubCard = (club: clubInterface) => {
+const ClubCard = (club: clubInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <Link
@@ -17,13 +15,13 @@ const ClubCard = (club: clubInterface) => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={classes(card, clubCard)}>
+            <div className={card}>
+                <div className={imgContainer}>
                     <img className={cardImg} src={image} alt="Club" />
+                </div>
                 <div className={cardBody}>
-                    <div className={cardHeader}>
-                        {club.name}
-                    </div>
-                    <p>{club.description.slice(0,115)} ...</p>
+                    <h5 className={cardTitle}>{club.name}</h5>
+                    <p>{club.description.length > 115 ? club.description.slice(0, 115) + '...' : club.description}</p>
                 </div>
             </div>
         </Link>

@@ -11,7 +11,7 @@ exports[`regionPage renders correctly 1`] = `
       className="col"
     >
       <h1>
-        Regions
+        Regioner
       </h1>
     </div>
     <div
@@ -48,7 +48,7 @@ exports[`regionPage renders correctly 1`] = `
             className="form-control"
             name="searchString"
             onChange={[Function]}
-            placeholder="Search..."
+            placeholder="Søk..."
             value=""
           />
         </div>
@@ -68,7 +68,7 @@ exports[`regionPage renders correctly 1`] = `
               disabled={false}
               type="submit"
             >
-              Search
+              Søk
             </button>
           </a>
         </div>

@@ -11,11 +11,10 @@ interface setGroupAction {
 
 interface setGroupActionDetail {
     type: typeof SET_GROUPS_DETAIL;
-    payload: groupInterface;
+    payload: groupInterface | null;
 }
 
-export type groupActionDetailTypes = setGroupActionDetail;
-export type groupActionTypes = setGroupAction;
+export type groupActionTypes = setGroupAction | setGroupActionDetail;
 
 export const setGroupsActionCreator = (data: groupInterface[]): groupActionTypes => {
     if (data.every(instanceOfGroup)) {
@@ -30,9 +29,20 @@ export const setGroupsActionCreator = (data: groupInterface[]): groupActionTypes
     };
 };
 
-export const setGroupsActionDetailCreator = (data: groupInterface): groupActionDetailTypes => {
+export const setGroupsActionDetailCreator = (data: groupInterface): groupActionTypes => {
+    if (!data) {
+        return {
+            type: SET_GROUPS_DETAIL,
+            payload: null,
+        };
+    } else if (instanceOfGroup(data)) {
+        return {
+            type: SET_GROUPS_DETAIL,
+            payload: data,
+        };
+    }
     return {
         type: SET_GROUPS_DETAIL,
-        payload: data,
+        payload: null,
     };
 };

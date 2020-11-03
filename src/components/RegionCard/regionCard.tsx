@@ -15,7 +15,7 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
     return (
         <div className={regionCard} key={id} onClick={() => toggleExpanded()}>
             <div className={cardBody}>
-                <h5 className={cardTitle}>{name}</h5>
+                <h5>{name}</h5>
                 {expanded ? (
                     cities.map((entry) => {
                         return (
@@ -24,7 +24,7 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
                                 name={entry.name}
                                 region={entry.region}
                                 clubs={entry.clubs}
-                            ></CityCard>
+                            />
                         );
                     })
                 ) : (

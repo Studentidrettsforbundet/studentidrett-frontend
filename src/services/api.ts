@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import {cardType, CITY, CLUB, GROUP, REGION, SEARCH, SPORT, TEAM} from '../constants';
+import { cardType, CITY, CLUB, GROUP, REGION, SEARCH, SPORT, TEAM } from '../constants';
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator, setClubsActionDetailCreator } from '../store/pages/club/clubActions';
 import { setGroupsActionCreator, setGroupsActionDetailCreator } from '../store/pages/group/groupActions';
@@ -13,9 +13,21 @@ import {
     fetchFailedActionCreator,
     fetchSuccessActionCreator,
     fetchDetailSuccessActionCreator,
+    postInProgressActionCreator,
+    postFailedActionCreator,
+    postSuccessActionCreator,
 } from '../store/thunks/thunkActions';
-import { urlBuilderFetchData, urlBuilderFetchDetail } from './urlBuilders';
-import {setSearchActionCreator} from "../store/pages/search/searchActions";
+import {
+    urlBuilderFetchData,
+    urlBuilderFetchDetail,
+    urlBuilderGetQuestions,
+    urlBuilderPostQuestions,
+} from './urlBuilders';
+import { setSearchActionCreator } from '../store/pages/search/searchActions';
+import {
+    setRecommendatationsActionCreator,
+    setQuestionsActionCreator,
+} from '../store/pages/questionnaire/questionnaireActions';
 
 export const fetchData = async (url: string) => {
     try {
@@ -35,12 +47,31 @@ export const fetchData = async (url: string) => {
     }
 };
 
+export const postData = async (url: string, data: any) => {
+    try {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+        if (res.ok) {
+            return res.json();
+        } else {
+            return 'Something went wrong';
+        }
+    } catch (error) {
+        return 'Connection error';
+    }
+};
+
 export const checkForErrorCodes = (result: any): boolean => {
     return result.status !== 200;
 };
 
 export const fetchDataThunk = (
-    dataType?: cardType,
+    dataType: cardType,
     url: string = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     let asyncResp;
@@ -51,7 +82,7 @@ export const fetchDataThunk = (
         asyncResp = await fetchData(url);
     } else {
         //Fetch based on cardType
-        asyncResp = dataType ? await fetchData(urlBuilderFetchData(dataType)) : null;
+        asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
     let result = [];
 
@@ -90,6 +121,7 @@ export const fetchDataThunk = (
 
         case SEARCH: {
             dispatch(setSearchActionCreator(result));
+            break;
         }
         default: {
             return;
@@ -135,6 +167,37 @@ export const fetchDetailThunk = (
         default: {
             return;
             //TODO: add error
+        }
+    }
+};
+
+export const handleQuestionsThunk = (
+    isFetch = true,
+    questions: any = null,
+): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
+    if (isFetch) {
+        //fetch data
+        dispatch(fetchInProgressActionCreator());
+        const asyncResp = await fetchData(urlBuilderGetQuestions());
+
+        if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
+            dispatch(fetchFailedActionCreator());
+            return;
+        } else {
+            dispatch(fetchSuccessActionCreator({ next: null, previous: null }));
+            dispatch(setQuestionsActionCreator(asyncResp));
+        }
+    } else {
+        //post data
+        dispatch(postInProgressActionCreator());
+        const asyncResp = await postData(urlBuilderPostQuestions(), questions);
+
+        if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
+            dispatch(postFailedActionCreator());
+            return;
+        } else {
+            dispatch(postSuccessActionCreator());
+            dispatch(setRecommendatationsActionCreator(asyncResp.recommendation));
         }
     }
 };

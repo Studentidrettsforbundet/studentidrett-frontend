@@ -1,14 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardImg } from '../../styles/card';
-import {clubCard, cardHeader, cardBody} from '../ClubCard/styles'
-import {classes} from 'typestyle'
+import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
 
-const SportCard = ({ id, name }: sportInterface) => {
+const SportCard = ({ id, name }: sportInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <Link
@@ -17,9 +15,9 @@ const SportCard = ({ id, name }: sportInterface) => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={classes(card, clubCard)}>
+            <div className={card} key={id}>
                 <div className={cardBody}>
-                    <div className={cardHeader}>{name}</div>
+                    <h5 className={cardTitle}>{name}</h5>
                 </div>
             </div>
         </Link>

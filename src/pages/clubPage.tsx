@@ -9,18 +9,17 @@ import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
-
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { Col, Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
-import { scrollContainer} from '../components/GroupCard/styles';
+import { cardList } from '../styles/card';
 
 interface urlParams {
     id: string;
 }
 
-const ClubPage = () => {
+const ClubPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
@@ -56,10 +55,10 @@ const ClubPage = () => {
         );
     });
 
-    const selectedClub = reduxState.club_detail.club;
+    const selectedClub = reduxState.club.club;
 
     return (
-        <div>
+        <div className="container body">
             <div className="row">
                 <div className="col">
                     <h1>HEADER</h1>
@@ -94,10 +93,7 @@ const ClubPage = () => {
                                             description={selectedClub.description}
                                         />
                                     )}
-                                    <h2>Våre grupper</h2>
-                                    <div >
-                                            {listContent}
-                                    </div>
+                                    <div className={cardList}>{listContent}</div>
                                 </div>
                                 )}
                         </div>

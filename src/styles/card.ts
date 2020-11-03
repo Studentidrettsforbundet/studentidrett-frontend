@@ -1,18 +1,26 @@
-import {classes, media, style} from 'typestyle';
+import { classes, media, style } from 'typestyle';
 import colors from './colors';
 
+export const cardList = style(
+    {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    media({ minWidth: 0, maxWidth: 767 }, { justifyContent: 'center' }),
+);
+
 export const card = style({
+    maxWidth: '315px',
     backgroundColor: colors.white,
-    //boxShadow: '0 0 4px 4px ' + colors.shadowColor,
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     padding: '6px 4px 2px 6px',
-    borderRadius: '4px',
+    borderRadius: '5px',
     textAlign: 'left',
-    //fontFamily: 'Arial',
     color: colors.cardBodyText,
     $nest: {
         '&:not(last-child)': {
-            marginBottom: '16px',
+            margin: '0px 8px 16px',
         },
     },
     
@@ -28,22 +36,28 @@ export const cardHeader = style({
 
 export const cardBody = style({
     backgroundColor: 'inherit',
-    color: colors.cardBodyText,
-    margin: '2px 4px',
-    fontSize: '16px',
-    textAlign: 'left',
+    //CURRENT:
+    // color: colors.cardBodyText,
+    // margin: '2px 4px',
+    // fontSize: '16px',
+    // textAlign: 'left',
+    padding: '5px 10px',
+    borderRadius: '5px',
 });
 
 export const cardFooter = style({
     backgroundColor: colors.white,
 });
 
+export const imgContainer = style({
+    textAlign: 'center',
+    maxWidth: '315px',
+});
+
 export const cardImg = style({
-    // maxHeight: '250px',
-    // maxWidth: '300px',
-    maxHeight: '100%',
-    maxWidth: '100%',
-    borderRadius: '4px'
+    borderRadius: '5px',
+    width: '100%',
+    height: 'auto',
 });
 
 export const secondaryCard = style({
@@ -60,12 +74,25 @@ export const secondaryCard = style({
 });
 
 export const cardTitle = style({
-    fontWeight: 800,
+    color: colors.primary,
+    paddingTop: '5px',
 });
 
 export const regionCard = classes(
     style({
         backgroundColor: colors.cardHeader,
+        $nest: {
+            '& div > h5': {
+                fontWeight: 800,
+                color: colors.secondary,
+                textAlign: 'center',
+            },
+        },
     }),
+
     card,
 );
+
+export const infoStyle = style({
+    color: colors.secondary,
+});

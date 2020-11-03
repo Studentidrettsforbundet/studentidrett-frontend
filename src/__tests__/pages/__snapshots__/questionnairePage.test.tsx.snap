@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`questionnairePage snapshot tests should render correctly 1`] = `
+exports[`questionnairePage should render correctly 1`] = `
 <div
   className="overview"
   style={
@@ -10,7 +10,7 @@ exports[`questionnairePage snapshot tests should render correctly 1`] = `
   }
 >
   <h1>
-    Questionnaire
+    Idrettsvalgomat
   </h1>
   <form
     onSubmit={[Function]}

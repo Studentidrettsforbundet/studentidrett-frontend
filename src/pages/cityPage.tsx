@@ -13,6 +13,7 @@ import { searchIconContainer } from '../components/SearchBar/styles';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
+import { cardList } from '../styles/card';
 
 interface urlParams {
     id: string;
@@ -71,8 +72,8 @@ const CityPage = () => {
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
-                        <Button onClick={() => toggleshowClubs(true)}>Clubs</Button>
-                        <Button onClick={() => toggleshowClubs(false)}>Sports</Button>
+                        <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
+                        <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
                     </div>
 
                     <div className={searchIconContainer}>
@@ -80,36 +81,41 @@ const CityPage = () => {
                     </div>
                 </div>
             </div>
-                {reduxState.thunk.fetch_in_progress ? (
-                    <div className="center_container">
-                        <Spinner animation="border" />
-                    </div>
-                ) : (
-                    <div>
-                        {reduxState.thunk.fetch_failed ? (
-                            <div>
-                                <FetchError />
-                            </div>
-                        ) : (
-                            <div>
-                                {showClubs ? (
-                                    <div>
-                                        <SearchBar typeOfSearch={CLUB} />
-                                        <h1>{cityName}</h1>
-                                        {reduxState.club.clubs.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <SearchBar typeOfSearch={SPORT} />
-                                        <h1>{cityName}</h1>
-                                        {reduxState.sport.sports.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
-                                    </div>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                )}
-                
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <div>
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>
+                            {showClubs ? (
+                                <div>
+                                    <SearchBar typeOfSearch={CLUB} />
+                                    {reduxState.club.clubs.length === 0 ? (
+                                        <EmptyResult />
+                                    ) : (
+                                        <div className={cardList}>{listClubContent}</div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div>
+                                    <SearchBar typeOfSearch={SPORT} />
+                                    {reduxState.sport.sports.length === 0 ? (
+                                        <EmptyResult />
+                                    ) : (
+                                        <div className={cardList}>{listSportContent}</div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

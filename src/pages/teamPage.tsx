@@ -14,7 +14,7 @@ interface urlParams {
     id: string;
 }
 
-const TeamPage = () => {
+const TeamPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -29,7 +29,7 @@ const TeamPage = () => {
         }
     });
 
-    const team = reduxState.team_detail.team;
+    const team = reduxState.team.team;
 
     return (
         <div className="container">

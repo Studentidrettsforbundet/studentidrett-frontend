@@ -4,17 +4,17 @@ import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 import ClubCard from '../../components/ClubCard/clubCard';
 import store from '../../store/store';
-
+import { singleClub } from '../../assets/testMock';
 
 describe('clubCard', () => {
-    test("renders correctly", () => {
-        const tree = renderer
-            .create(<Provider store={store}>
-                <MemoryRouter initialEntries={["/MidtNorge/Fotball"]}>
-                    <ClubCard id={0} city={0} name={"NTNUIFotball"} description={"This is where the description goes"}
-                        contact_email={"contact.email.com"} pricing={100} register_info={"this is where register info goes"} />
+    test('renders correctly', () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <MemoryRouter initialEntries={['/sports/1']}>
+                    <ClubCard {...singleClub} />
                 </MemoryRouter>
-            </Provider>);
+            </Provider>,
+        );
         expect(tree).toMatchSnapshot();
     });
 });

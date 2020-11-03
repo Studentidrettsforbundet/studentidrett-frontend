@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header snapshot tests should render correctly 1`] = `
+<div
+  className="header"
+>
+  <section
+    className="headerLink"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "black",
+          "textDecoration": "none",
+        }
+      }
+    >
+      <section
+        className="headerContent"
+      >
+        <img
+          alt="logo"
+          src="logo.png"
+        />
+        <div
+          className="textContent"
+        >
+          Norges
+          <br />
+          Studentidrettsforbund
+        </div>
+      </section>
+    </a>
+  </section>
+</div>
+`;

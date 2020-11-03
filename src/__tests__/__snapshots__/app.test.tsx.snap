@@ -5,14 +5,45 @@ exports[`App renders correctly 1`] = `
   className="App"
 >
   <div
+    className="header"
+  >
+    <section
+      className="headerLink"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "black",
+            "textDecoration": "none",
+          }
+        }
+      >
+        <section
+          className="headerContent"
+        >
+          <img
+            alt="logo"
+            src="logo.png"
+          />
+          <div
+            className="textContent"
+          >
+            Norges
+            <br />
+            Studentidrettsforbund
+          </div>
+        </section>
+      </a>
+    </section>
+  </div>
+  <div
     className="page"
   >
     <div
       className="Landing"
     >
-      <h1>
-        Kundestyrt
-      </h1>
       <div
         className="col"
       >
@@ -29,7 +60,7 @@ exports[`App renders correctly 1`] = `
               }
             }
           >
-            Regions
+            Regioner
           </a>
         </button>
         <button
@@ -45,7 +76,7 @@ exports[`App renders correctly 1`] = `
               }
             }
           >
-            Questionnaire
+            Idrettsvalgomat
           </a>
         </button>
       </div>

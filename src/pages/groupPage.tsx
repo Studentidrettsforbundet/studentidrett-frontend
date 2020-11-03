@@ -12,12 +12,14 @@ import GroupInfo from '../components/GroupInfo/groupInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
+import { cardList } from '../styles/card';
+import { searchIconContainer } from '../components/SearchBar/styles';
 
 interface urlParams {
     id: string;
 }
 
-const GroupPage = () => {
+const GroupPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -41,7 +43,9 @@ const GroupPage = () => {
                 {...{
                     id: entry.id,
                     name: entry.name,
+                    long_description: entry.long_description,
                     short_description: entry.short_description,
+                    group: entry.group,
                     gender: entry.gender,
                     skill_level: entry.skill_level,
                     availability: entry.availability,
@@ -51,7 +55,7 @@ const GroupPage = () => {
         );
     });
 
-    const selectedGroup = reduxState.group_detail.group;
+    const selectedGroup = reduxState.group.group;
 
     return (
         <div className="container body">
@@ -59,7 +63,7 @@ const GroupPage = () => {
                 <div className="col">
                     <h1>HEADER</h1>
                 </div>
-                <div className="col search_icon-container">
+                <div className={searchIconContainer}>
                     <SearchIcon />
                 </div>
             </div>
@@ -83,7 +87,7 @@ const GroupPage = () => {
                                     {selectedGroup && (
                                         <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
                                     )}
-                                    <div className="card-columns">{listContent}</div>
+                                    <div className={cardList}>{listContent}</div>
                                 </div>
                             )}
                         </div>

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { teamInterface } from '../../interfaces';
+import React from 'react';
 import image from '../../assets/placeholder.png';
-import { card,cardFooter, cardImg,  } from '../../styles/card';
-import { clubCard, cardHeader, cardBody } from '../ClubCard/styles'
+import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {classes} from 'typestyle';
+
+import { InfoList } from '../TeamInfo/infoList';
 
 interface teamCardInterface {
     id: number;
@@ -17,13 +17,15 @@ interface teamCardInterface {
     availability: string;
 }
 
-const TeamCard = ({ id, name, short_description, gender, availability, skill_level }: teamCardInterface) => {
-    const [expanded, setExpanded] = useState(false);
+const TeamCard = ({
+    id,
+    name,
+    short_description,
+    gender,
+    availability,
+    skill_level,
+}: teamCardInterface): JSX.Element => {
     const dispatch = useDispatch();
-
-    const toggleExpanded = () => {
-        setExpanded(!expanded);
-    };
 
     return (
         <Link
@@ -32,22 +34,13 @@ const TeamCard = ({ id, name, short_description, gender, availability, skill_lev
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={classes(card, clubCard)}>
-                <img className={cardImg} src={image} alt="Team" />
+            <div className={card} key={id}>
+                <div className={imgContainer}>
+                    <img className={cardImg} src={image} alt="Team"></img>
+                </div>
                 <div className={cardBody}>
-                    <div className={cardHeader}>
-                        {name}
-                    </div>
-                    <p>
-                        <span className="boldText">Nivå: </span>
-                        <span>{skill_level}</span>
-                        <br/>
-                        <span className="boldText">Åpent/Opptakk: </span>
-                        <span>{availability} </span>
-                        <br/>
-                        <span className="boldText">Kjønn: </span>
-                        <span>{gender}</span>
-                    </p>
+                    <h5 className={cardTitle}>{name}</h5>
+                    <InfoList availability={availability} gender={gender} skill_level={skill_level} />
                     <p>{short_description}</p>
                 </div>
             </div>
