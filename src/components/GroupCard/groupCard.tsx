@@ -5,7 +5,7 @@ import { groupInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
 import { card, cardFooter, cardImg } from '../../styles/card';
-import { groupCard, scrollCardHeader, scrollCardBody, scrollCardParagraph} from './styles';
+import { cardHeader, cardBody, } from './styles';
 import { clubCard } from '../ClubCard/styles';
 import {classes} from 'typestyle';
 
@@ -21,13 +21,11 @@ const GroupCard = (group: groupInterface) => {
         >
             <div className={classes(card, clubCard)}>
                     <img className={cardImg} src={image} alt="Club"></img>
-                <div className={scrollCardBody}>
-                    <div className={scrollCardHeader}>
+                <div className={cardBody}>
+                    <div className={cardHeader}>
                         {group.name}
                     </div>
-                    <div className={scrollCardParagraph}>
-                        {group.description.slice(0,75)} ...
-                    </div>
+                    <p>{group.description.slice(0,115)} ...</p>
                 </div>
             </div>
         </Link>

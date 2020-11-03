@@ -4,7 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardBody, cardImg, cardTitle } from '../../styles/card';
+import { card, cardImg } from '../../styles/card';
+import {clubCard, cardHeader, cardBody} from '../ClubCard/styles'
+import {classes} from 'typestyle'
 
 const SportCard = ({ id, name }: sportInterface) => {
     const dispatch = useDispatch();
@@ -15,10 +17,9 @@ const SportCard = ({ id, name }: sportInterface) => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={card}>
+            <div className={classes(card, clubCard)}>
                 <div className={cardBody}>
-                    <h5 className={cardTitle}>{name}</h5>
-                    <img className={cardImg} src={image} alt="Sport"></img>
+                    <div className={cardHeader}>{name}</div>
                 </div>
             </div>
         </Link>

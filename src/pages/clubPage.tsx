@@ -95,13 +95,8 @@ const ClubPage = () => {
                                         />
                                     )}
                                     <h2>Våre grupper</h2>
-                                    <div className={scrollContainer}>
-                                    {/* <div className="horizontalScroll">
-                                        <div className="row">
-                                            {listContent.map((group, index) => <div className={"col"} key={index}>{group}</div>)} */}
+                                    <div >
                                             {listContent}
-                                        {/* </div>
-                                    </div> */}
                                     </div>
                                 </div>
                                 )}
