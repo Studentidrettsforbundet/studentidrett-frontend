@@ -4,11 +4,11 @@ import QuestionnaireItem from '../components/QuestionnaireItem/questionnaireItem
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
 import { handleQuestionsThunk } from '../services/api';
-import { Spinner } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
-import { questionnaire } from '../styles/questionnaire';
+import { questionnaire, button } from '../styles/questionnaire';
 
 const QuestionnairePage = () => {
     const dispatch = useDispatch();
@@ -86,7 +86,7 @@ const QuestionnairePage = () => {
 
                     return errors;
                 }}
-                render={({ handleSubmit, submitting }) => (
+                render={({ handleSubmit }) => (
                     <>
                         {reduxState.thunk.fetch_in_progress ? (
                             <div className="center_container">
@@ -99,24 +99,16 @@ const QuestionnairePage = () => {
                                         <FetchError />
                                     </>
                                 ) : (
-                                    <form onSubmit={handleSubmit}>
+                                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
                                         {listItems}
-                                        {reduxState.thunk.post_in_progress ? (
-                                            <button type="submit" disabled={submitting}>
-                                                <Spinner
-                                                    as="span"
-                                                    animation="grow"
-                                                    size="sm"
-                                                    role="status"
-                                                    aria-hidden="true"
-                                                />
-                                                Send
-                                            </button>
-                                        ) : (
-                                            <button type="submit" disabled={submitting}>
-                                                Send
-                                            </button>
-                                        )}
+
+                                        <Button
+                                            className={button}
+                                            type="submit"
+                                            disabled={reduxState.thunk.post_in_progress}
+                                        >
+                                            {!reduxState.thunk.post_in_progress ? 'Send inn' : 'Sender...'}
+                                        </Button>
                                     </form>
                                 )}
                             </>
