@@ -53,7 +53,7 @@ export const radioButton = style({
 });
 
 export const questionText = style({
-    fontSize: '14px',
+    fontSize: '16px',
     fontWeight: 700,
     color: 'black',
     textAlign: 'center',
@@ -64,7 +64,7 @@ export const radioContainer = style({
     display: 'flex',
     minWidth: '280px',
     justifyContent: 'space-between',
-    fontSize: '12px',
+    fontSize: '14px',
     color: '#777777',
     marginBottom: '6px',
 });

@@ -2,114 +2,163 @@
 
 exports[`questionnairePage should render correctly 1`] = `
 <div
-  className="overview"
-  style={
-    Object {
-      "textAlign": "center",
-    }
-  }
+  className="f1ipot1o"
 >
   <h1>
     Idrettsvalgomat
   </h1>
+  <p>
+    <span>
+      Velkommen til NSIs idrettsvalgomat!
+    </span>
+    <br />
+    <br />
+    Du vil bli stilt noen spørsmål om hvilke egenskaper du foretrekker foran i en idrett. Dersom du velger det midterste punktet betyr det at du ikke foretrekker den ene over den andre.
+    <br />
+    <br />
+    Lykke til!
+  </p>
   <form
     onSubmit={[Function]}
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+      }
+    }
   >
     <div>
       <div
-        className="item"
-        style={
-          Object {
-            "alignContent": "center",
-            "padding": "12px",
-          }
-        }
+        className="f77u7lx"
       >
-        <label>
-          <h4>
-            Test question
-          </h4>
-          <div>
+        <span
+          className="fttiu3"
+        >
+          Test question
+        </span>
+        <div
+          className="f1242zol"
+        >
+          <span>
             Left item
-            <span
-              style={
-                Object {
-                  "padding": "0px 12px",
-                }
-              }
-            >
-              <input
-                data-testid="test_id-0"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={0}
-              />
-              <input
-                data-testid="test_id-1"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={1}
-              />
-              <input
-                data-testid="test_id-2"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={2}
-              />
-              <input
-                data-testid="test_id-3"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={3}
-              />
-              <input
-                data-testid="test_id-4"
-                name="test_id"
-                onChange={[Function]}
-                style={
-                  Object {
-                    "margin": "2px",
-                  }
-                }
-                type="radio"
-                value={4}
-              />
-            </span>
+          </span>
+          <span>
             Right item
-          </div>
-          
-        </label>
+          </span>
+        </div>
+        <div
+          className="fj2azb8"
+        >
+          <span
+            className="fk4g4pc"
+          >
+            <input
+              className="fk4g4pc"
+              data-testid="test_id-0"
+              id="test_id-0"
+              name="test_id"
+              onChange={[Function]}
+              type="radio"
+              value={0}
+            />
+            <label
+              htmlFor="test_id-0"
+            >
+              <span
+                className="controller0"
+              />
+            </label>
+          </span>
+          <span
+            className="fk4g4pc"
+          >
+            <input
+              className="fk4g4pc"
+              data-testid="test_id-1"
+              id="test_id-1"
+              name="test_id"
+              onChange={[Function]}
+              type="radio"
+              value={1}
+            />
+            <label
+              htmlFor="test_id-1"
+            >
+              <span
+                className="controller1"
+              />
+            </label>
+          </span>
+          <span
+            className="fk4g4pc"
+          >
+            <input
+              className="fk4g4pc"
+              data-testid="test_id-2"
+              id="test_id-2"
+              name="test_id"
+              onChange={[Function]}
+              type="radio"
+              value={2}
+            />
+            <label
+              htmlFor="test_id-2"
+            >
+              <span
+                className="controller2"
+              />
+            </label>
+          </span>
+          <span
+            className="fk4g4pc"
+          >
+            <input
+              className="fk4g4pc"
+              data-testid="test_id-3"
+              id="test_id-3"
+              name="test_id"
+              onChange={[Function]}
+              type="radio"
+              value={3}
+            />
+            <label
+              htmlFor="test_id-3"
+            >
+              <span
+                className="controller3"
+              />
+            </label>
+          </span>
+          <span
+            className="fk4g4pc"
+          >
+            <input
+              className="fk4g4pc"
+              data-testid="test_id-4"
+              id="test_id-4"
+              name="test_id"
+              onChange={[Function]}
+              type="radio"
+              value={4}
+            />
+            <label
+              htmlFor="test_id-4"
+            >
+              <span
+                className="controller4"
+              />
+            </label>
+          </span>
+        </div>
+        
       </div>
     </div>
     <button
+      className="fvgbl6r btn btn-primary"
       disabled={false}
       type="submit"
     >
-      Send
+      Send inn
     </button>
   </form>
 </div>
