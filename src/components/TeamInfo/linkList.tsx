@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLinkIcon } from '../../services/iconCreator';
+import { getLinkIcon } from './iconCreator';
 import { icon, list, linkItem } from './styles';
 
 interface LinkListProps {
@@ -9,11 +9,10 @@ interface LinkListProps {
 }
 
 export const LinkList = ({ facebook_link, instagram_link, webpage }: LinkListProps): JSX.Element | null => {
-    const a = 'https://www.facebook.com/';
     const links = [
-        { site: a, text: 'Facebook' },
-        { site: a, text: 'Instagram' },
-        { site: a, text: 'Hjemmeside' },
+        { site: facebook_link, text: 'Facebook' },
+        { site: instagram_link, text: 'Instagram' },
+        { site: webpage, text: 'Hjemmeside' },
     ];
 
     const renderedLinks = links.map((link, i) => {

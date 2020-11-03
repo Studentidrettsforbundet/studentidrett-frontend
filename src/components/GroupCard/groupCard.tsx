@@ -21,7 +21,9 @@ const GroupCard = (group: groupInterface): JSX.Element => {
                 </div>
                 <div className={cardBody}>
                     <h5 className={cardTitle}>{group.name}</h5>
-                    <p>{group.description}</p>
+                    <p>
+                        {group.description.length > 115 ? group.description.slice(0, 115) + '...' : group.description}
+                    </p>
                 </div>
             </div>
         </Link>

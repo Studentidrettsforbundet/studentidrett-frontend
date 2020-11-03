@@ -1,5 +1,6 @@
 import { classes, media, style } from 'typestyle';
 import colors from '../../styles/colors';
+import { infoStyle } from '../../styles/card';
 
 //TODO Reduce width of component when screen is too large
 
@@ -23,4 +24,11 @@ export const linkItem = classes(
             },
         },
     }),
+);
+
+export const teamInfo = classes(
+    style({
+        maxWidth: '550px',
+    }),
+    infoStyle,
 );

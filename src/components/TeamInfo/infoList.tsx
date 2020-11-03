@@ -1,6 +1,6 @@
 import React from 'react';
-import { getTeamGender, getTeamSkill, getTeamAvailability } from '../../services/readableData';
-import { getAvailabilityIcon, getGenderIcon, getSkillIcon } from '../../services/iconCreator';
+import { getTeamGender, getTeamSkill, getTeamAvailability } from './readableData';
+import { getAvailabilityIcon, getGenderIcon, getSkillIcon } from './iconCreator';
 import { icon, list, listItem } from './styles';
 
 interface InfoListProps {

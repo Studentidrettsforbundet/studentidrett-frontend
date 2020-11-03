@@ -31,7 +31,7 @@ export const cardHeader = style({
 
 export const cardBody = style({
     backgroundColor: 'inherit',
-    padding: '0px 10px',
+    padding: '5px 10px',
     borderRadius: '5px',
 });
 
@@ -41,12 +41,13 @@ export const cardFooter = style({
 
 export const imgContainer = style({
     textAlign: 'center',
+    maxWidth: '315px',
 });
 
 export const cardImg = style({
     borderRadius: '5px',
-    maxWidth: '315px',
     width: '100%',
+    height: 'auto',
 });
 
 export const secondaryCard = style({
@@ -62,7 +63,6 @@ export const secondaryCard = style({
 });
 
 export const cardTitle = style({
-    fontWeight: 800,
     color: colors.primary,
     paddingTop: '5px',
 });

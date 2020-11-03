@@ -2,7 +2,8 @@ import React from 'react';
 import image from '../../assets/placeholder.png';
 import { dateInterface } from '../../interfaces';
 
-import { card, cardBody, cardFooter, cardImg, cardTitle, infoStyle } from '../../styles/card';
+import { cardBody, cardImg } from '../../styles/card';
+import { teamInfo } from './styles';
 import { InfoList } from './infoList';
 import { LinkList } from './linkList';
 
@@ -35,10 +36,8 @@ const TeamInfo = ({
     instagram_link,
     webpage,
 }: ITeamInfo): JSX.Element => {
-    const a = 'http://www.facebook.com/';
-
     return (
-        <div className={infoStyle}>
+        <div className={teamInfo}>
             <div className={cardBody}>
                 <img className={cardImg} alt={name} src={image} />
             </div>
