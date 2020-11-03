@@ -80,22 +80,16 @@ const ClubPage = () => {
                         </div>
                     ) : (
                         <div>
-                            {reduxState.group.groups.length === 0 ? (
-                                <EmptyResult />
-                            ) : (
-                                <div>
-                                    {selectedClub && (
-                <ClubInfo
-                    title={selectedClub.name}
-                    contact_email={selectedClub.contact_email}
-                    price={selectedClub.membership_fee}
-                    register_info={selectedClub.register_info}
-                    description={selectedClub.description}
-                />
-            )}
-            <div className={card}>{listContent}</div>
-                                </div>
+                            {selectedClub && (
+                                <ClubInfo
+                                    title={selectedClub.name}
+                                    contact_email={selectedClub.contact_email}
+                                    price={selectedClub.membership_fee}
+                                    register_info={selectedClub.register_info}
+                                    description={selectedClub.description}
+                                />
                             )}
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={card}>{listContent}</div>}
                         </div>
                     )}
                 </div>

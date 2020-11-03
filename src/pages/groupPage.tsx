@@ -76,15 +76,13 @@ const GroupPage = () => {
                         </div>
                     ) : (
                         <div>
-                            {reduxState.group.groups.length === 0 ? (
+                            {selectedGroup && (
+                                <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
+                            )}
+                            {listContent.length === 0 ? (
                                 <EmptyResult />
                             ) : (
-                                <div>
-                                    {selectedGroup && (
-                                        <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
-                                    )}
-                                    <div className="card-columns">{listContent}</div>
-                                </div>
+                                <div className="card-columns">{listContent}</div>
                             )}
                         </div>
                     )}

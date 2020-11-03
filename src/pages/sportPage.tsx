@@ -82,7 +82,7 @@ const SportPage = () => {
                         </>
                     ) : (
                         <>
-                            {reduxState.sport.sports.length === 0 ? (
+                            {listContent.length === 0 ? (
                                 <EmptyResult />
                             ) : (
                                 <div className="card-deck">{listContent}</div>
