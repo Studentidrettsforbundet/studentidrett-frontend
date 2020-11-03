@@ -42,7 +42,8 @@ export const cardImg = style({
     // maxHeight: '250px',
     // maxWidth: '300px',
     maxHeight: '100%',
-    maxWidth: '100%'
+    maxWidth: '100%',
+    borderRadius: '4px'
 });
 
 export const secondaryCard = style({

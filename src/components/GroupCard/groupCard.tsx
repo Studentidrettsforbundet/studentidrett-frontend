@@ -4,8 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { groupInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardImg } from '../../styles/card';
+import { card, cardFooter, cardImg } from '../../styles/card';
 import { groupCard, scrollCardHeader, scrollCardBody, scrollCardParagraph} from './styles';
+import { clubCard } from '../ClubCard/styles';
 import {classes} from 'typestyle';
 
 const GroupCard = (group: groupInterface) => {
@@ -18,7 +19,7 @@ const GroupCard = (group: groupInterface) => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={classes(card, groupCard)}>
+            <div className={classes(card, clubCard)}>
                     <img className={cardImg} src={image} alt="Club"></img>
                 <div className={scrollCardBody}>
                     <div className={scrollCardHeader}>

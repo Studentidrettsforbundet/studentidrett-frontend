@@ -5,7 +5,6 @@ import colors from '../../styles/colors';
 export const groupCard = style({
         padding: 0,
         width: '240px',
-        height: '229px',
         margin: '10px'
     
 });
@@ -50,6 +49,7 @@ export const scrollCardBody = style({
     backgroundColor: 'inherit',
     color: colors.cardBodyText,
     padding: '10px',
+    margin: '5px'
 });
 
 export const scrollCardParagraph = style({
