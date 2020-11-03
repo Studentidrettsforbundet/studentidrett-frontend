@@ -1,13 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { groupInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
-import { card, cardBody, cardImg, cardTitle } from '../../styles/card';
+import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
 
-const GroupCard = (group: groupInterface) => {
-    const location = useLocation();
+const GroupCard = (group: groupInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <Link
@@ -17,12 +16,14 @@ const GroupCard = (group: groupInterface) => {
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
             <div className={card}>
+                <div className={imgContainer}>
+                    <img className={cardImg} src={image} alt="Group"></img>
+                </div>
                 <div className={cardBody}>
-                    <img className={cardImg} src={image} alt="Club"></img>
                     <h5 className={cardTitle}>{group.name}</h5>
-                    <div>
-                        <p>{group.description}</p>
-                    </div>
+                    <p>
+                        {group.description.length > 115 ? group.description.slice(0, 115) + '...' : group.description}
+                    </p>
                 </div>
             </div>
         </Link>

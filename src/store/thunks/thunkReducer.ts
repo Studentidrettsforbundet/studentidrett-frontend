@@ -1,5 +1,14 @@
-import { prev_next } from "../../interfaces";
-import { thunkActionTypes, FETCH_IN_PROGRESS, FETCH_SUCCESS, FETCH_FAILED, RESET_FETCH_STATUSES } from "./thunkActions";
+import { prev_next } from '../../interfaces';
+import {
+    thunkActionTypes,
+    FETCH_IN_PROGRESS,
+    FETCH_SUCCESS,
+    FETCH_FAILED,
+    RESET_FETCH_STATUSES,
+    POST_IN_PROGRESS,
+    POST_SUCCESS,
+    POST_FAILED,
+} from './thunkActions';
 
 export interface thunkState {
     fetch_in_progress: boolean;
@@ -7,6 +16,10 @@ export interface thunkState {
     fetch_success: boolean;
     fetch_failed_count: number;
     prev_next: prev_next;
+    post_in_progress: boolean;
+    post_failed: boolean;
+    post_success: boolean;
+    post_failed_count: number;
 }
 
 export const thunkInitialState: thunkState = {
@@ -17,7 +30,11 @@ export const thunkInitialState: thunkState = {
     prev_next: {
         next: null,
         previous: null,
-    }
+    },
+    post_in_progress: false,
+    post_failed: false,
+    post_success: false,
+    post_failed_count: 0,
 };
 
 export const thunkReducer = (state = thunkInitialState, action: thunkActionTypes): thunkState => {
@@ -46,11 +63,11 @@ export const thunkReducer = (state = thunkInitialState, action: thunkActionTypes
                 fetch_in_progress: false,
                 fetch_failed: true,
                 fetch_success: false,
-                fetch_failed_count: state.fetch_failed_count +1,
+                fetch_failed_count: state.fetch_failed_count + 1,
                 prev_next: {
                     next: null,
-                    previous: null
-                }
+                    previous: null,
+                },
             };
         }
         case RESET_FETCH_STATUSES: {
@@ -62,9 +79,39 @@ export const thunkReducer = (state = thunkInitialState, action: thunkActionTypes
                 fetch_failed_count: 0,
                 prev_next: {
                     next: null,
-                    previous: null
-                }
-            }
+                    previous: null,
+                },
+                post_failed: false,
+                post_failed_count: 0,
+                post_in_progress: false,
+                post_success: false,
+            };
+        }
+        case POST_IN_PROGRESS: {
+            return {
+                ...state,
+                post_in_progress: true,
+                post_failed: false,
+                post_success: false,
+            };
+        }
+        case POST_SUCCESS: {
+            return {
+                ...state,
+                post_in_progress: false,
+                post_failed: false,
+                post_success: true,
+                post_failed_count: 0,
+            };
+        }
+        case POST_FAILED: {
+            return {
+                ...state,
+                post_in_progress: false,
+                post_failed: true,
+                post_success: false,
+                post_failed_count: state.post_failed_count + 1,
+            };
         }
         default: {
             return state;

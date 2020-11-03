@@ -4,6 +4,8 @@ import { Link, MemoryRouter } from 'react-router-dom';
 import { act } from '@testing-library/react';
 
 describe('routes.tsx', () => {
+    window.scrollTo = jest.fn();
+
     test('renders home Link correctly', () => {
         const tree = renderer.create(
             <MemoryRouter>

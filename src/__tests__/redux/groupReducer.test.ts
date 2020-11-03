@@ -1,6 +1,7 @@
 import React from 'react';
-import { SET_GROUPS } from '../../store/pages/group/groupActions';
+import {SET_GROUPS, SET_GROUPS_DETAIL} from '../../store/pages/group/groupActions';
 import { groupInitialState, groupReducer } from '../../store/pages/group/groupReducer';
+import {groupList1, newGroup, singleGroup} from "../../assets/testMock";
 
 describe('group reducer', () => {
     it('Should return the initial state', () => {
@@ -9,18 +10,7 @@ describe('group reducer', () => {
     });
 
     it('Should handle SET_GROUPES', () => {
-        const data = [
-            {
-                id: 33,
-                name: 'ntnui hockey',
-                description: 'A hockey group at NTNUI',
-                cover_photo: 'photo',
-                club: 0,
-                city: 3,
-                contact_email: 'hockey@ntnui.no',
-                sports: [],
-            },
-        ];
+        const data = groupList1;
         expect(
             groupReducer(undefined, {
                 type: SET_GROUPS,
@@ -30,28 +20,8 @@ describe('group reducer', () => {
     });
 
     it('Should handle SET_GROUPES with initialState', () => {
-        const initialState = [
-            {
-                id: 0,
-                name: 'ntnui football',
-                description: 'A football group at NTNUI',
-                cover_photo: 'photo',
-                club: 0,
-                city: 0,
-                contact_email: 'football@ntnui.no',
-                sports: [],
-            },
-        ];
-        const data = {
-            id: 33,
-            name: 'ntnui hockey',
-            description: 'A hockey group at NTNUI',
-            cover_photo: 'photo',
-            club: 0,
-            city: 3,
-            contact_email: 'hockey@ntnui.no',
-            sports: [],
-        };
+        const initialState = groupList1;
+        const data = singleGroup;
 
         expect(
             groupReducer(
@@ -62,5 +32,45 @@ describe('group reducer', () => {
                 },
             ),
         ).toEqual({ groups: [data], group: null });
+    });
+
+    it('Should handle SET_GROUPS_DETAIL', () => {
+        const data = singleGroup;
+        expect(
+            groupReducer(undefined, {
+                type: SET_GROUPS_DETAIL,
+                payload: data,
+            }),
+        ).toEqual({ groups: [], group: data });
+    });
+
+    it('Should handle SET_GROUPS_DETAIL with initialState', () => {
+        const initialState = groupList1;
+        const data = singleGroup;
+
+        expect(
+            groupReducer(
+                { groups: initialState, group: null },
+                {
+                    type: SET_GROUPS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ groups: initialState, group: data });
+    });
+
+    it('Should handle SET_GROUPS_DETAIL with initialState, override current group', () => {
+        const initialState = singleGroup;
+        const data = newGroup;
+
+        expect(
+            groupReducer(
+                { groups: [], group: initialState },
+                {
+                    type: SET_GROUPS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ groups: [], group: data });
     });
 });

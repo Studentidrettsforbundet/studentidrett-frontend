@@ -1,6 +1,11 @@
 import React from 'react';
 import { BASE_URL, CITY, CLUB, GROUP, REGION, SPORT, TEAM } from '../../constants';
-import { urlBuilderFetchData, urlBuilderSimpleSearch } from '../../services/urlBuilders';
+import {
+    urlBuilderFetchData,
+    urlBuilderGetQuestions,
+    urlBuilderPostQuestions,
+    urlBuilderSimpleSearch,
+} from '../../services/urlBuilders';
 
 describe('urlBuilderSimpleSearch', () => {
     test('Should normalization a single word', () => {
@@ -30,5 +35,19 @@ describe('urlBuilderFetchData', () => {
         expect(urlBuilderFetchData(TEAM)).toBe(answer4);
         expect(urlBuilderFetchData(CITY)).toBe(answer5);
         expect(urlBuilderFetchData(GROUP)).toBe(answer6);
+    });
+});
+
+describe('urlBuilderGetQuestions', () => {
+    test('Should return correct string', () => {
+        const answer1 = BASE_URL + '/questions';
+        expect(urlBuilderGetQuestions()).toBe(answer1);
+    });
+});
+
+describe('urlBuilderPostQuestions', () => {
+    test('Should return correct string', () => {
+        const answer1 = BASE_URL + '/questionnaire/';
+        expect(urlBuilderPostQuestions()).toBe(answer1);
     });
 });

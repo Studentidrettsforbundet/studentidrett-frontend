@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`groupCard renders correctly 1`] = `
+<a
+  className="unstyled_link"
+  href="/groups/33"
+  onClick={[Function]}
+>
+  <div
+    className="f1bqh63k"
+  >
+    <div
+      className="f1gj5ds8"
+    >
+      <img
+        alt="Group"
+        className="fb12b09"
+        src="placeholder.png"
+      />
+    </div>
+    <div
+      className="f9hjpet"
+    >
+      <h5
+        className="f1rpkic8"
+      >
+        ntnui hockey
+      </h5>
+      <p>
+        A hockey group at NTNUI
+      </p>
+    </div>
+  </div>
+</a>
+`;

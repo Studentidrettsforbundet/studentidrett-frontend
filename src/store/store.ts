@@ -9,7 +9,12 @@ import { sportInitialState, sportReducer, sportState } from './pages/sport/sport
 import { teamInitialState, teamReducer, teamState } from './pages/team/teamReducer';
 import { searchBarInitialState, searchBarReducer, searchBarState } from './searchBar/searchBarReducer';
 import { thunkInitialState, thunkReducer, thunkState } from './thunks/thunkReducer';
-import { searchInitialState, searchReducer, searchState } from "./pages/search/searchReducer";
+import { searchInitialState, searchReducer, searchState } from './pages/search/searchReducer';
+import {
+    questionInitialState,
+    questionnaireReducer,
+    questionnaireState,
+} from './pages/questionnaire/questionnaireReducer';
 
 declare global {
     interface Window {
@@ -30,6 +35,7 @@ export interface combinedStateInterface {
     search_results: searchState;
     thunk: thunkState;
     searchBar: searchBarState;
+    questionnaire: questionnaireState;
 }
 
 // TODO: add all pages state here
@@ -43,6 +49,7 @@ export const combinedState = {
     search_results: searchInitialState,
     thunk: thunkInitialState,
     searchBar: searchBarInitialState,
+    questionnaire: questionInitialState,
 };
 
 // create store
@@ -57,6 +64,7 @@ const store = createStore(
         search_results: searchReducer,
         thunk: thunkReducer,
         searchBar: searchBarReducer,
+        questionnaire: questionnaireReducer,
     }),
     combinedState,
     composeWithDevTools(applyMiddleware(thunk)),

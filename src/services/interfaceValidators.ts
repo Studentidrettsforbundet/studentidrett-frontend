@@ -1,5 +1,5 @@
 export const instanceOfRegion = (object: any) => {
-    return 'id' in object && 'name' in object && Object.keys(object).length === 2;
+    return 'id' in object && 'name' in object && 'cities' in object && Object.keys(object).length === 3;
 };
 
 export const instanceOfTeam = (object: any): boolean => {
@@ -24,7 +24,7 @@ export const instanceOfTeam = (object: any): boolean => {
         'short_description' in object &&
         'skill_level' in object &&
         'sport' in object &&
-        Object.keys(object).length == 19
+        Object.keys(object).length === 19
     );
 };
 
@@ -67,4 +67,14 @@ export const instanceOfCity = (object: any): boolean => {
         'clubs' in object &&
         Object.keys(object).length === 4
     );
+};
+
+export const instanceOfQuestion = (object: any): boolean => {
+    return (
+        'id' in object && 'text' in object && 'left' in object && 'right' in object && Object.keys(object).length === 4
+    );
+};
+
+export const instanceOfRecommendations = (object: any): boolean => {
+    return 'id' in object && 'name' in object && 'score' in object && Object.keys(object).length === 3;
 };

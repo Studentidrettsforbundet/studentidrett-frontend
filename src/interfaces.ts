@@ -4,7 +4,7 @@ export interface prev_next {
 }
 
 export interface labels {
-    alternantives: string[];
+    alternatives: string[];
     sports: string[];
     text: string;
 }
@@ -91,4 +91,17 @@ export interface regionInterface {
 export interface searchInterface {
     name: string;
     id: string;
+}
+
+export interface questionnaireItem {
+    id: string;
+    text: string;
+    left: string;
+    right: string;
+}
+
+export interface recommendations {
+    id: number;
+    name: string;
+    score: number;
 }

@@ -8,7 +8,7 @@ import {
     sportInterface,
     teamInterface,
 } from '../../interfaces';
-import { fetchDataThunk } from '../../services/api';
+import { fetchDataThunk, fetchDetailThunk } from '../../services/api';
 import { urlBuilderFetchData } from '../../services/urlBuilders';
 import { SET_CLUBS } from '../../store/pages/club/clubActions';
 import store from '../../store/store';

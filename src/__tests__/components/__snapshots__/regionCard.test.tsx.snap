@@ -2,16 +2,14 @@
 
 exports[`regionCard renders correctly 1`] = `
 <div
-  className="fnx2dr7 fcjpwci"
+  className="fk3yv47 f1bqh63k"
   onClick={[Function]}
 >
   <div
-    className="f1q24w9w"
+    className="f9hjpet"
   >
-    <h5
-      className="f19aa3jt"
-    >
-      MidtNorge
+    <h5>
+      Vestlandet
     </h5>
     <p />
   </div>

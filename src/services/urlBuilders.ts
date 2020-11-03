@@ -39,3 +39,11 @@ export const urlBuilderFetchData = (cardType: cardType): string => {
 export const urlBuilderFetchDetail = (cardType: cardType, id: string): string => {
     return BASE_URL + '/' + cardType + '/' + id + '/';
 };
+
+export const urlBuilderGetQuestions = (): string => {
+    return BASE_URL + '/questions';
+};
+
+export const urlBuilderPostQuestions = (): string => {
+    return BASE_URL + '/questionnaire/';
+};
