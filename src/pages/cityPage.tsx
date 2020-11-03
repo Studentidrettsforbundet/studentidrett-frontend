@@ -13,6 +13,7 @@ import { searchIconContainer } from '../components/SearchBar/styles';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
+import { cardList } from '../styles/card';
 
 interface urlParams {
     id: string;
@@ -94,12 +95,20 @@ const CityPage = () => {
                             {showClubs ? (
                                 <div>
                                     <SearchBar typeOfSearch={CLUB} />
-                                    {listClubContent.length === 0 ? <EmptyResult /> : <>{listClubContent}</>}
+                                    {listClubContent.length === 0 ? (
+                                        <EmptyResult />
+                                    ) : (
+                                        <div className={cardList}>{listClubContent}</div>
+                                    )}
                                 </div>
                             ) : (
                                 <div>
                                     <SearchBar typeOfSearch={SPORT} />
-                                    {listSportContent.length === 0 ? <EmptyResult /> : <>{listSportContent}</>}
+                                    {listSportContent.length === 0 ? (
+                                        <EmptyResult />
+                                    ) : (
+                                        <div className={cardList}>{listSportContent}</div>
+                                    )}
                                 </div>
                             )}
                         </div>

@@ -14,7 +14,7 @@ interface urlParams {
     id: string;
 }
 
-const TeamPage = () => {
+const TeamPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
