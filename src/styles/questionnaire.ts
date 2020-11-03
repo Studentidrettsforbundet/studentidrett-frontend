@@ -17,10 +17,8 @@ export const button = style({
     backgroundColor: colors.orange,
     borderColor: colors.orange,
     $nest: {
-        '&:disabled': {
+        '&:hover': {
             color: 'white',
-            backgroundColor: colors.orange,
-            borderColor: colors.orange,
         },
     },
 });

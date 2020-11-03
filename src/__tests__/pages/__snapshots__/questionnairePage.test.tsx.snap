@@ -29,23 +29,13 @@ exports[`questionnairePage should render correctly 1`] = `
   >
     <div>
       <div
-        className="f77u7lx"
+        className="f15mgf7o"
       >
         <span
-          className="fttiu3"
+          className="f1sgdujd"
         >
           Test question
         </span>
-        <div
-          className="f1242zol"
-        >
-          <span>
-            Left item
-          </span>
-          <span>
-            Right item
-          </span>
-        </div>
         <div
           className="fj2azb8"
         >
@@ -150,11 +140,21 @@ exports[`questionnairePage should render correctly 1`] = `
             </label>
           </span>
         </div>
+        <div
+          className="f1otibs3"
+        >
+          <span>
+            Left item
+          </span>
+          <span>
+            Right item
+          </span>
+        </div>
         
       </div>
     </div>
     <button
-      className="fvgbl6r btn btn-primary"
+      className="f10phmif btn btn-custom"
       disabled={false}
       type="submit"
     >

@@ -104,6 +104,7 @@ const QuestionnairePage = () => {
 
                                         <Button
                                             className={button}
+                                            variant="custom"
                                             type="submit"
                                             disabled={reduxState.thunk.post_in_progress}
                                         >

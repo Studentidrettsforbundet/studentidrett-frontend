@@ -14,8 +14,8 @@ export const questionnaireItem = style({
             fontWeight: 700,
         },
     },
-    //minHeight: '150px',
     marginBottom: '4px',
+    maxWidth: '700px',
 });
 
 export const radioButton = style({
@@ -60,7 +60,7 @@ export const questionText = style({
     marginBottom: '12px',
 });
 
-export const radioContainer = style({
+export const labelContainer = style({
     display: 'flex',
     minWidth: '280px',
     justifyContent: 'space-between',

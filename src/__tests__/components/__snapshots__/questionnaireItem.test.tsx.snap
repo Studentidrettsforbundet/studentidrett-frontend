@@ -2,23 +2,13 @@
 
 exports[`questionnaireItem snapshot tests should render correctly with error 1`] = `
 <div
-  className="f77u7lx"
+  className="f15mgf7o"
 >
   <span
-    className="fttiu3"
+    className="f1sgdujd"
   >
     Test question
   </span>
-  <div
-    className="f1242zol"
-  >
-    <span>
-      Left item
-    </span>
-    <span>
-      Right item
-    </span>
-  </div>
   <div
     className="fj2azb8"
   >
@@ -121,6 +111,16 @@ exports[`questionnaireItem snapshot tests should render correctly with error 1`]
           className="controller4"
         />
       </label>
+    </span>
+  </div>
+  <div
+    className="f1otibs3"
+  >
+    <span>
+      Left item
+    </span>
+    <span>
+      Right item
     </span>
   </div>
   <span
@@ -137,23 +137,13 @@ exports[`questionnaireItem snapshot tests should render correctly with error 1`]
 
 exports[`questionnaireItem snapshot tests should render correctly with no error 1`] = `
 <div
-  className="f77u7lx"
+  className="f15mgf7o"
 >
   <span
-    className="fttiu3"
+    className="f1sgdujd"
   >
     Test question
   </span>
-  <div
-    className="f1242zol"
-  >
-    <span>
-      Left item
-    </span>
-    <span>
-      Right item
-    </span>
-  </div>
   <div
     className="fj2azb8"
   >
@@ -256,6 +246,16 @@ exports[`questionnaireItem snapshot tests should render correctly with no error 
           className="controller4"
         />
       </label>
+    </span>
+  </div>
+  <div
+    className="f1otibs3"
+  >
+    <span>
+      Left item
+    </span>
+    <span>
+      Right item
     </span>
   </div>
   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { questionnaireItem, radioButton, questionText, radioContainer, buttonContainer } from './styles';
+import { questionnaireItem, radioButton, questionText, labelContainer, buttonContainer } from './styles';
 //import './questionnaireItem.css';
 
 export type QuestionnaireItemProps = {
@@ -36,11 +36,11 @@ const QuestionnaireItem = (props: { item: QuestionnaireItemProps } & { onChange:
     return (
         <div className={questionnaireItem} key="PLACEHOLDER">
             <span className={questionText}>{props.item.text}</span>
-            <div className={radioContainer}>
+            <div className={buttonContainer}>{radioButtons}</div>
+            <div className={labelContainer}>
                 <span>{props.item.left}</span>
                 <span>{props.item.right}</span>
             </div>
-            <div className={buttonContainer}>{radioButtons}</div>
             {props.error && <span style={{ color: 'red' }}>{props.error}</span>}
         </div>
     );
