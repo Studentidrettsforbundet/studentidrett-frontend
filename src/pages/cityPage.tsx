@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
@@ -14,6 +14,7 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
     id: string;
@@ -24,6 +25,7 @@ const CityPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
+    const location = useLocation();
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -43,6 +45,12 @@ const CityPage = () => {
             );
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });

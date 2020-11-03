@@ -10,10 +10,13 @@ import SearchBar from '../components/SearchBar/searchBar';
 import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { useLocation } from 'react-router';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
+    const location = useLocation();
 
     const Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
     const Midt: regionInterface = { id: 1, name: MIDTNORGE, cities: [] };
@@ -31,6 +34,12 @@ const RegionPage = () => {
             dispatch(fetchDataThunk(CITY));
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
 
     const sortCities = reduxState.city.cities.map((entry) => {
         if (entry.region === 'nord') {

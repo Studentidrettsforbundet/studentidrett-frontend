@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import TeamCard from '../components/TeamCard/teamCard';
@@ -14,6 +14,7 @@ import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { searchIconContainer } from '../components/SearchBar/styles';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
     id: string;
@@ -23,6 +24,7 @@ const GroupPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
+    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -37,13 +39,14 @@ const GroupPage = (): JSX.Element => {
         }
     });
 
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
+
     const listContent = reduxState.team.teams.map((entry) => {
-        return (
-            <TeamCard
-                {...entry}
-                key={entry.id}
-            />
-        );
+        return <TeamCard {...entry} key={entry.id} />;
     });
 
     const selectedGroup = reduxState.group.group;
@@ -74,11 +77,7 @@ const GroupPage = (): JSX.Element => {
                             {selectedGroup && (
                                 <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
                             )}
-                            {listContent.length === 0 ? (
-                                <EmptyResult />
-                            ) : (
-                                <div className={cardList}>{listContent}</div>
-                            )}
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
                         </div>
                     )}
                 </>
