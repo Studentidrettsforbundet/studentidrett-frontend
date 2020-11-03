@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SportCard renders correctly 1`] = `
+exports[`groupCard renders correctly 1`] = `
 <a
   className="unstyled_link"
-  href="/sports/0"
+  href="/groups/33"
   onClick={[Function]}
 >
   <div
@@ -12,16 +12,21 @@ exports[`SportCard renders correctly 1`] = `
     <div
       className="f1q24w9w"
     >
-      <h5
-        className="f19aa3jt"
-      >
-        Football
-      </h5>
       <img
-        alt="Sport"
+        alt="Club"
         className="f1mqlstf"
         src="placeholder.png"
       />
+      <h5
+        className="f19aa3jt"
+      >
+        ntnui hockey
+      </h5>
+      <div>
+        <p>
+          A hockey group at NTNUI
+        </p>
+      </div>
     </div>
   </div>
 </a>

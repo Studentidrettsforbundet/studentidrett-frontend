@@ -3,7 +3,7 @@
 exports[`clubCard renders correctly 1`] = `
 <a
   className="unstyled_link"
-  href="/clubs/0"
+  href="/clubs/3"
   onClick={[Function]}
 >
   <div
@@ -23,11 +23,11 @@ exports[`clubCard renders correctly 1`] = `
         className="f1hxkq5u"
       >
         <h3>
-          NTNUIFotball
+          NTNUI Bowling
         </h3>
       </div>
       <p>
-        This is where the description goes
+        
       </p>
     </div>
   </div>

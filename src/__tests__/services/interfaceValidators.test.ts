@@ -7,11 +7,11 @@ import {
     instanceOfSport,
     instanceOfTeam,
 } from '../../services/interfaceValidators';
+import { singleCity, singleClub, singleGroup, singleRegion, singleSport, singleTeam } from '../../assets/testMock';
 
 describe('instanceOfRegion', () => {
     test('Should return true', () => {
-        const case1 = { id: 0, name: 'Midtnorge' };
-        expect(instanceOfRegion(case1)).toBe(true);
+        expect(instanceOfRegion(singleRegion)).toBe(true);
     });
 
     test('Should return false if too many', () => {
@@ -27,28 +27,7 @@ describe('instanceOfRegion', () => {
 
 describe('instanceOfTeam', () => {
     test('Should return true', () => {
-        const case1 = {
-            id: 0,
-            availability: 'OP',
-            cost: null,
-            equipment: null,
-            facebook_link: null,
-            gender: 'M',
-            group: 1,
-            image: null,
-            instagram_link: null,
-            location: 1,
-            long_description: 'Team A is the best',
-            name: 'Team A',
-            schedule: [],
-            tryout_dates: [],
-            webpage: null,
-            season: null,
-            short_description: 'Short desc',
-            skill_level: 'HI',
-            sport: 1,
-        };
-        expect(instanceOfTeam(case1)).toBe(true);
+        expect(instanceOfTeam(singleTeam)).toBe(true);
     });
 
     test('Should return false if too few', () => {
@@ -64,17 +43,7 @@ describe('instanceOfTeam', () => {
 
 describe('instanceOfGroup', () => {
     test('Should return true', () => {
-        const case1 = {
-            id: 0,
-            name: 'ntnui football',
-            description: 'A football group at NTNUI',
-            cover_photo: 'photo',
-            club: 0,
-            city: 0,
-            contact_email: 'football@ntnui.no',
-            sports: [],
-        };
-        expect(instanceOfGroup(case1)).toBe(true);
+        expect(instanceOfGroup(singleGroup)).toBe(true);
     });
 
     test('Should return false if too few', () => {
@@ -90,8 +59,7 @@ describe('instanceOfGroup', () => {
 
 describe('instanceOfSport', () => {
     test('Should return true', () => {
-        const case1 = { id: 0, name: 'Football', labels: [] };
-        expect(instanceOfSport(case1)).toBe(true);
+        expect(instanceOfSport(singleSport)).toBe(true);
     });
 
     test('Should return false if too ,amy', () => {
@@ -107,16 +75,7 @@ describe('instanceOfSport', () => {
 
 describe('instanceOfClub', () => {
     test('Should return true', () => {
-        const case1 = {
-            id: 0,
-            city: 0,
-            name: 'NTNUI football',
-            description: '',
-            contact_email: 'info@ntnui.no',
-            membership_fee: '200 kr',
-            register_info: 'Register at ntnui.no/register',
-        };
-        expect(instanceOfClub(case1)).toBe(true);
+        expect(instanceOfClub(singleClub)).toBe(true);
     });
 
     test('Should return false if too ,amy', () => {
@@ -132,9 +91,7 @@ describe('instanceOfClub', () => {
 
 describe('instanceOfCity', () => {
     test('Should return true', () => {
-        const case1 = { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] };
-
-        expect(instanceOfCity(case1)).toBe(true);
+        expect(instanceOfCity(singleCity)).toBe(true);
     });
 
     test('Should return false if too ,amy', () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { setCitiesActionCreator, SET_CITIES } from '../../store/pages/city/cityActions';
+import { cityList, invalidCityList } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setCityAction', () => {
@@ -12,12 +13,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setCityAction', () => {
-        const data = [
-            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
-            { id: 1, name: 'Oslo', region: 'Oslo/Viken', clubs: [] },
-            { id: 2, name: 'Bergen', region: 'Vestlandet', clubs: [] },
-            { id: 3, name: 'Stavanger', region: 'Vestlandet', clubs: [] },
-        ];
+        const data = cityList;
 
         const expected = {
             type: SET_CITIES,
@@ -28,10 +24,7 @@ describe('Actions', () => {
     });
 
     test('Should create an empty setCityAction', () => {
-        const data = [
-            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
-            { id: 1, name: 'Oslo', clubs: [] },
-        ];
+        const data = invalidCityList;
 
         const expected = {
             type: SET_CITIES,

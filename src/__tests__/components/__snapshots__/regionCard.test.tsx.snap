@@ -11,7 +11,7 @@ exports[`regionCard renders correctly 1`] = `
     <h5
       className="f19aa3jt"
     >
-      MidtNorge
+      Vestlandet
     </h5>
     <p />
   </div>

@@ -13,7 +13,7 @@ exports[`teamCard renders correctly 1`] = `
     <h5
       className="f19aa3jt"
     >
-      Men A
+      Team A
     </h5>
     <div
       className="f1q24w9w"
@@ -29,16 +29,19 @@ exports[`teamCard renders correctly 1`] = `
     >
       <p>
         Nivå: 
+        HI
       </p>
       <p>
         Åpent/opptak: 
+        OP
          
       </p>
       <p>
         Kjønn: 
+        M
       </p>
       <p>
-        This is where the short description goes
+        Short desc
       </p>
     </div>
   </div>
