@@ -1,6 +1,7 @@
 import React from 'react';
 import image from '../../assets/placeholder.png';
 import {dateInterface} from "../../interfaces";
+import {coverImage} from '../GroupInfo/styles'
 
 //TODO: make some of these not-required
 interface ITeamInfo {
@@ -24,15 +25,12 @@ interface ITeamInfo {
 const TeamInfo = (props: ITeamInfo) => {
     return (
         <React.Fragment>
+            <h1>{props.name}</h1>
             <div>
-                <img alt={props.name} src={image} />
+                <img className={coverImage} alt={props.name} src={image} />
             </div>
-            <div>
-                <h1>{props.name}</h1>
-            </div>
-            <div>
-                <p>{props.long_description}</p>
-            </div>
+            <br/>
+            <p>{props.long_description}</p>
         </React.Fragment>
     );
 };
