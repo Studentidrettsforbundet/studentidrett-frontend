@@ -25,7 +25,7 @@ body,
 }
 
 .page {
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     padding: 16px;
     /*Arbitrary numbers are header and footer height*/
     min-height: calc(100vh - (85px + 85px));
@@ -38,8 +38,52 @@ body,
 }
 
 .body {
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     color: black;
     margin: 0;
 }
 
+.secondary_card {
+    background: #3f51b5 !important;
+}
+
+.card {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.44);
+    margin: 0;
+    text-align: center;
+    font-family: Arial;
+    margin: 8px;
+    color: whitesmoke;
+    padding: 0px;
+    background-color: #757de8;
+}
+
+.card .card-header {
+    background: #3f51b5 !important;
+    padding: 4px;
+}
+
+.card .card-body {
+    background-color: #757de8;
+    padding: 0;
+}
+
+.card .card-footer {
+    background-color: #757de8;
+    padding: 15px 10px;
+    border: unset;
+    text-align: start;
+}
+
+.card .card-img {
+    max-height: 350px;
+    max-width: 350px;
+}
+
+.primary {
+    color: #ffab40;
+}
+
+.secondary {
+    color: #26366f;
+}

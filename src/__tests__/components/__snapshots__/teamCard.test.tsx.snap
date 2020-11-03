@@ -7,60 +7,125 @@ exports[`teamCard renders correctly 1`] = `
   onClick={[Function]}
 >
   <div
-    className="fcjpwci"
-    onClick={[Function]}
+    className="f1bqh63k"
   >
-    <h5
-      className="f19aa3jt"
-    >
-      Team A
-    </h5>
     <div
-      className="f1q24w9w"
+      className="f1gj5ds8"
     >
       <img
         alt="Team"
-        className="f1mqlstf"
+        className="fb12b09"
         src="placeholder.png"
       />
     </div>
     <div
-      className="f1az2iud"
+      className="f9hjpet"
     >
-      <p>
-        Nivå: 
-        HI
-      </p>
-      <p>
-        Åpent/opptak: 
-        OP
-         
-      </p>
-      <p>
-        Kjønn: 
-        M
-      </p>
+      <h5
+        className="f1rpkic8"
+      >
+        Team A
+      </h5>
+      <div
+        className="fppg92i"
+      >
+        <div
+          className="f1ubk0hm"
+        >
+          <div>
+            <b>
+              Status
+              :
+            </b>
+             
+            Åpent
+          </div>
+          <div
+            className="f1ozov1j"
+          >
+            <svg
+              className="bi bi-person-plus-fill"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className="f1ubk0hm"
+        >
+          <div>
+            <b>
+              Kjønn
+              :
+            </b>
+             
+            Herre
+          </div>
+          <div
+            className="f1ozov1j"
+          >
+            <svg
+              fill="currentColor"
+              stroke="currentColor"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Man
+              </title>
+              <circle
+                cx="256"
+                cy="56"
+                r="56"
+              />
+              <path
+                d="M304 128h-96a64.19 64.19 0 00-64 64v107.52c0 10.85 8.43 20.08 19.27 20.47A20 20 0 00184 300v-99.73a8.18 8.18 0 017.47-8.25 8 8 0 018.53 8V489a23 23 0 0023 23 23 23 0 0023-23V346.34a10.24 10.24 0 019.33-10.34A10 10 0 01266 346v143a23 23 0 0023 23 23 23 0 0023-23V200.27a8.18 8.18 0 017.47-8.25 8 8 0 018.53 8v99.52c0 10.85 8.43 20.08 19.27 20.47A20 20 0 00368 300V192a64.19 64.19 0 00-64-64z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className="f1ubk0hm"
+        >
+          <div>
+            <b>
+              Nivå
+              :
+            </b>
+             
+            Høyt
+          </div>
+          <div
+            className="f1ozov1j"
+          >
+            <svg
+              className="bi bi-reception-3"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+          </div>
+        </div>
+        <hr />
+      </div>
       <p>
         Short desc
       </p>
     </div>
   </div>
 </a>
-`;
-
-exports[`teamCard renders expanded card correctly 1`] = `
-<div>
-  <p>
-    This is a long description
-  </p>
-  <p>
-    This team has available positions
-  </p>
-  <p>
-    This requires tryouts
-  </p>
-  <p>
-    This team is open for registrations
-  </p>
-</div>
 `;

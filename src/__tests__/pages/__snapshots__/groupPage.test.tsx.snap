@@ -15,7 +15,7 @@ exports[`clubPage renders correctly 1`] = `
       </h1>
     </div>
     <div
-      className="col search_icon-container"
+      className="fddsvlq"
     >
       <img
         alt="Search icon"
