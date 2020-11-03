@@ -40,16 +40,7 @@ const GroupPage = (): JSX.Element => {
     const listContent = reduxState.team.teams.map((entry) => {
         return (
             <TeamCard
-                {...{
-                    id: entry.id,
-                    name: entry.name,
-                    long_description: entry.long_description,
-                    short_description: entry.short_description,
-                    group: entry.group,
-                    gender: entry.gender,
-                    skill_level: entry.skill_level,
-                    availability: entry.availability,
-                }}
+                {...entry}
                 key={entry.id}
             />
         );
