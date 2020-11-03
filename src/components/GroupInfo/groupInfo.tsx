@@ -1,6 +1,5 @@
 import React from 'react';
 import image from '../../assets/placeholder.png';
-import { cardImg, infoStyle } from '../../styles/card';
 
 //TODO: make some of these not-required
 interface IClubInfo {
@@ -9,11 +8,11 @@ interface IClubInfo {
     description: string;
 }
 
-const GroupInfo = (props: IClubInfo): JSX.Element => {
+const GroupInfo = (props: IClubInfo) => {
     return (
-        <div className={infoStyle}>
+        <React.Fragment>
             <div>
-                <img className={cardImg} alt={props.title} src={image} />
+                <img alt={props.title} src={image}/>
             </div>
             <div>
                 <h1>{props.title}</h1>
@@ -21,7 +20,7 @@ const GroupInfo = (props: IClubInfo): JSX.Element => {
             <div>
                 <p>{props.description}</p>
             </div>
-        </div>
+        </React.Fragment>
     );
 };
 

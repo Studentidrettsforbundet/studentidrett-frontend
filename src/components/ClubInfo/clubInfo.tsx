@@ -1,5 +1,4 @@
 import React from 'react';
-import { infoStyle } from '../../styles/card';
 
 //TODO: make some of these not-required
 interface IClubInfo {
@@ -12,28 +11,28 @@ interface IClubInfo {
 
 const ClubInfo = (props: IClubInfo) => {
     return (
-        <div className={infoStyle}>
+        <React.Fragment>
             <div>
                 <h1>{props.title}</h1>
             </div>
             <div>
                 <p>
-                    <b>Kontakt: </b>
+                    <strong>Kontakt:</strong>
                     {props.contact_email}
                 </p>
                 <p>
-                    <b>Medlemskontigent: </b>
+                    <strong>Medlemskontigent:</strong>
                     {props.price}
                 </p>
                 <p>
-                    <b>Meld deg inn: </b>
+                    <strong>Meld deg inn:</strong>
                     {props.register_info}
                 </p>
             </div>
             <div>
                 <p>{props.description}</p>
             </div>
-        </div>
+        </React.Fragment>
     );
 };
 

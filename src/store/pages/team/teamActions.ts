@@ -23,6 +23,7 @@ export const setTeamsActionCreator = (data: teamInterface[]): teamActionTypes =>
             payload: data,
         };
     }
+
     return {
         type: SET_TEAMS,
         payload: [],
