@@ -16,9 +16,6 @@ const SportCard = ({ id, name }: sportInterface): JSX.Element => {
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
             <div className={card} key={id}>
-                <div className={imgContainer}>
-                    <img className={cardImg} src={image} alt="Sport"></img>
-                </div>
                 <div className={cardBody}>
                     <h5 className={cardTitle}>{name}</h5>
                 </div>
