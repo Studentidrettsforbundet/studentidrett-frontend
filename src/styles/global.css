@@ -99,7 +99,7 @@ p {
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.44);
     margin: 0;
     text-align: center;
-    font-family: Arial;
+    font-family: "ArchivoRegular", sans-serif;
     margin: 8px;
     color: whitesmoke;
     padding: 0px;
@@ -109,6 +109,7 @@ p {
 .card .card-header {
     background: #3f51b5 !important;
     padding: 4px;
+    font-family: 'ArchivoSemiBold', sans-serif;
 }
 
 .card .card-body {

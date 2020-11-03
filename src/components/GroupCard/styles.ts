@@ -37,7 +37,7 @@ export const scrollContainer = style({
 })
 
 export const scrollCardHeader = style({
-    color: colors.yellow,
+    color: colors.orange,
     fontSize: '13px',
     fontFamily: 'ArchivoSemiBold',
     textAlign: 'left',
