@@ -60,9 +60,6 @@ const GroupPage = (): JSX.Element => {
     return (
         <div className="container body">
             <div className="row">
-                <div className="col">
-                    <h1>HEADER</h1>
-                </div>
                 <div className={searchIconContainer}>
                     <SearchIcon />
                 </div>
@@ -87,6 +84,7 @@ const GroupPage = (): JSX.Element => {
                                     {selectedGroup && (
                                         <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
                                     )}
+                                    <h3>Våre lag</h3>
                                     <div className={cardList}>{listContent}</div>
                                 </div>
                             )}

@@ -60,9 +60,6 @@ const ClubPage = (): JSX.Element => {
     return (
         <div className="container body">
             <div className="row">
-                <div className="col">
-                    <h1>HEADER</h1>
-                </div>
                 <div className={searchIconContainer}>
                     <SearchIcon />
                 </div>
@@ -93,6 +90,7 @@ const ClubPage = (): JSX.Element => {
                                             description={selectedClub.description}
                                         />
                                     )}
+                                    <h3>Våre grupper</h3>
                                     <div className={cardList}>{listContent}</div>
                                 </div>
                                 )}
