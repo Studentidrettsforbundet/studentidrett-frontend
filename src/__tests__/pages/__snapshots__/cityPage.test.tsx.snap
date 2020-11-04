@@ -53,6 +53,13 @@ exports[`clubPage renders correctly 1`] = `
   </div>
   <div>
     <div>
+      <nav
+        aria-label="breadcrumb"
+      >
+        <ol
+          className="breadcrumb"
+        />
+      </nav>
       <div>
         <div>
           <div

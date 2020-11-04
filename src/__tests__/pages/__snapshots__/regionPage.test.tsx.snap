@@ -34,6 +34,13 @@ exports[`regionPage renders correctly 1`] = `
       />
     </div>
   </div>
+  <nav
+    aria-label="breadcrumb"
+  >
+    <ol
+      className="breadcrumb"
+    />
+  </nav>
   <div>
     <div
       className="f3518ct card"
