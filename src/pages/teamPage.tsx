@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { TEAM } from '../constants';
@@ -9,6 +9,7 @@ import { combinedStateInterface } from '../store/store';
 import { fetchDetailThunk } from '../services/api';
 import TeamInfo from '../components/TeamInfo/teamInfo';
 import FetchError from '../components/fetchError';
+import {resetFetchStatusesActionCreator} from "../store/thunks/thunkActions";
 
 interface urlParams {
     id: string;
@@ -18,6 +19,7 @@ const TeamPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
+    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -28,6 +30,12 @@ const TeamPage = (): JSX.Element => {
             dispatch(fetchDetailThunk(TEAM, urlParams.id));
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
 
     const team = reduxState.team.team;
 

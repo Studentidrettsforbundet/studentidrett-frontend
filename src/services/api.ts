@@ -185,7 +185,7 @@ export const handleQuestionsThunk = (
             return;
         } else {
             dispatch(fetchSuccessActionCreator({ next: null, previous: null }));
-            dispatch(setQuestionsActionCreator(asyncResp));
+            dispatch(setQuestionsActionCreator(asyncResp.results));
         }
     } else {
         //post data

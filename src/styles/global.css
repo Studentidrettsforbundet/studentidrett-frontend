@@ -25,7 +25,7 @@ body,
 }
 
 .page {
-    background-color: #e5e5e5;
+    background-color: #ECEFF6;
     padding: 16px;
     /*Arbitrary numbers are header and footer height*/
     min-height: calc(100vh - (85px + 85px));

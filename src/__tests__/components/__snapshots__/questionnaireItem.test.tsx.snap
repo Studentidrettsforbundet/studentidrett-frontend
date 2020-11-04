@@ -2,190 +2,262 @@
 
 exports[`questionnaireItem snapshot tests should render correctly with error 1`] = `
 <div
-  className="item"
-  style={
-    Object {
-      "alignContent": "center",
-      "padding": "12px",
-    }
-  }
+  className="f15mgf7o"
 >
-  <label>
-    <h4>
-      Test question
-    </h4>
-    <div>
-      Left item
-      <span
-        style={
-          Object {
-            "padding": "0px 12px",
-          }
-        }
-      >
-        <input
-          data-testid="test_id-0"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={0}
-        />
-        <input
-          data-testid="test_id-1"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={1}
-        />
-        <input
-          data-testid="test_id-2"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={2}
-        />
-        <input
-          data-testid="test_id-3"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={3}
-        />
-        <input
-          data-testid="test_id-4"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={4}
-        />
-      </span>
-      Right item
-    </div>
+  <span
+    className="f1sgdujd"
+  >
+    Test question
+  </span>
+  <div
+    className="fj2azb8"
+  >
     <span
-      style={
-        Object {
-          "color": "red",
-        }
-      }
+      className="fk4g4pc"
     >
-      Test error
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-0"
+        id="test_id-0"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={0}
+      />
+      <label
+        htmlFor="test_id-0"
+      >
+        <span
+          className="controller0"
+        />
+      </label>
     </span>
-  </label>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-1"
+        id="test_id-1"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={1}
+      />
+      <label
+        htmlFor="test_id-1"
+      >
+        <span
+          className="controller1"
+        />
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-2"
+        id="test_id-2"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={2}
+      />
+      <label
+        htmlFor="test_id-2"
+      >
+        <span
+          className="controller2"
+        />
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-3"
+        id="test_id-3"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={3}
+      />
+      <label
+        htmlFor="test_id-3"
+      >
+        <span
+          className="controller3"
+        />
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-4"
+        id="test_id-4"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={4}
+      />
+      <label
+        htmlFor="test_id-4"
+      >
+        <span
+          className="controller4"
+        />
+      </label>
+    </span>
+  </div>
+  <div
+    className="f1otibs3"
+  >
+    <span>
+      Left item
+    </span>
+    <span>
+      Right item
+    </span>
+  </div>
+  <span
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    Test error
+  </span>
 </div>
 `;
 
 exports[`questionnaireItem snapshot tests should render correctly with no error 1`] = `
 <div
-  className="item"
-  style={
-    Object {
-      "alignContent": "center",
-      "padding": "12px",
-    }
-  }
+  className="f15mgf7o"
 >
-  <label>
-    <h4>
-      Test question
-    </h4>
-    <div>
-      Left item
-      <span
-        style={
-          Object {
-            "padding": "0px 12px",
-          }
-        }
+  <span
+    className="f1sgdujd"
+  >
+    Test question
+  </span>
+  <div
+    className="fj2azb8"
+  >
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-0"
+        id="test_id-0"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={0}
+      />
+      <label
+        htmlFor="test_id-0"
       >
-        <input
-          data-testid="test_id-0"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={0}
+        <span
+          className="controller0"
         />
-        <input
-          data-testid="test_id-1"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={1}
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-1"
+        id="test_id-1"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={1}
+      />
+      <label
+        htmlFor="test_id-1"
+      >
+        <span
+          className="controller1"
         />
-        <input
-          data-testid="test_id-2"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={2}
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-2"
+        id="test_id-2"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={2}
+      />
+      <label
+        htmlFor="test_id-2"
+      >
+        <span
+          className="controller2"
         />
-        <input
-          data-testid="test_id-3"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={3}
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-3"
+        id="test_id-3"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={3}
+      />
+      <label
+        htmlFor="test_id-3"
+      >
+        <span
+          className="controller3"
         />
-        <input
-          data-testid="test_id-4"
-          name="test_id"
-          onChange={[Function]}
-          style={
-            Object {
-              "margin": "2px",
-            }
-          }
-          type="radio"
-          value={4}
+      </label>
+    </span>
+    <span
+      className="fk4g4pc"
+    >
+      <input
+        className="fk4g4pc"
+        data-testid="test_id-4"
+        id="test_id-4"
+        name="test_id"
+        onChange={[Function]}
+        type="radio"
+        value={4}
+      />
+      <label
+        htmlFor="test_id-4"
+      >
+        <span
+          className="controller4"
         />
-      </span>
+      </label>
+    </span>
+  </div>
+  <div
+    className="f1otibs3"
+  >
+    <span>
+      Left item
+    </span>
+    <span>
       Right item
-    </div>
-    
-  </label>
+    </span>
+  </div>
+  
 </div>
 `;
