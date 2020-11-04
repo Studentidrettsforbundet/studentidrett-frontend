@@ -7,13 +7,13 @@ exports[`SportCard renders correctly 1`] = `
   onClick={[Function]}
 >
   <div
-    className="f1bqh63k"
+    className="fq2301v"
   >
     <div
-      className="f9hjpet"
+      className="f1drtrr0"
     >
       <h5
-        className="f1rpkic8"
+        className="fm5b097"
       >
         Football
       </h5>

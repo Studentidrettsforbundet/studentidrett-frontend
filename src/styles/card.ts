@@ -13,24 +13,29 @@ export const cardList = style(
 export const card = style({
     maxWidth: '315px',
     backgroundColor: colors.white,
-    boxShadow: '0 0 4px 4px ' + colors.shadowColor,
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     borderRadius: '5px',
     textAlign: 'left',
-    fontFamily: 'Arial',
-    color: colors.secondary,
+    color: colors.cardBodyText,
     $nest: {
         '&:not(last-child)': {
             margin: '0px 8px 16px',
         },
     },
+    
 });
 
 export const cardHeader = style({
-    padding: '4px',
+    margin: '2px 4px' ,
+    color: colors.cardHeader,
+    fontSize: '19px',
+    fontFamily: 'ArchivoSemiBold',
+    textAlign: 'left',
 });
 
 export const cardBody = style({
     backgroundColor: 'inherit',
+    margin: '2px 4px',
     padding: '5px 10px',
     borderRadius: '5px',
 });
@@ -42,6 +47,9 @@ export const cardFooter = style({
 export const imgContainer = style({
     textAlign: 'center',
     maxWidth: '315px',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto'
 });
 
 export const cardImg = style({
@@ -51,7 +59,8 @@ export const cardImg = style({
 });
 
 export const secondaryCard = style({
-    backgroundColor: colors.secondaryCardColor,
+    backgroundColor: 'rgb(236,236,236,1)',
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     borderRadius: '6px',
     textAlign: 'center',
     padding: '5px',
@@ -65,22 +74,8 @@ export const secondaryCard = style({
 export const cardTitle = style({
     color: colors.primary,
     paddingTop: '5px',
+    fontFamily: 'ArchivoSemiBold, sans-serif',
 });
-
-export const regionCard = classes(
-    style({
-        backgroundColor: colors.cardHeader,
-        $nest: {
-            '& div > h5': {
-                fontWeight: 800,
-                color: colors.secondary,
-                textAlign: 'center',
-            },
-        },
-    }),
-
-    card,
-);
 
 export const infoStyle = style({
     color: colors.secondary,

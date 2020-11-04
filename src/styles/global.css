@@ -7,7 +7,22 @@
 
 @font-face {
     font-family: 'ko355';
-    src: local('ko355', url(../assets/ko355.woff) format('truetype'));
+    src: local('ko355'), url(../assets/ko355.woff) format('truetype');
+}
+
+@font-face{
+    font-family: 'ArchivoRegular';
+    src: local('Archivo'), url(../fonts/Archivo/Archivo-Regular.ttf) format('truetype');
+}
+
+/* @font-face{
+    font-family: 'ArchivoBold';
+    src: local('ArchivoBold'), url(../fonts/Archivo/Archivo-Bold.ttf) format('truetype');
+} */
+
+@font-face{
+    font-family: 'ArchivoSemibold';
+    src: local('ArchivoSemibold'), url(../fonts/Archivo/Archivo-SemiBold.ttf) format('truetype');
 }
 
 html,
@@ -17,7 +32,8 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: ko355;
+    font-family: "ArchivoRegular", Arial, Helvetica, sans-serif;
+
 }
 
 .Tabs {
@@ -25,7 +41,7 @@ body,
 }
 
 .page {
-    background-color: #ECEFF6;
+    background-color: rgb(236,239,246);
     padding: 16px;
     /*Arbitrary numbers are header and footer height*/
     min-height: calc(100vh - (85px + 85px));
@@ -38,11 +54,48 @@ body,
 }
 
 .body {
-    background-color: #e5e5e5;
-    color: black;
+    background-color: rgb(236,239,246);
+    color: rgb(49,56,121,1);
     margin: 0;
+    font-family: 'ArchivoRegular', sans-serif;
+    font-size: 16px;
 }
 
+
+h1 {
+    color: rgb(49,56,121,1);
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 21px;
+    font-family: 'ArchivoSemiBold', sans-serif;
+}
+
+h2 {
+    color: rgb(49,56,121,1);
+    font-weight: bold;
+    font-family: 'ArchivoSemiBold', sans-serif;
+    font-size: 24px;
+}
+
+h3 {
+    font-weight: bold;
+    font-family: 'ArchivoSemiBold', sans-serif;
+}
+
+p {
+    color: rgb(49,56,121,1);
+    font-family: 'ArchivoRegular', sans-serif;
+}
+
+.boldText {
+    font-family: 'ArchivoSemiBold', sans-serif;
+}
+
+.linkText{
+    font-family: "ArchivoRegular", sans-serif;
+    text-decoration: underline;
+    color: rgb(255,171,64,1)
+}
 .secondary_card {
     background: #3f51b5 !important;
 }
@@ -51,7 +104,7 @@ body,
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.44);
     margin: 0;
     text-align: center;
-    font-family: Arial;
+    font-family: "ArchivoRegular", sans-serif;
     margin: 8px;
     color: whitesmoke;
     padding: 0px;
@@ -61,6 +114,7 @@ body,
 .card .card-header {
     background: #3f51b5 !important;
     padding: 4px;
+    font-family: 'ArchivoSemiBold', sans-serif;
 }
 
 .card .card-body {

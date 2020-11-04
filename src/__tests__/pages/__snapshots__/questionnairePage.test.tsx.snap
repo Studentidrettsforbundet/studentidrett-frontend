@@ -154,7 +154,7 @@ exports[`questionnairePage should render correctly 1`] = `
       </div>
     </div>
     <button
-      className="f10phmif btn btn-custom"
+      className="fcns19z btn btn-custom"
       disabled={false}
       type="submit"
     >

@@ -9,22 +9,34 @@ Array [
   </div>,
   <div>
     <p>
-      <strong>
-        Kontakt:
-      </strong>
-      info@ntnui.no
-    </p>
-    <p>
-      <strong>
-        Medlemskontigent:
-      </strong>
+      <span
+        className="boldText"
+      >
+        Kontakt: 
+      </span>
+      <span
+        className="linkText"
+      >
+        info@ntnui.no
+      </span>
+      <br />
+      <span
+        className="boldText"
+      >
+        Medlemskontigent: 
+      </span>
       200
-    </p>
-    <p>
-      <strong>
-        Meld deg inn:
-      </strong>
-      Register at ntnui.no/register
+      <br />
+      <span
+        className="boldText"
+      >
+        Meld deg inn: 
+      </span>
+      <span
+        className="linkText"
+      >
+        Register at ntnui.no/register
+      </span>
     </p>
   </div>,
   <div>

@@ -75,7 +75,6 @@ const CityPage = () => {
 
     return (
         <div className="container body">
-            <h1>{urlParams.id}</h1>
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
