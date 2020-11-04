@@ -1,9 +1,11 @@
 import { style, classes } from 'typestyle';
 import colors from '../../styles/colors';
-import {card} from '../../styles/card'
+
+
 
 export const regionCard = classes(
     style({
+        cursor: 'pointer',
         margin: '0 auto 16px',
         padding: '10px',
         maxWidth: '500px',

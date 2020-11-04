@@ -65,9 +65,7 @@ export const secondaryCard = style({
     borderRadius: '6px',
     textAlign: 'center',
     padding: '5px',
-    marginTop: '5px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    margin: '5px auto 0',
     $nest: {
         '&:not(last-child)': {
             marginBottom: '8px',
