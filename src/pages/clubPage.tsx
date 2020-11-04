@@ -43,7 +43,7 @@ const ClubPage = (): JSX.Element => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, []);
 
     const listContent = reduxState.group.groups.map((entry) => {
         return (
