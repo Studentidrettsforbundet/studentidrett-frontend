@@ -58,7 +58,7 @@ describe('questionnairePage', () => {
 
         fireEvent.click(screen.getByTestId('test_id-3'));
         await act(async () => {
-            fireEvent.click(screen.getByText('Send'));
+            fireEvent.click(screen.getByText('Send inn'));
         });
 
         expect(store.dispatch).toHaveBeenCalledTimes(1);
