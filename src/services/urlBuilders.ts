@@ -4,10 +4,8 @@ import { makeInputSafe } from './stringValidation';
 const MAXLENGTH_SEARCH = 50;
 
 export const urlBuilderSimpleSearch = (searchString: string = ''): string => {
-    let newstr: string[] = [];
     let safeString;
-
-    newstr = searchString.split('/');
+    const newstr = searchString.split('/');
 
     if (newstr.length > 1) {
         safeString = newstr[0] + '/' + makeInputSafe(newstr[1], MAXLENGTH_SEARCH);
