@@ -2,17 +2,15 @@
 
 exports[`clubCard renders correctly 1`] = `
 Array [
-  <div>
-    <img
-      alt="ntnui hockey"
-      src="placeholder.png"
-    />
-  </div>,
-  <div>
-    <h1>
-      ntnui hockey
-    </h1>
-  </div>,
+  <h1>
+    ntnui hockey
+  </h1>,
+  <img
+    alt="ntnui hockey"
+    className="fkuizqk"
+    src="placeholder.png"
+  />,
+  <br />,
   <div>
     <p>
       A hockey group at NTNUI

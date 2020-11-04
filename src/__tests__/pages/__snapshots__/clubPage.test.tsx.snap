@@ -8,13 +8,6 @@ exports[`clubPage renders correctly 1`] = `
     className="row"
   >
     <div
-      className="col"
-    >
-      <h1>
-        HEADER
-      </h1>
-    </div>
-    <div
       className="fddsvlq"
     >
       <img
@@ -77,6 +70,9 @@ exports[`clubPage renders correctly 1`] = `
   </div>
   <div>
     <div>
+      <h3>
+        Våre grupper
+      </h3>
       <div
         className="card"
       >

@@ -4,7 +4,6 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
-  <h1 />
   <div
     className="container"
   >
