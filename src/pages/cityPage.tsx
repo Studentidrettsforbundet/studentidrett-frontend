@@ -9,7 +9,6 @@ import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
-import { searchIconContainer } from '../components/SearchBar/styles';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
@@ -82,7 +81,7 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
                     </div>
 
-                    <div className={searchIconContainer}>
+                    <div className="col search_icon-container">
                         <SearchIcon />
                     </div>
                 </div>
@@ -101,7 +100,7 @@ const CityPage = () => {
                         <div>
                             {showClubs ? (
                                 <div>
-                                    <SearchBar typeOfSearch={CLUB} />
+                                    <SearchBar />
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -110,7 +109,7 @@ const CityPage = () => {
                                 </div>
                             ) : (
                                 <div>
-                                    <SearchBar typeOfSearch={SPORT} />
+                                    <SearchBar />
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

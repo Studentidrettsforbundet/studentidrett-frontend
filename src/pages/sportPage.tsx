@@ -76,7 +76,7 @@ const SportPage = () => {
                     <SearchIcon />
                 </div>
             </div>
-            <SearchBar typeOfSearch={SPORT} />
+            <SearchBar/>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

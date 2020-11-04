@@ -13,7 +13,6 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
-import { searchIconContainer } from '../components/SearchBar/styles';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
@@ -54,11 +53,11 @@ const GroupPage = (): JSX.Element => {
     return (
         <div className="container body">
             <div className="row">
-                <div className={searchIconContainer}>
+                <div className="searchIconContainer">
                     <SearchIcon />
                 </div>
             </div>
-            <SearchBar typeOfSearch={GROUP} />
+            <SearchBar/>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

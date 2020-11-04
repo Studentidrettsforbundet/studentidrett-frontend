@@ -18,13 +18,13 @@ const ClubInfo = (props: IClubInfo) => {
             <div>
                 <p>
                     <span className="boldText">Kontakt: </span>
-                    <span className="linkText">{props.contact_email}</span>
+                    <a href="mailto: "{...props.contact_email}>{props.contact_email}</a>
                     <br/>
                     <span className="boldText">Medlemskontigent: </span>
                     {props.price}
                     <br/>
                     <span className="boldText">Meld deg inn: </span>
-                    <span className="linkText">{props.register_info}</span>
+                    <a href="">{props.register_info}</a>
                 </p>
             </div>
             <div>
