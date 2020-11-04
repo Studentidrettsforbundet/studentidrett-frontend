@@ -38,13 +38,13 @@ const Breadcrumbs = (props: breadcrumbProps) => {
 
                 case 'Regions':
                     return (<>
-                        <li className='breadcrumb-item' onClick={homeButtonClick}> Home </li>
+                        <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item active'> Regioner </li>
                     </>)
 
                 case 'cities':
                     return (<>
-                        <li className='breadcrumb-item' onClick={homeButtonClick}> Home </li>
+                        <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item' onClick={regionsButtonClick}> Regioner </li>
                         {typeof props.state.city.cities !== 'undefined' ?
                             <li className='breadcrumb-item active'> {props.state.city.cities.find(({ id: n }) => n.toString() === params[2])?.name}</li>
@@ -53,7 +53,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
 
                 case 'sports':
                     return (<>
-                        <li className='breadcrumb-item' onClick={homeButtonClick}> Home </li>
+                        <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item' onClick={regionsButtonClick}> Regioner </li>
                         {typeof props.state.city.cities !== 'undefined' ?
                             <li className='breadcrumb-item' onClick={cityButtonClick}> {props.state.city.cities.find(({ id: n }) => n === props.state.club.clubs[0].city)?.name} </li>
@@ -65,7 +65,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
 
                 case 'clubs':
                     return (<>
-                        <li className='breadcrumb-item' onClick={homeButtonClick}> Home </li>
+                        <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item' onClick={regionsButtonClick}> Regioner </li>
                         {(typeof props.state.club.club?.id !== 'undefined' && props.state.city.cities.length !== 0) ?
                             <li className='breadcrumb-item' onClick={cityButtonClick}>
@@ -81,7 +81,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
 
                 case 'groups':
                     return (<>
-                        <li className='breadcrumb-item' onClick={homeButtonClick}> Home </li>
+                        <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item' onClick={regionsButtonClick}> Regioner </li>
                         {(typeof props.state.club.club?.id !== 'undefined' && props.state.city.cities.length !== 0) ?
                             <li className='breadcrumb-item' onClick={cityButtonClick}>
@@ -102,7 +102,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
 
                 case 'teams':
                     return (<>
-                        <li className='breadcrumb-item' onClick={homeButtonClick}> Home </li>
+                        <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item' onClick={regionsButtonClick}> Regioner </li>
                         {(typeof props.state.club.club?.id !== 'undefined' && props.state.city.cities.length !== 0) ?
                             <li className='breadcrumb-item' onClick={cityButtonClick}>
