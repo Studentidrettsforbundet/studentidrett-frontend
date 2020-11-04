@@ -44,7 +44,7 @@ const CityPage = () => {
         }
     });
 
-    const cityName = reduxState.city.cities.filter((city)=> city.id.toString() == urlParams.id)[0].name;
+    // const cityName = reduxState.city.cities.filter((city)=> city.id.toString() == urlParams.id)[0].name;
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
