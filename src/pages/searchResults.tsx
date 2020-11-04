@@ -14,6 +14,9 @@ import {
     instanceOfTeam,
 } from '../services/interfaceValidators';
 import SearchCard from '../components/SearchCard/searchCard';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { Spinner } from 'react-bootstrap';
+import FetchError from '../components/fetchError';
 
 const SearchResults = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -30,7 +33,11 @@ const SearchResults = () => {
         ) {
             dispatch(fetchDataThunk(SEARCH, urlBuilderSimpleSearch(location)));
         }
-    });
+    }, [reduxState.thunk.fetch_success]);
+
+    useEffect(() => {
+        dispatch(resetFetchStatusesActionCreator());
+    }, [location]);
 
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
@@ -43,7 +50,21 @@ const SearchResults = () => {
     return (
         <React.Fragment>
             <SearchBar />
-            <div>{results}</div>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <div>
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>{results}</div>
+                    )}
+                </div>
+            )}
         </React.Fragment>
     );
 };
