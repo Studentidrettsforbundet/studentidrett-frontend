@@ -59,11 +59,15 @@ export const cardImg = style({
 });
 
 export const secondaryCard = style({
+    maxWidth: '400px',
     backgroundColor: 'rgb(236,236,236,1)',
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     borderRadius: '6px',
     textAlign: 'center',
     padding: '5px',
+    marginTop: '5px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     $nest: {
         '&:not(last-child)': {
             marginBottom: '8px',
