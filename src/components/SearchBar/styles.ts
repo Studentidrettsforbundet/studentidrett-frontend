@@ -15,3 +15,23 @@ export const searchIconContainer = style({
 export const searchBarButton = style({
     marginTop: '16px',
 });
+
+export const searchFilterButton = style({
+    $nest: {
+        '&:not(:last-child)': {
+            marginRight: '4px',
+        },
+    },
+});
+
+export const filterButtonContainer = style({
+    overflow: 'auto',
+    display: 'flex',
+    paddingBottom: '10px',
+    marginTop: '-15px',
+});
+
+export const filterButton = style({
+    fontSize: '12px',
+    width: 'inherit',
+});

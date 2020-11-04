@@ -59,38 +59,145 @@ exports[`clubPage renders correctly 1`] = `
             className="f3518ct card"
           >
             <div
-              className="row"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
-              <div
-                className="col"
+              <input
+                className="form-control"
+                name="searchString"
+                onChange={[Function]}
+                placeholder="Søk..."
+                value=""
+              />
+              <a
+                href="/search/?q="
+                onClick={[Function]}
               >
-                <input
-                  className="form-control"
-                  name="searchString"
-                  onChange={[Function]}
-                  placeholder="Søk..."
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              className="row"
-            >
-              <div
-                className="col"
-              >
-                <a
-                  href="/search/?q=clubs/"
-                  onClick={[Function]}
+                <button
+                  className="searchBar_button btn btn-primary"
+                  disabled={true}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "borderColor": "#808080",
+                      "color": "#808080",
+                    }
+                  }
+                  type="submit"
                 >
-                  <button
-                    className="searchBar_button btn btn-primary"
-                    disabled={false}
-                    type="submit"
-                  >
-                    Søk
-                  </button>
-                </a>
+                  Søk
+                </button>
+              </a>
+            </div>
+            <p
+              style={
+                Object {
+                  "textAlign": "left",
+                }
+              }
+            >
+               Søkefiltre: 
+            </p>
+            <div
+              className="f1v27uv7"
+            >
+              <div
+                className="faz2bcf"
+              >
+                <button
+                  className="f3b1glp btn btn-secondary outlined"
+                  disabled={false}
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "color": "black",
+                    }
+                  }
+                  type="button"
+                  value="cities"
+                >
+                  By
+                </button>
+              </div>
+              <div
+                className="faz2bcf"
+              >
+                <button
+                  className="f3b1glp btn btn-secondary outlined"
+                  disabled={false}
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "color": "black",
+                    }
+                  }
+                  type="button"
+                  value="clubs"
+                >
+                  Klubb
+                </button>
+              </div>
+              <div
+                className="faz2bcf"
+              >
+                <button
+                  className="f3b1glp btn btn-secondary outlined"
+                  disabled={false}
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "color": "black",
+                    }
+                  }
+                  type="button"
+                  value="groups"
+                >
+                  Gruppe
+                </button>
+              </div>
+              <div
+                className="faz2bcf"
+              >
+                <button
+                  className="f3b1glp btn btn-secondary outlined"
+                  disabled={false}
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "color": "black",
+                    }
+                  }
+                  type="button"
+                  value="teams"
+                >
+                  Lag
+                </button>
+              </div>
+              <div
+                className="faz2bcf"
+              >
+                <button
+                  className="f3b1glp btn btn-secondary outlined"
+                  disabled={false}
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "color": "black",
+                    }
+                  }
+                  type="button"
+                  value="sports"
+                >
+                  Idrett
+                </button>
               </div>
             </div>
           </div>
