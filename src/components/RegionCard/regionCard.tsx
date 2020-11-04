@@ -17,7 +17,7 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
 
         <div className={regionCard} key={id} onClick={() => toggleExpanded()}>
             <div>
-                <h5>{name}</h5>
+                <h5 className="boldText">{name}</h5>
                 {expanded ? (
                     cities.map((entry) => {
                         return (
