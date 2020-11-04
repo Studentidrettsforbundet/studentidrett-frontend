@@ -7,24 +7,9 @@ import { useDispatch } from 'react-redux';
 import {classes} from 'typestyle';
 
 import { InfoList } from '../TeamInfo/infoList';
+import { teamInterface } from '../../interfaces';
 
-interface teamCardInterface {
-    id: number;
-    name: string;
-    short_description: string | null;
-    gender: string;
-    skill_level: string;
-    availability: string;
-}
-
-const TeamCard = ({
-    id,
-    name,
-    short_description,
-    gender,
-    availability,
-    skill_level,
-}: teamCardInterface): JSX.Element => {
+const TeamCard = ({ id, name, short_description, gender, availability, skill_level }: teamInterface): JSX.Element => {
     const dispatch = useDispatch();
 
     return (

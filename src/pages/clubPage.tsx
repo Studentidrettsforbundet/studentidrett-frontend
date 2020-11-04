@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import GroupCard from '../components/GroupCard/groupCard';
 import { CLUB, GROUP } from '../constants';
 import SearchBar from '../components/SearchBar/searchBar';
@@ -14,6 +14,7 @@ import { Col, Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
     id: string;
@@ -23,6 +24,7 @@ const ClubPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
+    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -36,6 +38,12 @@ const ClubPage = (): JSX.Element => {
             dispatch(fetchDetailThunk(CLUB, urlParams.id));
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
 
     const listContent = reduxState.group.groups.map((entry) => {
         return (
@@ -77,23 +85,17 @@ const ClubPage = (): JSX.Element => {
                         </div>
                     ) : (
                         <div>
-                            {reduxState.group.groups.length === 0 ? (
-                                <EmptyResult />
-                            ) : (
-                                <div >
-                                    {selectedClub && (
-                                        <ClubInfo
-                                            title={selectedClub.name}
-                                            contact_email={selectedClub.contact_email}
-                                            price={selectedClub.membership_fee}
-                                            register_info={selectedClub.register_info}
-                                            description={selectedClub.description}
-                                        />
-                                    )}
-                                    <h3>Våre grupper</h3>
-                                    <div className={cardList}>{listContent}</div>
-                                </div>
-                                )}
+                            {selectedClub && (
+                                <ClubInfo
+                                    title={selectedClub.name}
+                                    contact_email={selectedClub.contact_email}
+                                    price={selectedClub.membership_fee}
+                                    register_info={selectedClub.register_info}
+                                    description={selectedClub.description}
+                                />
+                            )}
+                            <h3>Våre grupper</h3>
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
                         </div>
                     )}
                 </div>

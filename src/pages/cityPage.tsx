@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
@@ -14,6 +14,7 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
     id: string;
@@ -24,6 +25,7 @@ const CityPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
+    const location = useLocation();
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -44,7 +46,11 @@ const CityPage = () => {
         }
     });
 
-    // const cityName = reduxState.city.cities.filter((city)=> city.id.toString() == urlParams.id)[0].name;
+    useEffect(() => {
+        return () => {
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [location.pathname]);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
@@ -96,7 +102,7 @@ const CityPage = () => {
                             {showClubs ? (
                                 <div>
                                     <SearchBar typeOfSearch={CLUB} />
-                                    {reduxState.club.clubs.length === 0 ? (
+                                    {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
                                         <div className={cardList}>{listClubContent}</div>
@@ -105,7 +111,7 @@ const CityPage = () => {
                             ) : (
                                 <div>
                                     <SearchBar typeOfSearch={SPORT} />
-                                    {reduxState.sport.sports.length === 0 ? (
+                                    {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
                                         <div className={cardList}>{listSportContent}</div>
