@@ -7,7 +7,6 @@ import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-import { searchIconContainer } from '../components/SearchBar/styles';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { Col, Spinner } from 'react-bootstrap';
@@ -68,7 +67,7 @@ const ClubPage = (): JSX.Element => {
     return (
         <div className="container body">
             <div className="row">
-                <div className={searchIconContainer}>
+                <div className="searchIconContainer">
                     <SearchIcon />
                 </div>
             </div>

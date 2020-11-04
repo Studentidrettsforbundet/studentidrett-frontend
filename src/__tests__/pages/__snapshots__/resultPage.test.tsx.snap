@@ -16,7 +16,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="fq2301v"
+      className="f1tlh3gu"
     >
       <div
         className="f1drtrr0"
@@ -35,7 +35,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="fq2301v"
+      className="f1tlh3gu"
     >
       <div
         className="f1drtrr0"
@@ -54,7 +54,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="fq2301v"
+      className="f1tlh3gu"
     >
       <div
         className="f1drtrr0"

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import {useLocation, useParams} from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { TEAM } from '../constants';
@@ -9,7 +9,7 @@ import { combinedStateInterface } from '../store/store';
 import { fetchDetailThunk } from '../services/api';
 import TeamInfo from '../components/TeamInfo/teamInfo';
 import FetchError from '../components/fetchError';
-import {resetFetchStatusesActionCreator} from "../store/thunks/thunkActions";
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
     id: string;

@@ -1,0 +1,21 @@
+.searchBar {
+    background-color: white;
+    padding: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search_icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar_button {
+    margin-top: 16px;
+}
+
+.search_icon {
+    height: 60%;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+}
