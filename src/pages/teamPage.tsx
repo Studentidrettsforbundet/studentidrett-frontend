@@ -10,6 +10,7 @@ import { fetchDetailThunk } from '../services/api';
 import TeamInfo from '../components/TeamInfo/teamInfo';
 import FetchError from '../components/fetchError';
 import {resetFetchStatusesActionCreator} from "../store/thunks/thunkActions";
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
     id: string;
@@ -49,6 +50,9 @@ const TeamPage = (): JSX.Element => {
                     <SearchIcon />
                 </div>
             </div>
+
+            <Breadcrumbs key='breadcrumbsTeam' state={reduxState} />
+
             <SearchBar typeOfSearch={TEAM} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

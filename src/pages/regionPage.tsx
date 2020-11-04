@@ -12,6 +12,7 @@ import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { useLocation } from 'react-router';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -53,7 +54,7 @@ const RegionPage = () => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <a />;
+        return <a key={entry.id} />;
     });
 
     const listContent = regions.map((entry) => {
@@ -70,6 +71,9 @@ const RegionPage = () => {
                     <SearchIcon />
                 </div>
             </div>
+
+            <Breadcrumbs key='breadcrumbsRegion' state={reduxState} />
+
             <SearchBar typeOfSearch={CITY} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

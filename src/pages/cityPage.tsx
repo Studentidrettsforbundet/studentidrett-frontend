@@ -15,6 +15,7 @@ import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
     id: string;
@@ -87,6 +88,9 @@ const CityPage = () => {
                     </div>
                 </div>
             </div>
+
+            
+
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
@@ -98,7 +102,8 @@ const CityPage = () => {
                             <FetchError />
                         </div>
                     ) : (
-                        <div>
+                                <div>
+                                    <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
                             {showClubs ? (
                                 <div>
                                     <SearchBar typeOfSearch={CLUB} />

@@ -12,6 +12,7 @@ import ClubCard from '../components/ClubCard/clubCard';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
@@ -76,6 +77,9 @@ const SportPage = () => {
                     <SearchIcon />
                 </div>
             </div>
+
+            <Breadcrumbs key='breadcrumbsSport' state={reduxState}/>
+
             <SearchBar typeOfSearch={SPORT} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

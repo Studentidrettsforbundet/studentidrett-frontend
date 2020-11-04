@@ -15,6 +15,7 @@ import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
     id: string;
@@ -72,6 +73,9 @@ const ClubPage = (): JSX.Element => {
                     <SearchIcon />
                 </div>
             </div>
+
+            <Breadcrumbs key='breadcrumbsClub' state={reduxState}/> 
+
             <SearchBar typeOfSearch={GROUP} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
