@@ -40,7 +40,7 @@ const SportPage = () => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, []);
 
     const listContent = reduxState.club.clubs.map((entry) => {
         return (

@@ -43,7 +43,7 @@ const GroupPage = (): JSX.Element => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, []);
 
     const listContent = reduxState.team.teams.map((entry) => {
         return <TeamCard {...entry} key={entry.id} />;
