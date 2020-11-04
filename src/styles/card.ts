@@ -1,3 +1,4 @@
+import { important } from 'csx';
 import { classes, media, style } from 'typestyle';
 import colors from './colors';
 
@@ -11,6 +12,8 @@ export const cardList = style(
 );
 
 export const card = style({
+    margin: '0px 0px 0px 0px',
+    width: '100%',
     maxWidth: '315px',
     backgroundColor: colors.white,
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
@@ -22,11 +25,10 @@ export const card = style({
             margin: '0px 8px 16px',
         },
     },
-    
 });
 
 export const cardHeader = style({
-    margin: '2px 4px' ,
+    margin: '2px 4px',
     color: colors.cardHeader,
     fontSize: '19px',
     fontFamily: 'ArchivoSemiBold',
@@ -49,7 +51,7 @@ export const imgContainer = style({
     maxWidth: '315px',
     display: 'block',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
 });
 
 export const cardImg = style({

@@ -8,7 +8,7 @@ exports[`clubPage renders correctly 1`] = `
     className="row"
   >
     <div
-      className="fddsvlq"
+      className="searchIconContainer"
     >
       <img
         alt="Search icon"
@@ -27,47 +27,7 @@ exports[`clubPage renders correctly 1`] = `
       />
     </div>
   </div>
-  <div>
-    <div
-      className="f3518ct card"
-    >
-      <div
-        className="row"
-      >
-        <div
-          className="col"
-        >
-          <input
-            className="form-control"
-            name="searchString"
-            onChange={[Function]}
-            placeholder="Søk..."
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        className="row"
-      >
-        <div
-          className="col"
-        >
-          <a
-            href="/search/?q=groups/"
-            onClick={[Function]}
-          >
-            <button
-              className="searchBar_button btn btn-primary"
-              disabled={false}
-              type="submit"
-            >
-              Søk
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div />
   <div>
     <div>
       <h3>

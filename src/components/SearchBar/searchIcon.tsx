@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
+import './styles.css';
 
 const SearchIcon = () => {
     const dispatch = useDispatch();
