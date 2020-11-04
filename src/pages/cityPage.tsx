@@ -9,7 +9,6 @@ import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
-import { searchIconContainer } from '../components/SearchBar/styles';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
@@ -51,7 +50,7 @@ const CityPage = () => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, []);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
         return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
@@ -83,7 +82,7 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
                     </div>
 
-                    <div className={searchIconContainer}>
+                    <div className="col search_icon-container">
                         <SearchIcon />
                     </div>
                 </div>

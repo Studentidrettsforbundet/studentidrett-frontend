@@ -8,7 +8,7 @@ exports[`clubPage renders correctly 1`] = `
     className="row"
   >
     <div
-      className="fddsvlq"
+      className="searchIconContainer"
     >
       <img
         alt="Search icon"

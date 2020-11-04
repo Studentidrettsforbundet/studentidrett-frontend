@@ -13,7 +13,6 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
-import { searchIconContainer } from '../components/SearchBar/styles';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
@@ -44,7 +43,7 @@ const GroupPage = (): JSX.Element => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, [location.pathname]);
+    }, []);
 
     const listContent = reduxState.team.teams.map((entry) => {
         return <TeamCard {...entry} key={entry.id} />;
@@ -55,7 +54,7 @@ const GroupPage = (): JSX.Element => {
     return (
         <div className="container body">
             <div className="row">
-                <div className={searchIconContainer}>
+                <div className="searchIconContainer">
                     <SearchIcon />
                 </div>
             </div>

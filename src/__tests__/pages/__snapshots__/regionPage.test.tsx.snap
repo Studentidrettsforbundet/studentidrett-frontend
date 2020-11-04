@@ -5,7 +5,7 @@ exports[`regionPage renders correctly 1`] = `
   className="container body"
 >
   <div
-    className="row"
+    className="row page_header"
   >
     <div
       className="col"

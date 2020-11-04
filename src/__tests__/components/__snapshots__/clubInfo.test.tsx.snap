@@ -14,11 +14,24 @@ Array [
       >
         Kontakt: 
       </span>
-      <span
-        className="linkText"
+      <a
+        0="i"
+        1="n"
+        10="."
+        11="n"
+        12="o"
+        2="f"
+        3="o"
+        4="@"
+        5="n"
+        6="t"
+        7="n"
+        8="u"
+        9="i"
+        href="mailto: "
       >
         info@ntnui.no
-      </span>
+      </a>
       <br />
       <span
         className="boldText"
@@ -32,11 +45,11 @@ Array [
       >
         Meld deg inn: 
       </span>
-      <span
-        className="linkText"
+      <a
+        href=""
       >
         Register at ntnui.no/register
-      </span>
+      </a>
     </p>
   </div>,
   <div>

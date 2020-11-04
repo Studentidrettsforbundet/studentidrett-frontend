@@ -1,25 +1,26 @@
-.header{
-  padding: 1rem;
-  background-color: #FFAB40;
-  width: 100%;
+.header {
+    padding: 1rem;
+    background-color: #ffab40;
+    width: 100vw !important;
+    max-width: 100% !important;
 }
 .headerLink {
-  width: fit-content;
+    width: fit-content;
 }
 
 .headerContent {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 img {
-  height: 53px;
+    height: 53px;
 }
 
-.textContent{
-  margin-left: 1rem;
-  font-size: 16px;
-  line-height: 20px;
-  font-family: ko355, sans-serif;
+.textContent {
+    margin-left: 1rem;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: ko355, sans-serif;
 }
