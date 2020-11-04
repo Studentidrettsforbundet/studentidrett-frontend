@@ -1,9 +1,11 @@
 /*Remove Link style*/
 .unstyled_link,
-.unstyled_link:active {
+.unstyled_link:active,
+.unstyled_link:hover {
     color: inherit;
-    text-decoration: inherit;
+    text-decoration: none;
 }
+
 
 @font-face {
     font-family: 'ko355';
@@ -84,6 +86,16 @@ p {
     color: rgb(49, 56, 121, 1);
     font-family: 'ArchivoRegular', sans-serif;
 }
+
+
+a,
+a:link,
+a:visited {
+    color:  rgb(255,171,64,1);
+}
+/* a:hover {
+    color: pink;
+} */
 
 .boldText {
     font-family: 'ArchivoSemiBold', sans-serif;
