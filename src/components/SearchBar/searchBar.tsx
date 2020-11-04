@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { cardType } from '../../constants';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Card, Col, Row } from 'react-bootstrap';
 import { searchBar } from './styles';
-import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
-import { useDispatch } from 'react-redux';
 
 interface searchBarProps {
     typeOfSearch?: cardType;
