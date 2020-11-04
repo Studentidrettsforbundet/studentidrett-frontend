@@ -42,43 +42,54 @@ exports[`App renders correctly 1`] = `
     className="page"
   >
     <div
-      className="Landing"
+      className="f1w98fo6"
     >
       <div
-        className="col"
+        className="f1w98fo6 f1qc6xy7"
       >
-        <button
-          className="btn btn-primary"
-          type="button"
-        >
-          <a
-            href="/Regions"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": "black",
-              }
+        <p>
+          Norges Studentidrettsforbund har et bredt idrettstilbud rundt i hele Norge gjennom våre studentidrettslag. På denne nettsiden kan du finne hva vi tilbyr i din studieby!
+        </p>
+        <a
+          className="btn btn-default"
+          href="/Regions"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "rgb(38, 54, 111)",
             }
+          }
+        >
+          <button
+            className="btn btn-default"
+            type="button"
           >
-            Regioner
-          </a>
-        </button>
-        <button
-          className="btn btn-primary"
-          type="button"
-        >
-          <a
-            href="/questionnaire"
-            onClick={[Function]}
-            style={
-              Object {
-                "color": "black",
-              }
+            Finn idrett
+          </button>
+        </a>
+      </div>
+      <div
+        className="f1w98fo6 f1qc6xy7"
+      >
+        <p>
+          Usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som kunne passet til deg? Vi har laget en idrettsvalgomat som foreslår idretter vi tenker du kunne likt!
+        </p>
+        <a
+          href="/questionnaire"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "rgb(38, 54, 111)",
             }
+          }
+        >
+          <button
+            className="btn btn-default"
+            type="button"
           >
             Idrettsvalgomat
-          </a>
-        </button>
+          </button>
+        </a>
       </div>
     </div>
   </div>
