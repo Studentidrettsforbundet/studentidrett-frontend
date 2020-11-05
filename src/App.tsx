@@ -7,7 +7,7 @@ import './styles/spinner.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer';
 import Routes from './routes';
-import Header from './components/header';
+import Header from './components/Header/header';
 import { Provider } from 'react-redux';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import store from './store/store';

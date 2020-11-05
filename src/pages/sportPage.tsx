@@ -72,11 +72,8 @@ const SportPage = () => {
                     )}
                     <p>Klubber som driver med idretten: </p>
                 </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
-                </div>
             </div>
-            <SearchBar typeOfSearch={SPORT} />
+            <SearchBar/>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

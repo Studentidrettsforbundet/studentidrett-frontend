@@ -14,25 +14,6 @@ exports[`sportPage renders correctly 1`] = `
         Klubber som driver med idretten: 
       </p>
     </div>
-    <div
-      className="col search_icon-container"
-    >
-      <img
-        alt="Search icon"
-        className="search_icon"
-        onClick={[Function]}
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "search.svg",
-          }
-        }
-      />
-    </div>
   </div>
   <div />
   <div
