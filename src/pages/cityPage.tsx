@@ -81,10 +81,6 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
                         <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
                     </div>
-
-                    <div className="col search_icon-container">
-                        <SearchIcon />
-                    </div>
                 </div>
             </div>
 
@@ -105,7 +101,7 @@ const CityPage = () => {
                                     <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
                             {showClubs ? (
                                 <div>
-                                    <SearchBar typeOfSearch={CLUB} />
+                                    <SearchBar />
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -114,7 +110,7 @@ const CityPage = () => {
                                 </div>
                             ) : (
                                 <div>
-                                    <SearchBar typeOfSearch={SPORT} />
+                                    <SearchBar />
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

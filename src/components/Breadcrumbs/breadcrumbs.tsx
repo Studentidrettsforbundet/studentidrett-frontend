@@ -1,6 +1,6 @@
 import React from 'react';
-import { Breadcrumb, Nav } from 'react-bootstrap';
-import { useHistory, Link } from 'react-router-dom';
+import { Breadcrumb } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import { combinedStateInterface } from '../../store/store';
 
 
@@ -36,7 +36,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
         if (params.length > 1) {
             switch (params[1]) {
 
-                case 'Regions':
+                case 'regions':
                     return (<>
                         <li className='breadcrumb-item' onClick={homeButtonClick}> Forside </li>
                         <li className='breadcrumb-item active'> Regioner </li>
@@ -114,12 +114,12 @@ const Breadcrumbs = (props: breadcrumbProps) => {
                             : <></>
                         }
                         {typeof props.state.group !== 'undefined' ?
-                            <li className='breadcrumb-item'> {props.state.group.group?.name}
+                            <li className='breadcrumb-item' onClick={groupButtonClick}> {props.state.group.group?.name}
                             </li>
                             : <></>
                         }
                         {typeof props.state.team !== 'undefined' ?
-                            <li className='breadcrumb-item active'> {props.state.team.team?.name}
+                            <li className='breadcrumb-item active' > {props.state.team.team?.name}
                             </li>
                             : <></>}
 

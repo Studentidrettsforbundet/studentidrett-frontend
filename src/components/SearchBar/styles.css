@@ -6,8 +6,9 @@
 }
 
 .search_icon-container {
-    display: flex;
     align-items: center;
+    margin-right: 20px;
+    margin-top: 12px;
 }
 
 .searchBar_button {
