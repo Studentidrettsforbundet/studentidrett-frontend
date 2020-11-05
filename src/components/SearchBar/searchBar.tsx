@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { cardType, CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, withRouter } from 'react-router-dom';
 import { Card, Col, Row } from 'react-bootstrap';
 import './styles.css';
 import { useSelector } from 'react-redux';
 import { combinedStateInterface } from '../../store/store';
 import { filterButton, filterButtonContainer, searchBar, searchFilterButton } from './styles';
+import { RouterProps } from 'react-router';
 
 const filters = [CITY, CLUB, GROUP, TEAM, SPORT];
 const translations = ['By', 'Klubb', 'Gruppe', 'Lag', 'Idrett'];
 
-const SearchBar = () => {
+const SearchBar = (props: RouterProps) => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const [text, updateText] = useState('');
     const [filter, updateFilter] = useState('');
@@ -22,6 +23,12 @@ const SearchBar = () => {
             updateFilter('');
         } else {
             updateFilter(event);
+        }
+    };
+
+    const isEnter = (event: any) => {
+        if (event.key == 'Enter' && text != '') {
+            props.history.push(`/search/?q=${(filter != '' ? filter + '/' : '') + text}`);
         }
     };
 
@@ -55,6 +62,7 @@ const SearchBar = () => {
                             placeholder="Søk..."
                             value={text}
                             onChange={(e) => updateText(e.target.value)}
+                            onKeyPress={(e) => isEnter(e)}
                         />
                         <Link to={`/search/?q=${(filter != '' ? filter + '/' : '') + text}`}>
                             <Button
@@ -79,4 +87,4 @@ const SearchBar = () => {
     );
 };
 
-export default SearchBar;
+export default withRouter(SearchBar);
