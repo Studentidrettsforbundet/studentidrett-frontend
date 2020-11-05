@@ -33,9 +33,7 @@ const GroupPage = (): JSX.Element => {
                 fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: 'group', id_or_name: urlParams.id }])),
             );
             dispatch(fetchDetailThunk(GROUP, urlParams.id));
-            console.log('Should enter right here: ');
             if (!reduxState.interest.interests.includes(urlParams.id) && reduxState.interest.sessionID) {
-                console.log('Now it has entered: ');
                 dispatch(handleInterestThunk(urlParams.id, reduxState.interest.sessionID));
             }
         }
