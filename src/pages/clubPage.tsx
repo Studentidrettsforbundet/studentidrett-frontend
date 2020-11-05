@@ -67,15 +67,10 @@ const ClubPage = (): JSX.Element => {
 
     return (
         <div className="container body">
-            <div className="row">
-                <div className="searchIconContainer">
-                    <SearchIcon />
-                </div>
-            </div>
 
-            <Breadcrumbs key='breadcrumbsClub' state={reduxState}/> 
+            <Breadcrumbs key='breadcrumbsClub' state={reduxState}/>
+            <SearchBar />
 
-            <SearchBar typeOfSearch={GROUP} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

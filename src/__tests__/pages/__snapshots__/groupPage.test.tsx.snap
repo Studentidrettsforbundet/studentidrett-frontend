@@ -4,29 +4,6 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
-  <div
-    className="row"
-  >
-    <div
-      className="searchIconContainer"
-    >
-      <img
-        alt="Search icon"
-        className="search_icon"
-        onClick={[Function]}
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "search.svg",
-          }
-        }
-      />
-    </div>
-  </div>
   <nav
     aria-label="breadcrumb"
   >
