@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import TeamCard from '../components/TeamCard/teamCard';
 import { GROUP, TEAM } from '../constants';
-import { fetchDataThunk, fetchDetailThunk } from '../services/api';
+import { fetchDataThunk, fetchDetailThunk, handleInterestThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import GroupInfo from '../components/GroupInfo/groupInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
@@ -24,7 +23,6 @@ const GroupPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
-    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -36,6 +34,15 @@ const GroupPage = (): JSX.Element => {
                 fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: 'group', id_or_name: urlParams.id }])),
             );
             dispatch(fetchDetailThunk(GROUP, urlParams.id));
+            if (
+                !reduxState.interest.interests.includes(urlParams.id) &&
+                reduxState.interest.sessionID &&
+                !reduxState.thunk.post_in_progress &&
+                reduxState.thunk.post_failed_count < 3 &&
+                !reduxState.thunk.post_success
+            ) {
+                dispatch(handleInterestThunk(urlParams.id, reduxState.interest.sessionID));
+            }
         }
     });
 
