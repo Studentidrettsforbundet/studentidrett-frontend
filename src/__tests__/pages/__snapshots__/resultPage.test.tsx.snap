@@ -69,7 +69,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
   </a>
   <br />
   <a
-    className="f1n6sq50 btn btn-primary"
+    className="f1crc5ka btn btn-warning"
     href="/questionnaire"
     onClick={[Function]}
     onKeyDown={[Function]}
