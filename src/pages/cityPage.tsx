@@ -80,10 +80,6 @@ const CityPage = () => {
                         <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
                         <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
                     </div>
-
-                    <div className="col search_icon-container">
-                        <SearchIcon />
-                    </div>
                 </div>
             </div>
             {reduxState.thunk.fetch_in_progress ? (

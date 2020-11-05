@@ -41,14 +41,6 @@ const TeamPage = (): JSX.Element => {
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col">
-                    <h1>HEADER</h1>
-                </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
-                </div>
-            </div>
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

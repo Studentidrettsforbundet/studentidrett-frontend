@@ -66,11 +66,6 @@ const ClubPage = (): JSX.Element => {
 
     return (
         <div className="container body">
-            <div className="row">
-                <div className="searchIconContainer">
-                    <SearchIcon />
-                </div>
-            </div>
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

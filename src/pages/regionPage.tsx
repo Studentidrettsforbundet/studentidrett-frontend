@@ -16,7 +16,6 @@ import { useLocation } from 'react-router';
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
-    const location = useLocation();
 
     const Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
     const Midt: regionInterface = { id: 1, name: MIDTNORGE, cities: [] };
@@ -65,9 +64,6 @@ const RegionPage = () => {
             <div className="row page_header">
                 <div className="col">
                     <h1>Regioner</h1>
-                </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
                 </div>
             </div>
             <SearchBar />
