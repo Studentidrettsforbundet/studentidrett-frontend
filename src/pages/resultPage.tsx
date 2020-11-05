@@ -22,7 +22,7 @@ const ResultPage = () => {
             <p>Dine topp 3 resultater er:</p>
             {listItems}
             <br />
-            <Button href="/questionnaire" className={button}>
+            <Button href="/questionnaire" className={button} variant="warning">
                 Ta valgomaten igjen
             </Button>
         </div>
