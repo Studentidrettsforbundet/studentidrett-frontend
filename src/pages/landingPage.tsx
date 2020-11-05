@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { combinedStateInterface } from '../store/store';
+import { setSessionIDActionCreator } from '../store/pages/interest/interestActions';
 import { style, classes } from 'typestyle';
 import colors from '../styles/colors';
 
-const LandingPage = () => {
+const LandingPage = (): JSX.Element => {
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
+
+    useEffect(() => {
+        if (!reduxState.interest.sessionID) {
+            dispatch(setSessionIDActionCreator());
+        }
+    }, []);
+
     return (
         <div className={frontPage}>
             <div className={wrapper}>

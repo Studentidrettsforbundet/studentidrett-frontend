@@ -1,5 +1,4 @@
 import { style } from 'typestyle';
-import colors from './colors';
 
 export const resultPage = style({
     display: 'flex',
@@ -8,6 +7,5 @@ export const resultPage = style({
 
 export const button = style({
     alignSelf: 'flex-end',
-    backgroundColor: colors.orange,
-    borderColor: colors.orange,
+    color: 'black !important',
 });
