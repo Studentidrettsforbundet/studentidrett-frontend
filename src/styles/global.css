@@ -6,7 +6,6 @@
     text-decoration: none;
 }
 
-
 @font-face {
     font-family: 'ko355';
     src: local('ko355'), url(../assets/ko355.woff) format('truetype');
@@ -39,6 +38,11 @@ body,
 
 .Tabs {
     display: flex;
+}
+
+.Tabs button {
+    margin-right: 6px;
+    margin-bottom: 8px;
 }
 
 .page {
@@ -87,11 +91,10 @@ p {
     font-family: 'ArchivoRegular', sans-serif;
 }
 
-
 a,
 a:link,
 a:visited {
-    color:  rgb(255,171,64,1);
+    color: rgb(255, 171, 64, 1);
 }
 /* a:hover {
     color: pink;
