@@ -61,7 +61,11 @@ const SearchResults = () => {
                             <FetchError />
                         </div>
                     ) : (
-                        <div>{results}</div>
+                        
+                        <div>
+                            <h1>Søkeresultater</h1>
+                            {results}
+                        </div>
                     )}
                 </div>
             )}
