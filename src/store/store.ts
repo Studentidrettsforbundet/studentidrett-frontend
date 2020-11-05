@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { cityInitialState, cityReducer, cityState } from './pages/city/cityReducer';
 import { clubInitialState, clubReducer, clubState } from './pages/club/clubReducer';
 import { groupInitialState, groupReducer, groupState } from './pages/group/groupReducer';
+import { interestInitialState, interestReducer, interestState } from './pages/interest/interestReducer';
 import { regionInitialState, regionReducer, regionState } from './pages/region/regionReducer';
 import { sportInitialState, sportReducer, sportState } from './pages/sport/sportReducer';
 import { teamInitialState, teamReducer, teamState } from './pages/team/teamReducer';
@@ -32,6 +33,7 @@ export interface combinedStateInterface {
     club: clubState;
     team: teamState;
     group: groupState;
+    interest: interestState;
     search_results: searchState;
     thunk: thunkState;
     searchBar: searchBarState;
@@ -46,6 +48,7 @@ export const combinedState = {
     club: clubInitialState,
     team: teamInitialState,
     group: groupInitialState,
+    interest: interestInitialState,
     search_results: searchInitialState,
     thunk: thunkInitialState,
     searchBar: searchBarInitialState,
@@ -61,6 +64,7 @@ const store = createStore(
         club: clubReducer,
         team: teamReducer,
         group: groupReducer,
+        interest: interestReducer,
         search_results: searchReducer,
         thunk: thunkReducer,
         searchBar: searchBarReducer,
