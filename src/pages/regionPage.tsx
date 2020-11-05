@@ -16,7 +16,6 @@ import { useLocation } from 'react-router';
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
-    const location = useLocation();
 
     const Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
     const Midt: regionInterface = { id: 1, name: MIDTNORGE, cities: [] };
@@ -66,11 +65,8 @@ const RegionPage = () => {
                 <div className="col">
                     <h1>Regioner</h1>
                 </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
-                </div>
             </div>
-            <SearchBar typeOfSearch={CITY} />
+            <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
