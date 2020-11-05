@@ -24,7 +24,6 @@ const CityPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
-    const location = useLocation();
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -77,8 +76,26 @@ const CityPage = () => {
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
-                        <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
-                        <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
+                        <Button
+                            onClick={() => toggleshowClubs(true)}
+                            style={
+                                showClubs
+                                    ? { color: 'white', backgroundColor: '#007BFF' }
+                                    : { color: 'black', backgroundColor: 'white' }
+                            }
+                        >
+                            Klubber
+                        </Button>
+                        <Button
+                            onClick={() => toggleshowClubs(false)}
+                            style={
+                                !showClubs
+                                    ? { color: 'white', backgroundColor: '#007BFF' }
+                                    : { color: 'black', backgroundColor: 'white' }
+                            }
+                        >
+                            Sport
+                        </Button>
                     </div>
                 </div>
             </div>

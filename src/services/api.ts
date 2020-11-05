@@ -4,6 +4,7 @@ import { cardType, CITY, CLUB, GROUP, REGION, SEARCH, SPORT, TEAM } from '../con
 import { setCitiesActionCreator } from '../store/pages/city/cityActions';
 import { setClubsActionCreator, setClubsActionDetailCreator } from '../store/pages/club/clubActions';
 import { setGroupsActionCreator, setGroupsActionDetailCreator } from '../store/pages/group/groupActions';
+import { addInterestActionCreator } from '../store/pages/interest/interestActions';
 import { setRegionsActionCreator } from '../store/pages/region/regionActions';
 import { setSportsActionCreator, setSportsActionDetailCreator } from '../store/pages/sport/sportActions';
 import { setTeamsActionCreator, setTeamsActionDetailCreator } from '../store/pages/team/teamActions';
@@ -22,6 +23,7 @@ import {
     urlBuilderFetchDetail,
     urlBuilderGetQuestions,
     urlBuilderPostQuestions,
+    urlBuilderPostInterest,
 } from './urlBuilders';
 import { setSearchActionCreator } from '../store/pages/search/searchActions';
 import {
@@ -72,7 +74,7 @@ export const checkForErrorCodes = (result: any): boolean => {
 
 export const fetchDataThunk = (
     dataType: cardType,
-    url: string = '',
+    url = '',
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     let asyncResp;
     dispatch(fetchInProgressActionCreator());
@@ -199,5 +201,21 @@ export const handleQuestionsThunk = (
             dispatch(postSuccessActionCreator());
             dispatch(setRecommendatationsActionCreator(asyncResp.recommendation));
         }
+    }
+};
+
+export const handleInterestThunk = (
+    groupID: string,
+    sessionID: string,
+): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
+    dispatch(postInProgressActionCreator());
+    const asyncResp = await postData(urlBuilderPostInterest(), { session_id: sessionID, group: groupID });
+
+    if (asyncResp === 'Something went wrong' || asyncResp === 'Connection error') {
+        dispatch(postFailedActionCreator());
+        return;
+    } else {
+        dispatch(postSuccessActionCreator());
+        dispatch(addInterestActionCreator(groupID));
     }
 };
