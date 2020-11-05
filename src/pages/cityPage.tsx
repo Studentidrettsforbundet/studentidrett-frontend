@@ -53,7 +53,7 @@ const CityPage = () => {
     }, []);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
-        return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
+        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }}  key={entry.id} />;
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {
