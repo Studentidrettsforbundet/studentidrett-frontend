@@ -29,11 +29,12 @@ const SearchResults = () => {
         if (
             !reduxState.thunk.fetch_in_progress &&
             reduxState.thunk.fetch_failed_count < 3 &&
-            !reduxState.thunk.fetch_success
+            !reduxState.thunk.fetch_success &&
+            location
         ) {
             dispatch(fetchDataThunk(SEARCH, urlBuilderSimpleSearch(location)));
         }
-    }, [reduxState.thunk.fetch_success]);
+    }, [reduxState.thunk.fetch_success, location]);
 
     useEffect(() => {
         dispatch(resetFetchStatusesActionCreator());
@@ -61,10 +62,13 @@ const SearchResults = () => {
                             <FetchError />
                         </div>
                     ) : (
-                        
                         <div>
-                            <h1>Søkeresultater</h1>
-                            {results}
+                            {location && (
+                                <div>
+                                    <h1>Søkeresultater</h1>
+                                    {results}
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>

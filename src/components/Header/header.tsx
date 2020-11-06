@@ -23,10 +23,16 @@ const Header = () => {
                     </section>
                 </Link>
             </section>
-            {!isLandingOrQuestionnaire && (
+            {!isLandingOrQuestionnaire ? (
                 <div className="search_icon-container">
                     <SearchIcon />
                 </div>
+            ) : (
+                <Link to={'/search'}>
+                    <div className="search_icon-container">
+                        <SearchIcon />
+                    </div>
+                </Link>
             )}
         </div>
     );
