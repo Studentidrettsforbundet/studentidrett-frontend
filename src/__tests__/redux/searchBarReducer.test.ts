@@ -13,6 +13,7 @@ describe('Region reducer', () => {
         expect(
             searchBarReducer(initialState, {
                 type: TOGGLE_SEARCHBAR,
+                payload: true,
             }),
         ).toEqual({ showSearchBar: true });
     });
@@ -22,6 +23,7 @@ describe('Region reducer', () => {
         expect(
             searchBarReducer(initialState, {
                 type: TOGGLE_SEARCHBAR,
+                payload: !initialState.showSearchBar,
             }),
         ).toEqual({ showSearchBar: false });
     });

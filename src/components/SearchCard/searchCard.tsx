@@ -12,7 +12,7 @@ interface searchCardInterface {
 
 const translations: { [index: string]: string } = {
     [CITY]: 'By',
-    [SPORT]: 'Sport',
+    [SPORT]: 'Idrett',
     [GROUP]: 'Gruppe',
     [TEAM]: 'Idrettslag',
     [CLUB]: 'Idrettsklubb',
@@ -24,7 +24,6 @@ const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface):
         <div>
             <Link
                 to={`/${label}/${id}`}
-                key={'label' + id}
                 className={'unstyled_link'}
                 onClick={() => dispatch(resetFetchStatusesActionCreator())}
             >

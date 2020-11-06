@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
-import { card, cardBody, cardTitle } from '../../styles/card';
+import { cardBody, cardTitle } from '../../styles/card';
+import { sportCard } from './styles';
 
 const SportCard = ({ id, name }: sportInterface): JSX.Element => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const SportCard = ({ id, name }: sportInterface): JSX.Element => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={card} key={id}>
+            <div className={sportCard} key={id}>
                 <div className={cardBody}>
                     <h5 className={cardTitle}>{name}</h5>
                 </div>

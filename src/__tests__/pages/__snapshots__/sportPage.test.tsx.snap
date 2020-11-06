@@ -4,6 +4,7 @@ exports[`sportPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="row"
   >
@@ -15,33 +16,17 @@ exports[`sportPage renders correctly 1`] = `
       </p>
     </div>
   </div>
-  <div />
   <div
-    className="card"
+    className="row"
   >
-    <div
-      className="card-body"
-    >
-      <div
-        className="card-title h5"
-      >
-        Søket gav ingen resultater
-      </div>
-      <img
-        alt="unhappy icon"
-        className="unhappy_icon"
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "sadFace.svg",
-          }
-        }
-      />
-    </div>
+    <ol
+      className="breadcrumb"
+    />
+  </div>
+  <div
+    className="f1h0bhad"
+  >
+    Ingen resultater.
   </div>
 </div>
 `;

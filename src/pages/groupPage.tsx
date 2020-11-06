@@ -9,10 +9,12 @@ import { fetchDataThunk, fetchDetailThunk, handleInterestThunk } from '../servic
 import { combinedStateInterface } from '../store/store';
 import GroupInfo from '../components/GroupInfo/groupInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
     id: string;
@@ -46,7 +48,9 @@ const GroupPage = (): JSX.Element => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, [dispatch]);
@@ -60,6 +64,8 @@ const GroupPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
+            <Breadcrumbs key='breadcrumbsGroup' state={reduxState} />
+
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

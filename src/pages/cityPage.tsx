@@ -9,10 +9,13 @@ import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
+import colors from '../styles/colors';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
 interface urlParams {
     id: string;
@@ -44,7 +47,9 @@ const CityPage = (): JSX.Element => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, [dispatch]);
@@ -72,15 +77,25 @@ const CityPage = (): JSX.Element => {
 
     return (
         <div className="container body">
+            <SearchBar />
             <div className="container">
+                <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
                 <div className="row">
                     <div className="col Tabs">
                         <Button
                             onClick={() => toggleshowClubs(true)}
                             style={
                                 showClubs
-                                    ? { color: 'white', backgroundColor: '#007BFF' }
-                                    : { color: 'black', backgroundColor: 'white' }
+                                    ? {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.primary,
+                                          borderColor: colors.primary,
+                                      }
+                                    : {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.white,
+                                          borderColor: colors.primary,
+                                      }
                             }
                         >
                             Klubber
@@ -89,15 +104,24 @@ const CityPage = (): JSX.Element => {
                             onClick={() => toggleshowClubs(false)}
                             style={
                                 !showClubs
-                                    ? { color: 'white', backgroundColor: '#007BFF' }
-                                    : { color: 'black', backgroundColor: 'white' }
+                                    ? {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.primary,
+                                          borderColor: colors.primary,
+                                      }
+                                    : {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.white,
+                                          borderColor: colors.primary,
+                                      }
                             }
                         >
-                            Sport
+                            Idretter
                         </Button>
                     </div>
                 </div>
             </div>
+
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
@@ -112,7 +136,6 @@ const CityPage = (): JSX.Element => {
                         <div>
                             {showClubs ? (
                                 <div>
-                                    <SearchBar />
                                     <h1>Klubber</h1>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
@@ -122,7 +145,7 @@ const CityPage = (): JSX.Element => {
                                 </div>
                             ) : (
                                 <div>
-                                    <SearchBar />
+                                    <h1>Idretter</h1>
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

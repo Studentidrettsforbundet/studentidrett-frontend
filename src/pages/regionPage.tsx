@@ -7,9 +7,11 @@ import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
 import SearchBar from '../components/SearchBar/searchBar';
 import { Spinner } from 'react-bootstrap';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
 const RegionPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -33,7 +35,9 @@ const RegionPage = (): JSX.Element => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, [dispatch]);
@@ -50,7 +54,7 @@ const RegionPage = (): JSX.Element => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <React.Fragment key={entry.id} />;
+        return <a key={entry.id} />;
     });
 
     const listContent = regions.map((entry) => {
@@ -60,6 +64,12 @@ const RegionPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
+            <div className="row page_header">
+                <div className="col">
+                    <h1>Regioner</h1>
+                </div>
+            </div>
+            <Breadcrumbs key="breadcrumbsRegion" state={reduxState} />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

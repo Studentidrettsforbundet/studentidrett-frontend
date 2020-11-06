@@ -4,9 +4,17 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="container"
   >
+    <div
+      className="row"
+    >
+      <ol
+        className="breadcrumb"
+      />
+    </div>
     <div
       className="row"
     >
@@ -19,8 +27,9 @@ exports[`clubPage renders correctly 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "backgroundColor": "#007BFF",
-              "color": "white",
+              "backgroundColor": "rgb(255, 171, 64)",
+              "borderColor": "rgb(255, 171, 64)",
+              "color": "rgb(38, 54, 111)",
             }
           }
           type="button"
@@ -33,13 +42,14 @@ exports[`clubPage renders correctly 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "backgroundColor": "white",
-              "color": "black",
+              "backgroundColor": "rgb(255,255,255)",
+              "borderColor": "rgb(255, 171, 64)",
+              "color": "rgb(38, 54, 111)",
             }
           }
           type="button"
         >
-          Sport
+          Idretter
         </button>
       </div>
     </div>
@@ -47,36 +57,13 @@ exports[`clubPage renders correctly 1`] = `
   <div>
     <div>
       <div>
-        <div />
         <h1>
           Klubber
         </h1>
         <div
-          className="card"
+          className="f1h0bhad"
         >
-          <div
-            className="card-body"
-          >
-            <div
-              className="card-title h5"
-            >
-              Søket gav ingen resultater
-            </div>
-            <img
-              alt="unhappy icon"
-              className="unhappy_icon"
-              src={
-                Object {
-                  "ReactComponent": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
-                  "__esModule": true,
-                  "default": "sadFace.svg",
-                }
-              }
-            />
-          </div>
+          Ingen resultater.
         </div>
       </div>
     </div>
