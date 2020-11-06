@@ -17,6 +17,7 @@ import SearchCard from '../components/SearchCard/searchCard';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 
 const SearchResults = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -66,7 +67,7 @@ const SearchResults = () => {
                             {location && (
                                 <div>
                                     <h1>Søkeresultater</h1>
-                                    {results}
+                                    {Object.keys(results).length != 0 ? {results} : <EmptyResult/>}
                                 </div>
                             )}
                         </div>
