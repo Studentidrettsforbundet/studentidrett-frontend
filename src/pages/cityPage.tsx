@@ -10,7 +10,7 @@ import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import colors from '../styles/colors'

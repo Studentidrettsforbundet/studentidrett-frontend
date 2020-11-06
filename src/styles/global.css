@@ -61,7 +61,11 @@ body,
 .body {
     background-color: rgb(236, 239, 246);
     color: rgb(49, 56, 121, 1);
+<<<<<<< HEAD
     margin: 0 auto;
+=======
+    margin: auto 0;
+>>>>>>> 54c3b8bf292a00605beed533874ecdbbe158cf00
     font-family: 'ArchivoRegular', sans-serif;
     font-size: 16px;
 }

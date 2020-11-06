@@ -9,7 +9,7 @@ import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import ClubCard from '../components/ClubCard/clubCard';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
