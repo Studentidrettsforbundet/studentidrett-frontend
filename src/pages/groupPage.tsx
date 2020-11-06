@@ -13,6 +13,7 @@ import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 interface urlParams {
     id: string;
@@ -46,7 +47,9 @@ const GroupPage = (): JSX.Element => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);

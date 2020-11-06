@@ -3,9 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import './header.css';
 import SearchIcon from '../SearchBar/searchIcon';
 import '../SearchBar/styles.css';
+import { useSelector } from 'react-redux';
+import { combinedStateInterface } from '../../store/store';
 
 const Header = () => {
     const location = useLocation();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
     const pathnameRegex = /\bquestionnaire\b|\bresult\b|\bsearch\b/;
     const isLandingOrQuestionnaire = location.pathname.match(pathnameRegex) || location.pathname == '/';
 
@@ -25,12 +28,12 @@ const Header = () => {
             </section>
             {!isLandingOrQuestionnaire ? (
                 <div className="search_icon-container">
-                    <SearchIcon />
+                    <SearchIcon {...reduxState.searchBar.showSearchBar} />
                 </div>
             ) : (
                 <Link to={'/search'}>
                     <div className="search_icon-container">
-                        <SearchIcon />
+                        <SearchIcon {...false} />
                     </div>
                 </Link>
             )}

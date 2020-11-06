@@ -7,13 +7,13 @@ import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 interface urlParams {
     id: string;
@@ -45,7 +45,9 @@ const CityPage = () => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);
@@ -73,6 +75,7 @@ const CityPage = () => {
 
     return (
         <div className="container body">
+            <SearchBar />
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
@@ -94,7 +97,7 @@ const CityPage = () => {
                                     : { color: 'black', backgroundColor: 'white' }
                             }
                         >
-                            Sport
+                            Idretter
                         </Button>
                     </div>
                 </div>
@@ -113,7 +116,6 @@ const CityPage = () => {
                         <div>
                             {showClubs ? (
                                 <div>
-                                    <SearchBar />
                                     <h1>Klubber</h1>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
@@ -123,7 +125,6 @@ const CityPage = () => {
                                 </div>
                             ) : (
                                 <div>
-                                    <SearchBar />
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
