@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Button, Spinner, Container, Row, Col } from 'react-bootstrap';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
-import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
-import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
-import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { cardList } from '../styles/card';
+import { CLUB, SPORT } from '../constants';
 
 interface urlParams {
     id: string;
@@ -72,10 +71,9 @@ const CityPage = () => {
     });
 
     return (
-        <div className="container body">
-            <div className="container">
-                <div className="row">
-                    <div className="col Tabs">
+        <Container className="body">
+                <Row>
+                    <Col className="Tabs">
                         <Button
                             onClick={() => toggleshowClubs(true)}
                             style={
@@ -96,45 +94,44 @@ const CityPage = () => {
                         >
                             Sport
                         </Button>
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
             {reduxState.thunk.fetch_in_progress ? (
-                <div className="center_container">
+                <Container className="center_container">
                     <Spinner animation="border" />
-                </div>
+                </Container>
             ) : (
-                <div>
+                <React.Fragment>
                     {reduxState.thunk.fetch_failed ? (
-                        <div>
+                        <React.Fragment>
                             <FetchError />
-                        </div>
+                        </React.Fragment>
                     ) : (
-                        <div>
+                        <React.Fragment>
                             {showClubs ? (
-                                <div>
+                                <React.Fragment>
                                     <SearchBar />
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
                                         <div className={cardList}>{listClubContent}</div>
                                     )}
-                                </div>
+                                </React.Fragment>
                             ) : (
-                                <div>
+                                <React.Fragment>
                                     <SearchBar />
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
                                         <div className={cardList}>{listSportContent}</div>
                                     )}
-                                </div>
+                                </React.Fragment>
                             )}
-                        </div>
+                        </React.Fragment>
                     )}
-                </div>
+                </React.Fragment>
             )}
-        </div>
+        </Container>
     );
 };
 
