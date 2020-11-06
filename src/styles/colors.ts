@@ -16,4 +16,6 @@ export default {
     shadowColor: 'rgba(0,0,0,0.05)',
     primary: 'rgb(255, 171, 64)',
     secondary: 'rgb(38, 54, 111)',
+
+    pageBackgroundColor: 'rgb(236, 239, 246)',
 };

@@ -76,6 +76,7 @@ const CityPage = () => {
     return (
         <div className="container body">
             <div className="container">
+                <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
                 <div className="row">
                     <div className="col Tabs">
                         <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
@@ -98,7 +99,7 @@ const CityPage = () => {
                         </div>
                     ) : (
                                 <div>
-                                    <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
+                                   
                             {showClubs ? (
                                 <div>
                                     <SearchBar />

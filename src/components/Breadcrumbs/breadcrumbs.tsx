@@ -2,7 +2,8 @@ import React from 'react';
 import { Breadcrumb } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { combinedStateInterface } from '../../store/store';
-
+import BackButton from '../BackButton/backButton' 
+import './style.css'
 
 interface breadcrumbProps {
     state: combinedStateInterface;
@@ -34,7 +35,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
         }
 
         if (params.length > 1) {
-            switch (params[1]) {
+            switch (params[1].toLowerCase()) {
 
                 case 'regions':
                     return (<>
@@ -119,7 +120,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
                             : <></>
                         }
                         {typeof props.state.team !== 'undefined' ?
-                            <li className='breadcrumb-item active' > {props.state.team.team?.name}
+                            <li className='breadcrumb-item active'> {props.state.team.team?.name}
                             </li>
                             : <></>}
 
@@ -130,11 +131,15 @@ const Breadcrumbs = (props: breadcrumbProps) => {
 
     const breadcrumbs = generateCrumbs()
 
-    return (
-        <Breadcrumb key='breadcrumbs'>
+    return (<div className='row'>
+        <ol className='breadcrumb' key='breadcrumbs'>
+            
             {breadcrumbs}
-        </Breadcrumb>
-    );
+            <BackButton />
+            
+        </ol>
+        
+    </div>);
 };
 
 export default Breadcrumbs;
