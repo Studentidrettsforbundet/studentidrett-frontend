@@ -19,6 +19,7 @@
     height: 60%;
     margin-bottom: 0.5rem;
     margin-left: auto;
+    cursor: pointer;
 }
 
 .button{

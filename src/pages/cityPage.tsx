@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
@@ -12,16 +12,16 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
-import colors from '../styles/colors'
+import colors from '../styles/colors';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
-import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
 interface urlParams {
     id: string;
 }
 
-const CityPage = () => {
+const CityPage = (): JSX.Element => {
     const [showClubs, setshowClubs] = useState(true);
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
@@ -52,10 +52,10 @@ const CityPage = () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
-        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }}  key={entry.id} />;
+        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }} key={entry.id} />;
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {
@@ -77,7 +77,6 @@ const CityPage = () => {
 
     return (
         <div className="container body">
-
             <SearchBar />
             <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
             <div className="container">
@@ -87,8 +86,16 @@ const CityPage = () => {
                             onClick={() => toggleshowClubs(true)}
                             style={
                                 showClubs
-                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
-                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
+                                    ? {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.primary,
+                                          borderColor: colors.primary,
+                                      }
+                                    : {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.white,
+                                          borderColor: colors.primary,
+                                      }
                             }
                         >
                             Klubber
@@ -97,17 +104,23 @@ const CityPage = () => {
                             onClick={() => toggleshowClubs(false)}
                             style={
                                 !showClubs
-                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
-                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
-                                }
+                                    ? {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.primary,
+                                          borderColor: colors.primary,
+                                      }
+                                    : {
+                                          color: colors.secondary,
+                                          backgroundColor: colors.white,
+                                          borderColor: colors.primary,
+                                      }
+                            }
                         >
                             Idretter
                         </Button>
                     </div>
                 </div>
             </div>
-
-            
 
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
@@ -120,8 +133,7 @@ const CityPage = () => {
                             <FetchError />
                         </div>
                     ) : (
-                                <div>
-                                   
+                        <div>
                             {showClubs ? (
                                 <div>
                                     <h1>Klubber</h1>

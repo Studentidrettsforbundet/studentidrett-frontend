@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import { questionnaire, button } from '../styles/questionnaire';
 
-const QuestionnairePage = () => {
+const QuestionnairePage = (): JSX.Element => {
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
@@ -82,6 +82,7 @@ const QuestionnairePage = () => {
                         if (!values[`${'name_' + id}`]) {
                             errors[`${'name_' + id}`] = 'Ikke besvart';
                         }
+                        return <></>;
                     });
 
                     return errors;

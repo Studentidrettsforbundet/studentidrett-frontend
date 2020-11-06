@@ -4,7 +4,6 @@ import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/c
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { classes } from 'typestyle';
 
 import { InfoList } from '../TeamInfo/infoList';
 import { teamInterface } from '../../interfaces';

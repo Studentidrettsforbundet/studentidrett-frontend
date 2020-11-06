@@ -7,7 +7,6 @@ import { GROUP, SPORT } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import ClubCard from '../components/ClubCard/clubCard';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
@@ -21,7 +20,7 @@ interface urlParams {
     id: string;
 }
 
-const SportPage = () => {
+const SportPage = (): JSX.Element => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -43,7 +42,7 @@ const SportPage = () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.group.groups.map((entry) => {
         return <GroupCard {...entry} key={entry.id} />;

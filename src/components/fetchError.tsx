@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
 
-const FetchError = () => {
+const FetchError = (): JSX.Element => {
     return (
         <Alert variant="danger" className="error_alert">
             <Alert.Heading>Noe har gått galt!</Alert.Heading>

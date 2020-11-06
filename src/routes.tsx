@@ -1,6 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import RegionPage from './pages/regionPage';
 import CityPage from './pages/cityPage';
 import SportPage from './pages/sportPage';
@@ -12,7 +11,7 @@ import LandingPage from './pages/landingPage';
 import SearchResults from './pages/searchResults';
 import TeamPage from './pages/teamPage';
 
-const Routes = () => (
+const Routes = (): JSX.Element => (
     <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/questionnaire" component={QuestionnairePage} />

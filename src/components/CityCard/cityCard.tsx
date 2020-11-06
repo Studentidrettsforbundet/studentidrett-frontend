@@ -6,7 +6,7 @@ import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions
 import { secondaryCard } from '../../styles/card';
 import {toggleSearchBarActionCreator} from "../../store/searchBar/searchBarActions";
 
-const CityCard = ({ id, name, region, clubs }: cityInterface) => {
+const CityCard = ({ id, name, region, clubs }: cityInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <Link

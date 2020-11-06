@@ -1,6 +1,6 @@
 import React from 'react';
 import image from '../../assets/placeholder.png';
-import {coverImage, } from './styles'
+import { coverImage } from './styles';
 
 //TODO: make some of these not-required
 interface IClubInfo {
@@ -9,14 +9,14 @@ interface IClubInfo {
     description: string;
 }
 
-const GroupInfo = (props: IClubInfo) => {
+const GroupInfo = (props: IClubInfo): JSX.Element => {
     return (
         <React.Fragment>
             <h1>{props.title}</h1>
-            <img className={coverImage} alt={props.title} src={image}/>
-            <br/>
+            <img className={coverImage} alt={props.title} src={image} />
+            <br />
             <div>
-                <p>{props.description}</p> 
+                <p>{props.description}</p>
             </div>
         </React.Fragment>
     );

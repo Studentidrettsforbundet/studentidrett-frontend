@@ -5,7 +5,6 @@ import RegionCard from '../components/RegionCard/regionCard';
 import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import SearchBar from '../components/SearchBar/searchBar';
 import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
@@ -14,7 +13,7 @@ import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
-const RegionPage = () => {
+const RegionPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
 
@@ -41,7 +40,7 @@ const RegionPage = () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const sortCities = reduxState.city.cities.map((entry) => {
         if (entry.region === 'nord') {
@@ -55,7 +54,7 @@ const RegionPage = () => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <a key={entry.id} />;
+        return <React.Fragment key={entry.id}></React.Fragment>;
     });
 
     const listContent = regions.map((entry) => {
