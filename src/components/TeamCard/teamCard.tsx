@@ -4,10 +4,11 @@ import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/c
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {classes} from 'typestyle';
+import { classes } from 'typestyle';
 
 import { InfoList } from '../TeamInfo/infoList';
 import { teamInterface } from '../../interfaces';
+import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
 
 const TeamCard = ({ id, name, short_description, gender, availability, skill_level }: teamInterface): JSX.Element => {
     const dispatch = useDispatch();
@@ -17,7 +18,10 @@ const TeamCard = ({ id, name, short_description, gender, availability, skill_lev
             to={`/teams/${id}`}
             key={id}
             className={'unstyled_link'}
-            onClick={() => dispatch(resetFetchStatusesActionCreator())}
+            onClick={() => {
+                dispatch(toggleSearchBarActionCreator(false));
+                dispatch(resetFetchStatusesActionCreator());
+            }}
         >
             <div className={card} key={id}>
                 <div className={imgContainer}>

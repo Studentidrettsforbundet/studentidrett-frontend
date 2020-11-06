@@ -4,34 +4,50 @@ import { useHistory } from 'react-router-dom';
 import { combinedStateInterface } from '../../store/store';
 import BackButton from '../BackButton/backButton';
 import './style.css';
+import { useDispatch } from 'react-redux';
+import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
+import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 
 interface breadcrumbProps {
     state: combinedStateInterface;
 }
 
 const Breadcrumbs = (props: breadcrumbProps) => {
-    var history = useHistory();
+    const history = useHistory();
+    const dispatch = useDispatch();
     const params = history.location.pathname.split('/');
 
     const generateCrumbs = () => {
         const homeButtonClick = () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
             history.push('/');
         };
         const regionsButtonClick = () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
             history.push('/regions');
         };
         const cityButtonClick = () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
             history.push(
                 `/cities/${props.state.city.cities.find(({ id: n }) => n === props.state.club.clubs[0].city)?.id}`,
             );
         };
         const sportButtonClick = () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
             history.push(`/sports/${props.state.sport.sport?.id}`);
         };
         const clubButtonClick = () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
             history.push(`/clubs/${props.state.club.club?.id}`);
         };
         const groupButtonClick = () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
             history.push(`/groups/${props.state.group.group?.id}`);
         };
 

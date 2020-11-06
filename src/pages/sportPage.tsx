@@ -3,7 +3,7 @@ import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
-import { CLUB, SPORT } from '../constants';
+import { GROUP, SPORT } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { urlBuilderFilterData } from '../services/urlBuilders';
@@ -13,6 +13,7 @@ import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import GroupCard from '../components/GroupCard/groupCard';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
@@ -31,7 +32,7 @@ const SportPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(CLUB, urlBuilderFilterData(CLUB, [{ cardType: 'sport', id_or_name: sport.id }])));
+            dispatch(fetchDataThunk(GROUP, urlBuilderFilterData(GROUP, [{ cardType: 'sport', id_or_name: sport.id }])));
             dispatch(fetchDetailThunk(SPORT, sport.id));
         }
     });
@@ -44,28 +45,16 @@ const SportPage = () => {
         };
     }, []);
 
-    const listContent = reduxState.club.clubs.map((entry) => {
-        return (
-            <ClubCard
-                {...{
-                    id: entry.id,
-                    city: entry.city,
-                    name: entry.name,
-                    description: entry.description,
-                    contact_email: entry.contact_email,
-                    membership_fee: entry.membership_fee,
-                    register_info: entry.register_info,
-                }}
-                key={entry.id}
-            />
-        );
+    const listContent = reduxState.group.groups.map((entry) => {
+        return <GroupCard {...entry} key={entry.id} />;
     });
 
     const sportInfo = reduxState.sport.sport;
 
     return (
         <div className="container body">
-            <SearchBar/>
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsSport" state={reduxState} />
             <div className="row">
                 <div className="col">
                     {sportInfo && (
@@ -76,7 +65,6 @@ const SportPage = () => {
                     <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
-            <Breadcrumbs key='breadcrumbsSport' state={reduxState}/>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

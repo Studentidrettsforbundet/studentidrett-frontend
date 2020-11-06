@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
@@ -18,6 +18,7 @@ import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 import EmptyResult from '../components/EmptyResult/emptyResult';
+import SearchBackButton from '../components/SearchBar/searchBackButton';
 
 const SearchResults = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -25,6 +26,11 @@ const SearchResults = () => {
     const location = useLocation().search.split('=')[1];
     const instanceList = [instanceOfSport, instanceOfCity, instanceOfGroup, instanceOfClub, instanceOfTeam];
     const labelList = [SPORT, CITY, GROUP, CLUB, TEAM];
+    const [noOfSearches, addNoOfSearches] = useState(0);
+
+    const incrementSearch = () => {
+        addNoOfSearches(noOfSearches + 1);
+    };
 
     useEffect(() => {
         if (
@@ -38,6 +44,7 @@ const SearchResults = () => {
     }, [reduxState.thunk.fetch_success, location]);
 
     useEffect(() => {
+        incrementSearch();
         dispatch(resetFetchStatusesActionCreator());
     }, [location]);
 
@@ -51,7 +58,7 @@ const SearchResults = () => {
 
     return (
         <div className="container body">
-
+            <SearchBackButton {...{ noOfSearches }} />
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

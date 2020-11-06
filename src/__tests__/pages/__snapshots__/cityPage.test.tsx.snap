@@ -6,15 +6,15 @@ exports[`clubPage renders correctly 1`] = `
 >
   <div />
   <div
+    className="row"
+  >
+    <ol
+      className="breadcrumb"
+    />
+  </div>
+  <div
     className="container"
   >
-    <div
-      className="row"
-    >
-      <ol
-        className="breadcrumb"
-      />
-    </div>
     <div
       className="row"
     >

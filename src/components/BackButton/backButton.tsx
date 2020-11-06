@@ -8,7 +8,7 @@ const BackButton = () => {
     const buttonClick = () => {
         history.go(-1);
     }
-    return (<Button className='button' onClick={buttonClick}> Tilbake </Button>)
+    return (<Button className='button' onClick={buttonClick}> &larr; Tilbake </Button>)
 
 }
 
