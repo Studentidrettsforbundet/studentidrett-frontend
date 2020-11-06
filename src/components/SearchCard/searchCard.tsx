@@ -22,7 +22,7 @@ const translations: { [index: string]: string } = {
 const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface) => {
     const dispatch = useDispatch();
     return (
-        <div>
+        <React.Fragment>
             <Link
                 to={`/${label}/${id}`}
                 className={'unstyled_link'}
@@ -33,7 +33,7 @@ const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface) 
                     <span>{translations[label]}</span>
                 </div>
             </Link>
-        </div>
+        </React.Fragment>
     );
 };
 

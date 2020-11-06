@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
+import { Spinner, Container } from 'react-bootstrap';
 import GroupCard from '../components/GroupCard/groupCard';
-import { CLUB, GROUP } from '../constants';
 import SearchBar from '../components/SearchBar/searchBar';
+<<<<<<< HEAD
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -11,10 +12,21 @@ import ClubInfo from '../components/ClubInfo/clubInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { Col, Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
+=======
+import EmptyResult from '../components/emptyResult';
+>>>>>>> Refactor div elements and react-bootstrap elements
 import FetchError from '../components/fetchError';
-import { cardList } from '../styles/card';
+import ClubInfo from '../components/ClubInfo/clubInfo';
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+<<<<<<< HEAD
 import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+=======
+import { combinedStateInterface } from '../store/store';
+import { cardList } from '../styles/card';
+import { CLUB, GROUP } from '../constants';
+>>>>>>> Refactor div elements and react-bootstrap elements
 
 interface urlParams {
     id: string;
@@ -24,7 +36,6 @@ const ClubPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
-    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -68,20 +79,20 @@ const ClubPage = (): JSX.Element => {
     const selectedClub = reduxState.club.club;
 
     return (
-        <div className="container body">
+        <Container className="body">
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
-                <div className="center_container">
+                <Container className="Spinner">
                     <Spinner animation="border" />
-                </div>
+                </Container>
             ) : (
-                <div>
+                <React.Fragment>
                     {reduxState.thunk.fetch_failed ? (
-                        <div>
+                        <React.Fragment>
                             <FetchError />
-                        </div>
+                        </React.Fragment>
                     ) : (
-                        <div>
+                        <React.Fragment>
                             {selectedClub && (
                                 <ClubInfo
                                     title={selectedClub.name}
@@ -93,11 +104,11 @@ const ClubPage = (): JSX.Element => {
                             )}
                             <h3>Våre grupper</h3>
                             {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
-                        </div>
+                        </React.Fragment>
                     )}
-                </div>
+                </React.Fragment>
             )}
-        </div>
+        </Container>
     );
 };
 export default ClubPage;

@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Spinner, Container} from 'react-bootstrap';
 import { combinedStateInterface } from '../store/store';
 import RegionCard from '../components/RegionCard/regionCard';
 import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import SearchBar from '../components/SearchBar/searchBar';
-import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -37,7 +37,7 @@ const RegionPage = () => {
     useEffect(() => {
         // cleanup
         return () => {
-            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(toggleSearchBarActionCreator());
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);
@@ -54,7 +54,7 @@ const RegionPage = () => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <a />;
+        return;
     });
 
     const listContent = regions.map((entry) => {
@@ -62,36 +62,34 @@ const RegionPage = () => {
     });
 
     return (
-        <div className="container body">
+        <Container className="body">
             <SearchBar />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
-                <div className="center_container">
+                <Container className="center">
                     <Spinner animation="border" />
-                </div>
+                </Container>
             ) : (
-                <>
-                    {reduxState.thunk.fetch_failed ? (
-                        <>
-                            <FetchError />
-                        </>
+                <React.Fragment>
+                {reduxState.thunk.fetch_failed ? (
+                    <React.Fragment>
+                        <FetchError />
+                    </React.Fragment>
+                ) : (
+                    <React.Fragment>
+                    {reduxState.city.cities.length === 0 ? (
+                        <EmptyResult />
                     ) : (
-                        <>
-                            {reduxState.city.cities.length === 0 ? (
-                                <>
-                                    <EmptyResult />
-                                </>
-                            ) : (
-                                <>
-                                    {listContent}
-                                    {sortCities}
-                                </>
-                            )}
-                        </>
+                        <React.Fragment>
+                            {sortCities}
+                            {listContent}
+                        </React.Fragment>
                     )}
-                </>
+                    </React.Fragment>
+                )}
+                </React.Fragment>
             )}
-        </div>
+        </Container>
     );
 };
 
