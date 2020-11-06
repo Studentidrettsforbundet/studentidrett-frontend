@@ -8,7 +8,7 @@ import { regionInterface } from '../interfaces';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import SearchBar from '../components/SearchBar/searchBar';
 import { Spinner } from 'react-bootstrap';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { useLocation } from 'react-router';

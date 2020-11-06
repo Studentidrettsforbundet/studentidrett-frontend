@@ -8,6 +8,11 @@ Array [
       <h1>
         Søkeresultater
       </h1>
+      <div
+        className="f1h0bhad"
+      >
+        Ingen resultater.
+      </div>
     </div>
   </div>,
 ]
