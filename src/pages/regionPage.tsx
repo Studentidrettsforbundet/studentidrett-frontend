@@ -11,6 +11,8 @@ import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { useLocation } from 'react-router';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 const RegionPage = () => {
@@ -54,7 +56,7 @@ const RegionPage = () => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <a />;
+        return <a key={entry.id} />;
     });
 
     const listContent = regions.map((entry) => {
@@ -64,6 +66,12 @@ const RegionPage = () => {
     return (
         <div className="container body">
             <SearchBar />
+            <div className="row page_header">
+                <div className="col">
+                    <h1>Regioner</h1>
+                </div>
+            </div>
+            <Breadcrumbs key='breadcrumbsRegion' state={reduxState} />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

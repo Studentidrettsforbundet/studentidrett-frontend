@@ -22,11 +22,11 @@ const RegionCard = ({ id, name, cities }: regionInterface) => {
                     cities.map((entry) => {
                         return (
                             <CityCard
-                                id={entry.id} 
+                                id={entry.id}
                                 name={entry.name}
                                 region={entry.region}
                                 clubs={entry.clubs}
-                            />
+                                key={entry.id} />
                         );
                     })
                 ) : (<div></div>
