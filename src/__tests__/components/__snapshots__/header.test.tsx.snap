@@ -34,8 +34,10 @@ exports[`header snapshot tests should render correctly 1`] = `
       </section>
     </a>
   </section>
-  <div
+  <a
     className="search_icon-container"
+    href="/search"
+    onClick={[Function]}
   >
     <img
       alt="Search icon"
@@ -52,6 +54,6 @@ exports[`header snapshot tests should render correctly 1`] = `
         }
       }
     />
-  </div>
+  </a>
 </div>
 `;

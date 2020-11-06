@@ -8,12 +8,16 @@ exports[`regionCard renders correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="f1swbpbj"
+      className="fusb3am"
     >
-      <h5>
+      <h5
+        className="boldText"
+      >
         Test
       </h5>
-      By
+      <span>
+        By
+      </span>
     </div>
   </a>
 </div>

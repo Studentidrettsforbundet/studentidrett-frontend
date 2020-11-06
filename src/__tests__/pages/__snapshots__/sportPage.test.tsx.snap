@@ -24,31 +24,9 @@ exports[`sportPage renders correctly 1`] = `
   </nav>
   <div />
   <div
-    className="card"
+    className="f1h0bhad"
   >
-    <div
-      className="card-body"
-    >
-      <div
-        className="card-title h5"
-      >
-        Søket gav ingen resultater
-      </div>
-      <img
-        alt="unhappy icon"
-        className="unhappy_icon"
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "sadFace.svg",
-          }
-        }
-      />
-    </div>
+    Ingen resultater.
   </div>
 </div>
 `;

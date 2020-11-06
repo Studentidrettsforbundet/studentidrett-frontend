@@ -7,14 +7,15 @@ import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
+import colors from '../styles/colors'
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 interface urlParams {
     id: string;
@@ -25,7 +26,6 @@ const CityPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
-    const location = useLocation();
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -47,7 +47,9 @@ const CityPage = () => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);
@@ -75,12 +77,32 @@ const CityPage = () => {
 
     return (
         <div className="container body">
+
+            <SearchBar />
             <div className="container">
                 <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
                 <div className="row">
                     <div className="col Tabs">
-                        <Button onClick={() => toggleshowClubs(true)}>Klubber</Button>
-                        <Button onClick={() => toggleshowClubs(false)}>Sport</Button>
+                        <Button
+                            onClick={() => toggleshowClubs(true)}
+                            style={
+                                showClubs
+                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
+                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
+                            }
+                        >
+                            Klubber
+                        </Button>
+                        <Button
+                            onClick={() => toggleshowClubs(false)}
+                            style={
+                                !showClubs
+                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
+                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
+                                }
+                        >
+                            Idretter
+                        </Button>
                     </div>
                 </div>
             </div>
@@ -102,7 +124,7 @@ const CityPage = () => {
                                    
                             {showClubs ? (
                                 <div>
-                                    <SearchBar />
+                                    <h1>Klubber</h1>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -111,7 +133,7 @@ const CityPage = () => {
                                 </div>
                             ) : (
                                 <div>
-                                    <SearchBar />
+                                    <h1>Idretter</h1>
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

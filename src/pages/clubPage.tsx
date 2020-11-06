@@ -10,10 +10,11 @@ import { combinedStateInterface } from '../store/store';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { Col, Spinner } from 'react-bootstrap';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
@@ -40,7 +41,9 @@ const ClubPage = (): JSX.Element => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);

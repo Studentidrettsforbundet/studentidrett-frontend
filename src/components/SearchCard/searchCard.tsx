@@ -5,6 +5,7 @@ import { searchInterface } from '../../interfaces';
 import { Link } from 'react-router-dom';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { useDispatch } from 'react-redux';
+import {searchCard} from './styles';
 
 interface searchCardInterface {
     label: string;
@@ -12,7 +13,7 @@ interface searchCardInterface {
 
 const translations: { [index: string]: string } = {
     [CITY]: 'By',
-    [SPORT]: 'Sport',
+    [SPORT]: 'Idrett',
     [GROUP]: 'Gruppe',
     [TEAM]: 'Idrettslag',
     [CLUB]: 'Idrettsklubb',
@@ -24,13 +25,12 @@ const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface) 
         <div>
             <Link
                 to={`/${label}/${id}`}
-                key={'label' + id}
                 className={'unstyled_link'}
                 onClick={() => dispatch(resetFetchStatusesActionCreator())}
             >
-                <div className={card}>
-                    <h5>{name}</h5>
-                    {translations[label]}
+                <div className={searchCard}>
+                    <h5 className="boldText">{name}</h5>
+                    <span>{translations[label]}</span>
                 </div>
             </Link>
         </div>

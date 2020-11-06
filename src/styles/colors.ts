@@ -2,6 +2,7 @@ export default {
     backgroundLight: 'rgb(229,229,229)',
     headerColor: 'rgb(171,214,223)',
     footerColor: 'rgb(63,80,82)',
+    
     red: 'rgb(255,0,0)',
     green: 'rgb(0,255,0)',
     blue: 'rgb(0,0,255)',

@@ -17,6 +17,7 @@ import SearchCard from '../components/SearchCard/searchCard';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 
 const SearchResults = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -29,11 +30,12 @@ const SearchResults = () => {
         if (
             !reduxState.thunk.fetch_in_progress &&
             reduxState.thunk.fetch_failed_count < 3 &&
-            !reduxState.thunk.fetch_success
+            !reduxState.thunk.fetch_success &&
+            location
         ) {
             dispatch(fetchDataThunk(SEARCH, urlBuilderSimpleSearch(location)));
         }
-    }, [reduxState.thunk.fetch_success]);
+    }, [reduxState.thunk.fetch_success, location]);
 
     useEffect(() => {
         dispatch(resetFetchStatusesActionCreator());
@@ -42,7 +44,7 @@ const SearchResults = () => {
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
             if (instanceList[i](entry)) {
-                return <SearchCard label={labelList[i]} {...entry} />;
+                return <SearchCard key={`${labelList[i]}:${entry.id}`} label={labelList[i]} {...entry} />;
             }
         }
     });
@@ -61,7 +63,14 @@ const SearchResults = () => {
                             <FetchError />
                         </div>
                     ) : (
-                        <div>{results}</div>
+                        <div>
+                            {location && (
+                                <div>
+                                    <h1>Søkeresultater</h1>
+                                    {results.length != 0 ? results : <EmptyResult />}
+                                </div>
+                            )}
+                        </div>
                     )}
                 </div>
             )}

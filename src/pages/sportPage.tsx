@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import ClubCard from '../components/ClubCard/clubCard';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
 
@@ -23,7 +23,6 @@ interface urlParams {
 const SportPage = () => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
-    const location = useLocation();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
@@ -38,7 +37,9 @@ const SportPage = () => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);
