@@ -2,7 +2,7 @@
 
 exports[`resultPage snapshot tests should render correctly 1`] = `
 <div
-  className="fkhz08q"
+  className="fpdsyrj"
 >
   <h1>
     Idrettsvalgomat
@@ -16,7 +16,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="f1i8l76j"
+      className="f1cnbvby"
     >
       <div
         className="f1drtrr0"
@@ -35,7 +35,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="f1i8l76j"
+      className="f1cnbvby"
     >
       <div
         className="f1drtrr0"
@@ -54,7 +54,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="f1i8l76j"
+      className="f1cnbvby"
     >
       <div
         className="f1drtrr0"
@@ -69,7 +69,7 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
   </a>
   <br />
   <a
-    className="f1crc5ka btn btn-warning"
+    className="fblskg2 btn btn-warning"
     href="/questionnaire"
     onClick={[Function]}
     onKeyDown={[Function]}

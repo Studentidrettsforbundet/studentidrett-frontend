@@ -66,7 +66,7 @@ exports[`App renders correctly 1`] = `
       className="f1w98fo6"
     >
       <div
-        className="f1w98fo6 f1qc6xy7"
+        className="f1w98fo6 f1w83msu"
       >
         <p>
           Norges Studentidrettsforbund har et bredt idrettstilbud rundt i hele Norge gjennom våre studentidrettslag. På denne nettsiden kan du finne hva vi tilbyr i din studieby!
@@ -75,11 +75,6 @@ exports[`App renders correctly 1`] = `
           className="btn btn-default"
           href="/Regions"
           onClick={[Function]}
-          style={
-            Object {
-              "color": "rgb(38, 54, 111)",
-            }
-          }
         >
           <button
             className="btn btn-default"
@@ -90,7 +85,7 @@ exports[`App renders correctly 1`] = `
         </a>
       </div>
       <div
-        className="f1w98fo6 f1qc6xy7"
+        className="f1w98fo6 f1w83msu"
       >
         <p>
           Usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som kunne passet til deg? Vi har laget en idrettsvalgomat som foreslår idretter vi tenker du kunne likt!
@@ -98,11 +93,6 @@ exports[`App renders correctly 1`] = `
         <a
           href="/questionnaire"
           onClick={[Function]}
-          style={
-            Object {
-              "color": "rgb(38, 54, 111)",
-            }
-          }
         >
           <button
             className="btn btn-default"

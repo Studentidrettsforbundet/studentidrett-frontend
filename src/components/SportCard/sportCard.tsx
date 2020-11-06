@@ -5,6 +5,7 @@ import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
 import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
+import {sportCard} from './styles'
 
 const SportCard = ({ id, name }: sportInterface): JSX.Element => {
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const SportCard = ({ id, name }: sportInterface): JSX.Element => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <div className={card} key={id}>
+            <div className={sportCard} key={id}>
                 <div className={cardBody}>
                     <h5 className={cardTitle}>{name}</h5>
                 </div>
