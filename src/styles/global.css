@@ -96,9 +96,7 @@ a:link,
 a:visited {
     color: rgb(255, 171, 64, 1);
 }
-/* a:hover {
-    color: pink;
-} */
+
 
 .boldText {
     font-family: 'ArchivoSemiBold', sans-serif;

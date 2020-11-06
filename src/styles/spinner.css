@@ -6,5 +6,7 @@
 }
 
 .spinner-border {
+    margin-top: 50%;
     margin-bottom: 50%;
+    color: rgb(38, 54, 111);
 }

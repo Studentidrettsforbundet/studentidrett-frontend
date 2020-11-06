@@ -61,12 +61,8 @@ const RegionPage = () => {
 
     return (
         <div className="container body">
-            <div className="row page_header">
-                <div className="col">
-                    <h1>Regioner</h1>
-                </div>
-            </div>
             <SearchBar />
+            <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
