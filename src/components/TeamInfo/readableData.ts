@@ -27,10 +27,10 @@ export const getTeamSkill = (skill: string | null) => {
 
 export const getTeamAvailability = (availability: string | null) => {
     const translations: { [index: string]: string } = {
-        OP: 'Åpent',
-        CL: 'Lukket',
-        FU: 'Fullt',
-        TO: 'Opptak',
+        OP: 'Åpent for alle',
+        CL: 'Opptak ferdig',
+        FU: 'Laget er fullt',
+        TO: 'Vi har opptak',
     };
     if (availability) {
         return translations[availability];
