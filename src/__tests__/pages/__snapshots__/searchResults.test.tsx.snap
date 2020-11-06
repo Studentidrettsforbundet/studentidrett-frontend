@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`regionPage renders correctly 1`] = `
-Array [
-  <div />,
+<div
+  className="container body"
+>
+  <div />
   <div>
     <div />
-  </div>,
-]
+  </div>
+</div>
 `;
