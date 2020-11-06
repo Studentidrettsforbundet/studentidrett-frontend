@@ -13,6 +13,7 @@ import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
+import colors from '../styles/colors'
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 interface urlParams {
@@ -73,6 +74,7 @@ const CityPage = () => {
 
     return (
         <div className="container body">
+            <SearchBar/>
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
@@ -80,8 +82,8 @@ const CityPage = () => {
                             onClick={() => toggleshowClubs(true)}
                             style={
                                 showClubs
-                                    ? { color: 'white', backgroundColor: '#007BFF' }
-                                    : { color: 'black', backgroundColor: 'white' }
+                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
+                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
                             }
                         >
                             Klubber
@@ -90,11 +92,11 @@ const CityPage = () => {
                             onClick={() => toggleshowClubs(false)}
                             style={
                                 !showClubs
-                                    ? { color: 'white', backgroundColor: '#007BFF' }
-                                    : { color: 'black', backgroundColor: 'white' }
-                            }
+                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
+                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
+                                }
                         >
-                            Sport
+                            Idretter
                         </Button>
                     </div>
                 </div>
@@ -113,7 +115,6 @@ const CityPage = () => {
                         <div>
                             {showClubs ? (
                                 <div>
-                                    <SearchBar />
                                     <h1>Klubber</h1>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
@@ -123,7 +124,7 @@ const CityPage = () => {
                                 </div>
                             ) : (
                                 <div>
-                                    <SearchBar />
+                                    <h1>Idretter</h1>
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

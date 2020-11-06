@@ -4,6 +4,7 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="container"
   >
@@ -19,8 +20,9 @@ exports[`clubPage renders correctly 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "backgroundColor": "#007BFF",
-              "color": "white",
+              "backgroundColor": "rgb(255, 171, 64)",
+              "borderColor": "rgb(255, 171, 64)",
+              "color": "rgb(38, 54, 111)",
             }
           }
           type="button"
@@ -33,13 +35,14 @@ exports[`clubPage renders correctly 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "backgroundColor": "white",
-              "color": "black",
+              "backgroundColor": "rgb(255,255,255)",
+              "borderColor": "rgb(255, 171, 64)",
+              "color": "rgb(38, 54, 111)",
             }
           }
           type="button"
         >
-          Sport
+          Idretter
         </button>
       </div>
     </div>
@@ -47,7 +50,6 @@ exports[`clubPage renders correctly 1`] = `
   <div>
     <div>
       <div>
-        <div />
         <h1>
           Klubber
         </h1>
