@@ -24,6 +24,7 @@ export const LinkList = ({ facebook_link, instagram_link, webpage }: LinkListPro
                 </a>
             );
         }
+        return <React.Fragment key={i} />;
     });
 
     return renderedLinks ? <div className={list}>{renderedLinks}</div> : null;

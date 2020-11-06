@@ -14,29 +14,31 @@ const LandingPage = (): JSX.Element => {
         if (!reduxState.interest.sessionID) {
             dispatch(setSessionIDActionCreator());
         }
-    }, []);
+    }, [dispatch, reduxState.interest.sessionID]);
 
     return (
         <div className={frontPage}>
             <div className={wrapper}>
+                <h2>Utforsk muligheter</h2>
                 <p>
-                    Norges Studentidrettsforbund har et bredt idrettstilbud rundt i hele Norge gjennom våre
-                    studentidrettslag. På denne nettsiden kan du finne hva vi tilbyr i din studieby!
+                    Norges Studentidrettsforbund har et bredt spekter av idrettstilbud rundt om i hele Norge gjennom våre
+                    studentidrettslag. Her kan du finne hvilke idretter vi tilbyr i din studieby!
                 </p>
                 <Link to="/Regions"  className="btn btn-default">
                     <button type="button" className="btn btn-default">
-                        Finn idrett
+                        Utforsk
                     </button>
                 </Link>
             </div>
             <div className={wrapper}>
+                <h2>Idrettsvalgomat</h2>
                 <p>
-                    Usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som kunne
+                    Er du usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som kunne
                     passet til deg? Vi har laget en idrettsvalgomat som foreslår idretter vi tenker du kunne likt!
                 </p>
                 <Link to="/questionnaire" >
                     <button type="button" className="btn btn-default">
-                        Idrettsvalgomat
+                        Ta valgomaten
                     </button>
                 </Link>
             </div>

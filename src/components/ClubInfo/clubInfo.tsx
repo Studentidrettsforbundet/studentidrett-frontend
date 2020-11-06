@@ -9,7 +9,7 @@ interface IClubInfo {
     description: string;
 }
 
-const ClubInfo = (props: IClubInfo) => {
+const ClubInfo = (props: IClubInfo): JSX.Element => {
     return (
         <React.Fragment>
             <div>
@@ -18,13 +18,13 @@ const ClubInfo = (props: IClubInfo) => {
             <div>
                 <p>
                     <span className="boldText">Kontakt: </span>
-                    <a href="mailto: "{...props.contact_email}>{props.contact_email}</a>
-                    <br/>
+                    <a href={`mailto: ${props.contact_email}`}>{props.contact_email}</a>
+                    <br />
                     <span className="boldText">Medlemskontigent: </span>
                     {props.price}
-                    <br/>
+                    <br />
                     <span className="boldText">Meld deg inn: </span>
-                    <a href="">{props.register_info}</a>
+                    {props.register_info}
                 </p>
             </div>
             <div>

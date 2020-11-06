@@ -15,20 +15,7 @@ Array [
         Kontakt: 
       </span>
       <a
-        0="i"
-        1="n"
-        10="."
-        11="n"
-        12="o"
-        2="f"
-        3="o"
-        4="@"
-        5="n"
-        6="t"
-        7="n"
-        8="u"
-        9="i"
-        href="mailto: "
+        href="mailto: info@ntnui.no"
       >
         info@ntnui.no
       </a>
@@ -45,11 +32,7 @@ Array [
       >
         Meld deg inn: 
       </span>
-      <a
-        href=""
-      >
-        Register at ntnui.no/register
-      </a>
+      Register at ntnui.no/register
     </p>
   </div>,
   <div>

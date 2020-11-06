@@ -23,8 +23,6 @@ declare global {
     }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 //TODO: add reducers interfaces
 export interface combinedStateInterface {
     region: regionState;

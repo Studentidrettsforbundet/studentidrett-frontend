@@ -11,6 +11,7 @@ import ClubCard from '../components/ClubCard/clubCard';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
 // See: https://getbootstrap.com/docs/4.0/components/card/
@@ -19,7 +20,7 @@ interface urlParams {
     id: string;
 }
 
-const SportPage = () => {
+const SportPage = (): JSX.Element => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -41,7 +42,7 @@ const SportPage = () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.club.clubs.map((entry) => {
         return (
@@ -64,6 +65,7 @@ const SportPage = () => {
 
     return (
         <div className="container body">
+            <SearchBar />
             <div className="row">
                 <div className="col">
                     {sportInfo && (
@@ -74,7 +76,7 @@ const SportPage = () => {
                     <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
-            <SearchBar />
+            <Breadcrumbs key="breadcrumbsSport" state={reduxState} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

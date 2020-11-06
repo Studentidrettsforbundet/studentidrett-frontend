@@ -5,7 +5,7 @@ import { combinedStateInterface } from '../store/store';
 import SportCard from '../components/SportCard/sportCard';
 import { button, resultPage } from '../styles/resultPage';
 
-const ResultPage = () => {
+const ResultPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     let listItems = [<></>];
 
