@@ -48,6 +48,9 @@ exports[`clubPage renders correctly 1`] = `
     <div>
       <div>
         <div />
+        <h1>
+          Klubber
+        </h1>
         <div
           className="card"
         >

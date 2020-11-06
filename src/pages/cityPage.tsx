@@ -114,6 +114,7 @@ const CityPage = () => {
                             {showClubs ? (
                                 <div>
                                     <SearchBar />
+                                    <h1>Klubber</h1>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
