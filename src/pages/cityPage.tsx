@@ -7,7 +7,6 @@ import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/EmptyResult/emptyResult';
@@ -15,6 +14,7 @@ import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import colors from '../styles/colors'
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 interface urlParams {
     id: string;
@@ -46,7 +46,9 @@ const CityPage = () => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);
@@ -74,7 +76,8 @@ const CityPage = () => {
 
     return (
         <div className="container body">
-            <SearchBar/>
+
+            <SearchBar />
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
