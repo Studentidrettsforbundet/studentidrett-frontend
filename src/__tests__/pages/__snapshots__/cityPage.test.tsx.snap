@@ -4,6 +4,7 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="container"
   >
@@ -39,7 +40,7 @@ exports[`clubPage renders correctly 1`] = `
           }
           type="button"
         >
-          Sport
+          Idretter
         </button>
       </div>
     </div>
@@ -47,7 +48,6 @@ exports[`clubPage renders correctly 1`] = `
   <div>
     <div>
       <div>
-        <div />
         <h1>
           Klubber
         </h1>

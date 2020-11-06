@@ -34,5 +34,26 @@ exports[`header snapshot tests should render correctly 1`] = `
       </section>
     </a>
   </section>
+  <a
+    className="search_icon-container"
+    href="/search"
+    onClick={[Function]}
+  >
+    <img
+      alt="Search icon"
+      className="search_icon"
+      onClick={[Function]}
+      src={
+        Object {
+          "ReactComponent": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          },
+          "__esModule": true,
+          "default": "search.svg",
+        }
+      }
+    />
+  </a>
 </div>
 `;
