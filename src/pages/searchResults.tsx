@@ -50,7 +50,8 @@ const SearchResults = () => {
     });
 
     return (
-        <React.Fragment>
+        <div className="container body">
+
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
@@ -74,7 +75,7 @@ const SearchResults = () => {
                     )}
                 </div>
             )}
-        </React.Fragment>
+        </div>
     );
 };
 
