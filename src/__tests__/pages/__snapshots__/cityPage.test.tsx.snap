@@ -11,6 +11,13 @@ exports[`clubPage renders correctly 1`] = `
     <div
       className="row"
     >
+      <ol
+        className="breadcrumb"
+      />
+    </div>
+    <div
+      className="row"
+    >
       <div
         className="col Tabs"
       >

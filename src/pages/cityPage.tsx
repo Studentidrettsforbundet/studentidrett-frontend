@@ -14,6 +14,7 @@ import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import colors from '../styles/colors'
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 interface urlParams {
@@ -54,7 +55,7 @@ const CityPage = () => {
     }, []);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
-        return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
+        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }}  key={entry.id} />;
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {
@@ -79,6 +80,7 @@ const CityPage = () => {
 
             <SearchBar />
             <div className="container">
+                <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
                 <div className="row">
                     <div className="col Tabs">
                         <Button
@@ -104,6 +106,9 @@ const CityPage = () => {
                     </div>
                 </div>
             </div>
+
+            
+
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
@@ -115,7 +120,8 @@ const CityPage = () => {
                             <FetchError />
                         </div>
                     ) : (
-                        <div>
+                                <div>
+                                   
                             {showClubs ? (
                                 <div>
                                     <h1>Klubber</h1>
