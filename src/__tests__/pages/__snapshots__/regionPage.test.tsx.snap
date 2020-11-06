@@ -4,7 +4,7 @@ exports[`regionPage renders correctly 1`] = `
 <div
   className="container body"
 >
-<<<<<<< HEAD
+  <div />
   <div
     className="row page_header"
   >
@@ -16,16 +16,13 @@ exports[`regionPage renders correctly 1`] = `
       </h1>
     </div>
   </div>
-  <nav
-    aria-label="breadcrumb"
+  <div
+    className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </nav>
-=======
->>>>>>> dev
-  <div />
+  </div>
   <h1>
     Regioner
   </h1>

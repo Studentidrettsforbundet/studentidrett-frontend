@@ -4,14 +4,14 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
-  <nav
-    aria-label="breadcrumb"
+  <div />
+  <div
+    className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </nav>
-  <div />
+  </div>
   <div>
     <h3>
       Våre lag

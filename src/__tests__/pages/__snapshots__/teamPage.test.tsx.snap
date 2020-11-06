@@ -4,13 +4,13 @@ exports[`teamPage renders correctly 1`] = `
 <div
   className="container"
 >
-  <nav
-    aria-label="breadcrumb"
+  <div />
+  <div
+    className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </nav>
-  <div />
+  </div>
 </div>
 `;

@@ -44,9 +44,9 @@ const TeamPage = (): JSX.Element => {
 
     return (
         <div className="container">
-
-            <Breadcrumbs key='breadcrumbsTeam' state={reduxState} />
             <SearchBar />
+            <Breadcrumbs key='breadcrumbsTeam' state={reduxState} />
+
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

@@ -4,6 +4,7 @@ exports[`sportPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="row"
   >
@@ -15,14 +16,13 @@ exports[`sportPage renders correctly 1`] = `
       </p>
     </div>
   </div>
-  <nav
-    aria-label="breadcrumb"
+  <div
+    className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </nav>
-  <div />
+  </div>
   <div
     className="f1h0bhad"
   >

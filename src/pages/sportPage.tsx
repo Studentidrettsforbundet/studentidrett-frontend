@@ -65,6 +65,7 @@ const SportPage = () => {
 
     return (
         <div className="container body">
+            <SearchBar/>
             <div className="row">
                 <div className="col">
                     {sportInfo && (
@@ -76,7 +77,6 @@ const SportPage = () => {
                 </div>
             </div>
             <Breadcrumbs key='breadcrumbsSport' state={reduxState}/>
-            <SearchBar/>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

@@ -70,9 +70,8 @@ const ClubPage = (): JSX.Element => {
 
     return (
         <div className="container body">
-
-            <Breadcrumbs key='breadcrumbsClub' state={reduxState}/>
             <SearchBar />
+            <Breadcrumbs key='breadcrumbsClub' state={reduxState}/>
 
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

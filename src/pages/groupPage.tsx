@@ -63,9 +63,8 @@ const GroupPage = (): JSX.Element => {
 
     return (
         <div className="container body">
-
-            <Breadcrumbs key='breadcrumbsGroup' state={reduxState} />
             <SearchBar />
+            <Breadcrumbs key='breadcrumbsGroup' state={reduxState} />
 
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

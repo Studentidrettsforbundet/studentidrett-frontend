@@ -65,13 +65,13 @@ const RegionPage = () => {
 
     return (
         <div className="container body">
+            <SearchBar />
             <div className="row page_header">
                 <div className="col">
                     <h1>Regioner</h1>
                 </div>
             </div>
             <Breadcrumbs key='breadcrumbsRegion' state={reduxState} />
-            <SearchBar />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

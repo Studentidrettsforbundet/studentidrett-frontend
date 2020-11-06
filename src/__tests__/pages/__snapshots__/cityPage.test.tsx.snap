@@ -11,6 +11,13 @@ exports[`clubPage renders correctly 1`] = `
     <div
       className="row"
     >
+      <ol
+        className="breadcrumb"
+      />
+    </div>
+    <div
+      className="row"
+    >
       <div
         className="col Tabs"
       >
@@ -49,13 +56,6 @@ exports[`clubPage renders correctly 1`] = `
   </div>
   <div>
     <div>
-      <nav
-        aria-label="breadcrumb"
-      >
-        <ol
-          className="breadcrumb"
-        />
-      </nav>
       <div>
         <h1>
           Klubber
