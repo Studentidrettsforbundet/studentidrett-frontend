@@ -13,7 +13,7 @@ interface searchCardInterface {
 
 const translations: { [index: string]: string } = {
     [CITY]: 'By',
-    [SPORT]: 'Sport',
+    [SPORT]: 'Idrett',
     [GROUP]: 'Gruppe',
     [TEAM]: 'Idrettslag',
     [CLUB]: 'Idrettsklubb',

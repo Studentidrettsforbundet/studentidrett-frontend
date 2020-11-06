@@ -43,7 +43,7 @@ const SearchResults = () => {
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
             if (instanceList[i](entry)) {
-                return <SearchCard label={labelList[i]} {...entry} />;
+                return <SearchCard key={`${labelList[i]}:${entry.id}`} label={labelList[i]} {...entry} />;
             }
         }
     });
