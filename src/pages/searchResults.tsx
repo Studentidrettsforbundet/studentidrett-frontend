@@ -18,7 +18,7 @@ import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 
-const SearchResults = () => {
+const SearchResults = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const location = useLocation().search.split('=')[1];
@@ -33,11 +33,17 @@ const SearchResults = () => {
         ) {
             dispatch(fetchDataThunk(SEARCH, urlBuilderSimpleSearch(location)));
         }
-    }, [reduxState.thunk.fetch_success]);
+    }, [
+        dispatch,
+        location,
+        reduxState.thunk.fetch_success,
+        reduxState.thunk.fetch_failed_count,
+        reduxState.thunk.fetch_in_progress,
+    ]);
 
     useEffect(() => {
         dispatch(resetFetchStatusesActionCreator());
-    }, [location]);
+    }, [dispatch]);
 
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
@@ -45,6 +51,7 @@ const SearchResults = () => {
                 return <SearchCard label={labelList[i]} {...entry} />;
             }
         }
+        return <></>;
     });
 
     return (
@@ -61,7 +68,6 @@ const SearchResults = () => {
                             <FetchError />
                         </div>
                     ) : (
-                        
                         <div>
                             <h1>Søkeresultater</h1>
                             {results}

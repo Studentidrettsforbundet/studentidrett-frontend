@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
 import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/emptyResult';
@@ -19,7 +18,7 @@ interface urlParams {
     id: string;
 }
 
-const CityPage = () => {
+const CityPage = (): JSX.Element => {
     const [showClubs, setshowClubs] = useState(true);
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
@@ -48,10 +47,10 @@ const CityPage = () => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
-        return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
+        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }} key={entry.id} />;
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {

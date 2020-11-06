@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
-import image from '../../assets/placeholder.png';
-import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
+import { card, cardBody, cardTitle } from '../../styles/card';
 
 const SportCard = ({ id, name }: sportInterface): JSX.Element => {
     const dispatch = useDispatch();

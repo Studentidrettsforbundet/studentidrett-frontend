@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { CLUB, SPORT } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -19,10 +18,9 @@ interface urlParams {
     id: string;
 }
 
-const SportPage = () => {
+const SportPage = (): JSX.Element => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
-    const location = useLocation();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
@@ -40,7 +38,7 @@ const SportPage = () => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.club.clubs.map((entry) => {
         return (
@@ -73,7 +71,7 @@ const SportPage = () => {
                     <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
-            <SearchBar/>
+            <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

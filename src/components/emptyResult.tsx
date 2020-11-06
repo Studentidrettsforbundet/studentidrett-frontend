@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-const EmptyResult = () => {
+const EmptyResult = (): JSX.Element => {
     return (
         <Card>
             <Card.Body>

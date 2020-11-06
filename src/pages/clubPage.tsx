@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import GroupCard from '../components/GroupCard/groupCard';
 import { CLUB, GROUP } from '../constants';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import { Col, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
@@ -23,7 +22,6 @@ const ClubPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
-    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -42,7 +40,7 @@ const ClubPage = (): JSX.Element => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.group.groups.map((entry) => {
         return (

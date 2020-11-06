@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
-import SearchIcon from '../components/SearchBar/searchIcon';
 import { TEAM } from '../constants';
 import { combinedStateInterface } from '../store/store';
 import { fetchDetailThunk } from '../services/api';
@@ -19,7 +18,6 @@ const TeamPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
-    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -35,7 +33,7 @@ const TeamPage = (): JSX.Element => {
         return () => {
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const team = reduxState.team.team;
 

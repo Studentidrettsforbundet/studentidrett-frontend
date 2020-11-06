@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
 import './styles.css';
 
-const SearchIcon = () => {
+const SearchIcon = (): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <img

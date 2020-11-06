@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { cardType, CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
+import { CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
 import { Link, useLocation, withRouter } from 'react-router-dom';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import './styles.css';
 import { useSelector } from 'react-redux';
 import { combinedStateInterface } from '../../store/store';
@@ -12,14 +12,14 @@ import { RouterProps } from 'react-router';
 const filters = [CITY, CLUB, GROUP, TEAM, SPORT];
 const translations = ['By', 'Klubb', 'Gruppe', 'Lag', 'Idrett'];
 
-const SearchBar = (props: RouterProps) => {
+const SearchBar = (props: RouterProps): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const [text, updateText] = useState('');
     const [filter, updateFilter] = useState('');
-    const searchPage = useLocation().pathname == '/search/';
+    const searchPage = useLocation().pathname === '/search/';
 
     const radioClick = (event: any) => {
-        if (event == filter) {
+        if (event === filter) {
             updateFilter('');
         } else {
             updateFilter(event);
@@ -27,8 +27,8 @@ const SearchBar = (props: RouterProps) => {
     };
 
     const isEnter = (event: any) => {
-        if (event.key == 'Enter' && text != '') {
-            props.history.push(`/search/?q=${(filter != '' ? filter + '/' : '') + text}`);
+        if (event.key === 'Enter' && text !== '') {
+            props.history.push(`/search/?q=${(filter !== '' ? filter + '/' : '') + text}`);
         }
     };
 
@@ -39,7 +39,7 @@ const SearchBar = (props: RouterProps) => {
                 variant="secondary outlined"
                 className={filterButton}
                 style={
-                    filter == it
+                    filter === it
                         ? { color: 'white', backgroundColor: '#007BFF' }
                         : { color: 'black', backgroundColor: 'white' }
                 }
@@ -64,13 +64,13 @@ const SearchBar = (props: RouterProps) => {
                             onChange={(e) => updateText(e.target.value)}
                             onKeyPress={(e) => isEnter(e)}
                         />
-                        <Link to={`/search/?q=${(filter != '' ? filter + '/' : '') + text}`}>
+                        <Link to={`/search/?q=${(filter !== '' ? filter + '/' : '') + text}`}>
                             <Button
                                 variant="primary"
                                 type="submit"
-                                disabled={text == ''}
+                                disabled={text === ''}
                                 style={
-                                    text == ''
+                                    text === ''
                                         ? { color: '#808080', backgroundColor: 'white', borderColor: '#808080' }
                                         : { color: 'white', backgroundColor: '#00BC00', borderColor: '#00BC00' }
                                 }

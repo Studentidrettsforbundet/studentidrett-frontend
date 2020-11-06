@@ -4,10 +4,10 @@ import './header.css';
 import SearchIcon from '../SearchBar/searchIcon';
 import '../SearchBar/styles.css';
 
-const Header = () => {
+const Header = (): JSX.Element => {
     const location = useLocation();
     const pathnameRegex = /\bquestionnaire\b|\bresult\b|\bsearch\b/;
-    const isLandingOrQuestionnaire = location.pathname.match(pathnameRegex) || location.pathname == '/';
+    const isLandingOrQuestionnaire = location.pathname.match(pathnameRegex) || location.pathname === '/';
 
     return (
         <div className="header">

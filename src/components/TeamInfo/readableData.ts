@@ -1,9 +1,9 @@
 export const getTeamGender = (gender: string | null) => {
     const genders: { [index: string]: string } = {
-        ['M']: 'Herre',
-        ['F']: 'Dame',
-        ['MX']: 'Mix',
-        ['A']: 'Alle',
+        M: 'Herre',
+        F: 'Dame',
+        MX: 'Mix',
+        A: 'Alle',
     };
     if (gender) {
         return genders[gender];
@@ -13,11 +13,11 @@ export const getTeamGender = (gender: string | null) => {
 
 export const getTeamSkill = (skill: string | null) => {
     const skills: { [index: string]: string } = {
-        ['NONE']: 'Ingen forkunnskaper krevd',
-        ['LOW']: 'Lavt',
-        ['MED']: 'Medium',
-        ['HI']: 'Høyt',
-        ['Pro']: 'Proff',
+        NONE: 'Ingen forkunnskaper krevd',
+        LOW: 'Lavt',
+        MED: 'Medium',
+        HI: 'Høyt',
+        Pro: 'Proff',
     };
     if (skill) {
         return skills[skill];
@@ -27,10 +27,10 @@ export const getTeamSkill = (skill: string | null) => {
 
 export const getTeamAvailability = (availability: string | null) => {
     const translations: { [index: string]: string } = {
-        ['OP']: 'Åpent',
-        ['CL']: 'Lukket',
-        ['FU']: 'Fullt',
-        ['TO']: 'Opptak',
+        OP: 'Åpent',
+        CL: 'Lukket',
+        FU: 'Fullt',
+        TO: 'Opptak',
     };
     if (availability) {
         return translations[availability];
