@@ -4,29 +4,17 @@ import {  useParams } from 'react-router-dom';
 import { Spinner, Container } from 'react-bootstrap';
 import GroupCard from '../components/GroupCard/groupCard';
 import SearchBar from '../components/SearchBar/searchBar';
-<<<<<<< HEAD
-import SearchIcon from '../components/SearchBar/searchIcon';
-import { fetchDataThunk, fetchDetailThunk } from '../services/api';
-import { combinedStateInterface } from '../store/store';
-import ClubInfo from '../components/ClubInfo/clubInfo';
-import { urlBuilderFilterData } from '../services/urlBuilders';
-import { Col, Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
-=======
-import EmptyResult from '../components/emptyResult';
->>>>>>> Refactor div elements and react-bootstrap elements
 import FetchError from '../components/fetchError';
 import ClubInfo from '../components/ClubInfo/clubInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-<<<<<<< HEAD
-import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
-=======
 import { combinedStateInterface } from '../store/store';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 import { cardList } from '../styles/card';
 import { CLUB, GROUP } from '../constants';
->>>>>>> Refactor div elements and react-bootstrap elements
+
 
 interface urlParams {
     id: string;

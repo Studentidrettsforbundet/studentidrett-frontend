@@ -4,26 +4,18 @@ import { useParams } from 'react-router-dom';
 import { Button, Spinner, Container, Row, Col } from 'react-bootstrap';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
-import { fetchDataThunk } from '../services/api';
-import { combinedStateInterface } from '../store/store';
-import SearchBar from '../components/SearchBar/searchBar';
-<<<<<<< HEAD
-import { Button, Spinner } from 'react-bootstrap';
-=======
->>>>>>> Refactor div elements and react-bootstrap elements
-import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
-<<<<<<< HEAD
+import SearchBar from '../components/SearchBar/searchBar';
+import { combinedStateInterface } from '../store/store';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { toggleSearchBarActionCreator } from "../store/searchBar/searchBarActions";
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import { fetchDataThunk } from '../services/api';
 import { cardList } from '../styles/card';
 import colors from '../styles/colors'
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
-=======
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import { cardList } from '../styles/card';
 import { CLUB, SPORT } from '../constants';
->>>>>>> Refactor div elements and react-bootstrap elements
+
 
 interface urlParams {
     id: string;
@@ -84,18 +76,10 @@ const CityPage = () => {
     });
 
     return (
-<<<<<<< HEAD
-        <div className="container body">
 
-            <SearchBar />
-            <div className="container">
-                <div className="row">
-                    <div className="col Tabs">
-=======
         <Container className="body">
                 <Row>
                     <Col className="Tabs">
->>>>>>> Refactor div elements and react-bootstrap elements
                         <Button
                             onClick={() => toggleshowClubs(true)}
                             style={
@@ -131,13 +115,9 @@ const CityPage = () => {
                     ) : (
                         <React.Fragment>
                             {showClubs ? (
-<<<<<<< HEAD
-                                <div>
-                                    <h1>Klubber</h1>
-=======
                                 <React.Fragment>
+                                    <h1>Klubber</h1>
                                     <SearchBar />
->>>>>>> Refactor div elements and react-bootstrap elements
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -145,13 +125,9 @@ const CityPage = () => {
                                     )}
                                 </React.Fragment>
                             ) : (
-<<<<<<< HEAD
-                                <div>
-                                    <h1>Idretter</h1>
-=======
                                 <React.Fragment>
+                                    <h1>Idretter</h1>
                                     <SearchBar />
->>>>>>> Refactor div elements and react-bootstrap elements
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

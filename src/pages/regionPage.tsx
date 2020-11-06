@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Spinner, Container} from 'react-bootstrap';
-import { combinedStateInterface } from '../store/store';
+import { Spinner, Container, Col, Row } from 'react-bootstrap';
 import RegionCard from '../components/RegionCard/regionCard';
-import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
-import { fetchDataThunk } from '../services/api';
-import { regionInterface } from '../interfaces';
 import SearchBar from '../components/SearchBar/searchBar';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
+import { combinedStateInterface } from '../store/store';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
-
+import { toggleSearchBarActionCreator } from "../store/searchBar/searchBarActions";
+import { fetchDataThunk } from '../services/api';
+import { regionInterface } from '../interfaces';
+import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -63,6 +62,11 @@ const RegionPage = () => {
 
     return (
         <Container className="body">
+            <Row className="page_header">
+                <Col>
+                    <h1>Regioner</h1>
+                </Col>
+            </Row>
             <SearchBar />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
