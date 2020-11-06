@@ -65,11 +65,7 @@ const SearchResults = () => {
                         
                         <div>
                             <h1>Søkeresultater</h1>
-<<<<<<< HEAD
                             {Object.keys(results).length != 0 ? {results} : <EmptyResult/>}
-=======
-                            {results}
->>>>>>> ee84260bbf15768002348eec2ed9108e4f33d4fa
                         </div>
                     )}
                 </div>
