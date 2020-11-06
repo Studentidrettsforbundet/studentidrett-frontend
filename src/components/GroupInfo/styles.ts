@@ -1,10 +1,9 @@
-import { style, classes } from 'typestyle';
-import colors from '../../styles/colors';
+import { style } from 'typestyle';
 
 export const coverImage = style({
     maxWidth: '100%',
     height: 'auto',
     marginRight: 'auto',
     marginLeft: 'auto',
-    display: 'block'
-})
+    display: 'block',
+});

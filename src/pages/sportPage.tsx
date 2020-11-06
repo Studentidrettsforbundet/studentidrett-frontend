@@ -20,7 +20,7 @@ interface urlParams {
     id: string;
 }
 
-const SportPage = () => {
+const SportPage = (): JSX.Element => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -42,7 +42,7 @@ const SportPage = () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.club.clubs.map((entry) => {
         return (
@@ -65,7 +65,7 @@ const SportPage = () => {
 
     return (
         <div className="container body">
-            <SearchBar/>
+            <SearchBar />
             <div className="row">
                 <div className="col">
                     {sportInfo && (
@@ -76,7 +76,7 @@ const SportPage = () => {
                     <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
-            <Breadcrumbs key='breadcrumbsSport' state={reduxState}/>
+            <Breadcrumbs key="breadcrumbsSport" state={reduxState} />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />

@@ -1,5 +1,4 @@
-import { important } from 'csx';
-import { classes, media, style } from 'typestyle';
+import { media, style } from 'typestyle';
 import colors from './colors';
 
 export const cardList = style(

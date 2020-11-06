@@ -19,7 +19,7 @@ import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 
-const SearchResults = () => {
+const SearchResults = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const location = useLocation().search.split('=')[1];
@@ -35,11 +35,17 @@ const SearchResults = () => {
         ) {
             dispatch(fetchDataThunk(SEARCH, urlBuilderSimpleSearch(location)));
         }
-    }, [reduxState.thunk.fetch_success, location]);
+    }, [
+        dispatch,
+        reduxState.thunk.fetch_success,
+        reduxState.thunk.fetch_failed_count,
+        reduxState.thunk.fetch_in_progress,
+        location,
+    ]);
 
     useEffect(() => {
         dispatch(resetFetchStatusesActionCreator());
-    }, [location]);
+    }, [dispatch]);
 
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
@@ -47,11 +53,11 @@ const SearchResults = () => {
                 return <SearchCard key={`${labelList[i]}:${entry.id}`} label={labelList[i]} {...entry} />;
             }
         }
+        return <></>;
     });
 
     return (
         <div className="container body">
-
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
@@ -68,7 +74,7 @@ const SearchResults = () => {
                             {location && (
                                 <div>
                                     <h1>Søkeresultater</h1>
-                                    {results.length != 0 ? results : <EmptyResult />}
+                                    {results.length !== 0 ? results : <EmptyResult />}
                                 </div>
                             )}
                         </div>

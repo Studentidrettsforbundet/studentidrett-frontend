@@ -1,16 +1,14 @@
 import React from 'react';
-import { Breadcrumb } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { combinedStateInterface } from '../../store/store';
-import BackButton from '../BackButton/backButton';
 import './style.css';
 
 interface breadcrumbProps {
     state: combinedStateInterface;
 }
 
-const Breadcrumbs = (props: breadcrumbProps) => {
-    var history = useHistory();
+const Breadcrumbs = (props: breadcrumbProps): JSX.Element => {
+    const history = useHistory();
     const params = history.location.pathname.split('/');
 
     const generateCrumbs = () => {
@@ -24,9 +22,6 @@ const Breadcrumbs = (props: breadcrumbProps) => {
             history.push(
                 `/cities/${props.state.city.cities.find(({ id: n }) => n === props.state.club.clubs[0].city)?.id}`,
             );
-        };
-        const sportButtonClick = () => {
-            history.push(`/sports/${props.state.sport.sport?.id}`);
         };
         const clubButtonClick = () => {
             history.push(`/clubs/${props.state.club.club?.id}`);
@@ -93,7 +88,7 @@ const Breadcrumbs = (props: breadcrumbProps) => {
                             ) : (
                                 <></>
                             )}
-                            {typeof props.state.sport.sport !== null ? (
+                            {props.state.sport.sport !== null ? (
                                 <li className="breadcrumb-item active"> {props.state.sport.sport?.name} </li>
                             ) : (
                                 <></>

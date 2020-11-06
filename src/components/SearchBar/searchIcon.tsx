@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
 import './styles.css';
 
-const SearchIcon = (currentState: boolean) => {
+const SearchIcon = (currentState: boolean): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <img

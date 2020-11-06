@@ -9,7 +9,7 @@ interface IClubInfo {
     description: string;
 }
 
-const ClubInfo = (props: IClubInfo) => {
+const ClubInfo = (props: IClubInfo): JSX.Element => {
     return (
         <React.Fragment>
             <div>

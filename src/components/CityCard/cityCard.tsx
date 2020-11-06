@@ -5,7 +5,7 @@ import { cityInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { secondaryCard } from '../../styles/card';
 
-const CityCard = ({ id, name, region, clubs }: cityInterface) => {
+const CityCard = ({ id, name, region, clubs }: cityInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <Link

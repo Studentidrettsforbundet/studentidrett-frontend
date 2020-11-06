@@ -53,7 +53,7 @@ const GroupPage = (): JSX.Element => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.team.teams.map((entry) => {
         return <TeamCard {...entry} key={entry.id} />;

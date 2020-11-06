@@ -14,7 +14,7 @@ const LandingPage = (): JSX.Element => {
         if (!reduxState.interest.sessionID) {
             dispatch(setSessionIDActionCreator());
         }
-    }, []);
+    }, [dispatch, reduxState.interest.sessionID]);
 
     return (
         <div className={frontPage}>
