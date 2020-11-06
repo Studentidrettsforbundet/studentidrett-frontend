@@ -10,6 +10,7 @@ import { fetchDetailThunk } from '../services/api';
 import TeamInfo from '../components/TeamInfo/teamInfo';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 interface urlParams {
     id: string;
@@ -19,7 +20,6 @@ const TeamPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
-    const location = useLocation();
 
     useEffect(() => {
         if (
@@ -32,7 +32,9 @@ const TeamPage = (): JSX.Element => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);

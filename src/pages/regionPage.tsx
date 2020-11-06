@@ -11,7 +11,7 @@ import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import { useLocation } from 'react-router';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
 
 const RegionPage = () => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -35,7 +35,9 @@ const RegionPage = () => {
     });
 
     useEffect(() => {
+        // cleanup
         return () => {
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);

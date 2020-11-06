@@ -16,7 +16,7 @@ const SearchBar = (props: RouterProps) => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const [text, updateText] = useState('');
     const [filter, updateFilter] = useState('');
-    const searchPage = useLocation().pathname == '/search/';
+    const searchPage = useLocation().pathname.match(/\bsearch\b/);
 
     const radioClick = (event: any) => {
         if (event == filter) {
