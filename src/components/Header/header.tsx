@@ -31,10 +31,8 @@ const Header = () => {
                     <SearchIcon {...reduxState.searchBar.showSearchBar} />
                 </div>
             ) : (
-                <Link to={'/search'}>
-                    <div className="search_icon-container">
-                        <SearchIcon {...false} />
-                    </div>
+                <Link to={'/search'} className="search_icon-container">
+                    <SearchIcon {...false} />
                 </Link>
             )}
         </div>
