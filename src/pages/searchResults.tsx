@@ -67,7 +67,7 @@ const SearchResults = () => {
                             {location && (
                                 <div>
                                     <h1>Søkeresultater</h1>
-                                    {Object.keys(results).length != 0 ? {results} : <EmptyResult/>}
+                                    {results.length != 0 ? results : <EmptyResult />}
                                 </div>
                             )}
                         </div>

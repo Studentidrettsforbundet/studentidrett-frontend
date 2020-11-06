@@ -25,7 +25,6 @@ const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface) 
         <div>
             <Link
                 to={`/${label}/${id}`}
-                key={'label' + id}
                 className={'unstyled_link'}
                 onClick={() => dispatch(resetFetchStatusesActionCreator())}
             >
