@@ -3,7 +3,7 @@ on:
         branches:
             - dev
 
-name: Frontend build and push to Azure
+name: Frontend build and test
 
 jobs:
     build-and-deploy:
