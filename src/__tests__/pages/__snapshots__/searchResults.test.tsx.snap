@@ -8,11 +8,14 @@ Array [
       <h1>
         Søkeresultater
       </h1>
+<<<<<<< HEAD
       <div
         className="f1h0bhad"
       >
         Ingen resultater.
       </div>
+=======
+>>>>>>> ee84260bbf15768002348eec2ed9108e4f33d4fa
     </div>
   </div>,
 ]
