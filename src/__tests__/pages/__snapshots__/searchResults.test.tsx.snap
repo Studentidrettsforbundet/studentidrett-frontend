@@ -4,7 +4,16 @@ exports[`regionPage renders correctly 1`] = `
 Array [
   <div />,
   <div>
-    <div />
+    <div>
+      <h1>
+        Søkeresultater
+      </h1>
+      <div
+        className="f1h0bhad"
+      >
+        Ingen resultater.
+      </div>
+    </div>
   </div>,
 ]
 `;

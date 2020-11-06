@@ -10,7 +10,7 @@ import SearchBar from '../components/SearchBar/searchBar';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import { Button, Spinner } from 'react-bootstrap';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
@@ -114,6 +114,7 @@ const CityPage = () => {
                             {showClubs ? (
                                 <div>
                                     <SearchBar />
+                                    <h1>Klubber</h1>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

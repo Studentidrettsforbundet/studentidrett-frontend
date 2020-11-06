@@ -61,7 +61,7 @@ body,
 .body {
     background-color: rgb(236, 239, 246);
     color: rgb(49, 56, 121, 1);
-    margin: 0;
+    margin: auto 0;
     font-family: 'ArchivoRegular', sans-serif;
     font-size: 16px;
 }
@@ -96,9 +96,7 @@ a:link,
 a:visited {
     color: rgb(255, 171, 64, 1);
 }
-/* a:hover {
-    color: pink;
-} */
+
 
 .boldText {
     font-family: 'ArchivoSemiBold', sans-serif;

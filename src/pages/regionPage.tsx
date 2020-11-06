@@ -8,7 +8,7 @@ import { regionInterface } from '../interfaces';
 import SearchIcon from '../components/SearchBar/searchIcon';
 import SearchBar from '../components/SearchBar/searchBar';
 import { Spinner } from 'react-bootstrap';
-import EmptyResult from '../components/emptyResult';
+import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { useLocation } from 'react-router';
@@ -61,12 +61,8 @@ const RegionPage = () => {
 
     return (
         <div className="container body">
-            <div className="row page_header">
-                <div className="col">
-                    <h1>Regioner</h1>
-                </div>
-            </div>
             <SearchBar />
+            <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
