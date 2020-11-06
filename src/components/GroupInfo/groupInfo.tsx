@@ -15,9 +15,7 @@ const GroupInfo = (props: IClubInfo) => {
             <h1>{props.title}</h1>
             <img className={coverImage} alt={props.title} src={image}/>
             <br/>
-            <div>
-                <p>{props.description}</p> 
-            </div>
+            <p>{props.description}</p> 
         </React.Fragment>
     );
 };
