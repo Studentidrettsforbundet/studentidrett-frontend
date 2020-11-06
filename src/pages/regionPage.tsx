@@ -54,7 +54,7 @@ const RegionPage = (): JSX.Element => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <a key={entry.id} />;
+        return <React.Fragment key={entry.id}></React.Fragment>;
     });
 
     const listContent = regions.map((entry) => {
