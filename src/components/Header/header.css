@@ -3,6 +3,8 @@
     background-color: #ffab40;
     width: 100vw !important;
     max-width: 100% !important;
+}
+.headerContainer {
     display: flex;
     justify-content: space-between;
 }

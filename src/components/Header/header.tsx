@@ -13,7 +13,7 @@ const Header = (): JSX.Element => {
     const isLandingOrQuestionnaire = location.pathname.match(pathnameRegex) || location.pathname === '/';
 
     return (
-        <div className="header">
+        <div className="container headerContainer">
             <section className="headerLink">
                 <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
                     <section className="headerContent">
