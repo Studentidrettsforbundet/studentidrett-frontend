@@ -4,56 +4,60 @@ exports[`header snapshot tests should render correctly 1`] = `
 <div
   className="header"
 >
-  <section
-    className="headerLink"
+  <div
+    className="container headerContainer"
   >
-    <a
-      href="/"
-      onClick={[Function]}
-      style={
-        Object {
-          "color": "black",
-          "textDecoration": "none",
-        }
-      }
+    <section
+      className="headerLink"
     >
-      <section
-        className="headerContent"
-      >
-        <img
-          alt="logo"
-          src="logo.png"
-        />
-        <div
-          className="textContent"
-        >
-          Norges
-          <br />
-          Studentidrettsforbund
-        </div>
-      </section>
-    </a>
-  </section>
-  <a
-    className="search_icon-container"
-    href="/search"
-    onClick={[Function]}
-  >
-    <img
-      alt="Search icon"
-      className="search_icon"
-      onClick={[Function]}
-      src={
-        Object {
-          "ReactComponent": Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "render": [Function],
-          },
-          "__esModule": true,
-          "default": "search.svg",
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "black",
+            "textDecoration": "none",
+          }
         }
-      }
-    />
-  </a>
+      >
+        <section
+          className="headerContent"
+        >
+          <img
+            alt="logo"
+            src="logo.png"
+          />
+          <div
+            className="textContent"
+          >
+            Norges
+            <br />
+            Studentidrettsforbund
+          </div>
+        </section>
+      </a>
+    </section>
+    <a
+      className="search_icon-container"
+      href="/search"
+      onClick={[Function]}
+    >
+      <img
+        alt="Search icon"
+        className="search_icon"
+        onClick={[Function]}
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "search.svg",
+          }
+        }
+      />
+    </a>
+  </div>
 </div>
 `;
