@@ -31,7 +31,7 @@ exports[`clubCard renders correctly 1`] = `
             :
           </b>
            
-          Åpent
+          Åpent for alle
         </div>
         <div
           className="f1ozov1j"
