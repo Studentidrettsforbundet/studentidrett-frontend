@@ -5,7 +5,7 @@ exports[`header snapshot tests should render correctly 1`] = `
   className="header"
 >
   <div
-    className="container headerContainer"
+    className="headerContainer container"
   >
     <section
       className="headerLink"
