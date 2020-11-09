@@ -8,6 +8,13 @@ exports[`sportPage renders correctly 1`] = `
   <div
     className="row"
   >
+    <ol
+      className="breadcrumb"
+    />
+  </div>
+  <div
+    className="row"
+  >
     <div
       className="col"
     >
@@ -15,13 +22,6 @@ exports[`sportPage renders correctly 1`] = `
         Klubber som driver med idretten: 
       </p>
     </div>
-  </div>
-  <div
-    className="row"
-  >
-    <ol
-      className="breadcrumb"
-    />
   </div>
   <div
     className="f1h0bhad"

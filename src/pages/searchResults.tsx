@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
@@ -18,6 +18,7 @@ import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { Spinner } from 'react-bootstrap';
 import FetchError from '../components/fetchError';
 import EmptyResult from '../components/EmptyResult/emptyResult';
+import SearchBackButton from '../components/SearchBar/searchBackButton';
 
 const SearchResults = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -25,6 +26,11 @@ const SearchResults = (): JSX.Element => {
     const location = useLocation().search.split('=')[1];
     const instanceList = [instanceOfSport, instanceOfCity, instanceOfGroup, instanceOfClub, instanceOfTeam];
     const labelList = [SPORT, CITY, GROUP, CLUB, TEAM];
+    const [noOfSearches, addNoOfSearches] = useState(0);
+
+    const incrementSearch = () => {
+        addNoOfSearches(noOfSearches + 1);
+    };
 
     useEffect(() => {
         if (
@@ -44,8 +50,12 @@ const SearchResults = (): JSX.Element => {
     ]);
 
     useEffect(() => {
+        incrementSearch();
         dispatch(resetFetchStatusesActionCreator());
-    }, [dispatch]);
+        /* Warning for not having incrementSearch in dependency-array but inrementSearch in dependency array gives
+         * infinite loop of re-renders*/
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch, location]);
 
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
@@ -58,6 +68,7 @@ const SearchResults = (): JSX.Element => {
 
     return (
         <div className="container body">
+            <SearchBackButton {...{ noOfSearches }} />
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

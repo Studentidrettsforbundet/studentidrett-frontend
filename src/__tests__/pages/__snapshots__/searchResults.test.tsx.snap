@@ -4,6 +4,16 @@ exports[`regionPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <button
+    className="button btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+     
+    ← Tilbake
+     
+  </button>
   <div />
   <div>
     <div />

@@ -78,8 +78,8 @@ const CityPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
+            <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
             <div className="container">
-                <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
                 <div className="row">
                     <div className="col Tabs">
                         <Button

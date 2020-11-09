@@ -6,17 +6,6 @@ exports[`regionPage renders correctly 1`] = `
 >
   <div />
   <div
-    className="row page_header"
-  >
-    <div
-      className="col"
-    >
-      <h1>
-        Regioner
-      </h1>
-    </div>
-  </div>
-  <div
     className="row"
   >
     <ol
