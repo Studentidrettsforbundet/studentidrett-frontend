@@ -35,7 +35,7 @@ const SearchResults = (): JSX.Element => {
     useEffect(() => {
         if (
             !reduxState.thunk.fetch_in_progress &&
-            reduxState.thunk.fetcch_failed_count < 3 &&
+            reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success &&
             location
         ) {
