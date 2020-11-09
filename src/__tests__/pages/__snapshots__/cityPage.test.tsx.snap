@@ -57,13 +57,44 @@ exports[`clubPage renders correctly 1`] = `
   <div>
     <div>
       <div>
-        <h1>
-          Klubber
-        </h1>
+        <h3>
+          Klubber i 
+          test city
+        </h3>
         <div
-          className="f1h0bhad"
+          className="f133pxy0"
         >
-          Ingen resultater.
+          <a
+            className="unstyled_link"
+            href="/clubs/4"
+            onClick={[Function]}
+          >
+            <div
+              className="f1i8l76j"
+            >
+              <div
+                className="f2lk941"
+              >
+                <img
+                  alt="Club"
+                  className="fb12b09"
+                  src="placeholder.png"
+                />
+              </div>
+              <div
+                className="f1drtrr0"
+              >
+                <h5
+                  className="fm5b097"
+                >
+                  Abakus
+                </h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna...
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
