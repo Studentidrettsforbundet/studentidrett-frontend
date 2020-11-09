@@ -1,0 +1,32 @@
+.footer{
+    background-color: #26366F;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: row;
+    font-weight: 300;
+    color: white;
+    justify-content: space-between;
+}
+
+a {
+    color: white !important;
+}
+
+.footerLead {
+    font-weight: 500;
+    font-size: 1.175rem;
+}
+
+@media only screen and (max-width: 720px) {
+    .footerContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footerSection{
+        margin: 8px 0;
+    }
+}
