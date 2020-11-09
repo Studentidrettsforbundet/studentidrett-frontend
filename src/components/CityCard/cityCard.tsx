@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { cityInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { secondaryCard } from '../../styles/card';
-import {toggleSearchBarActionCreator} from "../../store/searchBar/searchBarActions";
 
 const CityCard = ({ id, name, region, clubs }: cityInterface): JSX.Element => {
     const dispatch = useDispatch();
@@ -14,7 +13,6 @@ const CityCard = ({ id, name, region, clubs }: cityInterface): JSX.Element => {
             key={id}
             className={'unstyled_link'}
             onClick={() => {
-                dispatch(toggleSearchBarActionCreator(false));
                 dispatch(resetFetchStatusesActionCreator());
             }}
         >

@@ -28,11 +28,11 @@ const Header = (): JSX.Element => {
             </section>
             {!isLandingOrQuestionnaire ? (
                 <div className="search_icon-container">
-                    <SearchIcon {...reduxState.searchBar.showSearchBar} />
+                    <SearchIcon {...{ currentState: reduxState.searchBar.showSearchBar }} />
                 </div>
             ) : (
                 <Link to={'/search'} className="search_icon-container">
-                    <SearchIcon {...false} />
+                    <SearchIcon {...{ currentState: false }} />
                 </Link>
             )}
         </div>

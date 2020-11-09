@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
-import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
 import { cardBody, cardTitle } from '../../styles/card';
 import { sportCard } from './styles';
 
@@ -15,7 +14,6 @@ const SportCard = ({ id, name }: sportInterface): JSX.Element => {
             key={id}
             className={'unstyled_link'}
             onClick={() => {
-                dispatch(toggleSearchBarActionCreator(false));
                 dispatch(resetFetchStatusesActionCreator());
             }}
         >

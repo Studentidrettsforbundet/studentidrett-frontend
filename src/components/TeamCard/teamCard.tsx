@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 
 import { InfoList } from '../TeamInfo/infoList';
 import { teamInterface } from '../../interfaces';
-import { toggleSearchBarActionCreator } from '../../store/searchBar/searchBarActions';
 
 const TeamCard = ({ id, name, short_description, gender, availability, skill_level }: teamInterface): JSX.Element => {
     const dispatch = useDispatch();
@@ -18,7 +17,6 @@ const TeamCard = ({ id, name, short_description, gender, availability, skill_lev
             key={id}
             className={'unstyled_link'}
             onClick={() => {
-                dispatch(toggleSearchBarActionCreator(false));
                 dispatch(resetFetchStatusesActionCreator());
             }}
         >

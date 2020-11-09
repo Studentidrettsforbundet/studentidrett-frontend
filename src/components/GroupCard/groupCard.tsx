@@ -5,7 +5,6 @@ import { groupInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import image from '../../assets/placeholder.png';
 import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
-import {toggleSearchBarActionCreator} from "../../store/searchBar/searchBarActions";
 
 const GroupCard = (group: groupInterface): JSX.Element => {
     const dispatch = useDispatch();
@@ -15,7 +14,6 @@ const GroupCard = (group: groupInterface): JSX.Element => {
             key={group.id}
             className={'unstyled_link'}
             onClick={() => {
-                dispatch(toggleSearchBarActionCreator(false));
                 dispatch(resetFetchStatusesActionCreator());
             }}
         >
