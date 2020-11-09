@@ -11,7 +11,6 @@ const SearchIcon = (props: { currentState: boolean }): JSX.Element => {
             alt="Search icon"
             className={'search_icon'}
             onClick={() => {
-                console.log(props.currentState);
                 dispatch(toggleSearchBarActionCreator(!props.currentState));
             }}
         />

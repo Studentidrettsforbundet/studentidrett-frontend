@@ -35,7 +35,7 @@ const SearchResults = (): JSX.Element => {
     useEffect(() => {
         if (
             !reduxState.thunk.fetch_in_progress &&
-            reduxState.thunk.fetch_failed_count < 3 &&
+            reduxState.thunk.fetcch_failed_count < 3 &&
             !reduxState.thunk.fetch_success &&
             location
         ) {
@@ -52,7 +52,10 @@ const SearchResults = (): JSX.Element => {
     useEffect(() => {
         incrementSearch();
         dispatch(resetFetchStatusesActionCreator());
-    }, [dispatch]);
+        /* Warning for not having incrementSearch in dependency-array but inrementSearch in dependency array gives
+         * infinite loop of re-renders*/
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch, location]);
 
     const results = reduxState.search_results.results.map((entry) => {
         for (let i = 0; i < instanceList.length; i++) {
