@@ -13,7 +13,9 @@ const GroupCard = (group: groupInterface): JSX.Element => {
             to={`/groups/${group.id}`}
             key={group.id}
             className={'unstyled_link'}
-            onClick={() => dispatch(resetFetchStatusesActionCreator())}
+            onClick={() => {
+                dispatch(resetFetchStatusesActionCreator());
+            }}
         >
             <div className={card}>
                 <div className={imgContainer}>

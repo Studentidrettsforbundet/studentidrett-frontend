@@ -12,7 +12,9 @@ const CityCard = ({ id, name, region, clubs }: cityInterface): JSX.Element => {
             to={`/cities/${id}`}
             key={id}
             className={'unstyled_link'}
-            onClick={() => dispatch(resetFetchStatusesActionCreator())}
+            onClick={() => {
+                dispatch(resetFetchStatusesActionCreator());
+            }}
         >
             <div className={secondaryCard}>
                 <div>

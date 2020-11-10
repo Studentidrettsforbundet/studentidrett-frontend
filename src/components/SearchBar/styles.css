@@ -21,3 +21,19 @@
     margin-left: auto;
     cursor: pointer;
 }
+
+.button{
+    background-color: inherit;
+    border: inherit;
+    color: inherit;
+    align-content: inherit;
+    padding-left: 10px
+}
+
+.button:hover {
+    background-color: inherit;
+    border: inherit;
+    color: inherit;
+    align-content: inherit;
+    padding-left: 10px
+}

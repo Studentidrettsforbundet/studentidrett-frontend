@@ -13,7 +13,9 @@ const SportCard = ({ id, name }: sportInterface): JSX.Element => {
             to={`/sports/${id}`}
             key={id}
             className={'unstyled_link'}
-            onClick={() => dispatch(resetFetchStatusesActionCreator())}
+            onClick={() => {
+                dispatch(resetFetchStatusesActionCreator());
+            }}
         >
             <div className={sportCard} key={id}>
                 <div className={cardBody}>

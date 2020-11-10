@@ -64,11 +64,6 @@ const RegionPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
-            <div className="row page_header">
-                <div className="col">
-                    <h1>Regioner</h1>
-                </div>
-            </div>
             <Breadcrumbs key="breadcrumbsRegion" state={reduxState} />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (

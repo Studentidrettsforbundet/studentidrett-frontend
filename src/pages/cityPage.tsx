@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
-import { CLUB, SPORT } from '../constants';
+import { CITY, CLUB, SPORT } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import SearchBar from '../components/SearchBar/searchBar';
@@ -26,6 +26,7 @@ const CityPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
+    console.log(urlParams);
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -43,6 +44,9 @@ const CityPage = (): JSX.Element => {
             dispatch(
                 fetchDataThunk(SPORT, urlBuilderFilterData(SPORT, [{ cardType: 'city', id_or_name: urlParams.id }])),
             );
+            if (!reduxState.city.cities.length) {
+                dispatch(fetchDataThunk(CITY));
+            }
         }
     });
 
@@ -75,11 +79,13 @@ const CityPage = (): JSX.Element => {
         );
     });
 
+    const currentCity = reduxState.city.cities.find((city) => city.id === parseInt(urlParams.id));
+
     return (
         <div className="container body">
             <SearchBar />
+            <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
             <div className="container">
-                <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
                 <div className="row">
                     <div className="col Tabs">
                         <Button
@@ -136,7 +142,7 @@ const CityPage = (): JSX.Element => {
                         <div>
                             {showClubs ? (
                                 <div>
-                                    <h1>Klubber</h1>
+                                    <h3>Klubber i {currentCity?.name}</h3>
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -145,7 +151,7 @@ const CityPage = (): JSX.Element => {
                                 </div>
                             ) : (
                                 <div>
-                                    <h1>Idretter</h1>
+                                    <h3>Idretter i {currentCity?.name}</h3>
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

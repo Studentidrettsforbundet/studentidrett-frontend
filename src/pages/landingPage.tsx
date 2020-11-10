@@ -1,30 +1,35 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import { setSessionIDActionCreator } from '../store/pages/interest/interestActions';
 import { style, classes } from 'typestyle';
 import colors from '../styles/colors';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 
 const LandingPage = (): JSX.Element => {
     const dispatch = useDispatch();
+    const location = useLocation();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
+        dispatch(toggleSearchBarActionCreator(false));
+        dispatch(resetFetchStatusesActionCreator());
         if (!reduxState.interest.sessionID) {
             dispatch(setSessionIDActionCreator());
         }
-    }, [dispatch, reduxState.interest.sessionID]);
+    }, [dispatch, reduxState.interest.sessionID, location]);
 
     return (
         <div className={frontPage}>
             <div className={wrapper}>
                 <h2>Utforsk muligheter</h2>
                 <p>
-                    Norges Studentidrettsforbund har et bredt spekter av idrettstilbud rundt om i hele Norge gjennom våre
-                    studentidrettslag. Her kan du finne hvilke idretter vi tilbyr i din studieby!
+                    Norges Studentidrettsforbund har et bredt spekter av idrettstilbud rundt om i hele Norge gjennom
+                    våre studentidrettslag. Her kan du finne hvilke idretter vi tilbyr i din studieby!
                 </p>
-                <Link to="/Regions"  className="btn btn-default">
+                <Link to="/Regions" className="btn btn-default">
                     <button type="button" className="btn btn-default">
                         Utforsk
                     </button>
@@ -33,10 +38,10 @@ const LandingPage = (): JSX.Element => {
             <div className={wrapper}>
                 <h2>Idrettsvalgomat</h2>
                 <p>
-                    Er du usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som kunne
-                    passet til deg? Vi har laget en idrettsvalgomat som foreslår idretter vi tenker du kunne likt!
+                    Er du usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som
+                    kunne passet til deg? Vi har laget en idrettsvalgomat som foreslår idretter vi tenker du kunne likt!
                 </p>
-                <Link to="/questionnaire" >
+                <Link to="/questionnaire">
                     <button type="button" className="btn btn-default">
                         Ta valgomaten
                     </button>
@@ -65,7 +70,7 @@ const wrapper = classes(
                 backgroundColor: colors.primary,
                 borderColor: colors.primary,
                 filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-                color: colors.secondary
+                color: colors.secondary,
             },
             '&>a>': {
                 textDecoration: 'none',
