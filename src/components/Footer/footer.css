@@ -1,4 +1,4 @@
-.footer{
+.footer {
     background-color: #26366F;
     width: 100%;
     padding: 1rem 0;
@@ -12,7 +12,7 @@
     justify-content: space-between;
 }
 
-a {
+.footer a {
     color: white !important;
 }
 

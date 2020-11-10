@@ -17,7 +17,7 @@ const Footer = (): JSX.Element => (
                 <a href="mailto:nsi@studentidrett.no">nsi@studentidrett.no</a>
             </section>
             <section className="footerSection">
-                <span className="footerLead">Addresse</span>
+                <span className="footerLead">Adresse</span>
                 <br />
                 Idrettens Hus Sognsveien 73
                 <br />
