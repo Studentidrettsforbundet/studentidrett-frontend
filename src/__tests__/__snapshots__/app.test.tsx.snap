@@ -158,7 +158,7 @@ exports[`App renders correctly 1`] = `
         <span
           className="footerLead"
         >
-          Addresse
+          Adresse
         </span>
         <br />
         Idrettens Hus Sognsveien 73
