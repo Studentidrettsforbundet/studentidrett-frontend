@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    makeInputSafe,
-    stringNormalization,
-    stringWhitelisting,
-    trimWhiteSpaces,
-    urlEncoding,
-    validateString,
-} from '../../services/stringValidation';
+import { makeInputSafe, stringNormalization, trimWhiteSpaces, urlEncoding } from '../../services/stringValidation';
 
 describe('MakeInputSafe', () => {
     test('Should make sentence safe and normalized', () => {
@@ -68,76 +61,6 @@ describe('TrimWhitespaces', () => {
     test('Should remove extra external and internal spaces', () => {
         const case1 = '     Test      this       code please               ';
         expect(trimWhiteSpaces(case1)).toBe('Test this code please');
-    });
-});
-
-describe('Whitelisting', () => {
-    test('Empty text', () => {
-        const case1 = '';
-        const case2 = ' ';
-        const case3 = '                   ';
-        expect(stringWhitelisting(case1)).toBe(false);
-        expect(stringWhitelisting(case2)).toBe(true);
-        expect(stringWhitelisting(case3)).toBe(true);
-    });
-
-    test('Should allow all legal Characters', () => {
-        const case1 = 'abcdefghijklmnopqrstuvwxyz';
-        const case2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const case3 = 'ÄäÖö';
-        const case4 = ",.-_ '";
-        expect(stringWhitelisting(case1)).toBe(true);
-        expect(stringWhitelisting(case2)).toBe(true);
-        expect(stringWhitelisting(case3)).toBe(true);
-        expect(stringWhitelisting(case4)).toBe(true);
-    });
-
-    test('Should allow random sentences with legal characters', () => {
-        const case1 = "W'w.t_ÄKmm'bL  CQRiBdZjaZel'FEtz";
-        const case2 = 'ÖJMk SHmoSrhtUVolyfGÖGBv-FTgGtYf';
-        const case3 = "'RJUlPuWöwV'yFciNHfNxlVöVjdGt,JM";
-        const case4 = "tO,TIät'zvI WXkCnA-ITfe,rxWäx__h";
-        const case5 = "ul-v.wwy'öcäHlQsjU ÖwDakKX. nkaÖrfQX'JJoISäYKH.skI";
-        expect(stringWhitelisting(case1)).toBe(true);
-        expect(stringWhitelisting(case2)).toBe(true);
-        expect(stringWhitelisting(case3)).toBe(true);
-        expect(stringWhitelisting(case4)).toBe(true);
-        expect(stringWhitelisting(case5)).toBe(true);
-    });
-
-    test('Should block dangerous characters', () => {
-        const case1 = '/=()[]*';
-        const case2 = "Röu[m(Fgj Z* LBpHY*l)/[rÄc'AYX/*";
-        const case3 = '-Wqzkf]tKSVdsdfUfIO/I)vdXäb-YXJ.';
-        expect(stringWhitelisting(case1)).toBe(false);
-        expect(stringWhitelisting(case2)).toBe(false);
-        expect(stringWhitelisting(case3)).toBe(false);
-    });
-});
-
-describe('validateString', () => {
-    test('Should block too long strings', () => {
-        const case1 = 'jteazvxrfxenmkfanwon';
-        expect(validateString(case1, 20)[0]).toBe(true);
-        expect(validateString(case1, 20)[1]).toBe('');
-        expect(validateString(case1, 19)[0]).toBe(false);
-        expect(validateString(case1, 19)[1]).toBe('Too Long ');
-    });
-
-    test('Should be blocked by regex', () => {
-        //Note, this is tested above, in test whitelist.
-        //Here we only test the feedback string
-        const case1 = '/=()[]*';
-        expect(validateString(case1, 20)[0]).toBe(false);
-        expect(validateString(case1, 20)[1]).toBe('Illegal Characters');
-    });
-
-    test('Should be blocked by regex and length', () => {
-        //Note, this is tested above, in test whitelist.
-        //Here we only test the feedback string
-        const case1 = '/=()[]*';
-        expect(validateString(case1, 3)[0]).toBe(false);
-        expect(validateString(case1, 3)[1]).toBe('Too Long Illegal Characters');
     });
 });
 
