@@ -3,7 +3,7 @@
  * @param inputString a dangerous string
  * @returns a "safe" string encoded on URI format
  */
-export const makeInputSafe = (inputString: string, maxLength: number): string => {
+export const makeInputSafe = (inputString: string): string => {
     const normalized = stringNormalization(inputString);
     const trimmed = trimWhiteSpaces(normalized);
     const encoded = urlEncoding(trimmed);

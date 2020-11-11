@@ -33,9 +33,15 @@ describe('stringNormalization', () => {
 
         expect(stringNormalization(case1)).toBe('Hello, I am a programmer');
     });
+
+    test('Should normalize an empty sentence', () => {
+        const case1 = '';
+
+        expect(stringNormalization(case1)).toBe('');
+    });
 });
 
-describe('TrimWhitespaces', () => {
+describe('trimWhitespaces', () => {
     test('Should do nothing, single word', () => {
         const case1 = 'Test';
         expect(trimWhiteSpaces(case1)).toBe(case1);
@@ -61,6 +67,16 @@ describe('TrimWhitespaces', () => {
     test('Should remove extra external and internal spaces', () => {
         const case1 = '     Test      this       code please               ';
         expect(trimWhiteSpaces(case1)).toBe('Test this code please');
+    });
+
+    test('Should handle empty input', () => {
+        const case1 = '';
+        expect(trimWhiteSpaces(case1)).toBe('');
+    });
+
+    test('Should handle only spaces', () => {
+        const case1 = '                                                  ';
+        expect(trimWhiteSpaces(case1)).toBe('');
     });
 });
 

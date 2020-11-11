@@ -8,9 +8,9 @@ export const urlBuilderSimpleSearch = (searchString: string = ''): string => {
     const newstr = searchString.split('/');
 
     if (newstr.length > 1) {
-        safeString = newstr[0] + '/' + makeInputSafe(newstr[1], MAXLENGTH_SEARCH);
+        safeString = newstr[0] + '/' + makeInputSafe(newstr[1]);
     } else {
-        safeString = makeInputSafe(searchString, MAXLENGTH_SEARCH);
+        safeString = makeInputSafe(searchString);
     }
 
     return BASE_URL + '/search/?q=' + safeString;
