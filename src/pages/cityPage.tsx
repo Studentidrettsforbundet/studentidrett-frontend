@@ -26,7 +26,6 @@ const CityPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
-    console.log(urlParams);
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -84,7 +83,7 @@ const CityPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
-            <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
+            <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
             <div className="container">
                 <div className="row">
                     <div className="col Tabs">
