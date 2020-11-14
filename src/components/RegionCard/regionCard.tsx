@@ -3,8 +3,6 @@ import { regionInterface } from '../../interfaces';
 import CityCard from '../CityCard/cityCard';
 import { regionCard } from './styles';
 
-// See: https://getbootstrap.com/docs/4.0/components/card/
-
 const RegionCard = ({ id, name, cities }: regionInterface): JSX.Element => {
     const [expanded, setExpanded] = useState(false);
 

@@ -7,7 +7,6 @@ import { teamInfo } from './styles';
 import { InfoList } from './infoList';
 import { LinkList } from './linkList';
 
-//TODO: make some of these not-required
 interface ITeamInfo {
     availability: string;
     cost: string | null;

@@ -1,6 +1,5 @@
 import React from 'react';
 
-//TODO: make some of these not-required
 interface IClubInfo {
     title: string;
     contact_email: string;

@@ -53,23 +53,3 @@ export const scrollCardParagraph = style({
     textAlign: 'left',
     overflow: 'hidden',
 });
-
-// export const horizontalScroll = style({
-//     padding: '10px',
-//     maxHeight: '230px',
-//     width: '342px',
-//     overflowX: 'scroll',
-//     whiteSpace: 'nowrap',
-// })
-
-// export const row = style({
-//     padding: '10px',
-//     whiteSpace: 'nowrap',
-//     height: '229px',
-// })
-
-// export const col = style({
-//     //display: inline-block;
-//     width: '240px',
-//     height: '229px',
-//   })

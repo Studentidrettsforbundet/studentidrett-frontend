@@ -2,7 +2,6 @@ import React from 'react';
 import image from '../../assets/placeholder.png';
 import { coverImage } from './styles';
 
-//TODO: make some of these not-required
 interface IClubInfo {
     title: string;
     cover_photo?: string;

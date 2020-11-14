@@ -57,7 +57,6 @@ const SearchBar = (props: RouterProps): JSX.Element => {
             {reduxState.searchBar.showSearchBar || searchPage ? (
                 <Card className={searchBar}>
                     <div className="row">
-                        {/* <div style={{ display: 'flex' , justifyContent: 'space-around'}}> */}
                         <div className="col Tabs">
                             <input
                                 name="searchString"
