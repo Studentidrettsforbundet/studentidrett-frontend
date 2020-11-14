@@ -1,8 +1,6 @@
 import { style, classes } from 'typestyle';
 import colors from '../../styles/colors';
 
-
-
 export const regionCard = classes(
     style({
         cursor: 'pointer',
@@ -17,7 +15,7 @@ export const regionCard = classes(
                 color: colors.secondary,
                 textAlign: 'center',
                 marginTop: 'auto',
-                marginBottom: 'auto'
+                marginBottom: 'auto',
             },
         },
     }),

@@ -8,9 +8,9 @@ import { combinedStateInterface } from '../store/store';
 import { fetchDetailThunk } from '../services/api';
 import TeamInfo from '../components/TeamInfo/teamInfo';
 import FetchError from '../components/fetchError';
-import {resetFetchStatusesActionCreator} from "../store/thunks/thunkActions";
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
-import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
 interface urlParams {
     id: string;
@@ -44,7 +44,7 @@ const TeamPage = (): JSX.Element => {
     return (
         <div className="container">
             <SearchBar />
-            <Breadcrumbs key='breadcrumbsTeam' state={reduxState} />
+            <Breadcrumbs key="breadcrumbsTeam" state={reduxState} />
 
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

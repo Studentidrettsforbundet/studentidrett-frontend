@@ -3,9 +3,9 @@ import {
     setGroupsActionCreator,
     SET_GROUPS,
     SET_GROUPS_DETAIL,
-    setGroupsActionDetailCreator
+    setGroupsActionDetailCreator,
 } from '../../store/pages/group/groupActions';
-import {groupList2, invalidCityList, singleGroup} from "../../assets/testMock";
+import { groupList2, invalidCityList, singleGroup } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setGroupsAction', () => {
@@ -18,7 +18,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setGroupAction', () => {
-        const data = groupList2
+        const data = groupList2;
 
         const expected = {
             type: SET_GROUPS,

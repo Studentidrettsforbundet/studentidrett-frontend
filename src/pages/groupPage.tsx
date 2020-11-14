@@ -13,7 +13,7 @@ import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { cardList } from '../styles/card';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
@@ -64,7 +64,7 @@ const GroupPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
-            <Breadcrumbs key='breadcrumbsGroup' state={reduxState} />
+            <Breadcrumbs key="breadcrumbsGroup" state={reduxState} />
 
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">

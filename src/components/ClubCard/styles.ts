@@ -1,10 +1,8 @@
 import { style, classes } from 'typestyle';
 import colors from '../../styles/colors';
 
-
 export const clubCard = style({
-        padding: 0,
-    
+    padding: 0,
 });
 
 export const cardHeader = style({
@@ -12,8 +10,7 @@ export const cardHeader = style({
     fontSize: '19px',
     fontFamily: 'ArchivoSemiBold',
     textAlign: 'left',
-    marginBottom: '10px'
-
+    marginBottom: '10px',
 });
 
 export const cardBody = style({
@@ -22,5 +19,4 @@ export const cardBody = style({
     padding: '15px',
     fontSize: '16px',
     textAlign: 'left',
-
 });

@@ -3,9 +3,9 @@ import {
     SET_CLUBS,
     SET_CLUBS_DETAIL,
     setClubsActionCreator,
-    setClubsActionDetailCreator
+    setClubsActionDetailCreator,
 } from '../../store/pages/club/clubActions';
-import {clubList2, invalidCityList, singleClub} from "../../assets/testMock";
+import { clubList2, invalidCityList, singleClub } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setClubAction', () => {
