@@ -1,7 +1,7 @@
 import fetchMock from 'fetch-mock';
 import { error } from 'console';
 import { checkForErrorCodes, fetchData } from '../../services/api';
-import { urlBuilderFetchData, urlBuilderSimpleSearch } from '../../services/urlBuilders';
+import { urlBuilderFetchData } from '../../services/urlBuilders';
 import {
     cityInterface,
     sportInterface,

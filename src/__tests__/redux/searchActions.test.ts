@@ -1,5 +1,5 @@
-import {SET_SEARCH, setSearchActionCreator} from "../../store/pages/search/searchActions";
-import {searchResult} from "../../assets/testMock";
+import { SET_SEARCH, setSearchActionCreator } from '../../store/pages/search/searchActions';
+import { searchResult } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create a setSearchAction', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import {SET_CLUBS, SET_CLUBS_DETAIL} from '../../store/pages/club/clubActions';
+import { SET_CLUBS, SET_CLUBS_DETAIL } from '../../store/pages/club/clubActions';
 import { clubInitialState, clubReducer } from '../../store/pages/club/clubReducer';
-import {clubList2, newClub, singleClub} from "../../assets/testMock";
+import { clubList2, newClub, singleClub } from '../../assets/testMock';
 
 describe('Club reducer', () => {
     it('Should return the initial state', () => {

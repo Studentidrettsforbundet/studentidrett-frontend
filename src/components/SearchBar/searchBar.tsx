@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { combinedStateInterface } from '../../store/store';
 import { filterButton, filterButtonContainer, searchBar, searchFilterButton } from './styles';
 import { RouterProps } from 'react-router';
-import colors from '../../styles/colors'
+import colors from '../../styles/colors';
 
 const filters = [CITY, CLUB, GROUP, TEAM, SPORT];
 const translations = ['By', 'Klubb', 'Gruppe', 'Lag', 'Idrett'];
@@ -57,7 +57,6 @@ const SearchBar = (props: RouterProps): JSX.Element => {
             {reduxState.searchBar.showSearchBar || searchPage ? (
                 <Card className={searchBar}>
                     <div className="row">
-                    {/* <div style={{ display: 'flex' , justifyContent: 'space-around'}}> */}
                         <div className="col Tabs">
                             <input
                                 name="searchString"
@@ -66,23 +65,23 @@ const SearchBar = (props: RouterProps): JSX.Element => {
                                 value={text}
                                 onChange={(e) => updateText(e.target.value)}
                                 onKeyPress={(e) => isEnter(e)}
-                                style={{marginRight:"1%"}}
+                                style={{ marginRight: '1%' }}
                             />
 
-                        <Link to={`/search/?q=${(filter !== '' ? filter + '/' : '') + text}`}>
-                            <Button
-                                variant="primary"
-                                type="submit"
-                                disabled={text === ''}
-                                style={ 
-                                    text === ''
-                                        ?  {color: '#808080', backgroundColor: 'white', borderColor: '#808080' }
-                                        :  {color: 'white', backgroundColor: '#00BC00', borderColor: '#00BC00' }
+                            <Link to={`/search/?q=${(filter !== '' ? filter + '/' : '') + text}`}>
+                                <Button
+                                    variant="primary"
+                                    type="submit"
+                                    disabled={text === ''}
+                                    style={
+                                        text === ''
+                                            ? { color: '#808080', backgroundColor: 'white', borderColor: '#808080' }
+                                            : { color: 'white', backgroundColor: '#00BC00', borderColor: '#00BC00' }
                                     }
-                            >
-                                Søk
-                            </Button>
-                        </Link>
+                                >
+                                    Søk
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                     <p style={{ textAlign: 'left', marginTop: '2px' }}> Søkefilter: </p>

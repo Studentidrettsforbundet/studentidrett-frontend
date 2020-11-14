@@ -1,7 +1,7 @@
 import React from 'react';
-import {SET_GROUPS, SET_GROUPS_DETAIL} from '../../store/pages/group/groupActions';
+import { SET_GROUPS, SET_GROUPS_DETAIL } from '../../store/pages/group/groupActions';
 import { groupInitialState, groupReducer } from '../../store/pages/group/groupReducer';
-import {groupList1, newGroup, singleGroup} from "../../assets/testMock";
+import { groupList1, newGroup, singleGroup } from '../../assets/testMock';
 
 describe('group reducer', () => {
     it('Should return the initial state', () => {

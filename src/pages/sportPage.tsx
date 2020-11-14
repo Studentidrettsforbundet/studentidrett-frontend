@@ -37,7 +37,6 @@ const SportPage = (): JSX.Element => {
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());

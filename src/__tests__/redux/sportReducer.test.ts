@@ -1,7 +1,7 @@
 import React from 'react';
-import {SET_SPORTS, SET_SPORTS_DETAIL} from '../../store/pages/sport/sportActions';
+import { SET_SPORTS, SET_SPORTS_DETAIL } from '../../store/pages/sport/sportActions';
 import { sportInitialState, sportReducer } from '../../store/pages/sport/sportReducer';
-import {newSport, singleSport, sportList2, sportList5} from "../../assets/testMock";
+import { newSport, singleSport, sportList2, sportList5 } from '../../assets/testMock';
 
 describe('Sport reducer', () => {
     it('Should return the initial state', () => {
@@ -32,7 +32,7 @@ describe('Sport reducer', () => {
                     payload: [data],
                 },
             ),
-        ).toEqual({ sports: [data], sport: null});
+        ).toEqual({ sports: [data], sport: null });
     });
 
     it('Should handle SET_SPORTS_DETAIL', () => {
@@ -58,7 +58,7 @@ describe('Sport reducer', () => {
                     payload: data,
                 },
             ),
-        ).toEqual({ sports: initialState, sport: data});
+        ).toEqual({ sports: initialState, sport: data });
     });
 
     it('Should handle SET_SPORTS_DETAIL with initialState, override sport', () => {
@@ -73,6 +73,6 @@ describe('Sport reducer', () => {
                     payload: data,
                 },
             ),
-        ).toEqual({ sports: [], sport: data});
+        ).toEqual({ sports: [], sport: data });
     });
 });
