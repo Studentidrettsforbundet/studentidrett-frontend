@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const getLinkIcon = (site: string | null): JSX.Element | null => {
-    // Open source, MIT licensed: https://ionicons.com/
     if (site === 'Facebook') {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -70,7 +69,6 @@ export const getLinkIcon = (site: string | null): JSX.Element | null => {
     }
 };
 export const getGenderIcon = (gender: string | null): JSX.Element | null => {
-    // Open source, MIT licensed: https://ionicons.com/
     if (gender === 'M') {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke="currentColor" fill="currentColor">
@@ -100,7 +98,6 @@ export const getGenderIcon = (gender: string | null): JSX.Element | null => {
 };
 
 export const getSkillIcon = (skill: string | null): JSX.Element | null => {
-    // Open source, MIT licensed: https://icons.getbootstrap.com/
     if (skill === 'NONE') {
         return (
             <svg
@@ -172,7 +169,6 @@ export const getSkillIcon = (skill: string | null): JSX.Element | null => {
 };
 
 export const getAvailabilityIcon = (availability: string | null): JSX.Element | null => {
-    // Open source, MIT licensed: https://icons.getbootstrap.com/
     if (availability === 'OP' || availability === 'TO') {
         return (
             <svg

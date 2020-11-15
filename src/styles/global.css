@@ -42,7 +42,6 @@ body,
 .page {
     background-color: rgb(236, 239, 246);
     padding: 16px;
-    /*Arbitrary numbers are header and footer height*/
     min-height: calc(100vh - (85px + 108px));
 }
 .header {
@@ -53,7 +52,6 @@ body,
 }
 @media only screen and (max-width: 720px) {
     .page {
-        /*Arbitrary numbers are header and footer height*/
         min-height: calc(100vh - (85px + 260px));
     }
     .footer {
