@@ -19,38 +19,42 @@ exports[`clubPage renders correctly 1`] = `
       className="row"
     >
       <div
-        className="col Tabs"
+        className="Tabs"
       >
-        <button
-          className="btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "backgroundColor": "rgb(255, 171, 64)",
-              "borderColor": "rgb(255, 171, 64)",
-              "color": "rgb(38, 54, 111)",
-            }
-          }
-          type="button"
+        <div
+          className="f1o1p964"
         >
-          Klubber
-        </button>
-        <button
-          className="btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "backgroundColor": "rgb(255,255,255)",
-              "borderColor": "rgb(255, 171, 64)",
-              "color": "rgb(38, 54, 111)",
+          <button
+            className="btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "rgb(255, 171, 64)",
+                "borderColor": "rgb(255, 171, 64)",
+                "color": "rgb(38, 54, 111)",
+              }
             }
-          }
-          type="button"
-        >
-          Idretter
-        </button>
+            type="button"
+          >
+            Klubber
+          </button>
+          <button
+            className="btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "rgb(255,255,255)",
+                "borderColor": "rgb(255, 171, 64)",
+                "color": "rgb(38, 54, 111)",
+              }
+            }
+            type="button"
+          >
+            Idretter
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -70,7 +74,7 @@ exports[`clubPage renders correctly 1`] = `
             onClick={[Function]}
           >
             <div
-              className="f1i8l76j"
+              className="f1b14jto"
             >
               <div
                 className="f2lk941"
