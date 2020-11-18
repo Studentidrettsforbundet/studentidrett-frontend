@@ -6,9 +6,9 @@ The project is a webapplication consisiting of two main features:
 - Browse student sports
 - Get sport recommendations through a questionnaire
 
-Production build may be viewed [here](https://kundestyrt-nsi-frontend.azurewebsites.net/)
-
-Development build may be viewed [here](https://kundestyrt-nsi-frontend-staging.azurewebsites.net/)
+The project is deployed to Microsoft Azure:
+- Production build may be viewed [here](https://kundestyrt-nsi-frontend.azurewebsites.net/)
+- Development build may be viewed [here](https://kundestyrt-nsi-frontend-staging.azurewebsites.net/)
 
 The back end code can be found [here](https://github.com/Studentidrettsforbundet/studentidrett-backend)
 ## Setup guide
