@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { card } from '../../styles/card';
-import { cardType, CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
+import React from 'react';
+import { CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
 import { searchInterface } from '../../interfaces';
 import { Link } from 'react-router-dom';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { useDispatch } from 'react-redux';
-import {searchCard} from './styles';
+import { searchCard } from './styles';
 
 interface searchCardInterface {
     label: string;
@@ -19,7 +18,7 @@ const translations: { [index: string]: string } = {
     [CLUB]: 'Idrettsklubb',
 };
 
-const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface) => {
+const SearchCard = ({ label, name, id }: searchCardInterface & searchInterface): JSX.Element => {
     const dispatch = useDispatch();
     return (
         <React.Fragment>

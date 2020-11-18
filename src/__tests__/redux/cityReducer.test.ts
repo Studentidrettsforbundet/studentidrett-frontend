@@ -1,7 +1,7 @@
 import React from 'react';
 import { SET_CITIES } from '../../store/pages/city/cityActions';
 import { cityInitialState, cityReducer } from '../../store/pages/city/cityReducer';
-import {cityList, newCity} from "../../assets/testMock";
+import { cityList, newCity } from '../../assets/testMock';
 
 describe('City reducer', () => {
     it('Should return the initial state', () => {

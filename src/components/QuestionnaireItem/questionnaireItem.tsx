@@ -1,6 +1,5 @@
 import React from 'react';
 import { questionnaireItem, radioButton, questionText, labelContainer, buttonContainer } from './styles';
-//import './questionnaireItem.css';
 
 export type QuestionnaireItemProps = {
     id: string;
@@ -9,7 +8,7 @@ export type QuestionnaireItemProps = {
     right: string;
 };
 
-const QuestionnaireItem = (props: { item: QuestionnaireItemProps } & { onChange: any; error: string }) => {
+const QuestionnaireItem = (props: { item: QuestionnaireItemProps } & { onChange: any; error: string }): JSX.Element => {
     const handleChange = (event: any) => {
         props.onChange(event.target.value);
     };

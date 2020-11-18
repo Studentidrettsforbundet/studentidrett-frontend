@@ -5,7 +5,7 @@ import './assets/ko355.woff';
 import './styles/spinner.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/footer';
+import Footer from './components/Footer/footer';
 import Routes from './routes';
 import Header from './components/Header/header';
 import { Provider } from 'react-redux';

@@ -23,9 +23,6 @@ declare global {
     }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-//TODO: add reducers interfaces
 export interface combinedStateInterface {
     region: regionState;
     city: cityState;
@@ -40,7 +37,6 @@ export interface combinedStateInterface {
     questionnaire: questionnaireState;
 }
 
-// TODO: add all pages state here
 export const combinedState = {
     region: regionInitialState,
     city: cityInitialState,
@@ -55,7 +51,6 @@ export const combinedState = {
     questionnaire: questionInitialState,
 };
 
-// create store
 const store = createStore(
     combineReducers({
         region: regionReducer,

@@ -4,9 +4,10 @@ import {  useParams } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import GroupCard from '../components/GroupCard/groupCard';
 import SearchBar from '../components/SearchBar/searchBar';
+import ClubInfo from '../components/ClubInfo/clubInfo';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
-import ClubInfo from '../components/ClubInfo/clubInfo';
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
@@ -39,12 +40,11 @@ const ClubPage = (): JSX.Element => {
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listContent = reduxState.group.groups.map((entry) => {
         return (
@@ -69,6 +69,8 @@ const ClubPage = (): JSX.Element => {
     return (
         <React.Fragment>
             <SearchBar />
+            <Breadcrumbs key="breadcrumbsClub" state={reduxState} />
+
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="spinner">
                     <Spinner animation="border" />

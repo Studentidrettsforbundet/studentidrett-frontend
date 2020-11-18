@@ -7,21 +7,22 @@ import SportCard from '../components/SportCard/sportCard';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import SearchBar from '../components/SearchBar/searchBar';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { combinedStateInterface } from '../store/store';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { toggleSearchBarActionCreator } from "../store/searchBar/searchBarActions";
 import { urlBuilderFilterData } from '../services/urlBuilders';
 import { fetchDataThunk } from '../services/api';
 import { cardList } from '../styles/card';
-import colors from '../styles/colors'
+import colors from '../styles/colors';
+import { buttonGroup } from '../styles/cityPage';
 import { CLUB, SPORT } from '../constants';
-
 
 interface urlParams {
     id: string;
 }
 
-const CityPage = () => {
+const CityPage = (): JSX.Element => {
     const [showClubs, setshowClubs] = useState(true);
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
@@ -43,19 +44,21 @@ const CityPage = () => {
             dispatch(
                 fetchDataThunk(SPORT, urlBuilderFilterData(SPORT, [{ cardType: 'city', id_or_name: urlParams.id }])),
             );
+            if (!reduxState.city.cities.length) {
+                dispatch(fetchDataThunk(CITY));
+            }
         }
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const listSportContent = reduxState.sport.sports.map((entry) => {
-        return SportCard({ id: entry.id, name: entry.name, labels: entry.labels });
+        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }} key={entry.id} />;
     });
 
     const listClubContent = reduxState.club.clubs.map((entry) => {
@@ -75,7 +78,10 @@ const CityPage = () => {
         );
     });
 
+    const currentCity = reduxState.city.cities.find((city) => city.id === parseInt(urlParams.id));
+
     return (
+<<<<<<< HEAD
         <React.Fragment>
             <Row>
                 <Col className="Tabs">
@@ -101,6 +107,56 @@ const CityPage = () => {
                     </Button>
                 </Col>
             </Row>
+=======
+        <div className="container body">
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
+            <div className="container">
+                <div className="row">
+                    <div className="Tabs">
+                        <div className={buttonGroup}>
+                            <Button
+                                onClick={() => toggleshowClubs(true)}
+                                style={
+                                    showClubs
+                                        ? {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.primary,
+                                              borderColor: colors.primary,
+                                          }
+                                        : {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.white,
+                                              borderColor: colors.primary,
+                                          }
+                                }
+                            >
+                                Klubber
+                            </Button>
+                            <Button
+                                onClick={() => toggleshowClubs(false)}
+                                style={
+                                    !showClubs
+                                        ? {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.primary,
+                                              borderColor: colors.primary,
+                                          }
+                                        : {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.white,
+                                              borderColor: colors.primary,
+                                          }
+                                }
+                            >
+                                Idretter
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+>>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
             {reduxState.thunk.fetch_in_progress ? (
                 <Container className="center_container">
                     <Spinner animation="border" />
@@ -114,9 +170,14 @@ const CityPage = () => {
                     ) : (
                         <React.Fragment>
                             {showClubs ? (
+<<<<<<< HEAD
                                 <React.Fragment>
                                     <h1>Klubber</h1>
                                     <SearchBar />
+=======
+                                <div>
+                                    <h3>Klubber i {currentCity?.name}</h3>
+>>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -124,9 +185,14 @@ const CityPage = () => {
                                     )}
                                 </React.Fragment>
                             ) : (
+<<<<<<< HEAD
                                 <React.Fragment>
                                     <h1>Idretter</h1>
                                     <SearchBar />
+=======
+                                <div>
+                                    <h3>Idretter i {currentCity?.name}</h3>
+>>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

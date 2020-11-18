@@ -13,7 +13,7 @@ export const searchBarReducer = (state = searchBarInitialState, action: searchBa
         case TOGGLE_SEARCHBAR: {
             return {
                 ...state,
-                showSearchBar: !state.showSearchBar,
+                showSearchBar: action.payload,
             };
         }
         default: {

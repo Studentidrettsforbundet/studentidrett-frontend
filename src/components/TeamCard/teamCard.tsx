@@ -15,7 +15,9 @@ const TeamCard = ({ id, name, short_description, gender, availability, skill_lev
             to={`/teams/${id}`}
             key={id}
             className={'unstyled_link'}
-            onClick={() => dispatch(resetFetchStatusesActionCreator())}
+            onClick={() => {
+                dispatch(resetFetchStatusesActionCreator());
+            }}
         >
             <div className={card} key={id}>
                 <div className={imgContainer}>

@@ -13,7 +13,9 @@ const ClubCard = (club: clubInterface): JSX.Element => {
             to={`/clubs/${club.id}`}
             key={club.id}
             className={'unstyled_link'}
-            onClick={() => dispatch(resetFetchStatusesActionCreator())}
+            onClick={() => {
+                dispatch(resetFetchStatusesActionCreator());
+            }}
         >
             <div className={card}>
                 <div className={imgContainer}>

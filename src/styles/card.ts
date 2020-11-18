@@ -23,7 +23,7 @@ export const card = style({
     color: colors.cardBodyText,
     $nest: {
         '&:not(last-child)': {
-            margin: '0px 8px 16px',
+            margin: '0px 16px 16px 0px',
         },
     },
 });

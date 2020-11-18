@@ -80,10 +80,8 @@ export const fetchDataThunk = (
     dispatch(fetchInProgressActionCreator());
 
     if (url.length > 0) {
-        //Fetch next data (scrolling)
         asyncResp = await fetchData(url);
     } else {
-        //Fetch based on cardType
         asyncResp = await fetchData(urlBuilderFetchData(dataType));
     }
     let result = [];
@@ -127,7 +125,6 @@ export const fetchDataThunk = (
         }
         default: {
             return;
-            //TODO: add error
         }
     }
 };
@@ -138,7 +135,6 @@ export const fetchDetailThunk = (
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     dispatch(fetchInProgressActionCreator());
 
-    //Fetch next data (scrolling)
     const asyncResp = await fetchData(urlBuilderFetchDetail(dataType, id));
     let result;
 
@@ -168,7 +164,6 @@ export const fetchDetailThunk = (
         }
         default: {
             return;
-            //TODO: add error
         }
     }
 };
@@ -178,7 +173,6 @@ export const handleQuestionsThunk = (
     questions: any = null,
 ): ThunkAction<void, combinedStateInterface, unknown, Action<string>> => async (dispatch) => {
     if (isFetch) {
-        //fetch data
         dispatch(fetchInProgressActionCreator());
         const asyncResp = await fetchData(urlBuilderGetQuestions());
 
@@ -190,7 +184,6 @@ export const handleQuestionsThunk = (
             dispatch(setQuestionsActionCreator(asyncResp.results));
         }
     } else {
-        //post data
         dispatch(postInProgressActionCreator());
         const asyncResp = await postData(urlBuilderPostQuestions(), questions);
 

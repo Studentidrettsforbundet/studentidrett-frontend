@@ -1,7 +1,6 @@
-import { classes, media, style } from 'typestyle';
+import { classes, style } from 'typestyle';
 import colors from '../../styles/colors';
 import { infoStyle } from '../../styles/card';
-
 
 export const icon = style({ height: '18px', width: '18px' });
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-//TODO: make some of these not-required
 interface IClubInfo {
     title: string;
     contact_email: string;
@@ -9,7 +8,7 @@ interface IClubInfo {
     description: string;
 }
 
-const ClubInfo = (props: IClubInfo) => {
+const ClubInfo = (props: IClubInfo): JSX.Element => {
     return (
         <React.Fragment>
             <h1>{props.title}</h1>

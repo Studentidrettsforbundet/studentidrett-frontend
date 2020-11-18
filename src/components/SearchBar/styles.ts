@@ -4,6 +4,7 @@ import colors from '../../styles/colors';
 export const searchBar = style({
     backgroundColor: colors.white,
     padding: '16px',
+    margin: '0',
     marginBottom: '20px',
 });
 
@@ -17,9 +18,10 @@ export const searchBarButton = style({
 });
 
 export const searchFilterButton = style({
+    color: colors.primary,
     $nest: {
         '&:not(:last-child)': {
-            marginRight: '4px',
+            marginRight: '5px',
         },
     },
 });

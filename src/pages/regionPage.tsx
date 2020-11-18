@@ -5,6 +5,7 @@ import RegionCard from '../components/RegionCard/regionCard';
 import SearchBar from '../components/SearchBar/searchBar';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { combinedStateInterface } from '../store/store';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import { toggleSearchBarActionCreator } from "../store/searchBar/searchBarActions";
@@ -12,7 +13,9 @@ import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
 import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 
-const RegionPage = () => {
+
+
+const RegionPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
 
@@ -34,12 +37,11 @@ const RegionPage = () => {
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
     const sortCities = reduxState.city.cities.map((entry) => {
         if (entry.region === 'nord') {
@@ -53,7 +55,11 @@ const RegionPage = () => {
         } else {
             regions[4].cities.push(entry);
         }
+<<<<<<< HEAD
         return;
+=======
+        return <React.Fragment key={entry.id}></React.Fragment>;
+>>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
     });
 
     const listContent = regions.map((entry) => {
@@ -63,6 +69,7 @@ const RegionPage = () => {
     return (
         <React.Fragment>
             <SearchBar />
+            <Breadcrumbs key="breadcrumbsRegion" state={reduxState} />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
                 <Container className="center">

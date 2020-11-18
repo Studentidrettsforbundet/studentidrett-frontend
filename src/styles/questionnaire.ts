@@ -1,4 +1,3 @@
-import { borderColor } from 'csx';
 import { style } from 'typestyle';
 import colors from './colors';
 
@@ -18,7 +17,7 @@ export const button = style({
     $debugName: 'button',
     margin: '14px 0',
     alignSelf: 'flex-end',
-    color: colors.secondary ,
+    color: colors.secondary,
     backgroundColor: colors.primary,
-    borderColor: colors.primary
+    borderColor: colors.primary,
 });

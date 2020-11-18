@@ -5,6 +5,13 @@ exports[`regionPage renders correctly 1`] = `
   className="container body"
 >
   <div />
+  <div
+    className="row"
+  >
+    <ol
+      className="breadcrumb"
+    />
+  </div>
   <h1>
     Regioner
   </h1>

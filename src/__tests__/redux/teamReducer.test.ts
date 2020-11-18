@@ -1,8 +1,8 @@
 import React from 'react';
-import {SET_TEAMS, SET_TEAMS_DETAIL} from '../../store/pages/team/teamActions';
+import { SET_TEAMS, SET_TEAMS_DETAIL } from '../../store/pages/team/teamActions';
 import { teamInitialState, teamReducer } from '../../store/pages/team/teamReducer';
 import { dateInterface } from '../../interfaces';
-import {newTeam, singleTeam, teamList2} from "../../assets/testMock";
+import { newTeam, singleTeam, teamList2 } from '../../assets/testMock';
 
 describe('Team reducer', () => {
     it('Should return the initial state', () => {

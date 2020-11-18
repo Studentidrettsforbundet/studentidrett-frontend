@@ -3,23 +3,23 @@ import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/searchBar';
-import { CLUB, SPORT } from '../constants';
+import { GROUP, SPORT } from '../constants';
 import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
 import { urlBuilderFilterData } from '../services/urlBuilders';
-import ClubCard from '../components/ClubCard/clubCard';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
-
-// See: https://getbootstrap.com/docs/4.0/components/card/
+import GroupCard from '../components/GroupCard/groupCard';
+import { cardList } from '../styles/card';
 
 interface urlParams {
     id: string;
 }
 
-const SportPage = () => {
+const SportPage = (): JSX.Element => {
     const sport = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -30,40 +30,28 @@ const SportPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(CLUB, urlBuilderFilterData(CLUB, [{ cardType: 'sport', id_or_name: sport.id }])));
+            dispatch(fetchDataThunk(GROUP, urlBuilderFilterData(GROUP, [{ cardType: 'sport', id_or_name: sport.id }])));
             dispatch(fetchDetailThunk(SPORT, sport.id));
         }
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
-    }, []);
+    }, [dispatch]);
 
-    const listContent = reduxState.club.clubs.map((entry) => {
-        return (
-            <ClubCard
-                {...{
-                    id: entry.id,
-                    city: entry.city,
-                    name: entry.name,
-                    description: entry.description,
-                    contact_email: entry.contact_email,
-                    membership_fee: entry.membership_fee,
-                    register_info: entry.register_info,
-                }}
-                key={entry.id}
-            />
-        );
+    const listContent = reduxState.group.groups.map((entry) => {
+        return <GroupCard {...entry} key={entry.id} />;
     });
 
     const sportInfo = reduxState.sport.sport;
 
     return (
         <div className="container body">
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsSport" state={reduxState} />
             <div className="row">
                 <div className="col">
                     {sportInfo && (
@@ -74,7 +62,6 @@ const SportPage = () => {
                     <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
-            <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
@@ -87,11 +74,7 @@ const SportPage = () => {
                         </>
                     ) : (
                         <>
-                            {listContent.length === 0 ? (
-                                <EmptyResult />
-                            ) : (
-                                <div className="card-deck">{listContent}</div>
-                            )}
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
                         </>
                     )}
                 </>

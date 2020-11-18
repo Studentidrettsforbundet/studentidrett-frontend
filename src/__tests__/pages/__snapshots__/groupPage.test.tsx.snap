@@ -5,6 +5,13 @@ exports[`clubPage renders correctly 1`] = `
   className="container body"
 >
   <div />
+  <div
+    className="row"
+  >
+    <ol
+      className="breadcrumb"
+    />
+  </div>
   <div>
     <h3>
       Våre lag

@@ -25,6 +25,7 @@ export const InfoList = ({ availability, gender, skill_level }: InfoListProps): 
                 </div>
             );
         }
+        return <></>;
     });
     return renderedList ? (
         <div className={list}>
