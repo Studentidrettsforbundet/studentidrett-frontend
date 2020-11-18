@@ -1,5 +1,5 @@
 
-# Studentidrett-back end  
+# Studentidrett-front end  
 
 This project is created for NSI (Norsk Student Idrett) during the NTNU course TDT4290 - Costumer-driven project by group 14, fall 2020.
 
@@ -8,6 +8,7 @@ The project is a webapplication consisiting of two main features:
 - Get sport recommendations through a questionnaire
 
 Production build may be viewed [here](https://kundestyrt-nsi-frontend.azurewebsites.net/)
+
 Development build may be viewed [here](https://kundestyrt-nsi-frontend-staging.azurewebsites.net/)
 
   
