@@ -32,12 +32,12 @@ describe('urlBuilderSimpleSearch', () => {
 
 describe('urlBuilderFetchData', () => {
     test('Should return correct string', () => {
-        const answer1 = BASE_URL + '/sports/';
-        const answer2 = BASE_URL + '/clubs/';
-        const answer3 = BASE_URL + '/regions/';
-        const answer4 = BASE_URL + '/teams/';
-        const answer5 = BASE_URL + '/cities/';
-        const answer6 = BASE_URL + '/groups/';
+        const answer1 = BASE_URL + '/sports/?page_size=500';
+        const answer2 = BASE_URL + '/clubs/?page_size=500';
+        const answer3 = BASE_URL + '/regions/?page_size=500';
+        const answer4 = BASE_URL + '/teams/?page_size=500';
+        const answer5 = BASE_URL + '/cities/?page_size=500';
+        const answer6 = BASE_URL + '/groups/?page_size=500';
         expect(urlBuilderFetchData(SPORT)).toBe(answer1);
         expect(urlBuilderFetchData(CLUB)).toBe(answer2);
         expect(urlBuilderFetchData(REGION)).toBe(answer3);
@@ -49,7 +49,7 @@ describe('urlBuilderFetchData', () => {
 
 describe('urlBuilderGetQuestions', () => {
     test('Should return correct string', () => {
-        const answer1 = BASE_URL + '/questions';
+        const answer1 = BASE_URL + '/questions/?page_size=500';
         expect(urlBuilderGetQuestions()).toBe(answer1);
     });
 });
