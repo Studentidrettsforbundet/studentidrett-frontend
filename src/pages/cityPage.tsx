@@ -76,32 +76,31 @@ const CityPage = () => {
     });
 
     return (
-
-        <Container className="body">
-                <Row>
-                    <Col className="Tabs">
-                        <Button
-                            onClick={() => toggleshowClubs(true)}
-                            style={
-                                showClubs
-                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
-                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
+        <React.Fragment>
+            <Row>
+                <Col className="Tabs">
+                    <Button
+                        onClick={() => toggleshowClubs(true)}
+                        style={
+                            showClubs
+                                ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
+                                : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
+                        }
+                    >
+                        Klubber
+                    </Button>
+                    <Button
+                        onClick={() => toggleshowClubs(false)}
+                        style={
+                            !showClubs
+                                ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
+                                : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
                             }
-                        >
-                            Klubber
-                        </Button>
-                        <Button
-                            onClick={() => toggleshowClubs(false)}
-                            style={
-                                !showClubs
-                                    ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
-                                    : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
-                                }
-                        >
-                            Idretter
-                        </Button>
-                    </Col>
-                </Row>
+                    >
+                        Idretter
+                    </Button>
+                </Col>
+            </Row>
             {reduxState.thunk.fetch_in_progress ? (
                 <Container className="center_container">
                     <Spinner animation="border" />
@@ -139,7 +138,7 @@ const CityPage = () => {
                     )}
                 </React.Fragment>
             )}
-        </Container>
+        </React.Fragment>
     );
 };
 

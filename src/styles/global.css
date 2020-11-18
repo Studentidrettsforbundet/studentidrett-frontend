@@ -26,14 +26,16 @@
     src: local('ArchivoSemibold'), url(../fonts/Archivo/Archivo-SemiBold.ttf) format('truetype');
 }
 
-html,
-body,
-#root,
-.page {
+.body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+    margin-top: 10px;
     font-family: 'ArchivoRegular', Arial, Helvetica, sans-serif;
+    background-color: rgb(236, 239, 246);
+    padding: 16px;
+    /*Arbitrary numbers are header and footer height*/
+    min-height: calc(100vh - (85px + 85px));
+    color: rgb(49, 56, 121, 1);
+    font-size: 16px;
 }
 
 .Tabs {
@@ -45,25 +47,11 @@ body,
     margin-bottom: 8px;
 }
 
-.page {
-    background-color: rgb(236, 239, 246);
-    padding: 16px;
-    /*Arbitrary numbers are header and footer height*/
-    min-height: calc(100vh - (85px + 85px));
-}
 .header {
     height: 85px;
 }
 .footer {
     height: 85px;
-}
-
-.body {
-    background-color: rgb(236, 239, 246);
-    color: rgb(49, 56, 121, 1);
-    margin: 0 auto;
-    font-family: 'ArchivoRegular', sans-serif;
-    font-size: 16px;
 }
 
 h1 {

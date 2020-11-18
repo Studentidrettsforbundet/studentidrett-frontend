@@ -1,10 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { cityInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
-import { secondaryCard } from '../../styles/card';
-import Card from 'react-bootstrap/Card'
+import { cityInterface } from '../../interfaces';
+import { secondaryCard } from './styles';
 
 const CityCard = ({ id, name, region, clubs }: cityInterface) => {
     const dispatch = useDispatch();
@@ -15,9 +14,9 @@ const CityCard = ({ id, name, region, clubs }: cityInterface) => {
             className={'unstyled_link'}
             onClick={() => dispatch(resetFetchStatusesActionCreator())}
         >
-            <Card className={secondaryCard}>
+            <div className={secondaryCard}>
                 <h5>{name}</h5>
-            </Card>
+            </div>
         </Link>
     );
 };

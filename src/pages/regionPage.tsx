@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Spinner, Container, Col, Row } from 'react-bootstrap';
+import { Spinner, Container } from 'react-bootstrap';
 import RegionCard from '../components/RegionCard/regionCard';
 import SearchBar from '../components/SearchBar/searchBar';
 import EmptyResult from '../components/EmptyResult/emptyResult';
@@ -36,7 +36,7 @@ const RegionPage = () => {
     useEffect(() => {
         // cleanup
         return () => {
-            dispatch(toggleSearchBarActionCreator());
+            dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
         };
     }, []);
@@ -61,12 +61,7 @@ const RegionPage = () => {
     });
 
     return (
-        <Container className="body">
-            <Row className="page_header">
-                <Col>
-                    <h1>Regioner</h1>
-                </Col>
-            </Row>
+        <React.Fragment>
             <SearchBar />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
@@ -93,7 +88,7 @@ const RegionPage = () => {
                 )}
                 </React.Fragment>
             )}
-        </Container>
+        </React.Fragment>
     );
 };
 

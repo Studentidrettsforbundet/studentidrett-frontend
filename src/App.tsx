@@ -29,7 +29,7 @@ const App = () => {
                 <BrowserRouter>
                     <ScrollToTop />
                     <Header />
-                    <div className="page">
+                    <div className="body">
                         <Routes />
                     </div>
                     <Footer />

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {  useParams } from 'react-router-dom';
-import { Spinner, Container } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import GroupCard from '../components/GroupCard/groupCard';
 import SearchBar from '../components/SearchBar/searchBar';
 import EmptyResult from '../components/EmptyResult/emptyResult';
@@ -67,12 +67,12 @@ const ClubPage = (): JSX.Element => {
     const selectedClub = reduxState.club.club;
 
     return (
-        <Container className="body">
+        <React.Fragment>
             <SearchBar />
             {reduxState.thunk.fetch_in_progress ? (
-                <Container className="Spinner">
+                <div className="spinner">
                     <Spinner animation="border" />
-                </Container>
+                </div>
             ) : (
                 <React.Fragment>
                     {reduxState.thunk.fetch_failed ? (
@@ -96,7 +96,7 @@ const ClubPage = (): JSX.Element => {
                     )}
                 </React.Fragment>
             )}
-        </Container>
+        </React.Fragment>
     );
 };
 export default ClubPage;
