@@ -1,4 +1,13 @@
-# studentidrett-frontend
+# Studentidrett webpage features
+This project is created for NSI (Norsk Student Idrett) during the NTNU course TDT4290 - Costumer-driven project.
+
+The project is a website consisiting of two main features to be added to the homepage of [NSI](https://www.studentidrett.no/)
+
+The features are: 
+  - Browse student sports
+  - Sport recommendations through questionnaire
+ 
+ Production build may be viewed [here](https://kundestyrt-nsi-frontend-staging.azurewebsites.net/)
 
 ## Development guide
 
@@ -7,8 +16,7 @@
 ```
 npm install
 ```
-
-Always run npm install whenver you pull code from github. If something doesnt work, try npm install ;)
+note: run npm install whenver you pull code from github.
 
 #### 2. Run locally
 
@@ -30,7 +38,7 @@ Generates build version for deployment
 
 ## Git-conventions
 
-Branches:
+  Branches:
 
 -   main: update only for deployment (merge from dev)
 -   dev: development branch, update continuously
