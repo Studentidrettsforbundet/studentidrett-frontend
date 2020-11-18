@@ -3,9 +3,9 @@ import {
     SET_SPORTS,
     SET_SPORTS_DETAIL,
     setSportsActionCreator,
-    setSportsActionDetailCreator
+    setSportsActionDetailCreator,
 } from '../../store/pages/sport/sportActions';
-import {singleSport, sportList5} from '../../assets/testMock';
+import { singleSport, sportList5 } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setSportsAction', () => {

@@ -13,8 +13,7 @@ import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 import GroupCard from '../components/GroupCard/groupCard';
-
-// See: https://getbootstrap.com/docs/4.0/components/card/
+import { cardList } from '../styles/card';
 
 interface urlParams {
     id: string;
@@ -37,7 +36,6 @@ const SportPage = (): JSX.Element => {
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
@@ -76,11 +74,7 @@ const SportPage = (): JSX.Element => {
                         </>
                     ) : (
                         <>
-                            {listContent.length === 0 ? (
-                                <EmptyResult />
-                            ) : (
-                                <div className="card-deck">{listContent}</div>
-                            )}
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
                         </>
                     )}
                 </>

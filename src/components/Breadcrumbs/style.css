@@ -1,3 +1,6 @@
 .breadcrumb {
     background-color : rgb(236, 239, 246);
 }
+.breadcrumb:hover :not(.active) {
+    cursor: pointer;
+}

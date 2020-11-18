@@ -7,9 +7,8 @@ import store from '../../store/store';
 import 'mutationobserver-shim';
 
 describe('teamPage', () => {
-    
     global.MutationObserver = window.MutationObserver;
-    jest.resetAllMocks()
+    jest.resetAllMocks();
     test('renders correctly', () => {
         const tree = renderer.create(
             <Provider store={store}>

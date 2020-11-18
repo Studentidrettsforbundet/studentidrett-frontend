@@ -1,4 +1,3 @@
-/*Remove Link style*/
 .unstyled_link,
 .unstyled_link:active,
 .unstyled_link:hover {
@@ -15,11 +14,6 @@
     font-family: 'ArchivoRegular';
     src: local('Archivo'), url(../fonts/Archivo/Archivo-Regular.ttf) format('truetype');
 }
-
-/* @font-face{
-    font-family: 'ArchivoBold';
-    src: local('ArchivoBold'), url(../fonts/Archivo/Archivo-Bold.ttf) format('truetype');
-} */
 
 @font-face {
     font-family: 'ArchivoSemibold';
@@ -48,7 +42,6 @@ body,
 .page {
     background-color: rgb(236, 239, 246);
     padding: 16px;
-    /*Arbitrary numbers are header and footer height*/
     min-height: calc(100vh - (85px + 108px));
 }
 .header {
@@ -59,7 +52,6 @@ body,
 }
 @media only screen and (max-width: 720px) {
     .page {
-        /*Arbitrary numbers are header and footer height*/
         min-height: calc(100vh - (85px + 260px));
     }
     .footer {
@@ -105,7 +97,6 @@ a:link,
 a:visited {
     color: rgb(255, 171, 64, 1);
 }
-
 
 .boldText {
     font-family: 'ArchivoSemiBold', sans-serif;

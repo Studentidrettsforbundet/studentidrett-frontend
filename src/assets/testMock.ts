@@ -1,5 +1,5 @@
 // ------------------- REGIONS ---------------
-import {CITY, CLUB} from '../constants';
+import { CITY, CLUB } from '../constants';
 
 export const singleRegion = { id: 3, name: 'Vestlandet', cities: [] };
 export const regionList3 = [

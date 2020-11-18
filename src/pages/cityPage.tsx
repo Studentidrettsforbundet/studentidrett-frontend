@@ -16,6 +16,7 @@ import colors from '../styles/colors';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import { buttonGroup } from '../styles/cityPage';
 
 interface urlParams {
     id: string;
@@ -26,7 +27,6 @@ const CityPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
     const urlParams = useParams<urlParams>();
-    console.log(urlParams);
 
     const toggleshowClubs = (clubs: boolean) => {
         setshowClubs(clubs);
@@ -51,7 +51,6 @@ const CityPage = (): JSX.Element => {
     });
 
     useEffect(() => {
-        // cleanup
         return () => {
             dispatch(toggleSearchBarActionCreator(false));
             dispatch(resetFetchStatusesActionCreator());
@@ -84,46 +83,48 @@ const CityPage = (): JSX.Element => {
     return (
         <div className="container body">
             <SearchBar />
-            <Breadcrumbs key='breadcrumbsCity' state={reduxState} />
+            <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
             <div className="container">
                 <div className="row">
-                    <div className="col Tabs">
-                        <Button
-                            onClick={() => toggleshowClubs(true)}
-                            style={
-                                showClubs
-                                    ? {
-                                          color: colors.secondary,
-                                          backgroundColor: colors.primary,
-                                          borderColor: colors.primary,
-                                      }
-                                    : {
-                                          color: colors.secondary,
-                                          backgroundColor: colors.white,
-                                          borderColor: colors.primary,
-                                      }
-                            }
-                        >
-                            Klubber
-                        </Button>
-                        <Button
-                            onClick={() => toggleshowClubs(false)}
-                            style={
-                                !showClubs
-                                    ? {
-                                          color: colors.secondary,
-                                          backgroundColor: colors.primary,
-                                          borderColor: colors.primary,
-                                      }
-                                    : {
-                                          color: colors.secondary,
-                                          backgroundColor: colors.white,
-                                          borderColor: colors.primary,
-                                      }
-                            }
-                        >
-                            Idretter
-                        </Button>
+                    <div className="Tabs">
+                        <div className={buttonGroup}>
+                            <Button
+                                onClick={() => toggleshowClubs(true)}
+                                style={
+                                    showClubs
+                                        ? {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.primary,
+                                              borderColor: colors.primary,
+                                          }
+                                        : {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.white,
+                                              borderColor: colors.primary,
+                                          }
+                                }
+                            >
+                                Klubber
+                            </Button>
+                            <Button
+                                onClick={() => toggleshowClubs(false)}
+                                style={
+                                    !showClubs
+                                        ? {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.primary,
+                                              borderColor: colors.primary,
+                                          }
+                                        : {
+                                              color: colors.secondary,
+                                              backgroundColor: colors.white,
+                                              borderColor: colors.primary,
+                                          }
+                                }
+                            >
+                                Idretter
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

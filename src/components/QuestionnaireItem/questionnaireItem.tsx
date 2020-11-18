@@ -1,6 +1,5 @@
 import React from 'react';
 import { questionnaireItem, radioButton, questionText, labelContainer, buttonContainer } from './styles';
-//import './questionnaireItem.css';
 
 export type QuestionnaireItemProps = {
     id: string;

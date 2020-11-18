@@ -12,7 +12,7 @@ import { SET_SPORTS_DETAIL } from '../../store/pages/sport/sportActions';
 import { SET_TEAMS_DETAIL } from '../../store/pages/team/teamActions';
 import { singleClub, singleGroup, singleSport, singleTeam } from '../../assets/testMock';
 
-export const startState = {}; //put initial state here
+export const startState = {};
 
 export const mockStore = configureMockStore([thunk]);
 

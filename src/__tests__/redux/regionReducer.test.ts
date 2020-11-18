@@ -1,7 +1,7 @@
 import React from 'react';
 import { SET_REGIONS } from '../../store/pages/region/regionActions';
 import { regionInitialState, regionReducer } from '../../store/pages/region/regionReducer';
-import {regionList3, singleRegion} from "../../assets/testMock";
+import { regionList3, singleRegion } from '../../assets/testMock';
 
 describe('Region reducer', () => {
     it('Should return the initial state', () => {

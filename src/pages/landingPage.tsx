@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
 import { setSessionIDActionCreator } from '../store/pages/interest/interestActions';

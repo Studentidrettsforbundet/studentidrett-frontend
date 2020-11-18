@@ -52,8 +52,6 @@ const SearchResults = (): JSX.Element => {
     useEffect(() => {
         incrementSearch();
         dispatch(resetFetchStatusesActionCreator());
-        /* Warning for not having incrementSearch in dependency-array but inrementSearch in dependency array gives
-         * infinite loop of re-renders*/
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, location]);
 

@@ -4,6 +4,7 @@ import colors from '../../styles/colors';
 export const searchBar = style({
     backgroundColor: colors.white,
     padding: '16px',
+    margin: '0',
     marginBottom: '20px',
 });
 

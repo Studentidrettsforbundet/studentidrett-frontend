@@ -3,9 +3,9 @@ import {
     SET_TEAMS,
     SET_TEAMS_DETAIL,
     setTeamsActionCreator,
-    setTeamsActionDetailCreator
+    setTeamsActionDetailCreator,
 } from '../../store/pages/team/teamActions';
-import {singleTeam, teamList2} from "../../assets/testMock";
+import { singleTeam, teamList2 } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setTeamsAction', () => {

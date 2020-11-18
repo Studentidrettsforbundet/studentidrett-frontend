@@ -1,8 +1,6 @@
 import { style, classes } from 'typestyle';
 import colors from '../../styles/colors';
 
-
-
 export const searchCard = classes(
     style({
         cursor: 'pointer',
@@ -17,11 +15,11 @@ export const searchCard = classes(
                 color: colors.secondary,
                 textAlign: 'center',
                 marginTop: 'auto',
-                marginBottom: 'auto'
+                marginBottom: 'auto',
             },
             '& h5': {
                 color: colors.orange,
-            }
+            },
         },
     }),
 );

@@ -1,16 +1,17 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import App from '../App';
-import store from '../store/store';
+import store from '../../store/store';
 
-describe('App', () => {
+import BackButton from '../../components/BackButton/backButton';
+
+describe('backButton', () => {
     test('renders correctly', () => {
         const tree = renderer.create(
             <Provider store={store}>
                 <MemoryRouter>
-                    <App />
+                    <BackButton />
                 </MemoryRouter>
             </Provider>,
         );

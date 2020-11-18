@@ -1,3 +1,1 @@
 import { style } from 'typestyle';
-
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import { SET_REGIONS, setRegionsActionCreator } from '../../store/pages/region/regionActions';
-import {invalidCityList, regionList5} from "../../assets/testMock";
+import { invalidCityList, regionList5 } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setRegionsAction', () => {
