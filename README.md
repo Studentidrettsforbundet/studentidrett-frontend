@@ -36,6 +36,20 @@ Generates build version for deployment
 
 <br>
 
+## Testing
+from root folder
+```
+../studentidrett-frontend/
+```
+run tests
+```
+npm test
+```
+Note: you may also specify a folder you wish to test
+```
+npm test foldername
+```
+
 ## Git-conventions
 
   Branches:
