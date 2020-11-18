@@ -1,7 +1,6 @@
 
 # Studentidrett-front end  
-
-This project is created for NSI (Norsk Student Idrett) during the NTNU course TDT4290 - Costumer-driven project by group 14, fall 2020.
+This the front end code for a web application created for NSI (Norsk Student Idrett) during the NTNU course TDT4290 - Costumer-driven project by group 14, fall 2020. 
 
 The project is a webapplication consisiting of two main features:
 - Browse student sports
@@ -11,7 +10,7 @@ Production build may be viewed [here](https://kundestyrt-nsi-frontend.azurewebsi
 
 Development build may be viewed [here](https://kundestyrt-nsi-frontend-staging.azurewebsites.net/)
 
-  
+The back end code can be found [here](https://github.com/Studentidrettsforbundet/studentidrett-backend)
 ## Setup guide
 There are two ways to run this project, with or without docker. Both ways are explained below.
 
@@ -21,7 +20,7 @@ Clone the project or download the source code.
 
 ### 2. Without docker
 #### 2.1 Install npm
-Download the newest version of npm from from https://nodejs.org/en/download/
+Download the newest version of npm from from [here](https://nodejs.org/en/download/)
 
 #### 2.2 Install dependencies
 Navigate to the root folder and run the command:
@@ -47,7 +46,7 @@ npm run-script build
 
 ### 2. With docker
 #### 2.1 Install docker
-Download the newest version from https://docs.docker.com/get-docker/
+Download the newest version from [here](https://docs.docker.com/get-docker/)
 #### 2.2 Install dependencies
 TODO
 #### 2.3 Run the project locally
