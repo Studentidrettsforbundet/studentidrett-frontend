@@ -1,24 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`regionPage renders correctly 1`] = `
-<div
-  className="container body"
->
-  <div />
+Array [
   <div
     className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </div>
+  </div>,
   <h1>
     Regioner
-  </h1>
+  </h1>,
   <div
     className="f1h0bhad"
   >
     Ingen resultater.
-  </div>
-</div>
+  </div>,
+]
 `;

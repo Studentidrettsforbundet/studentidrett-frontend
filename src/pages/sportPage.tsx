@@ -49,7 +49,7 @@ const SportPage = (): JSX.Element => {
     const sportInfo = reduxState.sport.sport;
 
     return (
-        <div className="container body">
+        <React.Fragment>
             <SearchBar />
             <Breadcrumbs key="breadcrumbsSport" state={reduxState} />
             <div className="row">
@@ -78,8 +78,8 @@ const SportPage = (): JSX.Element => {
                         </>
                     )}
                 </>
-            )}
-        </div>
+                )}
+        </React.Fragment>
     );
 };
 

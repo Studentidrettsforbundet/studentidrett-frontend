@@ -11,7 +11,7 @@ export const secondaryCard = style({
     margin: '5px auto 0',
     $nest: {
         '&:not(last-child)': {
-            marginBottom: '8px',
+            marginBottom: '16px',
         },
     },
 });

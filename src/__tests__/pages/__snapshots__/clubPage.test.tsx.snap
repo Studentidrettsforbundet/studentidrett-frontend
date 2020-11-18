@@ -1,28 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`clubPage renders correctly 1`] = `
-<div
-  className="container body"
->
-  <div />
+Array [
   <div
     className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </div>
-  <div>
-    <div>
-      <h3>
-        Våre grupper
-      </h3>
-      <div
-        className="f1h0bhad"
-      >
-        Ingen resultater.
-      </div>
-    </div>
-  </div>
-</div>
+  </div>,
+  <h3>
+    Våre grupper
+  </h3>,
+  <div
+    className="f1h0bhad"
+  >
+    Ingen resultater.
+  </div>,
+]
 `;

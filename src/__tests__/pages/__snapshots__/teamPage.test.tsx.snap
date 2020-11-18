@@ -2,15 +2,10 @@
 
 exports[`teamPage renders correctly 1`] = `
 <div
-  className="container"
+  className="row"
 >
-  <div />
-  <div
-    className="row"
-  >
-    <ol
-      className="breadcrumb"
-    />
-  </div>
+  <ol
+    className="breadcrumb"
+  />
 </div>
 `;

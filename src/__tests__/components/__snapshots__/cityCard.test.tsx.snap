@@ -7,13 +7,11 @@ exports[`groupCard renders correctly 1`] = `
   onClick={[Function]}
 >
   <div
-    className="f1x38xph"
+    className="SecondaryCard_f1g72rei"
   >
-    <div>
-      <h5>
-        Trondheim
-      </h5>
-    </div>
+    <h5>
+      Trondheim
+    </h5>
   </div>
 </a>
 `;

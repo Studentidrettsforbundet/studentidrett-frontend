@@ -2,7 +2,7 @@
 
 exports[`questionnairePage should render correctly 1`] = `
 <div
-  className="fe96yol"
+  className="questionnaire_fe96yol"
 >
   <h1>
     Idrettsvalgomat
@@ -154,7 +154,7 @@ exports[`questionnairePage should render correctly 1`] = `
       </div>
     </div>
     <button
-      className="f1bku7zb btn btn-warning"
+      className="button_f1bku7zb btn btn-warning"
       disabled={false}
       type="submit"
     >

@@ -13,7 +13,7 @@ export const cardList = style(
 
 export const card = style({
     $debugName: 'card',
-    margin: '0px 0px 0px 0px',
+    margin: '0px 00px 16px 0px',
     width: '100%',
     maxWidth: '315px',
     backgroundColor: colors.white,
@@ -23,7 +23,7 @@ export const card = style({
     color: colors.cardBodyText,
     $nest: {
         '&:not(last-child)': {
-            margin: '0px 16px 16px 0px',
+            margin: '0px 0px 16px 0px',
         },
     },
 });

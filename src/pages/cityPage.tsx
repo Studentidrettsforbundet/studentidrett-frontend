@@ -16,7 +16,7 @@ import { fetchDataThunk } from '../services/api';
 import { cardList } from '../styles/card';
 import colors from '../styles/colors';
 import { buttonGroup } from '../styles/cityPage';
-import { CLUB, SPORT } from '../constants';
+import { CLUB, SPORT, CITY } from '../constants';
 
 interface urlParams {
     id: string;
@@ -81,34 +81,7 @@ const CityPage = (): JSX.Element => {
     const currentCity = reduxState.city.cities.find((city) => city.id === parseInt(urlParams.id));
 
     return (
-<<<<<<< HEAD
         <React.Fragment>
-            <Row>
-                <Col className="Tabs">
-                    <Button
-                        onClick={() => toggleshowClubs(true)}
-                        style={
-                            showClubs
-                                ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
-                                : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
-                        }
-                    >
-                        Klubber
-                    </Button>
-                    <Button
-                        onClick={() => toggleshowClubs(false)}
-                        style={
-                            !showClubs
-                                ? { color: colors.secondary, backgroundColor: colors.primary, borderColor: colors.primary }
-                                : { color: colors.secondary, backgroundColor: colors.white, borderColor: colors.primary }
-                            }
-                    >
-                        Idretter
-                    </Button>
-                </Col>
-            </Row>
-=======
-        <div className="container body">
             <SearchBar />
             <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
             <div className="container">
@@ -155,8 +128,6 @@ const CityPage = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-
->>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
             {reduxState.thunk.fetch_in_progress ? (
                 <Container className="center_container">
                     <Spinner animation="border" />
@@ -170,14 +141,9 @@ const CityPage = (): JSX.Element => {
                     ) : (
                         <React.Fragment>
                             {showClubs ? (
-<<<<<<< HEAD
                                 <React.Fragment>
-                                    <h1>Klubber</h1>
-                                    <SearchBar />
-=======
-                                <div>
                                     <h3>Klubber i {currentCity?.name}</h3>
->>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
+                                    <SearchBar />
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
@@ -185,14 +151,9 @@ const CityPage = (): JSX.Element => {
                                     )}
                                 </React.Fragment>
                             ) : (
-<<<<<<< HEAD
                                 <React.Fragment>
-                                    <h1>Idretter</h1>
-                                    <SearchBar />
-=======
-                                <div>
                                     <h3>Idretter i {currentCity?.name}</h3>
->>>>>>> 357f143bedc29c4af53e668083bbcff804b98822
+                                    <SearchBar />
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (

@@ -41,7 +41,7 @@ const TeamPage = (): JSX.Element => {
     const team = reduxState.team.team;
 
     return (
-        <div className="container">
+        <React.Fragment>
             <SearchBar />
             <Breadcrumbs key="breadcrumbsTeam" state={reduxState} />
 
@@ -85,7 +85,7 @@ const TeamPage = (): JSX.Element => {
                     )}
                 </>
             )}
-        </div>
+        </React.Fragment>
     );
 };
 export default TeamPage;

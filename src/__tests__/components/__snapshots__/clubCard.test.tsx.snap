@@ -7,22 +7,22 @@ exports[`clubCard renders correctly 1`] = `
   onClick={[Function]}
 >
   <div
-    className="f1b14jto"
+    className="card_f1o9feh8"
   >
     <div
-      className="f2lk941"
+      className="imgContainer_f2lk941"
     >
       <img
         alt="Club"
-        className="fb12b09"
+        className="cardImg_fb12b09"
         src="placeholder.png"
       />
     </div>
     <div
-      className="f1drtrr0"
+      className="cardBody_f1drtrr0"
     >
       <h5
-        className="fm5b097"
+        className="cardTitle_fm5b097"
       >
         NTNUI Bowling
       </h5>

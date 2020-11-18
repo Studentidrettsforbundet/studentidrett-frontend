@@ -19,10 +19,10 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
       className="f1cnbvby"
     >
       <div
-        className="f1drtrr0"
+        className="cardBody_f1drtrr0"
       >
         <h5
-          className="fm5b097"
+          className="cardTitle_fm5b097"
         >
           name1
         </h5>
@@ -38,10 +38,10 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
       className="f1cnbvby"
     >
       <div
-        className="f1drtrr0"
+        className="cardBody_f1drtrr0"
       >
         <h5
-          className="fm5b097"
+          className="cardTitle_fm5b097"
         >
           name2
         </h5>
@@ -57,10 +57,10 @@ exports[`resultPage snapshot tests should render correctly 1`] = `
       className="f1cnbvby"
     >
       <div
-        className="f1drtrr0"
+        className="cardBody_f1drtrr0"
       >
         <h5
-          className="fm5b097"
+          className="cardTitle_fm5b097"
         >
           name3
         </h5>
