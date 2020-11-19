@@ -32,7 +32,7 @@ export const urlBuilderFilterData = (cardType: cardType, filterParams: filterCar
 };
 
 export const urlBuilderFetchData = (cardType: cardType): string => {
-    return BASE_URL + '/' + cardType + '/';
+    return BASE_URL + '/' + cardType + '/?page_size=500';
 };
 
 export const urlBuilderFetchDetail = (cardType: cardType, id: string): string => {
@@ -40,7 +40,7 @@ export const urlBuilderFetchDetail = (cardType: cardType, id: string): string =>
 };
 
 export const urlBuilderGetQuestions = (): string => {
-    return BASE_URL + '/questions';
+    return BASE_URL + '/questions/?page_size=500';
 };
 
 export const urlBuilderPostQuestions = (): string => {
