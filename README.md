@@ -1,8 +1,8 @@
 
-# studentidrett-backend
-This the front end code for a web application created for NSI (The Norwegian Association of University Sports).
+# studentidrett-frontend
+This is the front end code for a web application created for NSI (The Norwegian Association of University Sports).
 
-The project is a web application consisting of two main features:
+The web application consists of two main features:
 - Browse student sports
 - Get sport recommendations through a questionnaire
 
@@ -19,7 +19,7 @@ The back end code can be found [here](https://github.com/Studentidrettsforbundet
 Clone the project or download the source code.
 
 
-### 2. Without docker
+### 2. Installation and running locally
 #### 2.1 Install npm
 Download the newest version of npm from [here](https://nodejs.org/en/download/)
 
