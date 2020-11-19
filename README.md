@@ -18,7 +18,6 @@ The back end code can be found [here](https://github.com/Studentidrettsforbundet
 ### 1. Get the code
 Clone the project or download the source code.
 
-
 ### 2. Installation and running locally
 #### 2.1 Install npm
 Download the newest version of npm from [here](https://nodejs.org/en/download/)
@@ -38,7 +37,7 @@ Navigate to the root folder and run the command:
 ```
 npm test
 ```
-This will run all tests, as well as generate a coverage report
+This will run all tests, as well as generate a coverage report.
 
 #### 2.5 Build project
 ```
