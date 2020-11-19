@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
 import { Link, useLocation, withRouter } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
-import './styles.css';
+import { RouterProps } from 'react-router';
 import { useSelector } from 'react-redux';
 import { combinedStateInterface } from '../../store/store';
 import { filterButton, filterButtonContainer, searchBar, searchFilterButton } from './styles';
-import { RouterProps } from 'react-router';
 import colors from '../../styles/colors';
+import './styles.css';
+import { CITY, CLUB, GROUP, SPORT, TEAM } from '../../constants';
 
 const filters = [CITY, CLUB, GROUP, TEAM, SPORT];
 const translations = ['By', 'Klubb', 'Gruppe', 'Lag', 'Idrett'];
@@ -53,7 +53,7 @@ const SearchBar = (props: RouterProps): JSX.Element => {
     ));
 
     return (
-        <div>
+        <React.Fragment>
             {reduxState.searchBar.showSearchBar || searchPage ? (
                 <Card className={searchBar}>
                     <div className="row">
@@ -88,7 +88,7 @@ const SearchBar = (props: RouterProps): JSX.Element => {
                     <div className={filterButtonContainer}>{radioGroup}</div>
                 </Card>
             ) : null}
-        </div>
+        </React.Fragment>
     );
 };
 

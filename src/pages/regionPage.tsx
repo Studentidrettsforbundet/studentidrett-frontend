@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { combinedStateInterface } from '../store/store';
+import { Spinner, Container } from 'react-bootstrap';
 import RegionCard from '../components/RegionCard/regionCard';
-import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
-import { fetchDataThunk } from '../services/api';
-import { regionInterface } from '../interfaces';
 import SearchBar from '../components/SearchBar/searchBar';
-import { Spinner } from 'react-bootstrap';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
 import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
-import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import { combinedStateInterface } from '../store/store';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { toggleSearchBarActionCreator } from "../store/searchBar/searchBarActions";
+import { fetchDataThunk } from '../services/api';
+import { regionInterface } from '../interfaces';
+import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
+
+
 
 const RegionPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -70,26 +72,24 @@ const RegionPage = (): JSX.Element => {
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <>
-                    {reduxState.thunk.fetch_failed ? (
-                        <>
-                            <FetchError />
-                        </>
+                <React.Fragment>
+                {reduxState.thunk.fetch_failed ? (
+                    <React.Fragment>
+                        <FetchError />
+                    </React.Fragment>
+                ) : (
+                    <React.Fragment>
+                    {reduxState.city.cities.length === 0 ? (
+                        <EmptyResult />
                     ) : (
-                        <>
-                            {reduxState.city.cities.length === 0 ? (
-                                <>
-                                    <EmptyResult />
-                                </>
-                            ) : (
-                                <>
-                                    {listContent}
-                                    {sortCities}
-                                </>
-                            )}
-                        </>
+                        <React.Fragment>
+                            {sortCities}
+                            {listContent}
+                        </React.Fragment>
                     )}
-                </>
+                    </React.Fragment>
+                )}
+                </React.Fragment>
             )}
         </div>
     );

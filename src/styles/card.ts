@@ -3,6 +3,7 @@ import colors from './colors';
 
 export const cardList = style(
     {
+        $debugName: 'cardList',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -11,7 +12,8 @@ export const cardList = style(
 );
 
 export const card = style({
-    margin: '0px 0px 0px 0px',
+    $debugName: 'card',
+    margin: '0px 8px 16px 8px',
     width: '100%',
     maxWidth: '315px',
     backgroundColor: colors.white,
@@ -21,12 +23,13 @@ export const card = style({
     color: colors.cardBodyText,
     $nest: {
         '&:not(last-child)': {
-            margin: '0px 16px 16px 0px',
+            margin: '0px 8px 16px 8px',
         },
     },
 });
 
 export const cardHeader = style({
+    $debugName: 'cardHeader',
     margin: '2px 4px',
     color: colors.cardHeader,
     fontSize: '19px',
@@ -35,6 +38,7 @@ export const cardHeader = style({
 });
 
 export const cardBody = style({
+    $debugName: 'cardBody',
     backgroundColor: 'inherit',
     margin: '2px 4px',
     padding: '5px 10px',
@@ -42,10 +46,12 @@ export const cardBody = style({
 });
 
 export const cardFooter = style({
+    $debugName: 'cardFooter',
     backgroundColor: colors.white,
 });
 
 export const imgContainer = style({
+    $debugName: 'imgContainer',
     textAlign: 'center',
     maxWidth: '315px',
     display: 'block',
@@ -54,32 +60,20 @@ export const imgContainer = style({
 });
 
 export const cardImg = style({
+    $debugName: 'cardImg',
     borderRadius: '5px',
     width: '100%',
     height: 'auto',
 });
 
-export const secondaryCard = style({
-    maxWidth: '400px',
-    backgroundColor: 'rgb(236,236,236,1)',
-    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-    borderRadius: '6px',
-    textAlign: 'center',
-    padding: '5px',
-    margin: '5px auto 0',
-    $nest: {
-        '&:not(last-child)': {
-            marginBottom: '8px',
-        },
-    },
-});
-
 export const cardTitle = style({
+    $debugName: 'cardTitle',
     color: colors.primary,
     paddingTop: '5px',
     fontFamily: 'ArchivoSemiBold, sans-serif',
 });
 
 export const infoStyle = style({
+    $debugName: 'inforStyle',
     color: colors.secondary,
 });

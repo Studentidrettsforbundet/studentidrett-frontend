@@ -10,10 +10,10 @@ exports[`SportCard renders correctly 1`] = `
     className="f1cnbvby"
   >
     <div
-      className="f1drtrr0"
+      className="cardBody_f1drtrr0"
     >
       <h5
-        className="fm5b097"
+        className="cardTitle_fm5b097"
       >
         Football
       </h5>

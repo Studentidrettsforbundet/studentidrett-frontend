@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import GroupCard from '../components/GroupCard/groupCard';
-import { CLUB, GROUP } from '../constants';
-import SearchBar from '../components/SearchBar/searchBar';
-import { fetchDataThunk, fetchDetailThunk } from '../services/api';
-import { combinedStateInterface } from '../store/store';
-import ClubInfo from '../components/ClubInfo/clubInfo';
-import { urlBuilderFilterData } from '../services/urlBuilders';
+import {  useParams } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import GroupCard from '../components/GroupCard/groupCard';
+import SearchBar from '../components/SearchBar/searchBar';
+import ClubInfo from '../components/ClubInfo/clubInfo';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
-import { cardList } from '../styles/card';
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
+import { combinedStateInterface } from '../store/store';
 import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
-import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import {toggleSearchBarActionCreator} from "../store/searchBar/searchBarActions";
+import { cardList } from '../styles/card';
+import { CLUB, GROUP } from '../constants';
+
 
 interface urlParams {
     id: string;
@@ -75,13 +76,13 @@ const ClubPage = (): JSX.Element => {
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <div>
+                <React.Fragment>
                     {reduxState.thunk.fetch_failed ? (
-                        <div>
+                        <React.Fragment>
                             <FetchError />
-                        </div>
+                        </React.Fragment>
                     ) : (
-                        <div>
+                        <React.Fragment>
                             {selectedClub && (
                                 <ClubInfo
                                     title={selectedClub.name}
@@ -93,9 +94,9 @@ const ClubPage = (): JSX.Element => {
                             )}
                             <h3>Våre grupper</h3>
                             {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
-                        </div>
+                        </React.Fragment>
                     )}
-                </div>
+                </React.Fragment>
             )}
         </div>
     );

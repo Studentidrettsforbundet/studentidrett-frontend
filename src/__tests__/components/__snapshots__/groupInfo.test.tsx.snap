@@ -11,10 +11,8 @@ Array [
     src="placeholder.png"
   />,
   <br />,
-  <div>
-    <p>
-      A hockey group at NTNUI
-    </p>
-  </div>,
+  <p>
+    A hockey group at NTNUI
+  </p>,
 ]
 `;

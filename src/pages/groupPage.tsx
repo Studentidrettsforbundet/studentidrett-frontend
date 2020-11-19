@@ -72,17 +72,17 @@ const GroupPage = (): JSX.Element => {
             ) : (
                 <>
                     {reduxState.thunk.fetch_failed ? (
-                        <div>
+                        <React.Fragment>
                             <FetchError />
-                        </div>
+                        </React.Fragment>
                     ) : (
-                        <div>
+                        <React.Fragment>
                             {selectedGroup && (
                                 <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
                             )}
                             <h3>Våre lag</h3>
                             {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
-                        </div>
+                        </React.Fragment>
                     )}
                 </>
             )}

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { sportInterface } from '../../interfaces';
 import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
+import { sportCard } from './styles'
 import { cardBody, cardTitle } from '../../styles/card';
-import { sportCard } from './styles';
+import { sportInterface } from '../../interfaces';
+
 
 const SportCard = ({ id, name }: sportInterface): JSX.Element => {
     const dispatch = useDispatch();

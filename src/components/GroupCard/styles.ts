@@ -1,4 +1,4 @@
-import { style, classes } from 'typestyle';
+import { style } from 'typestyle';
 import colors from '../../styles/colors';
 
 export const groupCard = style({

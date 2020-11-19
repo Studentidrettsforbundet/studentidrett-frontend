@@ -4,7 +4,6 @@ exports[`sportPage renders correctly 1`] = `
 <div
   className="container body"
 >
-  <div />
   <div
     className="row"
   >
@@ -17,11 +16,7 @@ exports[`sportPage renders correctly 1`] = `
   >
     <div
       className="col"
-    >
-      <p>
-        Klubber som driver med idretten: 
-      </p>
-    </div>
+    />
   </div>
   <div
     className="f1h0bhad"

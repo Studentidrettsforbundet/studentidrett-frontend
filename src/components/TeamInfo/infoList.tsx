@@ -20,9 +20,7 @@ export const InfoList = ({ availability, gender, skill_level }: InfoListProps): 
         if (obj.text) {
             return (
                 <div className={listItem} key={i}>
-                    <div>
-                        <b>{obj.item}:</b> {obj.text}
-                    </div>
+                    <b>{obj.item}:</b> {obj.text}
                     <div className={icon}>{obj.icon}</div>
                 </div>
             );

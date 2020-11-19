@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { regionInterface } from '../../interfaces';
 import CityCard from '../CityCard/cityCard';
-import { regionCard } from './styles';
+import { regionInterface } from '../../interfaces';
+import {regionCard} from './styles'
 
 const RegionCard = ({ id, name, cities }: regionInterface): JSX.Element => {
     const [expanded, setExpanded] = useState(false);
@@ -11,6 +11,7 @@ const RegionCard = ({ id, name, cities }: regionInterface): JSX.Element => {
     };
 
     return (
+
         <div className={regionCard} key={id} onClick={() => toggleExpanded()}>
             <div>
                 <h5 className="boldText">{name}</h5>
@@ -26,8 +27,7 @@ const RegionCard = ({ id, name, cities }: regionInterface): JSX.Element => {
                             />
                         );
                     })
-                ) : (
-                    <div></div>
+                ) : ( <React.Fragment/>
                 )}
             </div>
         </div>

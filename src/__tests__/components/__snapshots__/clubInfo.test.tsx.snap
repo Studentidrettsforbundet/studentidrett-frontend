@@ -2,43 +2,54 @@
 
 exports[`clubCard renders correctly 1`] = `
 Array [
-  <div>
-    <h1>
-      NTNUI Bowling
-    </h1>
-  </div>,
-  <div>
-    <p>
-      <span
-        className="boldText"
-      >
-        Kontakt: 
-      </span>
-      <a
-        href="mailto: info@ntnui.no"
-      >
-        info@ntnui.no
-      </a>
-      <br />
-      <span
-        className="boldText"
-      >
-        Medlemskontigent: 
-      </span>
-      200
-      <br />
-      <span
-        className="boldText"
-      >
-        Meld deg inn: 
-      </span>
+  <h1>
+    NTNUI Bowling
+  </h1>,
+  <p>
+    <span
+      className="boldText"
+    >
+      Kontakt: 
+    </span>
+    <a
+      0="i"
+      1="n"
+      10="."
+      11="n"
+      12="o"
+      2="f"
+      3="o"
+      4="@"
+      5="n"
+      6="t"
+      7="n"
+      8="u"
+      9="i"
+      href="mailto: "
+    >
+      info@ntnui.no
+    </a>
+    <br />
+    <span
+      className="boldText"
+    >
+      Medlemskontigent: 
+    </span>
+    200
+    <br />
+    <span
+      className="boldText"
+    >
+      Meld deg inn: 
+    </span>
+    <a
+      href=""
+    >
       Register at ntnui.no/register
-    </p>
-  </div>,
-  <div>
-    <p>
-      
-    </p>
-  </div>,
+    </a>
+  </p>,
+  <p>
+    
+  </p>,
 ]
 `;

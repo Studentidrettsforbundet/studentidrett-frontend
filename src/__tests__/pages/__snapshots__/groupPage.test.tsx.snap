@@ -4,7 +4,6 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
-  <div />
   <div
     className="row"
   >
@@ -12,15 +11,13 @@ exports[`clubPage renders correctly 1`] = `
       className="breadcrumb"
     />
   </div>
-  <div>
-    <h3>
-      Våre lag
-    </h3>
-    <div
-      className="f1h0bhad"
-    >
-      Ingen resultater.
-    </div>
+  <h3>
+    Våre lag
+  </h3>
+  <div
+    className="f1h0bhad"
+  >
+    Ingen resultater.
   </div>
 </div>
 `;

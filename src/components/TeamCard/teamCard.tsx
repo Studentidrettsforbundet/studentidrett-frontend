@@ -1,12 +1,11 @@
 import React from 'react';
-import image from '../../assets/placeholder.png';
-import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
-import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 import { InfoList } from '../TeamInfo/infoList';
+import { resetFetchStatusesActionCreator } from '../../store/thunks/thunkActions';
+import { card, cardBody, imgContainer, cardImg, cardTitle } from '../../styles/card';
 import { teamInterface } from '../../interfaces';
+import image from '../../assets/placeholder.png';
 
 const TeamCard = ({ id, name, short_description, gender, availability, skill_level }: teamInterface): JSX.Element => {
     const dispatch = useDispatch();

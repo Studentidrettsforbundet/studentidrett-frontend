@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Button, Spinner, Container, Row, Col } from 'react-bootstrap';
 import ClubCard from '../components/ClubCard/clubCard';
 import SportCard from '../components/SportCard/sportCard';
-import { CITY, CLUB, SPORT } from '../constants';
-import { fetchDataThunk } from '../services/api';
-import { combinedStateInterface } from '../store/store';
-import SearchBar from '../components/SearchBar/searchBar';
-import { Button, Spinner } from 'react-bootstrap';
-import { urlBuilderFilterData } from '../services/urlBuilders';
 import EmptyResult from '../components/EmptyResult/emptyResult';
 import FetchError from '../components/fetchError';
+import SearchBar from '../components/SearchBar/searchBar';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import { combinedStateInterface } from '../store/store';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { toggleSearchBarActionCreator } from "../store/searchBar/searchBarActions";
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import { fetchDataThunk } from '../services/api';
 import { cardList } from '../styles/card';
 import colors from '../styles/colors';
-import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
-import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
-import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 import { buttonGroup } from '../styles/cityPage';
+import { CLUB, SPORT, CITY } from '../constants';
 
 interface urlParams {
     id: string;
@@ -128,41 +128,42 @@ const CityPage = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-
             {reduxState.thunk.fetch_in_progress ? (
                 <div className="center_container">
                     <Spinner animation="border" />
                 </div>
             ) : (
-                <div>
+                <React.Fragment>
                     {reduxState.thunk.fetch_failed ? (
-                        <div>
+                        <React.Fragment>
                             <FetchError />
-                        </div>
+                        </React.Fragment>
                     ) : (
-                        <div>
+                        <React.Fragment>
                             {showClubs ? (
-                                <div>
+                                <React.Fragment>
                                     <h3>Klubber i {currentCity?.name}</h3>
+                                    <SearchBar />
                                     {listClubContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
                                         <div className={cardList}>{listClubContent}</div>
                                     )}
-                                </div>
+                                </React.Fragment>
                             ) : (
-                                <div>
+                                <React.Fragment>
                                     <h3>Idretter i {currentCity?.name}</h3>
+                                    <SearchBar />
                                     {listSportContent.length === 0 ? (
                                         <EmptyResult />
                                     ) : (
                                         <div className={cardList}>{listSportContent}</div>
                                     )}
-                                </div>
+                                </React.Fragment>
                             )}
-                        </div>
+                        </React.Fragment>
                     )}
-                </div>
+                </React.Fragment>
             )}
         </div>
     );

@@ -40,14 +40,10 @@ const TeamInfo = ({
             <div className={cardBody}>
                 <img className={cardImg} alt={name} src={image} />
             </div>
-            <div>
-                <h1>{name}</h1>
-            </div>
-            <div>
-                <InfoList availability={availability} gender={gender} skill_level={skill_level} />
-                <p>{long_description}</p>
-                <LinkList facebook_link={facebook_link} instagram_link={instagram_link} webpage={webpage} />
-            </div>
+            <h1>{name}</h1>
+            <InfoList availability={availability} gender={gender} skill_level={skill_level} />
+            <p>{long_description}</p>
+            <LinkList facebook_link={facebook_link} instagram_link={instagram_link} webpage={webpage} />
         </div>
     );
 };

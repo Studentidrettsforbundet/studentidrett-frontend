@@ -1,24 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`regionCard renders correctly 1`] = `
-<div>
-  <a
-    className="unstyled_link"
-    href="/cities/1"
-    onClick={[Function]}
+<a
+  className="unstyled_link"
+  href="/cities/1"
+  onClick={[Function]}
+>
+  <div
+    className="fusb3am"
   >
-    <div
-      className="fusb3am"
+    <h5
+      className="boldText"
     >
-      <h5
-        className="boldText"
-      >
-        Test
-      </h5>
-      <span>
-        By
-      </span>
-    </div>
-  </a>
-</div>
+      Test
+    </h5>
+    <span>
+      By
+    </span>
+  </div>
+</a>
 `;

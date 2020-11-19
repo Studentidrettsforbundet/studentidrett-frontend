@@ -12,11 +12,9 @@ const GroupInfo = (props: IClubInfo): JSX.Element => {
     return (
         <React.Fragment>
             <h1>{props.title}</h1>
-            <img className={coverImage} alt={props.title} src={image} />
-            <br />
-            <div>
-                <p>{props.description}</p>
-            </div>
+            <img className={coverImage} alt={props.title} src={image}/>
+            <br/>
+            <p>{props.description}</p> 
         </React.Fragment>
     );
 };

@@ -4,7 +4,6 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
-  <div />
   <div
     className="row"
   >
@@ -58,50 +57,44 @@ exports[`clubPage renders correctly 1`] = `
       </div>
     </div>
   </div>
-  <div>
-    <div>
-      <div>
-        <h3>
-          Klubber i 
-          test city
-        </h3>
+  <h3>
+    Klubber i 
+    test city
+  </h3>
+  <div
+    className="cardList_f133pxy0"
+  >
+    <a
+      className="unstyled_link"
+      href="/clubs/4"
+      onClick={[Function]}
+    >
+      <div
+        className="card_fzbqak"
+      >
         <div
-          className="f133pxy0"
+          className="imgContainer_f2lk941"
         >
-          <a
-            className="unstyled_link"
-            href="/clubs/4"
-            onClick={[Function]}
+          <img
+            alt="Club"
+            className="cardImg_fb12b09"
+            src="placeholder.png"
+          />
+        </div>
+        <div
+          className="cardBody_f1drtrr0"
+        >
+          <h5
+            className="cardTitle_fm5b097"
           >
-            <div
-              className="f1b14jto"
-            >
-              <div
-                className="f2lk941"
-              >
-                <img
-                  alt="Club"
-                  className="fb12b09"
-                  src="placeholder.png"
-                />
-              </div>
-              <div
-                className="f1drtrr0"
-              >
-                <h5
-                  className="fm5b097"
-                >
-                  Abakus
-                </h5>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna...
-                </p>
-              </div>
-            </div>
-          </a>
+            Abakus
+          </h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna...
+          </p>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 `;
