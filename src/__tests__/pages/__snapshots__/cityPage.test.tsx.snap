@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`clubPage renders correctly 1`] = `
-Array [
+<div
+  className="container body"
+>
   <div
     className="row"
   >
     <ol
       className="breadcrumb"
     />
-  </div>,
+  </div>
   <div
     className="container"
   >
@@ -54,11 +56,11 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <h3>
     Klubber i 
     test city
-  </h3>,
+  </h3>
   <div
     className="cardList_f133pxy0"
   >
@@ -68,7 +70,7 @@ Array [
       onClick={[Function]}
     >
       <div
-        className="card_f1o9feh8"
+        className="card_fzbqak"
       >
         <div
           className="imgContainer_f2lk941"
@@ -93,6 +95,6 @@ Array [
         </div>
       </div>
     </a>
-  </div>,
-]
+  </div>
+</div>
 `;
