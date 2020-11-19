@@ -1,6 +1,8 @@
 import React from 'react';
-import { SET_TEAMS } from '../../store/pages/team/teamActions';
+import { SET_TEAMS, SET_TEAMS_DETAIL } from '../../store/pages/team/teamActions';
 import { teamInitialState, teamReducer } from '../../store/pages/team/teamReducer';
+import { dateInterface } from '../../interfaces';
+import { newTeam, singleTeam, teamList2 } from '../../assets/testMock';
 
 describe('Team reducer', () => {
     it('Should return the initial state', () => {
@@ -8,84 +10,70 @@ describe('Team reducer', () => {
         expect(teamReducer(undefined, {})).toEqual(initialState);
     });
 
-    it('Should handle SET_REGIONS', () => {
-        const data = [
-            {
-                id: 0,
-                name: 'Men A',
-                full_capacity: true,
-                short_description: 'Elite team men',
-                long_description:
-                    'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
-            },
-        ];
+    it('Should handle SET_TEAMS', () => {
+        const data = teamList2;
 
         expect(
             teamReducer(undefined, {
                 type: SET_TEAMS,
                 payload: data,
             }),
-        ).toEqual({ teams: data });
+        ).toEqual({ team: null, teams: data });
     });
 
-    it('Should handle SET_REGIONS with initialState', () => {
-        const initialState = [
-            {
-                id: 0,
-                name: 'Men A',
-                full_capacity: true,
-                short_description: 'Elite team men',
-                long_description:
-                    'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
-            },
-            {
-                id: 1,
-                name: 'Men B',
-                full_capacity: true,
-                short_description: 'Semi-elite team men',
-                long_description:
-                    'The semi-elite male football team at NTNUI. We exercise 3 times a week and play 1 matche a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
-            },
-            {
-                id: 2,
-                name: 'Woman 12',
-                full_capacity: false,
-                short_description: 'Elite team woman',
-                long_description:
-                    'The elite female football team at NTNUI. We exercise 4 times a week and play 2 matche a week',
-                tryouts: true,
-                registration_open: true,
-                group: 0,
-            },
-        ];
-        const data = {
-            id: 7,
-            name: 'Footzall 2',
-            full_capacity: false,
-            short_description: 'beginner team men',
-            long_description: '',
-            tryouts: false,
-            registration_open: false,
-            group: 1,
-        };
+    it('Should handle SET_TEAMS with initialState', () => {
+        const initialState = teamList2;
+        const data = newTeam;
 
         expect(
             teamReducer(
-                { teams: initialState },
+                { teams: initialState, team: null },
                 {
                     type: SET_TEAMS,
                     payload: [data],
                 },
             ),
-        ).toEqual({ teams: [data] });
+        ).toEqual({ teams: [data], team: null });
+    });
+
+    it('Should handle SET_TEAMS_DETAIL', () => {
+        const data = singleTeam;
+
+        expect(
+            teamReducer(undefined, {
+                type: SET_TEAMS_DETAIL,
+                payload: data,
+            }),
+        ).toEqual({ team: data, teams: [] });
+    });
+
+    it('Should handle SET_TEAMS_DETAIL with initialState', () => {
+        const initialState = teamList2;
+        const data = newTeam;
+
+        expect(
+            teamReducer(
+                { teams: initialState, team: null },
+                {
+                    type: SET_TEAMS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ teams: initialState, team: data });
+    });
+
+    it('Should handle SET_TEAMS_DETAIL with initialState, override team', () => {
+        const initialState = singleTeam;
+        const data = newTeam;
+
+        expect(
+            teamReducer(
+                { teams: [], team: initialState },
+                {
+                    type: SET_TEAMS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ teams: [], team: data });
     });
 });

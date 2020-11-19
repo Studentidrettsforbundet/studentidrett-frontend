@@ -1,5 +1,11 @@
 import React from 'react';
-import { SET_TEAMS, setTeamsActionCreator } from '../../store/pages/team/teamActions';
+import {
+    SET_TEAMS,
+    SET_TEAMS_DETAIL,
+    setTeamsActionCreator,
+    setTeamsActionDetailCreator,
+} from '../../store/pages/team/teamActions';
+import { singleTeam, teamList2 } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setTeamsAction', () => {
@@ -12,30 +18,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setTeamsAction', () => {
-        const data = [
-            {
-                id: 0,
-                name: 'Men A',
-                full_capacity: true,
-                short_description: 'Elite team men',
-                long_description:
-                    'The elite male football team at NTNUI. We exercise 4 times a week and play 2 matches a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
-            },
-            {
-                id: 1,
-                name: 'Men B',
-                full_capacity: true,
-                short_description: 'Semi-elite team men',
-                long_description:
-                    'The semi-elite male football team at NTNUI. We exercise 3 times a week and play 1 matche a week',
-                tryouts: true,
-                registration_open: false,
-                group: 0,
-            },
-        ];
+        const data = teamList2;
 
         const expected = {
             type: SET_TEAMS,
@@ -57,5 +40,39 @@ describe('Actions', () => {
         };
 
         expect(setTeamsActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setTeamsAction', () => {
+        const expected = {
+            type: SET_TEAMS_DETAIL,
+            payload: null,
+        };
+
+        expect(setTeamsActionDetailCreator(null)).toStrictEqual(expected);
+    });
+
+    test('Should create a setTeamsActionDetail', () => {
+        const data = singleTeam;
+
+        const expected = {
+            type: SET_TEAMS_DETAIL,
+            payload: data,
+        };
+
+        expect(setTeamsActionDetailCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty teamActionDetail', () => {
+        const data = [
+            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
+            { id: 1, name: 'Oslo', clubs: [] },
+        ];
+
+        const expected = {
+            type: SET_TEAMS_DETAIL,
+            payload: null,
+        };
+
+        expect(setTeamsActionDetailCreator(data)).toStrictEqual(expected);
     });
 });

@@ -4,11 +4,18 @@ import thunk from 'redux-thunk';
 import { cityInitialState, cityReducer, cityState } from './pages/city/cityReducer';
 import { clubInitialState, clubReducer, clubState } from './pages/club/clubReducer';
 import { groupInitialState, groupReducer, groupState } from './pages/group/groupReducer';
+import { interestInitialState, interestReducer, interestState } from './pages/interest/interestReducer';
 import { regionInitialState, regionReducer, regionState } from './pages/region/regionReducer';
 import { sportInitialState, sportReducer, sportState } from './pages/sport/sportReducer';
 import { teamInitialState, teamReducer, teamState } from './pages/team/teamReducer';
 import { searchBarInitialState, searchBarReducer, searchBarState } from './searchBar/searchBarReducer';
 import { thunkInitialState, thunkReducer, thunkState } from './thunks/thunkReducer';
+import { searchInitialState, searchReducer, searchState } from './pages/search/searchReducer';
+import {
+    questionInitialState,
+    questionnaireReducer,
+    questionnaireState,
+} from './pages/questionnaire/questionnaireReducer';
 
 declare global {
     interface Window {
@@ -16,9 +23,6 @@ declare global {
     }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-//TODO: add reducers interfaces
 export interface combinedStateInterface {
     region: regionState;
     city: cityState;
@@ -26,11 +30,13 @@ export interface combinedStateInterface {
     club: clubState;
     team: teamState;
     group: groupState;
+    interest: interestState;
+    search_results: searchState;
     thunk: thunkState;
     searchBar: searchBarState;
+    questionnaire: questionnaireState;
 }
 
-// TODO: add all pages state here
 export const combinedState = {
     region: regionInitialState,
     city: cityInitialState,
@@ -38,11 +44,13 @@ export const combinedState = {
     club: clubInitialState,
     team: teamInitialState,
     group: groupInitialState,
+    interest: interestInitialState,
+    search_results: searchInitialState,
     thunk: thunkInitialState,
     searchBar: searchBarInitialState,
+    questionnaire: questionInitialState,
 };
 
-// create store
 const store = createStore(
     combineReducers({
         region: regionReducer,
@@ -51,8 +59,11 @@ const store = createStore(
         club: clubReducer,
         team: teamReducer,
         group: groupReducer,
+        interest: interestReducer,
+        search_results: searchReducer,
         thunk: thunkReducer,
         searchBar: searchBarReducer,
+        questionnaire: questionnaireReducer,
     }),
     combinedState,
     composeWithDevTools(applyMiddleware(thunk)),

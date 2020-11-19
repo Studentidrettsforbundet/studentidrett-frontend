@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clubCard renders correctly 1`] = `
+Array [
+  <h1>
+    ntnui hockey
+  </h1>,
+  <img
+    alt="ntnui hockey"
+    className="fkuizqk"
+    src="placeholder.png"
+  />,
+  <br />,
+  <div>
+    <p>
+      A hockey group at NTNUI
+    </p>
+  </div>,
+]
+`;

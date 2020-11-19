@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
-import QuestionnaireItem, { QuestionnaireItemProps } from '../components/questionnaireItem';
+import QuestionnaireItem from '../components/QuestionnaireItem/questionnaireItem';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
-import { fetchData } from '../services/api';
+import { handleQuestionsThunk } from '../services/api';
+import { Button, Spinner } from 'react-bootstrap';
+import FetchError from '../components/fetchError';
+import { useDispatch, useSelector } from 'react-redux';
+import { combinedStateInterface } from '../store/store';
+import { questionnaire, button } from '../styles/questionnaire';
 
-const QuestionnairePage = () => {
-    const [fetched, setFetched] = useState(false);
-    const [responseBody, setResponseBody] = useState({});
-    const [questions, setQuestions] = useState([] as QuestionnaireItemProps[]);
+const QuestionnairePage = (): JSX.Element => {
+    const dispatch = useDispatch();
+    const reduxState = useSelector((state: combinedStateInterface) => state);
 
     useEffect(() => {
-        async function fetch() {
-            fetchData('https://kundestyrt-nsi-backend.azurewebsites.net/questions').then((data) => {
-                if (data === 'Something went wrong' || data === 'Connection error') {
-                    console.error(data);
-                    return;
-                }
-                setQuestions(data);
-            });
+        if (
+            !reduxState.thunk.fetch_in_progress &&
+            reduxState.thunk.fetch_failed_count < 3 &&
+            !reduxState.thunk.fetch_success
+        ) {
+            dispatch(handleQuestionsThunk());
         }
-        fetch();
-    }, []);
+    });
 
-    const listItems = questions.map((question) => (
+    const listItems = reduxState.questionnaire.questions.map((question) => (
         <Field
             key={'key_' + question.id}
             name={'name_' + question.id}
@@ -46,57 +47,78 @@ const QuestionnairePage = () => {
             qid: key.replace('name_', ''),
             answer: values[key],
         }));
-        fetch('https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestBody),
-        })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error();
-                }
-            })
-            .then((data) => {
-                setResponseBody(data);
-                setFetched(true);
-            })
-            .catch(() => {
-                console.error('Something went wrong posting answers');
-            });
+
+        if (
+            !reduxState.thunk.post_in_progress &&
+            reduxState.thunk.post_failed_count < 3 &&
+            !reduxState.thunk.post_success
+        ) {
+            dispatch(handleQuestionsThunk(false, requestBody));
+        }
     };
 
     return (
-        <div style={{ textAlign: 'center' }} className="overview">
-            <h1>Questionnaire</h1>
+        <div className={questionnaire}>
+            <h1>Idrettsvalgomat</h1>
+            <p>
+                <span>Velkommen til NSIs idrettsvalgomat!</span>
+                <br />
+                <br />
+                Du vil bli stilt noen spørsmål om hvilke egenskaper du foretrekker foran i en idrett. Dersom du velger
+                det midterste punktet betyr det at du ikke foretrekker den ene over den andre.
+                <br />
+                <br />
+                Lykke til!
+            </p>
+
             <Form
                 onSubmit={onSubmit}
                 validate={(values: any) => {
                     const errors: any = {};
 
-                    const questionIds = questions.map(({ id }) => id);
+                    const questionIds = reduxState.questionnaire.questions.map(({ id }) => id);
 
                     questionIds.map((id) => {
                         if (!values[`${'name_' + id}`]) {
-                            errors[`${'name_' + id}`] = 'Required';
+                            errors[`${'name_' + id}`] = 'Ikke besvart';
                         }
+                        return <></>;
                     });
 
                     return errors;
                 }}
-                render={({ handleSubmit, submitting }) => (
-                    <form onSubmit={handleSubmit}>
-                        {listItems}
-                        <button type="submit" disabled={submitting}>
-                            Send
-                        </button>
-                    </form>
+                render={({ handleSubmit }) => (
+                    <>
+                        {reduxState.thunk.fetch_in_progress ? (
+                            <div className="center_container">
+                                <Spinner animation="border" />
+                            </div>
+                        ) : (
+                            <>
+                                {reduxState.thunk.fetch_failed ? (
+                                    <>
+                                        <FetchError />
+                                    </>
+                                ) : (
+                                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+                                        {listItems}
+
+                                        <Button
+                                            className={button}
+                                            variant="warning"
+                                            type="submit"
+                                            disabled={reduxState.thunk.post_in_progress}
+                                        >
+                                            {!reduxState.thunk.post_in_progress ? 'Send inn' : 'Sender...'}
+                                        </Button>
+                                    </form>
+                                )}
+                            </>
+                        )}
+                    </>
                 )}
             />
-            {fetched && <Redirect to={{ pathname: 'questionnaire/result', state: responseBody }} />}
+            {reduxState.thunk.post_success && <Redirect to={{ pathname: 'questionnaire/result' }} />}
         </div>
     );
 };

@@ -4,111 +4,21 @@ exports[`regionPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="row"
   >
-    <div
-      className="col"
-    >
-      <h1>
-        Regions
-      </h1>
-    </div>
-    <div
-      className="col search_icon-container"
-    >
-      <img
-        alt="Search icon"
-        className="search_icon"
-        onClick={[Function]}
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "search.svg",
-          }
-        }
-      />
-    </div>
+    <ol
+      className="breadcrumb"
+    />
   </div>
-  <div />
+  <h1>
+    Regioner
+  </h1>
   <div
-    className="card Region"
-    onClick={[Function]}
+    className="f1h0bhad"
   >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Nordnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Midtnorge
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Vestlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Sørlandet
-      </h5>
-      <p />
-    </div>
-  </div>
-  <div
-    className="card Region"
-    onClick={[Function]}
-  >
-    <div
-      className="card-body"
-    >
-      <h5
-        className="card-title "
-      >
-        Østlandet
-      </h5>
-      <p />
-    </div>
+    Ingen resultater.
   </div>
 </div>
 `;

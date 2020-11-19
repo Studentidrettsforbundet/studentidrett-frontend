@@ -4,37 +4,25 @@ exports[`clubPage renders correctly 1`] = `
 <div
   className="container body"
 >
+  <div />
   <div
     className="row"
   >
-    <div
-      className="col"
-    >
-      <h1 />
-    </div>
-    <div
-      className="col search_icon-container"
-    >
-      <img
-        alt="Search icon"
-        className="search_icon"
-        onClick={[Function]}
-        src={
-          Object {
-            "ReactComponent": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
-            },
-            "__esModule": true,
-            "default": "search.svg",
-          }
-        }
-      />
+    <ol
+      className="breadcrumb"
+    />
+  </div>
+  <div>
+    <div>
+      <h3>
+        Våre grupper
+      </h3>
+      <div
+        className="f1h0bhad"
+      >
+        Ingen resultater.
+      </div>
     </div>
   </div>
-  <div />
-  <div
-    className="card-columns"
-  />
 </div>
 `;

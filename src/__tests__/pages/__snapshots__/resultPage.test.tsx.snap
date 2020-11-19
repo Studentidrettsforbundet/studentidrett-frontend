@@ -2,43 +2,79 @@
 
 exports[`resultPage snapshot tests should render correctly 1`] = `
 <div
-  className="container"
+  className="fpdsyrj"
 >
   <h1>
-    Result
+    Idrettsvalgomat
   </h1>
   <p>
-    <a
-      href="/Trondheim/name1"
-      onClick={[Function]}
-    >
-      name1
-    </a>
+    Dine topp 3 resultater er:
   </p>
-  <p>
-    <a
-      href="/Trondheim/name2"
-      onClick={[Function]}
+  <a
+    className="unstyled_link"
+    href="/sports/id1"
+    onClick={[Function]}
+  >
+    <div
+      className="f1cnbvby"
     >
-      name2
-    </a>
-  </p>
-  <p>
-    <a
-      href="/Trondheim/name3"
-      onClick={[Function]}
+      <div
+        className="f1drtrr0"
+      >
+        <h5
+          className="fm5b097"
+        >
+          name1
+        </h5>
+      </div>
+    </div>
+  </a>
+  <a
+    className="unstyled_link"
+    href="/sports/id2"
+    onClick={[Function]}
+  >
+    <div
+      className="f1cnbvby"
     >
-      name3
-    </a>
-  </p>
+      <div
+        className="f1drtrr0"
+      >
+        <h5
+          className="fm5b097"
+        >
+          name2
+        </h5>
+      </div>
+    </div>
+  </a>
+  <a
+    className="unstyled_link"
+    href="/sports/id3"
+    onClick={[Function]}
+  >
+    <div
+      className="f1cnbvby"
+    >
+      <div
+        className="f1drtrr0"
+      >
+        <h5
+          className="fm5b097"
+        >
+          name3
+        </h5>
+      </div>
+    </div>
+  </a>
   <br />
   <a
-    className="btn btn-primary"
+    className="fblskg2 btn btn-warning"
     href="/questionnaire"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
-    Take the test again
+    Ta valgomaten igjen
   </a>
 </div>
 `;

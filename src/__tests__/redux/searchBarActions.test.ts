@@ -5,8 +5,9 @@ describe('Actions', () => {
     test('Should create a toggleSearchBarActionCreator', () => {
         const expected = {
             type: TOGGLE_SEARCHBAR,
+            payload: true,
         };
 
-        expect(toggleSearchBarActionCreator([])).toStrictEqual(expected);
+        expect(toggleSearchBarActionCreator(true)).toStrictEqual(expected);
     });
 });

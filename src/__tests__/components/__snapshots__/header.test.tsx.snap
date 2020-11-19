@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header snapshot tests should render correctly 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="headerContainer container"
+  >
+    <section
+      className="headerLink"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "black",
+            "textDecoration": "none",
+          }
+        }
+      >
+        <section
+          className="headerContent"
+        >
+          <img
+            alt="logo"
+            src="logo.png"
+          />
+          <div
+            className="textContent"
+          >
+            Norges
+            <br />
+            Studentidrettsforbund
+          </div>
+        </section>
+      </a>
+    </section>
+    <a
+      className="search_icon-container"
+      href="/search"
+      onClick={[Function]}
+    >
+      <img
+        alt="Search icon"
+        className="search_icon"
+        onClick={[Function]}
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "search.svg",
+          }
+        }
+      />
+    </a>
+  </div>
+</div>
+`;

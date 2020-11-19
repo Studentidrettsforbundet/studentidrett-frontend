@@ -1,20 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import GroupCard from '../components/groupCard';
+import GroupCard from '../components/GroupCard/groupCard';
 import { CLUB, GROUP } from '../constants';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import { fetchDataThunk } from '../services/api';
+import SearchBar from '../components/SearchBar/searchBar';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
+import ClubInfo from '../components/ClubInfo/clubInfo';
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import { Spinner } from 'react-bootstrap';
+import EmptyResult from '../components/EmptyResult/emptyResult';
+import FetchError from '../components/fetchError';
+import { cardList } from '../styles/card';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
-    Region: string;
-    Sport: string;
-    Club: string;
+    id: string;
 }
 
-const ClubPage = () => {
+const ClubPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
@@ -25,9 +31,19 @@ const ClubPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(GROUP));
+            dispatch(
+                fetchDataThunk(GROUP, urlBuilderFilterData(GROUP, [{ cardType: 'club', id_or_name: urlParams.id }])),
+            );
+            dispatch(fetchDetailThunk(CLUB, urlParams.id));
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [dispatch]);
 
     const listContent = reduxState.group.groups.map((entry) => {
         return (
@@ -47,18 +63,40 @@ const ClubPage = () => {
         );
     });
 
+    const selectedClub = reduxState.club.club;
+
     return (
         <div className="container body">
-            <div className="row">
-                <div className="col">
-                    <h1>{urlParams.Club}</h1>
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsClub" state={reduxState} />
+
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
                 </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
+            ) : (
+                <div>
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>
+                            {selectedClub && (
+                                <ClubInfo
+                                    title={selectedClub.name}
+                                    contact_email={selectedClub.contact_email}
+                                    price={selectedClub.membership_fee}
+                                    register_info={selectedClub.register_info}
+                                    description={selectedClub.description}
+                                />
+                            )}
+                            <h3>Våre grupper</h3>
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
+                        </div>
+                    )}
                 </div>
-            </div>
-            <SearchBar typeOfSearch={CLUB} />
-            <div className="card-columns">{listContent}</div>
+            )}
         </div>
     );
 };

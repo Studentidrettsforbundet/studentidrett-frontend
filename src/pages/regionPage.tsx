@@ -1,23 +1,28 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { combinedStateInterface } from '../store/store';
-import RegionCard from '../components/regionCard';
+import RegionCard from '../components/RegionCard/regionCard';
 import { CITY, NORDNORGE, MIDTNORGE, VESTLANDET, OSTLANDET, SORLANDET } from '../constants';
 import { fetchDataThunk } from '../services/api';
 import { regionInterface } from '../interfaces';
-import SearchIcon from '../components/searchIcon';
-import SearchBar from '../components/searchBar';
+import SearchBar from '../components/SearchBar/searchBar';
+import { Spinner } from 'react-bootstrap';
+import EmptyResult from '../components/EmptyResult/emptyResult';
+import FetchError from '../components/fetchError';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
 
-const RegionPage = () => {
+const RegionPage = (): JSX.Element => {
     const reduxState = useSelector((state: combinedStateInterface) => state);
     const dispatch = useDispatch();
 
-    let Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
-    let Midt: regionInterface = { id: 1, name: MIDTNORGE, cities: [] };
-    let Vest: regionInterface = { id: 2, name: VESTLANDET, cities: [] };
-    let Sor: regionInterface = { id: 3, name: SORLANDET, cities: [] };
-    let Ost: regionInterface = { id: 4, name: OSTLANDET, cities: [] };
-    let regions: regionInterface[] = [Nord, Midt, Vest, Sor, Ost];
+    const Nord: regionInterface = { id: 0, name: NORDNORGE, cities: [] };
+    const Midt: regionInterface = { id: 1, name: MIDTNORGE, cities: [] };
+    const Vest: regionInterface = { id: 2, name: VESTLANDET, cities: [] };
+    const Sor: regionInterface = { id: 3, name: SORLANDET, cities: [] };
+    const Ost: regionInterface = { id: 4, name: OSTLANDET, cities: [] };
+    const regions: regionInterface[] = [Nord, Midt, Vest, Sor, Ost];
 
     useEffect(() => {
         if (
@@ -28,6 +33,13 @@ const RegionPage = () => {
             dispatch(fetchDataThunk(CITY));
         }
     });
+
+    useEffect(() => {
+        return () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [dispatch]);
 
     const sortCities = reduxState.city.cities.map((entry) => {
         if (entry.region === 'nord') {
@@ -41,7 +53,7 @@ const RegionPage = () => {
         } else {
             regions[4].cities.push(entry);
         }
-        return <a />;
+        return <React.Fragment key={entry.id}></React.Fragment>;
     });
 
     const listContent = regions.map((entry) => {
@@ -50,17 +62,35 @@ const RegionPage = () => {
 
     return (
         <div className="container body">
-            <div className="row">
-                <div className="col">
-                    <h1>Regions</h1>
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsRegion" state={reduxState} />
+            <h1>Regioner</h1>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
                 </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
-                </div>
-            </div>
-            <SearchBar typeOfSearch={CITY} />
-            {sortCities}
-            {listContent}
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
+                    ) : (
+                        <>
+                            {reduxState.city.cities.length === 0 ? (
+                                <>
+                                    <EmptyResult />
+                                </>
+                            ) : (
+                                <>
+                                    {listContent}
+                                    {sortCities}
+                                </>
+                            )}
+                        </>
+                    )}
+                </>
+            )}
         </div>
     );
 };

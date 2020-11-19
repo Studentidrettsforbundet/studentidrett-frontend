@@ -1,23 +1,29 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-const ResultPage = (props: any) => {
-    const results = props.location.state;
-    const listItems = results.recommendation.map((result: any) => {
-        //TODO Set correct redirect
-        return (
-            <p key={result.id}>
-                <Link to={`/Trondheim/${result.name}`}>{result.name}</Link>
-            </p>
-        );
-    });
+import { useSelector } from 'react-redux';
+import { combinedStateInterface } from '../store/store';
+import SportCard from '../components/SportCard/sportCard';
+import { button, resultPage } from '../styles/resultPage';
+
+const ResultPage = (): JSX.Element => {
+    const reduxState = useSelector((state: combinedStateInterface) => state);
+    let listItems = [<></>];
+
+    if (reduxState.questionnaire.recommendations) {
+        listItems = reduxState.questionnaire.recommendations.map((result: any) => {
+            return <SportCard key={result.id} id={result.id} name={result.name} labels={[]} />;
+        });
+    }
 
     return (
-        <div className="container">
-            <h1>Result</h1>
+        <div className={resultPage}>
+            <h1>Idrettsvalgomat</h1>
+            <p>Dine topp 3 resultater er:</p>
             {listItems}
             <br />
-            <Button href="/questionnaire">Take the test again</Button>
+            <Button href="/questionnaire" className={button} variant="warning">
+                Ta valgomaten igjen
+            </Button>
         </div>
     );
 };

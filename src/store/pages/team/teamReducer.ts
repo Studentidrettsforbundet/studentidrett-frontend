@@ -1,12 +1,14 @@
 import { teamInterface } from '../../../interfaces';
-import { SET_TEAMS, teamActionTypes } from './teamActions';
+import { SET_TEAMS, SET_TEAMS_DETAIL, teamActionTypes } from './teamActions';
 
 export interface teamState {
     teams: teamInterface[];
+    team: teamInterface | null;
 }
 
 export const teamInitialState: teamState = {
     teams: [],
+    team: null,
 };
 
 export const teamReducer = (state = teamInitialState, action: teamActionTypes): teamState => {
@@ -15,6 +17,12 @@ export const teamReducer = (state = teamInitialState, action: teamActionTypes): 
             return {
                 ...state,
                 teams: action.payload,
+            };
+        }
+        case SET_TEAMS_DETAIL: {
+            return {
+                ...state,
+                team: action.payload,
             };
         }
         default: {
