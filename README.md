@@ -49,16 +49,12 @@ npm run-script build
 ### 2. With docker
 #### 2.1 Install docker
 Download the newest version from [here](https://docs.docker.com/get-docker/)
-#### 2.2 Install dependencies
-TODO
-#### 2.3 Run the project locally
-TODO
-#### 2.4 Run test
-TODO
-#### 2.4 Run test
+#### 2.2 Run the project 
+docker build . -t
 
-## Code-conventions
-TODO
+## Code style
+Automatic linting and prettier is configured. You will still need to download prettier for automatic formating [here](https://prettier.io/).
+
 ## Git-conventions
 
 #### Branches:
