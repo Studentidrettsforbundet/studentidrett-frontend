@@ -129,9 +129,9 @@ const CityPage = (): JSX.Element => {
                 </div>
             </div>
             {reduxState.thunk.fetch_in_progress ? (
-                <Container className="center_container">
+                <div className="center_container">
                     <Spinner animation="border" />
-                </Container>
+                </div>
             ) : (
                 <React.Fragment>
                     {reduxState.thunk.fetch_failed ? (

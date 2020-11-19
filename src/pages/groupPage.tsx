@@ -66,7 +66,7 @@ const GroupPage = (): JSX.Element => {
             <Breadcrumbs key="breadcrumbsGroup" state={reduxState} />
 
             {reduxState.thunk.fetch_in_progress ? (
-                <div className="spinner">
+                <div className="center_container">
                     <Spinner animation="border" />
                 </div>
             ) : (

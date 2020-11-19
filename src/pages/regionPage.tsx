@@ -68,9 +68,9 @@ const RegionPage = (): JSX.Element => {
             <Breadcrumbs key="breadcrumbsRegion" state={reduxState} />
             <h1>Regioner</h1>
             {reduxState.thunk.fetch_in_progress ? (
-                <Container className="center">
+                <div className="center_container">
                     <Spinner animation="border" />
-                </Container>
+                </div>
             ) : (
                 <React.Fragment>
                 {reduxState.thunk.fetch_failed ? (

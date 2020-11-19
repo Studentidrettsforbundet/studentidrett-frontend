@@ -72,7 +72,7 @@ const ClubPage = (): JSX.Element => {
             <Breadcrumbs key="breadcrumbsClub" state={reduxState} />
 
             {reduxState.thunk.fetch_in_progress ? (
-                <div className="spinner">
+                <div className="center_container">
                     <Spinner animation="border" />
                 </div>
             ) : (

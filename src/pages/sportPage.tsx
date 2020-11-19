@@ -55,11 +55,13 @@ const SportPage = (): JSX.Element => {
             <div className="row">
                 <div className="col">
                     {sportInfo && (
-                        <div>
-                            <h1>{sportInfo.name}</h1>
-                        </div>
+                        <React.Fragment>
+                            <div>
+                                <h1>{sportInfo.name}</h1>
+                            </div>
+                            <p>Klubber som driver med idretten: </p>
+                        </React.Fragment>
                     )}
-                    <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
             {reduxState.thunk.fetch_in_progress ? (
