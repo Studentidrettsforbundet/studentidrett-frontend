@@ -1,0 +1,31 @@
+.header {
+    padding: 1rem;
+    background-color: #ffab40;
+    width: 100vw !important;
+    max-width: 100% !important;
+}
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.headerLink {
+    width: fit-content;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img {
+    height: 53px;
+}
+
+.textContent {
+    color: black;
+    margin-left: 1rem;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: ko355, sans-serif;
+}

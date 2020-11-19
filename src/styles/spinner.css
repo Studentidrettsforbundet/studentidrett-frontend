@@ -1,0 +1,12 @@
+.center_container {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-border {
+    margin-top: 50%;
+    margin-bottom: 50%;
+    color: rgb(38, 54, 111);
+}

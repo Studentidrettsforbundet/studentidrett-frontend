@@ -1,5 +1,11 @@
 import React from 'react';
-import { setGroupsActionCreator, SET_GROUPS } from '../../store/pages/group/groupActions';
+import {
+    setGroupsActionCreator,
+    SET_GROUPS,
+    SET_GROUPS_DETAIL,
+    setGroupsActionDetailCreator,
+} from '../../store/pages/group/groupActions';
+import { groupList2, invalidCityList, singleGroup } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setGroupsAction', () => {
@@ -12,28 +18,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setGroupAction', () => {
-        const data = [
-            {
-                id: 33,
-                name: 'ntnui hockey',
-                description: 'A hockey group at NTNUI',
-                cover_photo: 'photo',
-                club: 0,
-                city: 3,
-                contact_email: 'hockey@ntnui.no',
-                sports: [],
-            },
-            {
-                id: 0,
-                name: 'ntnui football',
-                description: 'A football group at NTNUI',
-                cover_photo: 'photo',
-                club: 0,
-                city: 0,
-                contact_email: 'football@ntnui.no',
-                sports: [],
-            },
-        ];
+        const data = groupList2;
 
         const expected = {
             type: SET_GROUPS,
@@ -44,10 +29,7 @@ describe('Actions', () => {
     });
 
     test('Should create an empty setGroupsActionCreator', () => {
-        const data = [
-            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
-            { id: 1, name: 'Oslo', clubs: [] },
-        ];
+        const data = invalidCityList;
 
         const expected = {
             type: SET_GROUPS,
@@ -55,5 +37,36 @@ describe('Actions', () => {
         };
 
         expect(setGroupsActionCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setGroupsActionDetail', () => {
+        const expected = {
+            type: SET_GROUPS_DETAIL,
+            payload: null,
+        };
+
+        expect(setGroupsActionDetailCreator(null)).toStrictEqual(expected);
+    });
+
+    test('Should create a setGroupActionDetail', () => {
+        const data = singleGroup;
+
+        const expected = {
+            type: SET_GROUPS_DETAIL,
+            payload: data,
+        };
+
+        expect(setGroupsActionDetailCreator(data)).toStrictEqual(expected);
+    });
+
+    test('Should create an empty setGroupsActionDetailCreator', () => {
+        const data = invalidCityList;
+
+        const expected = {
+            type: SET_GROUPS_DETAIL,
+            payload: null,
+        };
+
+        expect(setGroupsActionDetailCreator(data)).toStrictEqual(expected);
     });
 });

@@ -1,21 +1,26 @@
 import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import TeamCard from '../components/teamCard';
+import SearchBar from '../components/SearchBar/searchBar';
+import TeamCard from '../components/TeamCard/teamCard';
 import { GROUP, TEAM } from '../constants';
-import { fetchDataThunk } from '../services/api';
+import { fetchDataThunk, fetchDetailThunk, handleInterestThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
+import GroupInfo from '../components/GroupInfo/groupInfo';
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import EmptyResult from '../components/EmptyResult/emptyResult';
+import FetchError from '../components/fetchError';
+import { cardList } from '../styles/card';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
 
 interface urlParams {
-    Region: string;
-    Sport: string;
-    Club: string;
-    Group: string;
+    id: string;
 }
 
-const GroupPage = () => {
+const GroupPage = (): JSX.Element => {
     const urlParams = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
@@ -26,40 +31,61 @@ const GroupPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(TEAM));
+            dispatch(
+                fetchDataThunk(TEAM, urlBuilderFilterData(TEAM, [{ cardType: 'group', id_or_name: urlParams.id }])),
+            );
+            dispatch(fetchDetailThunk(GROUP, urlParams.id));
+            if (
+                !reduxState.interest.interests.includes(urlParams.id) &&
+                reduxState.interest.sessionID &&
+                !reduxState.thunk.post_in_progress &&
+                reduxState.thunk.post_failed_count < 3 &&
+                !reduxState.thunk.post_success
+            ) {
+                dispatch(handleInterestThunk(urlParams.id, reduxState.interest.sessionID));
+            }
         }
     });
 
+    useEffect(() => {
+        return () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [dispatch]);
+
     const listContent = reduxState.team.teams.map((entry) => {
-        return (
-            <TeamCard
-                {...{
-                    id: entry.id,
-                    name: entry.name,
-                    full_capacity: entry.full_capacity,
-                    short_description: entry.short_description,
-                    long_description: entry.long_description,
-                    tryouts: entry.tryouts,
-                    registration_open: entry.registration_open,
-                    group: entry.group,
-                }}
-                key={entry.id}
-            />
-        );
+        return <TeamCard {...entry} key={entry.id} />;
     });
+
+    const selectedGroup = reduxState.group.group;
 
     return (
         <div className="container body">
-            <div className="row">
-                <div className="col">
-                    <h1>{urlParams.Group}</h1>
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsGroup" state={reduxState} />
+
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
                 </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
-                </div>
-            </div>
-            <SearchBar typeOfSearch={GROUP} />
-            <div className="card-columns">{listContent}</div>
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <div>
+                            <FetchError />
+                        </div>
+                    ) : (
+                        <div>
+                            {selectedGroup && (
+                                <GroupInfo title={selectedGroup.name} description={selectedGroup.description} />
+                            )}
+                            <h3>Våre lag</h3>
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     );
 };

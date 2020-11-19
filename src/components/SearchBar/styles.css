@@ -1,0 +1,39 @@
+.searchBar {
+    background-color: white;
+    padding: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search_icon-container {
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 12px;
+}
+
+.searchBar_button {
+    margin-top: 16px;
+}
+
+.search_icon {
+    height: 60%;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.button{
+    background-color: inherit;
+    border: inherit;
+    color: inherit;
+    align-content: inherit;
+    padding-left: 10px
+}
+
+.button:hover {
+    background-color: inherit;
+    border: inherit;
+    color: inherit;
+    align-content: inherit;
+    padding-left: 10px
+}

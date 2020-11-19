@@ -1,6 +1,7 @@
 import React from 'react';
-import { SET_CLUBS } from '../../store/pages/club/clubActions';
+import { SET_CLUBS, SET_CLUBS_DETAIL } from '../../store/pages/club/clubActions';
 import { clubInitialState, clubReducer } from '../../store/pages/club/clubReducer';
+import { clubList2, newClub, singleClub } from '../../assets/testMock';
 
 describe('Club reducer', () => {
     it('Should return the initial state', () => {
@@ -9,74 +10,69 @@ describe('Club reducer', () => {
     });
 
     it('Should handle SET_CLUBS', () => {
-        const data = [
-            {
-                id: 0,
-                city: 0,
-                name: 'NTNUI football',
-                description: '',
-                contact_email: 'info@ntnui.no',
-                pricing: 200,
-                register_info: 'Register at ntnui.no/register',
-            },
-            {
-                id: 1,
-                city: 0,
-                name: 'NTNUI amerikansk fotball',
-                description: '',
-                contact_email: 'info@ntnui.no',
-                pricing: 200,
-                register_info: 'Register at ntnui.no/register',
-            },
-        ];
+        const data = clubList2;
 
         expect(
             clubReducer(undefined, {
                 type: SET_CLUBS,
                 payload: data,
             }),
-        ).toEqual({ clubs: data });
+        ).toEqual({ clubs: data, club: null });
     });
 
     it('Should handle SET_CLUBS with initialState', () => {
-        const initialState = [
-            {
-                id: 0,
-                city: 0,
-                name: 'NTNUI football',
-                description: '',
-                contact_email: 'info@ntnui.no',
-                pricing: 200,
-                register_info: 'Register at ntnui.no/register',
-            },
-            {
-                id: 1,
-                city: 0,
-                name: 'NTNUI amerikansk fotball',
-                description: '',
-                contact_email: 'info@ntnui.no',
-                pricing: 200,
-                register_info: 'Register at ntnui.no/register',
-            },
-        ];
-        const data = {
-            id: 3,
-            city: 1,
-            name: 'NTNUI Bowling',
-            description: '',
-            contact_email: 'info@ntnui.no',
-            pricing: 330,
-            register_info: 'Register at ntnui.no/register',
-        };
+        const initialState = clubList2;
+        const data = singleClub;
 
         expect(
             clubReducer(
-                { clubs: initialState },
+                { clubs: initialState, club: null },
                 {
                     type: SET_CLUBS,
                     payload: [data],
                 },
             ),
-        ).toEqual({ clubs: [data] });
+        ).toEqual({ clubs: [data], club: null });
+    });
+
+    it('Should handle SET_CLUBS_DETAILS', () => {
+        const data = singleClub;
+
+        expect(
+            clubReducer(undefined, {
+                type: SET_CLUBS_DETAIL,
+                payload: data,
+            }),
+        ).toEqual({ clubs: [], club: data });
+    });
+
+    it('Should handle SET_CLUBS_DETAILS with initialState', () => {
+        const initialState = clubList2;
+        const data = singleClub;
+
+        expect(
+            clubReducer(
+                { clubs: initialState, club: null },
+                {
+                    type: SET_CLUBS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ clubs: initialState, club: data });
+    });
+
+    it('Should handle SET_CLUBS_DETAILS with initialState', () => {
+        const initialState = singleClub;
+        const data = newClub;
+
+        expect(
+            clubReducer(
+                { clubs: [], club: initialState },
+                {
+                    type: SET_CLUBS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ clubs: [], club: data });
     });
 });

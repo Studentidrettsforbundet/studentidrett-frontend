@@ -1,5 +1,6 @@
 import React from 'react';
 import { SET_REGIONS, setRegionsActionCreator } from '../../store/pages/region/regionActions';
+import { invalidCityList, regionList5 } from '../../assets/testMock';
 
 describe('Actions', () => {
     test('Should create an empty setRegionsAction', () => {
@@ -12,13 +13,7 @@ describe('Actions', () => {
     });
 
     test('Should create a setRegionsAction', () => {
-        const data = [
-            { id: 0, name: 'Midtnorge' },
-            { id: 1, name: 'Oslo/Viken' },
-            { id: 2, name: 'Nord norge' },
-            { id: 3, name: 'Vestlandet' },
-            { id: 4, name: 'Sørlandet' },
-        ];
+        const data = regionList5;
 
         const expected = {
             type: SET_REGIONS,
@@ -29,10 +24,7 @@ describe('Actions', () => {
     });
 
     test('Should create an empty setRegionsActionCreator', () => {
-        const data = [
-            { id: 0, name: 'Trondheim', region: 'Midtnorge', clubs: [] },
-            { id: 1, name: 'Oslo', clubs: [] },
-        ];
+        const data = invalidCityList;
 
         const expected = {
             type: SET_REGIONS,

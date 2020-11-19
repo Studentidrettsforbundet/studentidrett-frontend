@@ -1,6 +1,7 @@
 import React from 'react';
-import { SET_SPORTS } from '../../store/pages/sport/sportActions';
+import { SET_SPORTS, SET_SPORTS_DETAIL } from '../../store/pages/sport/sportActions';
 import { sportInitialState, sportReducer } from '../../store/pages/sport/sportReducer';
+import { newSport, singleSport, sportList2, sportList5 } from '../../assets/testMock';
 
 describe('Sport reducer', () => {
     it('Should return the initial state', () => {
@@ -8,38 +9,70 @@ describe('Sport reducer', () => {
         expect(sportReducer(undefined, {})).toEqual(initialState);
     });
 
-    it('Should handle SET_REGIONS', () => {
-        const data = [
-            { id: 0, name: 'Football' },
-            { id: 3, name: 'American football' },
-        ];
+    it('Should handle SET_SPORTS', () => {
+        const data = sportList2;
 
         expect(
             sportReducer(undefined, {
                 type: SET_SPORTS,
                 payload: data,
             }),
-        ).toEqual({ sports: data });
+        ).toEqual({ sports: data, sport: null });
     });
 
-    it('Should handle SET_REGIONS with initialState', () => {
-        const initialState = [
-            { id: 0, name: 'Football' },
-            { id: 1, name: 'Handball' },
-            { id: 2, name: 'Basketball' },
-            { id: 3, name: 'American football' },
-            { id: 4, name: 'Baseball' },
-        ];
-        const data = { id: 6, name: 'Tennis' };
+    it('Should handle SET_SPORTS with initialState', () => {
+        const initialState = sportList5;
+        const data = newSport;
 
         expect(
             sportReducer(
-                { sports: initialState },
+                { sports: initialState, sport: null },
                 {
                     type: SET_SPORTS,
                     payload: [data],
                 },
             ),
-        ).toEqual({ sports: [data] });
+        ).toEqual({ sports: [data], sport: null });
+    });
+
+    it('Should handle SET_SPORTS_DETAIL', () => {
+        const data = singleSport;
+
+        expect(
+            sportReducer(undefined, {
+                type: SET_SPORTS_DETAIL,
+                payload: data,
+            }),
+        ).toEqual({ sports: [], sport: data });
+    });
+
+    it('Should handle SET_SPORTS_DETAIL with initialState', () => {
+        const initialState = sportList5;
+        const data = newSport;
+
+        expect(
+            sportReducer(
+                { sports: initialState, sport: null },
+                {
+                    type: SET_SPORTS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ sports: initialState, sport: data });
+    });
+
+    it('Should handle SET_SPORTS_DETAIL with initialState, override sport', () => {
+        const initialState = singleSport;
+        const data = newSport;
+
+        expect(
+            sportReducer(
+                { sports: [], sport: initialState },
+                {
+                    type: SET_SPORTS_DETAIL,
+                    payload: data,
+                },
+            ),
+        ).toEqual({ sports: [], sport: data });
     });
 });

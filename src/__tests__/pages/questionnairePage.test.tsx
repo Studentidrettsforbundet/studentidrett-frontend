@@ -1,105 +1,67 @@
-//import { fireEvent, render } from '@testing-library/react';
-import { fireEvent, render, waitFor, screen } from '@testing-library/react';
 import React from 'react';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
-import renderer, { act as rendererAct } from 'react-test-renderer';
+import { BrowserRouter } from 'react-router-dom';
+import renderer from 'react-test-renderer';
 import QuestionnairePage from '../../pages/questionnairePage';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import fetchMock from 'fetch-mock';
-import { createMemoryHistory } from 'history';
-const history = createMemoryHistory();
+import { handleQuestionsThunk } from '../../services/api';
 
-const mockResponse = [
-    {
-        id: 'test_id',
-        text: 'Test question',
-        left: 'Left item',
-        right: 'Right item',
-    },
-];
+const mockStore = configureStore([]);
 
 jest.mock('../../services/api', () => ({
-    fetchData: jest.fn(() => Promise.resolve(mockResponse)),
+    handleQuestionsThunk: jest.fn(() => Promise.resolve()),
 }));
 
+const state = {
+    questionnaire: {
+        questions: [
+            {
+                id: 'test_id',
+                text: 'Test question',
+                left: 'Left item',
+                right: 'Right item',
+            },
+        ],
+    },
+    thunk: { post_success: false, post_in_progress: false, post_failed_count: 0 },
+};
+
 describe('questionnairePage', () => {
+    let store: any;
     beforeEach(() => {
-        fetchMock.restore();
+        store = mockStore(state);
+        store.dispatch = jest.fn();
     });
 
-    describe('snapshot tests', () => {
-        it('should render correctly', async () => {
-            let tree: any;
+    it('should render correctly', async () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <BrowserRouter>
+                    <QuestionnairePage />
+                </BrowserRouter>
+            </Provider>,
+        );
 
-            await rendererAct(async () => {
-                tree = renderer.create(
-                    <BrowserRouter>
-                        <QuestionnairePage />
-                    </BrowserRouter>,
-                );
-            });
-            expect(tree.toJSON()).toMatchSnapshot();
-        });
+        expect(tree.toJSON()).toMatchSnapshot();
     });
 
     it('should send correct request body with post on submit', async () => {
-        fetchMock.mock('https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/', { status: 200 });
-
-        act(() => {
-            render(
+        render(
+            <Provider store={store}>
                 <BrowserRouter>
                     <QuestionnairePage />
-                </BrowserRouter>,
-            );
-        });
-        await waitFor(() => screen.findByTestId('test_id-3'));
+                </BrowserRouter>
+            </Provider>,
+        );
 
         fireEvent.click(screen.getByTestId('test_id-3'));
         await act(async () => {
-            fireEvent.click(screen.getByText('Send'));
+            fireEvent.click(screen.getByText('Send inn'));
         });
 
-        expect(fetchMock.lastCall()).toMatchInlineSnapshot(`
-            Array [
-              "https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/",
-              Object {
-                "body": "[{\\"qid\\":\\"test_id\\",\\"answer\\":\\"3\\"}]",
-                "headers": Object {
-                  "Content-Type": "application/json",
-                },
-                "method": "POST",
-              },
-            ]
-        `);
-    });
-
-    it('should redirect on submit', async () => {
-        fetchMock.mock(
-            'https://kundestyrt-nsi-backend.azurewebsites.net/questionnaire/',
-            {
-                status: 200,
-                body: JSON.stringify({ response: 'Test response' }),
-                statusText: 'OK',
-                headers: { 'Content-Type': 'application/json' },
-                sendAsJson: false,
-            },
-            { method: 'POST' },
-        );
-
-        const { container } = render(
-            <Router history={history}>
-                <Route path="/" exact={true} render={() => <QuestionnairePage />} />
-                <Route path="/questionnaire/result" render={() => <div>Redirect Page</div>} />
-            </Router>,
-        );
-
-        await waitFor(() => screen.findByTestId('test_id-3'));
-
-        fireEvent.click(screen.getByTestId('test_id-3'));
-        await act(async () => {
-            fireEvent.click(screen.getByText('Send'));
-        });
-
-        expect(container.innerHTML).toMatchInlineSnapshot(`"<div>Redirect Page</div>"`);
+        expect(store.dispatch).toHaveBeenCalledTimes(1);
+        expect(handleQuestionsThunk).toHaveBeenCalledWith(false, [{ answer: '3', qid: 'test_id' }]);
     });
 });

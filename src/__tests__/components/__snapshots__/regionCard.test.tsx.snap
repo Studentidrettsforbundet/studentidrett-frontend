@@ -2,18 +2,16 @@
 
 exports[`regionCard renders correctly 1`] = `
 <div
-  className="card Region"
+  className="f1dfi8aq"
   onClick={[Function]}
 >
-  <div
-    className="card-body"
-  >
+  <div>
     <h5
-      className="card-title "
+      className="boldText"
     >
-      MidtNorge
+      Vestlandet
     </h5>
-    <p />
+    <div />
   </div>
 </div>
 `;

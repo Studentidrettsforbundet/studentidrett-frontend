@@ -4,44 +4,168 @@ exports[`App renders correctly 1`] = `
 <div
   className="App"
 >
-  <h1>
-    Kundestyrt
-  </h1>
   <div
-    className="col"
+    className="header"
   >
-    <button
-      className="btn btn-primary"
-      type="button"
+    <div
+      className="headerContainer container"
     >
-      <a
-        href="/Regions"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "black",
-          }
-        }
+      <section
+        className="headerLink"
       >
-        Browse student sport
+        <a
+          href="/"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "black",
+              "textDecoration": "none",
+            }
+          }
+        >
+          <section
+            className="headerContent"
+          >
+            <img
+              alt="logo"
+              src="logo.png"
+            />
+            <div
+              className="textContent"
+            >
+              Norges
+              <br />
+              Studentidrettsforbund
+            </div>
+          </section>
+        </a>
+      </section>
+      <a
+        className="search_icon-container"
+        href="/search"
+        onClick={[Function]}
+      >
+        <img
+          alt="Search icon"
+          className="search_icon"
+          onClick={[Function]}
+          src={
+            Object {
+              "ReactComponent": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              },
+              "__esModule": true,
+              "default": "search.svg",
+            }
+          }
+        />
       </a>
-    </button>
-    <button
-      className="btn btn-primary"
-      type="button"
+    </div>
+  </div>
+  <div
+    className="page"
+  >
+    <div
+      className="f1w98fo6"
     >
-      <a
-        href="/questionnaire"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "black",
-          }
-        }
+      <div
+        className="f1w98fo6 f1w83msu"
       >
-        Questionnaire
-      </a>
-    </button>
+        <h2>
+          Utforsk muligheter
+        </h2>
+        <p>
+          Norges Studentidrettsforbund har et bredt spekter av idrettstilbud rundt om i hele Norge gjennom våre studentidrettslag. Her kan du finne hvilke idretter vi tilbyr i din studieby!
+        </p>
+        <a
+          className="btn btn-default"
+          href="/Regions"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-default"
+            type="button"
+          >
+            Utforsk
+          </button>
+        </a>
+      </div>
+      <div
+        className="f1w98fo6 f1w83msu"
+      >
+        <h2>
+          Idrettsvalgomat
+        </h2>
+        <p>
+          Er du usikker på hva du ønsker å drive med på fritiden, eller ønsker du å vite hvilke idretter som kunne passet til deg? Vi har laget en idrettsvalgomat som foreslår idretter vi tenker du kunne likt!
+        </p>
+        <a
+          href="/questionnaire"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-default"
+            type="button"
+          >
+            Ta valgomaten
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="footer"
+  >
+    <div
+      className="container footerContainer"
+    >
+      <section
+        className="footerSection"
+      >
+        <span
+          className="footerLead"
+        >
+          Telefon
+        </span>
+        <br />
+        <a
+          data-content="+47 976 18 966"
+          data-type="phone"
+          href="tel:+47 976 18 966"
+        >
+          976 18 966
+        </a>
+      </section>
+      <section
+        className="footerSection"
+      >
+        <span
+          className="footerLead"
+        >
+          E-mail
+        </span>
+        <br />
+        <a
+          href="mailto:nsi@studentidrett.no"
+        >
+          nsi@studentidrett.no
+        </a>
+      </section>
+      <section
+        className="footerSection"
+      >
+        <span
+          className="footerLead"
+        >
+          Adresse
+        </span>
+        <br />
+        Idrettens Hus Sognsveien 73
+        <br />
+        0840 Oslo
+      </section>
+    </div>
   </div>
 </div>
 `;

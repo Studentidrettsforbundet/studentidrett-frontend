@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import SearchBar from '../components/searchBar';
-import SearchIcon from '../components/searchIcon';
-import SportCard from '../components/sportCard';
-import { SPORT } from '../constants';
-import { fetchDataThunk } from '../services/api';
+import SearchBar from '../components/SearchBar/searchBar';
+import { GROUP, SPORT } from '../constants';
+import { fetchDataThunk, fetchDetailThunk } from '../services/api';
 import { combinedStateInterface } from '../store/store';
-
-// See: https://getbootstrap.com/docs/4.0/components/card/
-
-/* TODO
- * Uses ClubCard NOT SportCard
- * make ClubCards redirect to "/:City/:Club" instead of "/:City/:Sport/:Club"
- */
+import { urlBuilderFilterData } from '../services/urlBuilders';
+import EmptyResult from '../components/EmptyResult/emptyResult';
+import FetchError from '../components/fetchError';
+import { resetFetchStatusesActionCreator } from '../store/thunks/thunkActions';
+import Breadcrumbs from '../components/Breadcrumbs/breadcrumbs';
+import { toggleSearchBarActionCreator } from '../store/searchBar/searchBarActions';
+import GroupCard from '../components/GroupCard/groupCard';
+import { cardList } from '../styles/card';
 
 interface urlParams {
-    City: string;
+    id: string;
 }
 
-const SportPage = () => {
-    const city = useParams<urlParams>();
+const SportPage = (): JSX.Element => {
+    const sport = useParams<urlParams>();
     const dispatch = useDispatch();
     const reduxState = useSelector((state: combinedStateInterface) => state);
 
@@ -30,27 +30,55 @@ const SportPage = () => {
             reduxState.thunk.fetch_failed_count < 3 &&
             !reduxState.thunk.fetch_success
         ) {
-            dispatch(fetchDataThunk(SPORT));
+            dispatch(fetchDataThunk(GROUP, urlBuilderFilterData(GROUP, [{ cardType: 'sport', id_or_name: sport.id }])));
+            dispatch(fetchDetailThunk(SPORT, sport.id));
         }
     });
 
-    const listContent = reduxState.sport.sports.map((entry) => {
-        return <SportCard {...{ id: entry.id, name: entry.name, labels: entry.labels }} key={entry.id} />;
+    useEffect(() => {
+        return () => {
+            dispatch(toggleSearchBarActionCreator(false));
+            dispatch(resetFetchStatusesActionCreator());
+        };
+    }, [dispatch]);
+
+    const listContent = reduxState.group.groups.map((entry) => {
+        return <GroupCard {...entry} key={entry.id} />;
     });
+
+    const sportInfo = reduxState.sport.sport;
 
     return (
         <div className="container body">
+            <SearchBar />
+            <Breadcrumbs key="breadcrumbsSport" state={reduxState} />
             <div className="row">
                 <div className="col">
-                    <h1>Sports</h1>
-                    <p>Viser klubber i {city.City}: </p>
-                </div>
-                <div className="col search_icon-container">
-                    <SearchIcon />
+                    {sportInfo && (
+                        <div>
+                            <h1>{sportInfo.name}</h1>
+                        </div>
+                    )}
+                    <p>Klubber som driver med idretten: </p>
                 </div>
             </div>
-            <SearchBar typeOfSearch={SPORT} />
-            <div className="card-deck">{listContent}</div>
+            {reduxState.thunk.fetch_in_progress ? (
+                <div className="center_container">
+                    <Spinner animation="border" />
+                </div>
+            ) : (
+                <>
+                    {reduxState.thunk.fetch_failed ? (
+                        <>
+                            <FetchError />
+                        </>
+                    ) : (
+                        <>
+                            {listContent.length === 0 ? <EmptyResult /> : <div className={cardList}>{listContent}</div>}
+                        </>
+                    )}
+                </>
+            )}
         </div>
     );
 };
