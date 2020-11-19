@@ -67,7 +67,7 @@ const ClubPage = (): JSX.Element => {
     const selectedClub = reduxState.club.club;
 
     return (
-        <React.Fragment>
+        <div className="container body">
             <SearchBar />
             <Breadcrumbs key="breadcrumbsClub" state={reduxState} />
 
@@ -98,7 +98,7 @@ const ClubPage = (): JSX.Element => {
                     )}
                 </React.Fragment>
             )}
-        </React.Fragment>
+        </div>
     );
 };
 export default ClubPage;

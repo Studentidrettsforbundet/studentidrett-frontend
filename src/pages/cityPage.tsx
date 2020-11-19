@@ -81,7 +81,7 @@ const CityPage = (): JSX.Element => {
     const currentCity = reduxState.city.cities.find((city) => city.id === parseInt(urlParams.id));
 
     return (
-        <React.Fragment>
+        <div className="container body">
             <SearchBar />
             <Breadcrumbs key="breadcrumbsCity" state={reduxState} />
             <div className="container">
@@ -165,7 +165,7 @@ const CityPage = (): JSX.Element => {
                     )}
                 </React.Fragment>
             )}
-        </React.Fragment>
+        </div>
     );
 };
 

@@ -63,7 +63,7 @@ const RegionPage = (): JSX.Element => {
     });
 
     return (
-        <React.Fragment>
+        <div className="container body">
             <SearchBar />
             <Breadcrumbs key="breadcrumbsRegion" state={reduxState} />
             <h1>Regioner</h1>
@@ -91,7 +91,7 @@ const RegionPage = (): JSX.Element => {
                 )}
                 </React.Fragment>
             )}
-        </React.Fragment>
+        </div>
     );
 };
 

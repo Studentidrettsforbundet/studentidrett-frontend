@@ -61,7 +61,7 @@ const GroupPage = (): JSX.Element => {
     const selectedGroup = reduxState.group.group;
 
     return (
-        <React.Fragment>
+        <div className="container body">
             <SearchBar />
             <Breadcrumbs key="breadcrumbsGroup" state={reduxState} />
 
@@ -86,7 +86,7 @@ const GroupPage = (): JSX.Element => {
                     )}
                 </>
             )}
-        </React.Fragment>
+        </div>
     );
 };
 export default GroupPage;
